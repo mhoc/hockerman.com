@@ -38,6 +38,12 @@ const IndexPage = () => {
               mikehock
             </a>
           </div>
+          <div className="item">
+            resume &nbsp;
+            <a className="link" href="https://mhoc-co-website.s3.amazonaws.com/static/resume-mike-hockerman.pdf">
+              download
+            </a>
+          </div>
         </div>
       </div>
       <style jsx global>{`
