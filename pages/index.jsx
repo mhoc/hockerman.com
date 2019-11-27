@@ -30,7 +30,7 @@ const IndexPage = () => {
           <div className="item">
             twitter &nbsp;
             <a className="link" href="https://twitter.com/mikehockerman">
-              @MikeHockerman
+              @mikehockerman
             </a>
           </div>
           <div className="item">
