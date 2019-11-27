@@ -12,38 +12,49 @@ const IndexPage = () => {
       </Head>
       <div className="background">
         <div className="container">
-          <div className="title">$ mike hockerman</div>
+          <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
           <br />
-          <br />
-          <div className="item">
-            email &nbsp;
+          <div className="content">
+            {"{"}
+            
+            <br />
+            &nbsp; "email": "
             <a className="link" href="mailto:mike@hockerman.com">
               mike@hockerman.com
             </a>
-          </div>
-          <div className="item">
-            github &nbsp;
+            ",
+            
+            <br />
+            &nbsp; "github": "
             <a className="link" href="https://github.com/mhoc">
               @mhoc
             </a>
-          </div>
-          <div className="item">
-            twitter &nbsp;
+            ",
+
+            <br />
+            &nbsp; "twitter": "
             <a className="link" href="https://twitter.com/mikehockerman">
               @mikehockerman
             </a>
-          </div>
-          <div className="item">
-            linkedin &nbsp;
-            <a className="link" href="https://www.linkedin.com/in/mikehock/">
+            ",
+
+            <br />
+            &nbsp; "linkedin": "
+            <a className="link" href="https://linkedin.com/in/mikehock">
               mikehock
             </a>
-          </div>
-          <div className="item">
-            resume &nbsp;
+            ",
+
+            <br />
+            &nbsp; "resume": "
             <a className="link" href="https://dh0lmlyf7r97y.cloudfront.net/static/resume-mike-hockerman.pdf">
-              download
+              link
             </a>
+            "
+
+            <br />
+            {"}"}
+
           </div>
         </div>
       </div>
@@ -68,12 +79,27 @@ const IndexPage = () => {
           color: #d1c4e9;
           font-size: 1.5rem;
         }
-        .item {
+        .content {
           color: #d1c4e9;
+          line-height: 1.4;
           margin: 0px 0px 2px;
         }
         .link {
           color: #80cbc4;
+        }
+        .blink {
+          animation: blinkanim 1s steps(2, start) infinite;
+          -webkit-animation: blinkanim 1s steps(2, start) infinite;
+        }
+        @keyframes blinkanim {
+          to {
+            visibility: hidden;
+          }
+        }
+        @-webkit-keyframes blinkanim {
+          to {
+            visibility: hidden;
+          }
         }
       `}</style>
     </Fragment>
