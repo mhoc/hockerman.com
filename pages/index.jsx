@@ -47,7 +47,7 @@ const IndexPage = () => {
 
             <br />
             &nbsp; "resume": "
-            <a className="link" href="https://dh0lmlyf7r97y.cloudfront.net/static/resume-mike-hockerman.pdf">
+            <a className="link" href="/resume-mike-hockerman.pdf">
               link
             </a>
             "
