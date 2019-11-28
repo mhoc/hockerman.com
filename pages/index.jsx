@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 
+import BasePage from "../components/BasePage";
+
 const IndexPage = () => {
   return (
     <Fragment>
-      <div className="container">
+      <BasePage>
         <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
         <br />
         <main className="content">
@@ -46,26 +48,9 @@ const IndexPage = () => {
 
           <br />
           <span className="deemph">{"}"}</span>
-
         </main>
-      </div>
+      </BasePage>
       <style jsx global>{`
-        html {
-          font-family: 'IBM Plex Mono', monospace;
-        }
-        body {
-          background-color: #000000;
-          margin: 0;
-        }
-        .container {
-          background-color: transparent;
-          padding: 15vh 10vw;
-        }
-        @media only screen and (max-width: 600px) {
-          .container {
-            padding: 15vh 5vw;
-          }
-        }
         .title {
           color: #d1c4e9;
           font-size: 1.5rem;
