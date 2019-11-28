@@ -7,45 +7,45 @@ const IndexPage = () => {
         <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
         <br />
         <main className="content">
-          {"{"}
+          <span className="deemph">{"{"}</span>
           
           <br />
-          &nbsp; "email": "
+          &nbsp; <span className="deemph">"</span>email<span className="deemph">": "</span>
           <a className="link" href="mailto:mike@hockerman.com">
             mike@hockerman.com
           </a>
-          ",
+          <span className="deemph">",</span>
           
           <br />
-          &nbsp; "github": "
+          &nbsp; <span className="deemph">"</span>github<span className="deemph">": "</span>
           <a className="link" href="https://github.com/mhoc" rel="noopener">
             @mhoc
           </a>
-          ",
+          <span className="deemph">",</span>
 
           <br />
-          &nbsp; "twitter": "
+          &nbsp; <span className="deemph">"</span>twitter<span className="deemph">": "</span>
           <a className="link" href="https://twitter.com/mikehockerman" rel="noopener">
             @mikehockerman
           </a>
-          ",
+          <span className="deemph">",</span>
 
           <br />
-          &nbsp; "linkedin": "
+          &nbsp; <span className="deemph">"</span>linkedin<span className="deemph">": "</span>
           <a className="link" href="https://linkedin.com/in/mikehock" rel="noopener">
             mikehock
           </a>
-          ",
+          <span className="deemph">",</span>
 
           <br />
-          &nbsp; "resume": "
+          &nbsp; <span className="deemph">"</span>resume<span className="deemph">": "</span>
           <a className="link" href="/resume-mike-hockerman.pdf">
             link
           </a>
-          "
+          <span className="deemph">"</span>
 
           <br />
-          {"}"}
+          <span className="deemph">{"}"}</span>
 
         </main>
       </div>
@@ -87,6 +87,9 @@ const IndexPage = () => {
         }
         .link {
           color: #80cbc4;
+        }
+        .deemph {
+          color: #616161;
         }
         .blink {
           animation: blinkanim 1s steps(2, start) infinite;
