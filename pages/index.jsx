@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 
 import BasePage from "../components/BasePage";
+import Header from  "../components/Header";
 
 const IndexPage = () => {
   return (
     <Fragment>
       <BasePage>
-        <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
+        <Header text="cat ./mike_hockerman.json" />
         <br />
         <main className="content">
           <span className="deemph">{"{"}</span>
@@ -51,15 +52,6 @@ const IndexPage = () => {
         </main>
       </BasePage>
       <style jsx global>{`
-        .title {
-          color: #d1c4e9;
-          font-size: 1.5rem;
-        }
-        @media only screen and (max-width: 600px) {
-          .title {
-            font-size: 1.2rem;
-          }
-        }
         .content {
           color: #d1c4e9;
           line-height: 1.4;
@@ -75,20 +67,6 @@ const IndexPage = () => {
         }
         .deemph {
           color: #616161;
-        }
-        .blink {
-          animation: blinkanim 1s steps(2, start) infinite;
-          -webkit-animation: blinkanim 1s steps(2, start) infinite;
-        }
-        @keyframes blinkanim {
-          to {
-            visibility: hidden;
-          }
-        }
-        @-webkit-keyframes blinkanim {
-          to {
-            visibility: hidden;
-          }
         }
       `}</style>
     </Fragment>
