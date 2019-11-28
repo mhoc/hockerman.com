@@ -1,12 +1,14 @@
 import React from "react";
 
+import colors from "../styles/colors";
+
 const Header = ({ text }) => {
   return (
     <>
       <div className="title">{`$ ${text}`}<span className="header-blink">|</span></div>
       <style jsx>{`
         .title {
-          color: #d1c4e9;
+          color: ${colors.primary};
           font-size: 1.5rem;
         }
         @media only screen and (max-width: 600px) {

@@ -1,5 +1,7 @@
 import React from "react";
 
+import colors from "../styles/colors";
+
 const BasePage = ({ children }) => (
   <>
     <div className="container">
@@ -10,11 +12,10 @@ const BasePage = ({ children }) => (
         font-family: 'IBM Plex Mono', monospace;
       }
       body {
-        background-color: #000000;
+        background-color: ${colors.background};
         margin: 0;
       }
       .container {
-        background-color: transparent;
         padding: 15vh 10vw;
       }
       @media only screen and (max-width: 600px) {

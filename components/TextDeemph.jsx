@@ -1,11 +1,13 @@
 import React from "react";
 
+import colors from "../styles/colors";
+
 const TextDeemph = ({ children }) => (
   <>
     <span className="deemph">{children}</span>
     <style jsx>{`
       .deemph {
-        color: #616161;
+        color: ${colors.deemphasize};
       }
     `}</style>
   </>
