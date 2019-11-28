@@ -51,6 +51,11 @@ class CommandInput extends React.Component {
             resize: none;
             width: 100%;
           }
+          @media only screen and (max-width: 600px) {
+            .form {
+              font-size: 1.2rem;
+            }
+          }
           .form:focus {
             border: 0;
             outline: none !important;
