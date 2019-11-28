@@ -39,6 +39,7 @@ class CommandInput extends React.Component {
         </div>
         <style jsx>{`
           .container {
+            align-items: center;
             display: flex;
             flex-direction: row;
           }
