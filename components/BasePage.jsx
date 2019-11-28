@@ -4,7 +4,7 @@ import colors from "../styles/colors";
 
 const BasePage = ({ children }) => (
   <>
-    <div className="container">
+    <div className="globalcontainer">
       {children}
     </div>
     <style jsx global>{`
@@ -15,11 +15,11 @@ const BasePage = ({ children }) => (
         background-color: ${colors.background};
         margin: 0;
       }
-      .container {
+      .globalcontainer {
         padding: 15vh 10vw;
       }
       @media only screen and (max-width: 600px) {
-        .container {
+        .globalcontainer {
           padding: 15vh 5vw;
         }
       }

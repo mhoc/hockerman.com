@@ -1,27 +1,29 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 
 import BasePage from "../components/BasePage";
-import BodyJSON from "../components/BodyJSON";
-import Header from "../components/Header";
+import CommandCat from "../components/commands/CommandCat";
+import CommandInput from "../components/CommandInput";
+import CommandLs from "../components/commands/CommandLs";
 
 const IndexPage = () => {
-  const dataset = [
-    { key: "email", value: "mike@hockerman.com", href: "mailto:mike@hockerman.com" },
-    { key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
-    { key: "twitter", value: "@mikehockerman", href: "https://twitter.com/MikeHockerman", isExternal: true },
-    { key: "linkedin", value: "mikehock", href: "https://linkedin.com/in/mikehock", isExternal: true },
-    { key: "resume", value: "link", href: "/resume-mike-hockerman.pdf" },
-  ]
+  const [ command, setCommand ] = useState("cat ./mike_hockerman.json ");
+  const commandSplit = command.split(" ");
+  const program = commandSplit[0];
   return (
-    <Fragment>
-      <BasePage>
-        <Header text="cat ./mike_hockerman.json" />
-        <br />
-        <main>
-          <BodyJSON dataset={dataset} />
-        </main>
-      </BasePage>
-    </Fragment>
+    <BasePage>
+      <CommandInput 
+        initialText={command}
+        onSubmit={(v) => setCommand(v)}
+      />
+      <br />
+      <main>
+        {program === "cat" 
+          && commandSplit.length > 1
+          && <CommandCat arg={commandSplit[1]} />}
+        {program === "ls" && <CommandLs />}
+      </main>
+      <br />
+    </BasePage>
   );
 }
 
