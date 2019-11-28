@@ -3,65 +3,59 @@ import React, { Fragment } from 'react';
 const IndexPage = () => {
   return (
     <Fragment>
-      <div className="background">
-        <div className="container">
-          <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
+      <div className="container">
+        <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
+        <br />
+        <main className="content">
+          {"{"}
+          
           <br />
-          <main className="content">
-            {"{"}
-            
-            <br />
-            &nbsp; "email": "
-            <a className="link" href="mailto:mike@hockerman.com">
-              mike@hockerman.com
-            </a>
-            ",
-            
-            <br />
-            &nbsp; "github": "
-            <a className="link" href="https://github.com/mhoc" rel="noopener">
-              @mhoc
-            </a>
-            ",
+          &nbsp; "email": "
+          <a className="link" href="mailto:mike@hockerman.com">
+            mike@hockerman.com
+          </a>
+          ",
+          
+          <br />
+          &nbsp; "github": "
+          <a className="link" href="https://github.com/mhoc" rel="noopener">
+            @mhoc
+          </a>
+          ",
 
-            <br />
-            &nbsp; "twitter": "
-            <a className="link" href="https://twitter.com/mikehockerman" rel="noopener">
-              @mikehockerman
-            </a>
-            ",
+          <br />
+          &nbsp; "twitter": "
+          <a className="link" href="https://twitter.com/mikehockerman" rel="noopener">
+            @mikehockerman
+          </a>
+          ",
 
-            <br />
-            &nbsp; "linkedin": "
-            <a className="link" href="https://linkedin.com/in/mikehock" rel="noopener">
-              mikehock
-            </a>
-            ",
+          <br />
+          &nbsp; "linkedin": "
+          <a className="link" href="https://linkedin.com/in/mikehock" rel="noopener">
+            mikehock
+          </a>
+          ",
 
-            <br />
-            &nbsp; "resume": "
-            <a className="link" href="/resume-mike-hockerman.pdf">
-              link
-            </a>
-            "
+          <br />
+          &nbsp; "resume": "
+          <a className="link" href="/resume-mike-hockerman.pdf">
+            link
+          </a>
+          "
 
-            <br />
-            {"}"}
+          <br />
+          {"}"}
 
-          </main>
-        </div>
+        </main>
       </div>
       <style jsx global>{`
         html {
           font-family: 'IBM Plex Mono', monospace;
         }
         body {
-          margin: 0;
-        }
-        .background {
           background-color: #000000;
-          height: 100vh;
-          width: 100vw;
+          margin: 0;
         }
         .container {
           background-color: transparent;
