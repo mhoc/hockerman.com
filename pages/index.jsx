@@ -1,20 +1,13 @@
-import Head from 'next/head';
 import React, { Fragment } from 'react';
 
 const IndexPage = () => {
   return (
     <Fragment>
-      <Head>
-        <title>Mike Hockerman</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"></link>
-      </Head>
       <div className="background">
         <div className="container">
           <div className="title">$ cat ./mike_hockerman.json<span className="blink">|</span></div>
           <br />
-          <div className="content">
+          <main className="content">
             {"{"}
             
             <br />
@@ -26,21 +19,21 @@ const IndexPage = () => {
             
             <br />
             &nbsp; "github": "
-            <a className="link" href="https://github.com/mhoc">
+            <a className="link" href="https://github.com/mhoc" rel="noopener">
               @mhoc
             </a>
             ",
 
             <br />
             &nbsp; "twitter": "
-            <a className="link" href="https://twitter.com/mikehockerman">
+            <a className="link" href="https://twitter.com/mikehockerman" rel="noopener">
               @mikehockerman
             </a>
             ",
 
             <br />
             &nbsp; "linkedin": "
-            <a className="link" href="https://linkedin.com/in/mikehock">
+            <a className="link" href="https://linkedin.com/in/mikehock" rel="noopener">
               mikehock
             </a>
             ",
@@ -55,13 +48,12 @@ const IndexPage = () => {
             <br />
             {"}"}
 
-          </div>
+          </main>
         </div>
       </div>
       <style jsx global>{`
         html {
           font-family: 'IBM Plex Mono', monospace;
-          font-size: 100%;
         }
         body {
           margin: 0;
@@ -75,14 +67,29 @@ const IndexPage = () => {
           background-color: transparent;
           padding: 15vh 10vw;
         }
+        @media only screen and (max-width: 600px) {
+          .container {
+            padding: 15vh 5vw;
+          }
+        }
         .title {
           color: #d1c4e9;
           font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 600px) {
+          .title {
+            font-size: 1.2rem;
+          }
         }
         .content {
           color: #d1c4e9;
           line-height: 1.4;
           margin: 0px 0px 2px;
+        }
+        @media only screen and (max-width: 600px) {
+          .content {
+            font-size: 0.9rem;
+          }
         }
         .link {
           color: #80cbc4;
