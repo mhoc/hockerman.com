@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import TextDeemph from "./TextDeemph";
-import TextLink from "./TextLink";
-import TextStd from "./TextStd";
+import TextDeemph from "./text/TextDeemph";
+import TextLink from "./text/TextLink";
+import TextStd from "./text/TextStd";
 
 /**
  * dataset takes the form of an array of objects, where each item looks like:

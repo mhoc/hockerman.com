@@ -1,6 +1,6 @@
 import React from "react";
 
-import colors from "../styles/colors";
+import colors from "../../styles/colors";
 
 const TextLink = ({ children, href, rel }) => (
   <>
