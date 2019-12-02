@@ -2,7 +2,13 @@ import React from "react";
 
 import colors from "../../styles/colors";
 
-const TextLink = ({ children, href, rel }) => (
+interface Props {
+  children: React.ReactNode;
+  href: string;
+  rel?: "noopener";
+}
+
+const TextLink = ({ children, href, rel }: Props) => (
   <>
     <a className="link" href={href} rel={rel}>
       {children}

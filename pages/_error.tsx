@@ -4,7 +4,11 @@ import BasePage from "../components/BasePage";
 import TextHeader from "../components/text/TextHeader";
 import TextStd from "../components/text/TextStd";
 
-class Error extends React.Component {
+interface State {
+  path: string;
+}
+
+class Error extends React.Component<{}, State> {
 
   constructor(props) {
     super(props);
@@ -20,7 +24,7 @@ class Error extends React.Component {
     return (
       <>
         <BasePage>
-          <TextHeader>{`cat .${path}`}</TextHeader>
+          <div><TextHeader>{`cat .${path}`}</TextHeader></div>
           <br />
           <TextStd>{`cat: .${path}: No such file or directory`}</TextStd>
         </BasePage>

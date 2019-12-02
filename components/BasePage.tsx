@@ -1,6 +1,7 @@
 import React from "react";
 
 import colors from "../styles/colors";
+import fonts from "../styles/fonts";
 
 const BasePage = ({ children }) => (
   <>
@@ -9,7 +10,7 @@ const BasePage = ({ children }) => (
     </div>
     <style jsx global>{`
       html {
-        font-family: 'IBM Plex Mono', monospace;
+        font-family: ${fonts.primary};
       }
       body {
         background-color: ${colors.background};

@@ -5,7 +5,7 @@ import colors from "../../styles/colors";
 const TextHeader = ({ children }) => {
   return (
     <>
-      <div className="title">{children}</div>
+      <span className="title">{children}</span>
       <style jsx>{`
         .title {
           color: ${colors.primary};
