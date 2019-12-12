@@ -50,9 +50,9 @@ const IndexPage = () => {
             <br />
             <TextLink href="https://purdue.edu/">Purdue University</TextLink>&nbsp;
             <TextStd>West Lafayette</TextStd>&nbsp;
-            <TextDeemph>(2015)</TextDeemph>
             <br />
             <TextStd>B.S. Computer Science</TextStd>&nbsp;
+            <TextDeemph>(2015)</TextDeemph>
             <br />
             <TextStd>Minor Organizational Leadership & Supervision</TextStd>
             <br /><br /><br />
