@@ -9,7 +9,7 @@ const TextSubheader = ({ children }) => {
       <style jsx>{`
         .title {
           color: ${colors.secondary};
-          font-size: 1.1rem;
+          font-size: 1.2rem;
         }
         @media only screen and (max-width: 600px) {
           .title {

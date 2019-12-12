@@ -2,11 +2,20 @@ import React from "react";
 
 import colors from "../../styles/colors";
 
-const TextHeader = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+  underline?: boolean;
+}
+
+const TextHeader = ({ children, underline }: Props) => {
   return (
-    <>
+    <div className="container">
       <span className="title">{children}</span>
       <style jsx>{`
+        .container {
+          ${underline ? `border-bottom: 1px solid ${colors.primary};` : ""}
+          ${underline ? `width: 75%;` : ""}
+        }
         .title {
           color: ${colors.primary};
           font-size: 1.5rem;
@@ -17,7 +26,7 @@ const TextHeader = ({ children }) => {
           }
         }
       `}</style>
-    </>
+    </div>
   )
 }
 
