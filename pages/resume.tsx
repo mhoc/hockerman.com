@@ -1,11 +1,8 @@
 import React from 'react';
 
 import BasePage from "../components/BasePage";
-import JSONBio from "../components/bio/JSONBio";
 import TextHeader from "../components/text/TextHeader";
 import TextLink from "../components/text/TextLink";
-import TypingCursor from "../components/text/TypingCursor";
-import TextSubheader from '../components/text/TextSubheader';
 import TextStd from "../components/text/TextStd";
 import TextDeemph from '../components/text/TextDeemph';
 

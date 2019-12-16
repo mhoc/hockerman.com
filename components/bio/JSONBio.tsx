@@ -8,7 +8,7 @@ const data = [
   { key: "twitter", value: "@mikehockerman", href: "https://twitter.com/MikeHockerman", isExternal: true },
   { key: "linkedin", value: "mikehock", href: "https://linkedin.com/in/mikehock", isExternal: true },
   { key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
-  { key: "resume.html", value: "/resume", href: "/resume" },
+  { key: "resume.html", value: "/resume", href: "/resume.html" },
 ];
 
 const JSONBio = () => (
