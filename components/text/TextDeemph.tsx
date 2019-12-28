@@ -9,6 +9,11 @@ const TextDeemph = ({ children }) => (
       .deemph {
         color: ${colors.deemphasize};
       }
+      @media only screen and (max-width: 600px) {
+        .deemph {
+          font-size: 0.9rem;
+        }
+      }
     `}</style>
   </>
 )

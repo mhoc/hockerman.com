@@ -18,6 +18,11 @@ const TextLink = ({ children, href, rel }: Props) => (
         color: ${colors.secondary};
         line-height: 1.4;
       }
+      @media only screen and (max-width: 600px) {
+        .link {
+          font-size: 0.9rem;
+        }
+      }
     `}</style>
   </>
 )

@@ -10,7 +10,7 @@ interface Props {
 
 const BodyJSON = ({ data }: Props) => {
   return (
-    <>
+    <div>
       <TextDeemph>{"{"}</TextDeemph>
       {data.map((dataItem, i) => {
         if (dataItem.kind === "item") {
@@ -46,6 +46,10 @@ const BodyJSON = ({ data }: Props) => {
               <TextDeemph>{`"`}</TextDeemph>
               <TextStd>{dataItem.key}</TextStd>
               <TextDeemph>{`": [ `}</TextDeemph>
+              <div className="smallDisplay">
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
               <Fragment>
               {dataItem.items.map((item, i) => (
                 <Fragment key={`body-json-${i}-arsl-${i}`}>
@@ -58,7 +62,14 @@ const BodyJSON = ({ data }: Props) => {
                 </Fragment>
               ))}
               </Fragment>
-              <TextDeemph>{` ]`}</TextDeemph>
+              <div className="smallDisplay">
+                <br />
+                &nbsp;&nbsp;
+              </div>
+              <div className="largeDisplay">
+                <span> </span>
+              </div>
+              <TextDeemph>{`]`}</TextDeemph>
               {i < data.length - 1 && <TextDeemph>,</TextDeemph>}
             </Fragment>
           );
@@ -66,7 +77,23 @@ const BodyJSON = ({ data }: Props) => {
       })}
       <br />
       <TextDeemph>{"}"}</TextDeemph>
-    </>
+      <style jsx>{`
+        .largeDisplay {
+          display: inline;
+        }
+        .smallDisplay {
+          display: none;
+        }
+        @media only screen and (max-width: 600px) {
+          .smallDisplay {
+            display: inline;
+          }
+          .largeDisplay {
+            display: none;
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
