@@ -19,7 +19,7 @@ const data = [
     key: "aws-cred-report.ts", 
     items: [
       { value: "code", href: "https://github.com/mhoc/aws-cred-report-ts" },
-      { value: "pkg", href: "https://www.npmjs.com/package/@mhoc/aws-cred-report" },
+      { value: "npm", href: "https://www.npmjs.com/package/@mhoc/aws-cred-report" },
       { value: "docs", href: "https://aws-cred-report-ts.mhoc.co/" }
     ]
   }
