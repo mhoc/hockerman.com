@@ -38,6 +38,30 @@ const BodyJSON = ({ data }: Props) => {
           );
         } else if (dataItem.kind === "br") {
           return <Fragment key={`body-json-${i}`}><br /></Fragment>
+        } else if (dataItem.kind === "array.single-line") {
+          return (
+            <Fragment key={`body-json-${i}`}>
+              <br />
+              &nbsp;&nbsp;
+              <TextDeemph>{`"`}</TextDeemph>
+              <TextStd>{dataItem.key}</TextStd>
+              <TextDeemph>{`": [ `}</TextDeemph>
+              <Fragment>
+              {dataItem.items.map((item, i) => (
+                <Fragment key={`body-json-${i}-arsl-${i}`}>
+                  <TextDeemph>{`"`}</TextDeemph>
+                  <TextLink href={item.href} rel={dataItem.isExternal ? "noopener" : undefined}>
+                    {item.value}
+                  </TextLink>
+                  <TextDeemph>{`"`}</TextDeemph>
+                  {i !== dataItem.items.length - 1 && <TextDeemph>{`, `}</TextDeemph>}
+                </Fragment>
+              ))}
+              </Fragment>
+              <TextDeemph>{` ]`}</TextDeemph>
+              {i < data.length - 1 && <TextDeemph>,</TextDeemph>}
+            </Fragment>
+          );
         }
       })}
       <br />
