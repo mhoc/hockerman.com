@@ -10,7 +10,7 @@ interface Props {
 
 const BodyJSON = ({ data }: Props) => {
   return (
-    <div>
+    <>
       <TextDeemph>{"{"}</TextDeemph>
       {data.map((dataItem, i) => {
         if (dataItem.kind === "item") {
@@ -93,7 +93,7 @@ const BodyJSON = ({ data }: Props) => {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }
 
