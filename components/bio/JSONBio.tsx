@@ -10,7 +10,7 @@ const data = [
   { kind: "comment", comment: "profiles" },
   { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
   { kind: "item", key: "twitter", value: "@mikehockerman", href: "https://twitter.com/MikeHockerman", isExternal: true },
-  { kind: "item", key: "linkedin", value: "mikehock", href: "https://linkedin.com/in/mikehock", isExternal: true },
+  { kind: "item", key: "blog", value: "write.as/mhoc", href: "https://write.as/mhoc", isExternal: true },
   { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
   { kind: "br" },
   { kind: "comment", comment: "projects" },
