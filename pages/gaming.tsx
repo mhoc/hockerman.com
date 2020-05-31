@@ -104,6 +104,12 @@ const IndexPage = () => {
             </div>
             <div className="profile">
               <div className="profile-key">
+                <TextSubheader>origin</TextSubheader>
+              </div>
+              <TextStd>passbyvalue</TextStd>
+            </div>
+            <div className="profile">
+              <div className="profile-key">
                 <TextSubheader>riot</TextSubheader>
               </div>
               <TextStd>ryhr #NA0</TextStd>
