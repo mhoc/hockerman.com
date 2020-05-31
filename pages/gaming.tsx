@@ -64,7 +64,7 @@ const IndexPage = () => {
               <div className="profile-key">
                 <TextSubheader>steam</TextSubheader>
               </div>
-              <a href="https://steamprofile.com/sig/76561197984029462/">
+              <a href="https://steamdb.info/calculator/76561197984029462/?cc=us">
                 <img src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
               </a>
             </div>
