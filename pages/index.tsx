@@ -8,12 +8,13 @@ import TypingCursor from "../components/text/TypingCursor";
 const IndexPage = () => {
   return (
     <BasePage>
-      <div><TextHeader>{`cat ./mike_hockerman.json`}<TypingCursor /></TextHeader></div>
+      <header>
+        <TextHeader>{`cat ./mike_hockerman.json`}<TypingCursor /></TextHeader>
+      </header>
       <br />
       <main>
         <JSONBio />
       </main>
-      <br />
     </BasePage>
   );
 }
