@@ -5,13 +5,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "^9.1.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/node": "^12.12.22",
-    "@types/react": "^16.9.17",
-    "typescript": "^3.7.4"
+    "@types/node": "^12.12.42",
+    "@types/react": "^16.9.35",
+    "typescript": "^3.9.3"
   }
 }
