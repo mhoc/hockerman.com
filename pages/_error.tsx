@@ -1,7 +1,6 @@
 import React from 'react'
 
 import BasePage from "../components/BasePage";
-import TextHeader from "../components/text/TextHeader";
 import TextStd from "../components/text/TextStd";
 
 interface State {
