@@ -11,7 +11,7 @@ const GamingProfiles = () => (
         <TextSubheader>steam</TextSubheader>
       </div>
       <a href="https://steamprofile.com/sig/76561197984029462/">
-        <img src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
+        <img className="profile-card" src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
       </a>
     </div>
     <div className="profile">
@@ -19,7 +19,7 @@ const GamingProfiles = () => (
         <TextSubheader>xbox</TextSubheader>
       </div>
       <a href="https://www.trueachievements.com/gamer/ryhre">
-        <img src="https://www.trueachievements.com/gamercards/ryhre.png"/>
+        <img className="profile-card" src="https://www.trueachievements.com/gamercards/ryhre.png"/>
       </a>
     </div>
     <div className="profile">
@@ -27,7 +27,7 @@ const GamingProfiles = () => (
         <TextSubheader>psn</TextSubheader>
       </div>
       <a href="https://psnprofiles.com/ryhr">
-        <img src="https://card.psnprofiles.com/1/ryhr.png" />
+        <img className="profile-card" src="https://card.psnprofiles.com/1/ryhr.png" />
       </a>
     </div>
     <div className="profile">
@@ -60,6 +60,12 @@ const GamingProfiles = () => (
         display: flex;
         flex-direction: row;
         padding-bottom: 8px;
+      }
+      .profile-card {}
+      @media only screen and (max-width: 600px) {
+        .profile-card {
+          max-width: 200px;
+        }
       }
       .profile-key {
         padding-right: 16px;

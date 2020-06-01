@@ -4,6 +4,7 @@ import TextSubheader from "../text/TextSubheader";
 import TextStd from "../text/TextStd";
 
 interface TableCell {
+  elidible?: boolean;
   v: string;
 }
 
@@ -22,7 +23,9 @@ const Table = ({ headers, rows }: Props) => (
       <thead className="sticky">
         <tr className="sticky">
           {headers.cells.map(cell => (
-            <th className="header-cell sticky" key={`header${cell.v}`}><TextSubheader>{cell.v}</TextSubheader></th>
+            <th className={`header-cell sticky ${cell.elidible ? "hide-on-small" : ""}`} key={`header${cell.v}`}>
+              <TextSubheader>{cell.v}</TextSubheader>
+            </th>
           ))}
         </tr>
       </thead>
@@ -30,7 +33,9 @@ const Table = ({ headers, rows }: Props) => (
         {rows.map((row, ir) => (
           <tr key={`row${ir}tr`}>
             {row.cells.map((cell, ic) => (
-              <td className="data-cell" key={`cell${ir}${ic}`}><TextStd>{cell.v}</TextStd></td>
+              <td className={`data-cell ${cell.elidible ? "hide-on-small" : ""}`} key={`cell${ir}${ic}`}>
+                <TextStd>{cell.v}</TextStd>
+              </td>
             ))}
           </tr>
         ))}
@@ -38,8 +43,7 @@ const Table = ({ headers, rows }: Props) => (
     </table>
     <style jsx>{`
       .container {
-        height: 60vh;
-        max-height: 60vh;
+        max-height: 65vh;
         overflow-y: auto;
         scrollbar-color: ${colors.deemphasizeMajor} ${colors.background};
       }
@@ -61,6 +65,12 @@ const Table = ({ headers, rows }: Props) => (
         background-color: ${colors.background};
         position: sticky;
         top: 0px;
+      }
+      .hide-on-small {}
+      @media only screen and (max-width: 600px) {
+        .hide-on-small {
+          display: none;
+        }
       }
     `}</style>
   </div>

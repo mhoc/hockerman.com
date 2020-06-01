@@ -47,9 +47,12 @@ const GAME_RANKINGS = [
 
 const GamingRankingsTable = () => (
   <Table
-    headers={{ cells: [ { v: "the best" }, { v: "score"}, { v: "released" }, { v: "developer" } ] }}
+    headers={{ cells: [ { v: "the best" }, { v: "score"}, { elidible: true, v: "released" }, { elidible: true, v: "developer" } ] }}
     rows={GAME_RANKINGS.map(ranking => ({
-      cells: ranking.map(ri => ({ v: ri.toLowerCase() }))
+      cells: ranking.map((ri, rii) => ({
+        elidible: rii === 2 || rii === 3,
+        v: ri.toLowerCase(),
+      }))
     }))}
   />
 );
