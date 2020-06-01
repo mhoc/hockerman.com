@@ -18,7 +18,7 @@ const TextHeader = ({ children, underline }: Props) => {
         }
         .title {
           color: ${colors.primary};
-          font-size: 1.5rem;
+          font-size: 1.7rem;
         }
         @media only screen and (max-width: 600px) {
           .title {
