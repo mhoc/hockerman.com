@@ -14,7 +14,7 @@ jobs:
       - uses: chrislennon/action-aws-cli@v1.1
       - run: npm install
       - run: npm run build
-      - run: next export
+      - run: ./node_modules/.bin/next export
       - run: aws s3 sync ./out s3://mhoc-co-website
       - run: rm -rf ./out
       - run: aws cloudfront create-invalidation --distribution-id EO1O33M2R2N09 --paths "/*"
