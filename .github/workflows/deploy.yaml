@@ -3,7 +3,7 @@ on:
   push:
     branches: [master]
 jobs:
-  Check:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,5 +16,13 @@ jobs:
       - run: npm run build
       - run: ./node_modules/.bin/next export
       - run: aws s3 sync ./out s3://mhoc-co-website
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - run: rm -rf ./out
       - run: aws cloudfront create-invalidation --distribution-id EO1O33M2R2N09 --paths "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
