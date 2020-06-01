@@ -1,12 +1,25 @@
 import React from "react";
 
+import TypingCursor from "../components/text/TypingCursor";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
+import TextHeader from "./text/TextHeader";
 
-const BasePage = ({ children }) => (
+interface Props {
+  children: any;
+  header: any;
+}
+
+const BasePage = ({ children, header }: Props) => (
   <>
     <div className="globalcontainer">
-      {children}
+      <header>
+        <TextHeader>{header}<TypingCursor /></TextHeader>
+      </header>
+      <br />
+      <main>
+        {children}
+      </main>
     </div>
     <style jsx global>{`
       html {

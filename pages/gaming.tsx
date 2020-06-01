@@ -2,7 +2,6 @@ import React from 'react';
 
 import BasePage from "../components/BasePage";
 import Table from "../components/table/Table";
-import TextHeader from "../components/text/TextHeader";
 import TextSubheader from "../components/text/TextSubheader";
 import TextLink from '../components/text/TextLink';
 import TextStd from '../components/text/TextStd';
@@ -52,73 +51,67 @@ const GAME_RANKINGS = [
 
 const IndexPage = () => {
   return (
-    <BasePage>
-      <header>
-        <TextHeader>gaming</TextHeader>
-      </header>
-      <br />
-      <main>
-        <div className="panel-container">
-          <div className="panel panel-profiles">
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>steam</TextSubheader>
-              </div>
-              <a href="https://steamprofile.com/sig/76561197984029462/">
-                <img src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
-              </a>
+    <BasePage header="gaming">
+      <div className="panel-container">
+        <div className="panel panel-profiles">
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>steam</TextSubheader>
             </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>xbox</TextSubheader>
-              </div>
-              <a href="https://www.trueachievements.com/gamer/ryhre">
-                <img src="https://www.trueachievements.com/gamercards/ryhre.png"/>
-              </a>
-            </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>psn</TextSubheader>
-              </div>
-              <a href="https://psnprofiles.com/ryhr">
-                <img src="https://card.psnprofiles.com/1/ryhr.png" />
-              </a>
-            </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>discord</TextSubheader>
-              </div>
-              <TextStd>mhoc #0001</TextStd>
-            </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>nintendo</TextSubheader>
-              </div>
-              <TextStd>SW-1477-1299-8496</TextStd>
-            </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>riot</TextSubheader>
-              </div>
-              <TextStd>ryhr #NA0</TextStd>
-            </div>
-            <div className="profile">
-              <div className="profile-key">
-                <TextSubheader>twitch</TextSubheader>
-              </div>
-              <TextLink href="https://twitch.tv/passbyvalue">passbyvalue</TextLink>
-            </div>
+            <a href="https://steamprofile.com/sig/76561197984029462/">
+              <img src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
+            </a>
           </div>
-          <div className="panel panel-rankings">
-            <Table
-              headers={{ cells: [ { v: "the best" }, { v: "score"}, { v: "released" }, { v: "developer" } ] }}
-              rows={GAME_RANKINGS.map(ranking => ({
-                cells: ranking.map(ri => ({ v: ri.toLowerCase() }))
-              }))}
-            />
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>xbox</TextSubheader>
+            </div>
+            <a href="https://www.trueachievements.com/gamer/ryhre">
+              <img src="https://www.trueachievements.com/gamercards/ryhre.png"/>
+            </a>
+          </div>
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>psn</TextSubheader>
+            </div>
+            <a href="https://psnprofiles.com/ryhr">
+              <img src="https://card.psnprofiles.com/1/ryhr.png" />
+            </a>
+          </div>
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>discord</TextSubheader>
+            </div>
+            <TextStd>mhoc #0001</TextStd>
+          </div>
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>nintendo</TextSubheader>
+            </div>
+            <TextStd>SW-1477-1299-8496</TextStd>
+          </div>
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>riot</TextSubheader>
+            </div>
+            <TextStd>ryhr #NA0</TextStd>
+          </div>
+          <div className="profile">
+            <div className="profile-key">
+              <TextSubheader>twitch</TextSubheader>
+            </div>
+            <TextLink href="https://twitch.tv/passbyvalue">passbyvalue</TextLink>
           </div>
         </div>
-      </main>
+        <div className="panel panel-rankings">
+          <Table
+            headers={{ cells: [ { v: "the best" }, { v: "score"}, { v: "released" }, { v: "developer" } ] }}
+            rows={GAME_RANKINGS.map(ranking => ({
+              cells: ranking.map(ri => ({ v: ri.toLowerCase() }))
+            }))}
+          />
+        </div>
+      </div>
       <style jsx>{`
         .panel-container {
           display: flex;
