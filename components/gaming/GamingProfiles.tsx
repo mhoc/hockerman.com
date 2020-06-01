@@ -37,10 +37,22 @@ const GamingProfiles = () => (
       <TextStd>mhoc #0001</TextStd>
     </div>
     <div className="profile">
+    <div className="profile-key">
+        <TextSubheader>epic</TextSubheader>
+      </div>
+      <TextStd>passbyvalue</TextStd>
+    </div>
+    <div className="profile">
       <div className="profile-key">
         <TextSubheader>nintendo</TextSubheader>
       </div>
       <TextStd>SW-1477-1299-8496</TextStd>
+    </div>
+    <div className="profile">
+      <div className="profile-key">
+        <TextSubheader>origin</TextSubheader>
+      </div>
+      <TextStd>passbyvalue</TextStd>
     </div>
     <div className="profile">
       <div className="profile-key">

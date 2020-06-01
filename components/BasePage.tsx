@@ -26,7 +26,7 @@ const BasePage = ({ children, header, onClickTab, selectedTab, tabs }: Props) =>
             &nbsp;
             &nbsp;
             {tabs && tabs.length > 1 ? tabs.map(tab => (
-              <div className={`tab-container${selectedTab === tab ? " tab-selected" : ""}`}>
+              <div className={`tab-container${selectedTab === tab ? " tab-selected" : ""}`} key={tab}>
                 {selectedTab === tab
                   ? <TextStd>{tab}</TextStd>
                   : <TextLink onClick={() => onClickTab ? onClickTab(tab) : undefined}>{tab}</TextLink>

@@ -11,7 +11,7 @@ interface Props {
 
 const TextLink = ({ children, href, onClick, rel }: Props) => (
   <>
-    <a className="link" href={href ? href : "javascript:void(0)"} onClick={onClick ? onClick : undefined} rel={rel}>
+    <a className="link" href={href ? href : "#"} onClick={onClick ? onClick : undefined} rel={rel}>
       {children}
     </a>
     <style jsx>{`
