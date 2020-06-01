@@ -22,12 +22,10 @@ class Error extends React.Component<{}, State> {
   render() {
     const { path } = this.state;
     return (
-      <BasePage>
-        <div><TextHeader>{`cat .${path}`}</TextHeader></div>
-        <br />
+      <BasePage header={`cat .${path}`}>
         <TextStd>{`cat: .${path}: No such file or directory`}</TextStd>
       </BasePage>
-    )
+    );
   }
 
 }
