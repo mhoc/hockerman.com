@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import BasePage from "../components/BasePage";
 import GamingProfiles from "../components/gaming/GamingProfiles";
-import GamingRankingsTable from '../components/gaming/GamingRankingsTable';
 
 const IndexPage = () => {
   const [ selectedTab, onSelectedTabChange ] = useState("profiles");
@@ -11,10 +10,9 @@ const IndexPage = () => {
       header="gaming"
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}
-      tabs={["profiles", "reviews"]}
+      tabs={["profiles"]}
     >
       {selectedTab === "profiles" && <GamingProfiles />}
-      {selectedTab === "reviews" && <GamingRankingsTable />}
     </BasePage>
   );
 }
