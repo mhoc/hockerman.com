@@ -52,7 +52,7 @@ const GamingProfiles = () => (
       <div className="profile-key">
         <TextSubheader>origin</TextSubheader>
       </div>
-      <TextStd>passbyvalue</TextStd>
+      <TextStd>aka_ryhr</TextStd>
     </div>
     <div className="profile">
       <div className="profile-key">
