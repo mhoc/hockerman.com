@@ -106,6 +106,12 @@ const One = () => {
           description="T-Mobile's legacy cellular plan which includes unlimited talk, text, & high-speed data on your phone"
         />
         <Item
+          title="Ubuntu One"
+          link="https://en.wikipedia.org/wiki/Ubuntu_One"
+          category="Single Sign-On"
+          description="Ubuntu One is an OpenID-based single sign-on service operated by Canonical Ltd. to allow users to log onto many Canonical-owned Web sites. Until April 2014, Ubuntu One was also a file hosting service and music store that allowed users to store data in the cloud"
+        />
+        <Item
           title="Verizon Fios TV One"
           link="https://www.verizon.com/support/residential/tv/equipment/stb-dvr/fios-tv-one"
           category="TV Appliance"
