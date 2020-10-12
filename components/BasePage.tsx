@@ -4,36 +4,42 @@ import TypingCursor from "../components/text/TypingCursor";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
+import TextDeemph from "./text/TextDeemph";
 import TextHeader from "./text/TextHeader";
 import TextLink from "./text/TextLink";
 import TextStd from "./text/TextStd";
 
 interface Props {
-  backNavHref?: string;
   children: any;
   header: any;
+  nav?: { label: string, href: string }[];
   onClickTab?: (tab: string) => void;
   selectedTab?: string;
   tabs?: string[];
 }
 
-const BasePage = ({ backNavHref, children, header, onClickTab, selectedTab, tabs }: Props) => {
+const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Props) => {
   return (
     <>
       <div className="globalcontainer">
         <header>
-        {backNavHref 
-          ? <>
-              <TextLink hideUnderline href={backNavHref}>
-                {backNavHref === "/"
-                  ? "< home"
-                  : `<< back to ${backNavHref}`
-                }
-              </TextLink>
-              <br/>
-              <br/>
-            </>
-          : undefined}
+          {!!nav && nav.length > 0
+            ? <>
+                <TextDeemph>$PWD=</TextDeemph>
+                {nav.map(navItem => {
+                  return (
+                    <span>
+                      <TextDeemph>/</TextDeemph>
+                      <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
+                    </span>
+                  )
+                })}
+                <TextDeemph>/</TextDeemph>
+                <br/>
+                <br/>
+              </>
+            : undefined
+          }
           <div className="header-container">
             <TextHeader>{header}<TypingCursor /></TextHeader>
             &nbsp;

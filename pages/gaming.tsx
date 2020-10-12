@@ -6,9 +6,9 @@ import GamingProfiles from "../components/gaming/GamingProfiles";
 const GamingPage = () => {
   const [ selectedTab, onSelectedTabChange ] = useState("profiles");
   return (
-    <BasePage 
-      backNavHref="/"
+    <BasePage
       header="gaming"
+      nav={[{ label: "home", href: "/" }]}
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}
       tabs={["profiles"]}

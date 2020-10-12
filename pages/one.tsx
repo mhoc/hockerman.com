@@ -24,7 +24,7 @@ const Item = ({ title, link, category, description }) => {
 const One = () => {
   return (
     <BasePage
-      backNavHref="/"
+      nav={[{ label: "home", href: "/"}]}
       header="echo '${COMPANY} One'"
     >
       <div className="subheader">
