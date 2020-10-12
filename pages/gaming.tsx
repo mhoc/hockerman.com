@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import BasePage from "../components/BasePage";
 import GamingProfiles from "../components/gaming/GamingProfiles";
 
-const IndexPage = () => {
+const GamingPage = () => {
   const [ selectedTab, onSelectedTabChange ] = useState("profiles");
   return (
     <BasePage 
@@ -17,4 +17,4 @@ const IndexPage = () => {
   );
 }
 
-export default IndexPage;
+export default GamingPage;
