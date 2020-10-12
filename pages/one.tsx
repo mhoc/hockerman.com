@@ -158,6 +158,7 @@ const One = () => {
         .list-item-header {
           display: flex;
           flex-direction: row;
+          flex-wrap: wrap;
           margin-bottom: 4px;
         }
       `}</style>
