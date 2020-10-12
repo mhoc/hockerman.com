@@ -55,7 +55,7 @@ const One = () => {
         <Item
           title="Apple One"
           link="https://www.apple.com/apple-one/"
-          category="Biometric Security"
+          category="Subscription Bundle"
           description="Apple One bundles up to six amazing Apple services into one easy subscription. Get a plan that’s right for you — or for your whole family. And all members have private access to each service, across all their devices. With Apple One, it’s never been easier to get more. For less."
         />
         <Item
@@ -164,5 +164,5 @@ const One = () => {
     </BasePage>
   );
 }
-// https://www.sap.com/products/business-one.html
+
 export default One;
