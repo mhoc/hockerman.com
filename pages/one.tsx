@@ -26,7 +26,7 @@ const One = () => {
     <BasePage 
       header="echo '${COMPANY} One'"
     >
-      <div>
+      <div className="subheader">
         <TextDeemph>
           When you lack the creativity for a more specific or meaningful product name, just give up
           and take the easy way out. You're in good company, and happy hour starts at 5.
@@ -137,8 +137,11 @@ const One = () => {
         />
       </div>
       <style jsx global>{`
+        .subheader {
+          max-width: 750px;
+        }
         .list-container {
-          margin-top: 48px;
+          margin-top: 56px;
         }
         .list-item {
           display: flex;

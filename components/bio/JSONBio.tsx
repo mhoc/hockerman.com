@@ -10,7 +10,8 @@ const data = [
   { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
   { kind: "br" },
   { kind: "comment", comment: "content" },
-  { kind: "item", key: "gaming", value: "/gaming", href: "/gaming.html" },
+  { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
+  { kind: "item", key: "one", value: "/one", href: "/one" },
 ];
 
 const JSONBio = () => (

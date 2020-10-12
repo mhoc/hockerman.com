@@ -49,6 +49,7 @@ const BasePage = ({ children, header, onClickTab, selectedTab, tabs }: Props) =>
           margin: 0;
         }
         .globalcontainer {
+          max-width: 1200px;
           padding: 15vh 10vw;
         }
         @media only screen and (max-width: 600px) {
