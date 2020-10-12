@@ -7,6 +7,7 @@ const GamingPage = () => {
   const [ selectedTab, onSelectedTabChange ] = useState("profiles");
   return (
     <BasePage 
+      backNavHref="/"
       header="gaming"
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}

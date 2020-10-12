@@ -23,7 +23,8 @@ const Item = ({ title, link, category, description }) => {
 
 const One = () => {
   return (
-    <BasePage 
+    <BasePage
+      backNavHref="/"
       header="echo '${COMPANY} One'"
     >
       <div className="subheader">
@@ -34,7 +35,7 @@ const One = () => {
       </div>
       <div className="list-container">
         <Item
-          title="Akami One"
+          title="Akamai One"
           link="https://www.akamai.com/us/en/about/news/press/2015-press/akamai-launches-the-akamai-one-program-for-startups-in-asia-pacific-and-japan.jsp"
           category="Business Relationship Program"
           description="The Akamai One program is designed to empower start-ups to focus on growing their businesses without worrying about the complexity of delivering fast, reliable and secure online experiences for their users."
@@ -74,6 +75,12 @@ const One = () => {
           link="https://www.gizchina.com/2019/11/06/lenovo-one-will-merge-windows-and-android-systems/"
           category="Operating System"
           description="A prototype operating system to merge Windows and Android."
+        />
+        <Item
+          title="Lexus Plus"
+          link="https://www.lexus.nl/finance/lexus-one-en/"
+          category="Vehicle Subscription"
+          description="With the new Lexus One monthly subscription you can enjoy up to five different Lexus hybrids a year. There’s no down payment, no long commitment, but everything else is included."
         />
         <Item
           title="Salesforce1"

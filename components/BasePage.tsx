@@ -9,6 +9,7 @@ import TextLink from "./text/TextLink";
 import TextStd from "./text/TextStd";
 
 interface Props {
+  backNavHref?: string;
   children: any;
   header: any;
   onClickTab?: (tab: string) => void;
@@ -16,11 +17,23 @@ interface Props {
   tabs?: string[];
 }
 
-const BasePage = ({ children, header, onClickTab, selectedTab, tabs }: Props) => {
+const BasePage = ({ backNavHref, children, header, onClickTab, selectedTab, tabs }: Props) => {
   return (
     <>
       <div className="globalcontainer">
         <header>
+        {backNavHref 
+          ? <>
+              <TextLink hideUnderline href={backNavHref}>
+                {backNavHref === "/"
+                  ? "< home"
+                  : `<< back to ${backNavHref}`
+                }
+              </TextLink>
+              <br/>
+              <br/>
+            </>
+          : undefined}
           <div className="header-container">
             <TextHeader>{header}<TypingCursor /></TextHeader>
             &nbsp;
