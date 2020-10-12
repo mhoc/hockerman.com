@@ -24,7 +24,7 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
       <div className="globalcontainer">
         <header>
           {!!nav && nav.length > 0
-            ? <>
+            ? <div className="nav-container">
                 <TextDeemph>$PWD=</TextDeemph>
                 {nav.map(navItem => {
                   return (
@@ -35,9 +35,7 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
                   )
                 })}
                 <TextDeemph>/</TextDeemph>
-                <br/>
-                <br/>
-              </>
+              </div>
             : undefined
           }
           <div className="header-container">
@@ -54,7 +52,6 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
             )) : null}
           </div>
         </header>
-        <br />
         <main>
           {children}
         </main>
@@ -76,10 +73,14 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
             padding: 15vh 5vw;
           }
         }
+        .nav-container {
+          margin-bottom: 4px;
+        }
         .header-container {
           align-items: center;
           display: flex;
           flex-direction: row;
+          margin-bottom: 24px;
         }
         .tab-container {
           margin-right: 8px;
