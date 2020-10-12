@@ -21,7 +21,7 @@ class Error extends React.Component<{}, State> {
   render() {
     const { path } = this.state;
     return (
-      <BasePage header={`cat .${path}`}>
+      <BasePage header={`cat .${path}`} nav={[{ label: "home", href: "/"}]}>
         <TextStd>{`cat: .${path}: No such file or directory`}</TextStd>
       </BasePage>
     );
