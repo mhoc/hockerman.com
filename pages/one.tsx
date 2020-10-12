@@ -77,7 +77,7 @@ const One = () => {
           description="A prototype operating system to merge Windows and Android."
         />
         <Item
-          title="Lexus Plus"
+          title="Lexus One"
           link="https://www.lexus.nl/finance/lexus-one-en/"
           category="Vehicle Subscription"
           description="With the new Lexus One monthly subscription you can enjoy up to five different Lexus hybrids a year. There’s no down payment, no long commitment, but everything else is included."
