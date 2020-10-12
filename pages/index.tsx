@@ -5,7 +5,7 @@ import JSONBio from "../components/bio/JSONBio";
 
 const IndexPage = () => {
   return (
-    <BasePage header="cat ./mike_hockerman.json">
+    <BasePage header="cat ./mike_hockerman.json" nav={[{label:"home"}]}>
       <JSONBio />
     </BasePage>
   );

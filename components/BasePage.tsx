@@ -12,7 +12,7 @@ import TextStd from "./text/TextStd";
 interface Props {
   children: any;
   header: any;
-  nav?: { label: string, href: string }[];
+  nav: { label: string, href?: string }[];
   onClickTab?: (tab: string) => void;
   selectedTab?: string;
   tabs?: string[];
@@ -23,21 +23,21 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
     <>
       <div className="globalcontainer">
         <header>
-          {!!nav && nav.length > 0
-            ? <div className="nav-container">
-                <TextDeemph>$PWD=</TextDeemph>
-                {nav.map(navItem => {
-                  return (
-                    <span>
-                      <TextDeemph>/</TextDeemph>
-                      <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
-                    </span>
-                  )
-                })}
-                <TextDeemph>/</TextDeemph>
-              </div>
-            : undefined
-          }
+          <div className="nav-container">
+            <TextDeemph>$PWD=</TextDeemph>
+            {nav.map(navItem => {
+              return (
+                <span>
+                  <TextDeemph>/</TextDeemph>
+                  {navItem.href 
+                    ? <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
+                    : <TextDeemph>{navItem.label}</TextDeemph>
+                  }
+                </span>
+              )
+            })}
+            <TextDeemph>/</TextDeemph>
+          </div>
           <div className="header-container">
             <TextHeader>{header}<TypingCursor /></TextHeader>
             &nbsp;
