@@ -7,8 +7,8 @@ const GamingPage = () => {
   const [ selectedTab, onSelectedTabChange ] = useState("profiles");
   return (
     <BasePage
-      header="gaming"
-      nav={[{ label: "home", href: "/" }]}
+      header="cat profiles.md"
+      nav={[{ label: "home", href: "/" }, { label: "gaming" } ]}
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}
       tabs={["profiles"]}
