@@ -27,7 +27,7 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
             <TextDeemph>$PWD=</TextDeemph>
             {nav.map(navItem => {
               return (
-                <span>
+                <span key={navItem.label}>
                   <TextDeemph>/</TextDeemph>
                   {navItem.href 
                     ? <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
