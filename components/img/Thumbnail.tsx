@@ -10,7 +10,8 @@ export const Thumbnail = ({ dim, softenColors, src } : Props) => {
       <img 
         src={src} 
         style={{
-          borderRadius: "8px",
+          border: "1px solid #455a64",
+          borderRadius: "12px",
           height: dim,
           width: dim,
           ...softenColors ? {
