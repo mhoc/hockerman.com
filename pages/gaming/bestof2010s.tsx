@@ -40,7 +40,7 @@ const BestOf2010sPage = () => {
           <TextHeader underline>
             What Remains
           </TextHeader>
-          <TextStd>ten titles, alphabetically</TextStd>
+          <TextStd>alphabetically</TextStd>
         </div>
         <GameList games={[
           {
