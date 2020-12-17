@@ -82,6 +82,21 @@ const BestOf2010sPage = () => {
           },
           {
             additionalSubtext: [
+              "Art Direction - Contemporary, National Academy of Video Game Trade Reviewers Awards, 2019",
+              "Best Visual Art, Game Developers Choice Awards, 2019",
+              "Best Indie Game, Italian Video Game Awards, 2019",
+              "Best Visual Design, Webby Awards, 2019",
+              "Games For Impact, The Game Awards, 2019",
+            ],
+            body: "I will forever be disappointed in GRIS' lack of even a nomination at the 2019 Game Awards for Best Music; Berlinist's work here is fantastic, and deserving of an all-time best score in any game. The art is gorgeous, and the symbolic storytelling behind the relative lack of gameplay is some of the best in any game.",
+            dev: "Nomada Studio",
+            platforms: [ "Windows", "MacOS", "PS4", "Switch", "Xbox One" ],
+            thumbnailSrc: "/games/gris.jpg",
+            title: "GRIS",
+            year: "2018",
+          },
+          {
+            additionalSubtext: [
               "Independent Game of the Year, & Australian Developed Game of the Year, Australian Game Awards, 2018",
             ],
             body: "An unbelievable achievement for a first-time studio of three people, with rich lore and deep gameplay that has earned this game a cult following.",
