@@ -73,11 +73,8 @@ const GamingProfiles = () => (
         flex-direction: row;
         padding-bottom: 8px;
       }
-      .profile-card {}
-      @media only screen and (max-width: 600px) {
-        .profile-card {
-          max-width: 200px;
-        }
+      .profile-card {
+        max-width: 400px;
       }
       .profile-key {
         padding-right: 16px;
