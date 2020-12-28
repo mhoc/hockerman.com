@@ -8,6 +8,14 @@ const GamingProfiles = () => (
   <>
     <div className="profile">
       <div className="profile-key">
+        <TextSubheader>psn</TextSubheader>
+      </div>
+      <a href="https://psnprofiles.com/ryhr">
+        <img className="profile-card" src="https://card.psnprofiles.com/1/ryhr.png" />
+      </a>
+    </div>
+    <div className="profile">
+      <div className="profile-key">
         <TextSubheader>steam</TextSubheader>
       </div>
       <a href="https://steamprofile.com/sig/76561197984029462/">
@@ -20,14 +28,6 @@ const GamingProfiles = () => (
       </div>
       <a href="https://www.trueachievements.com/gamer/ryhre">
         <img className="profile-card" src="https://www.trueachievements.com/gamercards/ryhre.png"/>
-      </a>
-    </div>
-    <div className="profile">
-      <div className="profile-key">
-        <TextSubheader>psn</TextSubheader>
-      </div>
-      <a href="https://psnprofiles.com/ryhr">
-        <img className="profile-card" src="https://card.psnprofiles.com/1/ryhr.png" />
       </a>
     </div>
     <div className="profile">
@@ -58,7 +58,7 @@ const GamingProfiles = () => (
       <div className="profile-key">
         <TextSubheader>riot</TextSubheader>
       </div>
-      <TextStd>empathic #000</TextStd>
+      <TextStd>empath #000</TextStd>
     </div>
     <div className="profile">
       <div className="profile-key">
@@ -73,11 +73,8 @@ const GamingProfiles = () => (
         flex-direction: row;
         padding-bottom: 8px;
       }
-      .profile-card {}
-      @media only screen and (max-width: 600px) {
-        .profile-card {
-          max-width: 200px;
-        }
+      .profile-card {
+        max-width: 400px;
       }
       .profile-key {
         padding-right: 16px;
