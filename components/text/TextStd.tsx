@@ -7,7 +7,8 @@ interface Props {
 }
 
 /**
- * a zero-width joiner is used here to specifically
+ * a zero-width joiner is used here to specifically stop safari from turning some text fields
+ * into phone numbers.
  */
 const TextStd = ({ children }: Props) => (
   <>
