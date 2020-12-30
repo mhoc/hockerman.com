@@ -2,9 +2,18 @@ import React from "react";
 
 import colors from "../../styles/colors";
 
-const TextStd = ({ children }) => (
+interface Props {
+  children: any;
+}
+
+/**
+ * a zero-width joiner is used here to specifically
+ */
+const TextStd = ({ children }: Props) => (
   <>
-    <span className="content">{children}</span>
+    <span className="content">
+      &zwj;{children}
+    </span>
     <style jsx>{`
       .content {
         color: ${colors.primary};
