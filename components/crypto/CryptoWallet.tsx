@@ -33,6 +33,7 @@ export const CryptoWallet = (props: Props) => {
         .wallet {
           display: flex;
           flex-direction: row;
+          flex-wrap: wrap;
         }
         .qr {
           border: 2px solid ${colors.primary};
