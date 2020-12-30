@@ -38,6 +38,7 @@ export const CryptoWallet = (props: Props) => {
         .qr {
           border: 2px solid ${colors.primary};
           border-radius: 8px;
+          height: 300px;
           margin-right: 16px;
           width: 300px;
         }
