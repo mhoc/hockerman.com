@@ -1,5 +1,6 @@
 import React from "react";
 import colors from "../../styles/colors";
+import TextDeemph from "../text/TextDeemph";
 
 import TextStd from "../text/TextStd";
 import TextSubheader from "../text/TextSubheader";
@@ -17,9 +18,12 @@ export const CryptoWallet = (props: Props) => {
     <>
       <div className="wallet">
         <img className="qr" src={qrCodeSrc} />
-        <div className="wallet-text-container">
+        <div className="wallet-text-container" onClick={() => {
+            navigator.clipboard.writeText(address);
+        }}>
           <TextSubheader>{kind}</TextSubheader>
           <TextStd>{address}</TextStd>
+          <TextDeemph>Copy</TextDeemph>
           {meta ? Object.keys(meta).map(k => (
             <div className="meta-container">
               <TextStd>{k}</TextStd>
@@ -43,13 +47,14 @@ export const CryptoWallet = (props: Props) => {
           width: 300px;
         }
         .wallet-text-container {
-          padding-top: 24px;
-          display: flex;
           flex-direction: column;
+          display: flex;
+          padding: 12px;
         }
         .meta-container {
           display: flex;
           flex-direction: row;
+          padding-top: 8px;
         }
       `}</style>
     </>
