@@ -1,17 +1,24 @@
 {
+  "name": "hockerman.com",
+  "private": true,
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhoc/hockerman.com"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "next": "^10.0.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "next": "12.0.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.2",
-    "typescript": "^4.2.2"
+    "@types/node": "16.11.7",
+    "@types/react": "17.0.4",
+    "typescript": "4.4.4"
   }
 }
