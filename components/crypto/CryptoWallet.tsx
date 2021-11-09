@@ -1,7 +1,8 @@
-import React from "react";
+import * as qrcode from "qrcode";
+import React, { useState, useEffect } from "react";
+
 import colors from "../../styles/colors";
 import TextDeemph from "../text/TextDeemph";
-
 import TextStd from "../text/TextStd";
 import TextSubheader from "../text/TextSubheader";
 
@@ -9,18 +10,29 @@ interface Props {
   kind: string;
   address: string;
   meta?: Record<string, string>;
-  qrCodeSrc: string;
+  qrCode: string;
 }
 
 export const CryptoWallet = (props: Props) => {
-  const { address, kind, meta, qrCodeSrc } = props;
+  const { address, kind, meta, qrCode } = props;
+
+  const [qrcodeDataUrl, setQrcodeDataUrl ] = useState<string | undefined>();
+  useEffect(() => {
+    qrcode.toDataURL(qrCode, {
+      color: { dark: colors.secondary, light: colors.background },
+      margin: 0,
+      scale: 6,
+    }, (error, url) => {
+      if (error) { return console.error(error) };
+      setQrcodeDataUrl(url);
+    });
+  }, [qrCode]);
+
   return (
     <>
-      <div className="wallet">
-        <img className="qr" src={qrCodeSrc} />
-        <div className="wallet-text-container" onClick={() => {
-            navigator.clipboard.writeText(address);
-        }}>
+      <div className="wallet" onClick={() => navigator.clipboard.writeText(address) }>
+        <img src={qrcodeDataUrl} />
+        <div className="wallet-text-container">
           <TextSubheader>{kind}</TextSubheader>
           <TextStd>{address}</TextStd>
           <TextDeemph>Copy</TextDeemph>
@@ -49,7 +61,7 @@ export const CryptoWallet = (props: Props) => {
         .wallet-text-container {
           flex-direction: column;
           display: flex;
-          padding: 12px;
+          padding: 24px 0px 0px 24px;
         }
         .meta-container {
           display: flex;
