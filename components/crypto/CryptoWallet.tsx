@@ -168,9 +168,14 @@ export const CryptoWallet = (props: Props) => {
     });
   }, [qrCode]);
 
+  const [copied, setCopied] = useState(false);
+
   return (
     <>
-      <div className="wallet" onClick={() => navigator.clipboard.writeText(address) }>
+      <div className="wallet" onClick={() => {
+        navigator.clipboard.writeText(address);
+        setCopied(true);
+      }}>
         {qrcodeDataUrl
           ? <img className="qrcode" src={qrcodeDataUrl} />
           : <Loader />
@@ -178,7 +183,7 @@ export const CryptoWallet = (props: Props) => {
         <div className="wallet-text-container">
           <TextSubheader>{kind}</TextSubheader>
           <TextStd>{address}</TextStd>
-          <TextDeemph>Copy</TextDeemph>
+          <TextDeemph>{copied ? "Copied" : "Copy"}</TextDeemph>
           {meta ? Object.keys(meta).map(k => (
             <div className="meta-container">
               <TextStd>{k}</TextStd>
