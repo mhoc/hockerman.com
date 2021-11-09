@@ -13,6 +13,69 @@ interface Props {
   qrCode: string;
 }
 
+// lol this is dumb
+const Loader = () => {
+  return (
+    <>
+      <div className="loader">
+        <div className="row">
+          <div className="cell" id="cell00" />
+          <div className="cell" id="cell01" />
+          <div className="cell" id="cell02" />
+          <div className="cell" id="cell03" />
+        </div>
+        <div className="row">
+          <div className="cell" id="cell10" />
+          <div className="cell" id="cell11" />
+          <div className="cell" id="cell12" />
+          <div className="cell" id="cell13" />
+        </div>
+        <div className="row">
+          <div className="cell" id="cell20" />
+          <div className="cell" id="cell21" />
+          <div className="cell" id="cell22" />
+          <div className="cell" id="cell23" />
+        </div>
+        <div className="row">
+          <div className="cell" id="cell30" />
+          <div className="cell" id="cell31" />
+          <div className="cell" id="cell32" />
+          <div className="cell" id="cell33" />
+        </div>
+      </div>
+      <style jsx>{`
+        .loader {
+          display: flex;
+          flex-direction: column;
+        }
+        .row {
+          display: flex;
+          flex-direction: row;
+        }
+        .cell {
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+          animation-name: mosaic-ripple;
+          height: 50px;
+          width: 50px;
+        }
+        #cell00 { animation-delay: 0s; }
+        #cell01, #cell10 { animation-delay: 0.1s; }
+        #cell02, #cell11, #cell20 { animation-delay: 0.2s; }
+        #cell03, #cell12, #cell21, #cell30 { animation-delay: 0.3s; }
+        #cell13, #cell22, #cell31 { animation-delay: 0.4s; }
+        #cell23, #cell32 { animation-delay: 0.5s; }
+        #cell33 { animation-delay: 0.6s; }
+        @keyframes mosaic-ripple {
+          0% { background-color: ${colors.background}; }
+          50% { background-color: ${colors.secondary}; }
+          100% { background-color: ${colors.background}; }
+        }
+      `}</style>
+    </>
+  )
+}
+
 export const CryptoWallet = (props: Props) => {
   const { address, kind, meta, qrCode } = props;
 
@@ -24,14 +87,18 @@ export const CryptoWallet = (props: Props) => {
       scale: 6,
     }, (error, url) => {
       if (error) { return console.error(error) };
-      setQrcodeDataUrl(url);
+      // who doesn't like intentionally lengthened load sequences to showcase a cool loading animation
+      setTimeout(() => setQrcodeDataUrl(url), 1500);
     });
   }, [qrCode]);
 
   return (
     <>
       <div className="wallet" onClick={() => navigator.clipboard.writeText(address) }>
-        <img src={qrcodeDataUrl} />
+        {qrcodeDataUrl
+          ? <img className="qrcode" src={qrcodeDataUrl} />
+          : <Loader />
+        }
         <div className="wallet-text-container">
           <TextSubheader>{kind}</TextSubheader>
           <TextStd>{address}</TextStd>
@@ -51,12 +118,9 @@ export const CryptoWallet = (props: Props) => {
           flex-direction: row;
           flex-wrap: wrap;
         }
-        .qr {
-          border: 2px solid ${colors.primary};
-          border-radius: 8px;
-          height: 300px;
-          margin-right: 16px;
-          width: 300px;
+        .qrcode {
+          height: 200px;
+          width: 200px;
         }
         .wallet-text-container {
           flex-direction: column;
