@@ -3,7 +3,7 @@ const colors = {
   secondary: "#b2ebf2",
   deemphasize: "#455a64",
   deemphasizeMajor: "#263238",
-  background: "#000a12"
+  background: "#000a12",
 }
 
 export default colors;
