@@ -68,6 +68,11 @@ export const CryptoWallet = (props: Props) => {
           flex-direction: row;
           padding-top: 8px;
         }
+        @media only screen and (max-width: 600px) {
+          .wallet-text-container {
+            padding-left: 0px;
+          }
+        }
       `}</style>
     </>
   );

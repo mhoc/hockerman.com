@@ -12,8 +12,8 @@ const CryptoETH = () => {
     ]}>
       <CryptoWallet 
         kind="Ethereum (ETH)"
-        address="0xC6a3d62591FbEf850019157173c96dD04D0de6c4"
-        qrCodeSrc="/crypto/qr-eth.svg"
+        address="0xF775776D9a66951D48405164dF14288c76f5E3b4"
+        qrCode="ethereum:0xF775776D9a66951D48405164dF14288c76f5E3b4"
       />
     </BasePage>
   )

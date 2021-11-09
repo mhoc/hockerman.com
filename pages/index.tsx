@@ -8,6 +8,14 @@ const data = [
   { kind: "item", key: "twitter", value: "@mikehockerman", href: "https://twitter.com/mikehockerman", isExternal: true },
   { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
   { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
+  { kind: "br" },
+  { 
+    kind: "array.single-line",
+    key: "crypto",
+    items: [
+      { value: "eth", href: "/crypto/eth" },
+    ],
+  },
 ];
 
 const IndexPage = () => {
