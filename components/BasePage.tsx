@@ -24,19 +24,21 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
       <div className="globalcontainer">
         <header>
           <div className="nav-container">
-            <TextDeemph>$PWD=</TextDeemph>
-            {nav.map(navItem => {
-              return (
-                <span key={navItem.label}>
-                  <TextDeemph>/</TextDeemph>
-                  {navItem.href 
-                    ? <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
-                    : <TextDeemph>{navItem.label}</TextDeemph>
-                  }
-                </span>
-              )
-            })}
-            <TextDeemph>/</TextDeemph>
+            <div className="pwd">
+              <TextDeemph>$PWD=</TextDeemph>
+              {nav.map(navItem => {
+                return (
+                  <span key={navItem.label}>
+                    <TextDeemph>/</TextDeemph>
+                    {navItem.href 
+                      ? <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
+                      : <TextDeemph>{navItem.label}</TextDeemph>
+                    }
+                  </span>
+                )
+              })}
+              <TextDeemph>/</TextDeemph>
+            </div>
           </div>
           <div className="header-container">
             <TextHeader>{header}<TypingCursor /></TextHeader>
@@ -74,7 +76,13 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
           }
         }
         .nav-container {
+          display: flex;
+          flex-direction: column;
           margin-bottom: 4px;
+        }
+        .pwd {
+          display: flex; 
+          flex-direction: row;
         }
         .header-container {
           align-items: center;
