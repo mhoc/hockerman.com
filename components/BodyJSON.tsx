@@ -19,9 +19,11 @@ const BodyJSON = ({ data }: Props) => {
               <TextDeemph>{`"`}</TextDeemph>
               <TextStd>{dataItem.key}</TextStd>
               <TextDeemph>{`": "`}</TextDeemph>
-              <TextLink href={dataItem.href} rel={dataItem.isExternal ? "noopener" : undefined}>
-                {dataItem.value}
-              </TextLink>
+              {dataItem.href ? (
+                <TextLink href={dataItem.href} rel={dataItem.isExternal ? "noopener" : undefined}>
+                  {dataItem.value}
+                </TextLink>
+              ) : <TextDeemph>{dataItem.value}</TextDeemph>}
               <TextDeemph>"</TextDeemph>
               {i < data.length - 1 && <TextDeemph>,</TextDeemph>}
             </Fragment>
