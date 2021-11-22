@@ -18,7 +18,7 @@ export class SpotifyUsers {
     const existingUserQueryResp = await this.supabase
       .from("spotify_users")
       .select()
-      .eq(user.id ? "id" : "spotify_id", user.id ? user.id : user.spotifyId);
+      .eq(user.id ? "id" : "spotify_id", user.id ? user.id : user.spotify_id);
     if (existingUserQueryResp.error) {
       throw new Error(`${existingUserQueryResp.error.message}`);
     }
