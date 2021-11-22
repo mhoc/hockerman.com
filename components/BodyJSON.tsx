@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 
-import TextDeemph from "./text/TextDeemph";
-import TextLink from "./text/TextLink";
-import TextStd from "./text/TextStd";
+import { TextDeemph, TextLink, TextStd } from "./text";
 
 interface Props {
   data: Array<any>,

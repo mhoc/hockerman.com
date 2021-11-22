@@ -2,7 +2,7 @@ import React from "react";
 
 import colors from "../../styles/colors";
 
-const TextDeemph = ({ children }) => (
+export const TextDeemph = ({ children }) => (
   <>
     <span className="deemph">{children}</span>
     <style jsx>{`
@@ -16,6 +16,4 @@ const TextDeemph = ({ children }) => (
       }
     `}</style>
   </>
-)
-
-export default TextDeemph;
+);

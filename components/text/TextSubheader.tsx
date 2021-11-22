@@ -2,7 +2,7 @@ import React from "react";
 
 import colors from "../../styles/colors";
 
-const TextSubheader = ({ children }) => {
+export const TextSubheader = ({ children }) => {
   return (
     <>
       <span className="title">{children}</span>
@@ -20,5 +20,3 @@ const TextSubheader = ({ children }) => {
     </>
   )
 }
-
-export default TextSubheader;

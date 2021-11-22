@@ -1,8 +1,6 @@
 import React from 'react';
 
-import TextLink from "../text/TextLink";
-import TextStd from "../text/TextStd";
-import TextSubheader from "../text/TextSubheader";
+import { TextLink, TextStd, TextSubheader } from "../text";
 
 const GamingProfiles = () => (
   <>

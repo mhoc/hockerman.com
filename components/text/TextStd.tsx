@@ -10,7 +10,7 @@ interface Props {
  * a zero-width joiner is used here to specifically stop safari from turning some text fields
  * into phone numbers.
  */
-const TextStd = ({ children }: Props) => (
+export const TextStd = ({ children }: Props) => (
   <>
     <span className="content">
       &zwj;{children}
@@ -27,6 +27,4 @@ const TextStd = ({ children }: Props) => (
       }
     `}</style>
   </>
-)
-
-export default TextStd;
+);

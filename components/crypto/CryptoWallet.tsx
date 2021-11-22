@@ -2,9 +2,7 @@ import * as qrcode from "qrcode";
 import React, { useState, useEffect } from "react";
 
 import colors from "../../styles/colors";
-import TextDeemph from "../text/TextDeemph";
-import TextStd from "../text/TextStd";
-import TextSubheader from "../text/TextSubheader";
+import { TextDeemph, TextStd, TextSubheader } from "../text";
 
 interface Props {
   kind: string;

@@ -1,7 +1,6 @@
 import colors from "../../styles/colors";
 
-import TextSubheader from "../text/TextSubheader";
-import TextStd from "../text/TextStd";
+import { TextStd, TextSubheader } from "../text";
 
 interface TableCell {
   elidible?: boolean;

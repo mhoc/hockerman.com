@@ -7,7 +7,7 @@ interface Props {
   underline?: boolean;
 }
 
-const TextHeader = ({ children, underline }: Props) => {
+export const TextHeader = ({ children, underline }: Props) => {
   return (
     <div className="container">
       <span className="title">{children}</span>
@@ -29,5 +29,3 @@ const TextHeader = ({ children, underline }: Props) => {
     </div>
   )
 }
-
-export default TextHeader;

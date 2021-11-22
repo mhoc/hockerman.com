@@ -1,13 +1,8 @@
 import React from "react";
 
-import TypingCursor from "../components/text/TypingCursor";
+import { TextDeemph, TextHeader, TextLink, TextStd, TypingCursor } from "../components/text";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-
-import TextDeemph from "./text/TextDeemph";
-import TextHeader from "./text/TextHeader";
-import TextLink from "./text/TextLink";
-import TextStd from "./text/TextStd";
 
 interface Props {
   children: any;

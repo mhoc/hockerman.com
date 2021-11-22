@@ -1,7 +1,5 @@
 import React from "react";
 
-import colors from "../../styles/colors";
-
 interface Props {
   children: React.ReactNode;
   hideUnderline?: boolean;
@@ -10,7 +8,7 @@ interface Props {
   rel?: "noopener";
 }
 
-const TextLink = ({ children, hideUnderline, href, onClick, rel }: Props) => (
+export const TextLink = ({ children, hideUnderline, href, onClick, rel }: Props) => (
   <>
     <a className={`link ${hideUnderline ? "no-underline" : ""}`} href={href ? href : "#"} onClick={onClick ? onClick : undefined} rel={rel}>
       {children}
@@ -46,6 +44,4 @@ const TextLink = ({ children, hideUnderline, href, onClick, rel }: Props) => (
       }
     `}</style>
   </>
-)
-
-export default TextLink;
+);

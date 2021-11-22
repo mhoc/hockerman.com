@@ -1,6 +1,6 @@
 import React from "react";
 
-const TypingCursor = () => {
+export const TypingCursor = () => {
   return (
     <>
       <span className="typing-cursor-blink">|</span>
@@ -23,5 +23,3 @@ const TypingCursor = () => {
     </>
   )
 }
-
-export default TypingCursor;

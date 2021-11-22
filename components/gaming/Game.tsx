@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { Thumbnail } from "../img/Thumbnail";
-import TextDeemph from "../text/TextDeemph";
-import TextStd from "../text/TextStd";
-import TextSubheader from "../text/TextSubheader";
+import { TextDeemph, TextStd, TextSubheader } from "../text";
 
 export interface GameModel {
   additionalSubtext?: string[];

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import BasePage from "../../components/BasePage";
-import TextHeader from "../../components/text/TextHeader";
-import TextStd from "../../components/text/TextStd";
+import { TextHeader, TextStd } from "../../components/text";
 
 import { GameList } from "../../components/gaming/GameList";
 

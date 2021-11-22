@@ -1,7 +1,7 @@
 import React from 'react'
 
 import BasePage from "../components/BasePage";
-import TextStd from "../components/text/TextStd";
+import { TextStd } from "../components/text";
 
 interface State {
   path: string;

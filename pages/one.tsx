@@ -1,10 +1,7 @@
 import React from 'react';
 
 import BasePage from "../components/BasePage";
-import TextDeemph from "../components/text/TextDeemph";
-import TextStd from "../components/text/TextStd";
-import TextSubheader from "../components/text/TextSubheader";
-import TextLink from "../components/text/TextLink";
+import { TextDeemph, TextStd, TextSubheader, TextLink } from "../components/text";
 
 const Item = ({ title, link, category, description }) => {
   return (
