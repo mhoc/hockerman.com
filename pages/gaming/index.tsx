@@ -12,7 +12,7 @@ const GamingPage = () => {
       nav={[{ label: "home", href: "/" }, { label: "gaming" } ]}
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}
-      tabs={["profiles", "opinion"]}
+      tabs={["profiles"]}
     >
       {selectedTab === "profiles" && <GamingProfiles />}
       {selectedTab === "opinion" && (

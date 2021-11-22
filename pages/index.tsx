@@ -9,6 +9,7 @@ const data = [
   { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
   { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
   { kind: "br" },
+  { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
   { 
     kind: "array.single-line",
     key: "crypto",

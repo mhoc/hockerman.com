@@ -17,7 +17,7 @@ const GamingProfiles = () => (
         <TextSubheader>steam</TextSubheader>
       </div>
       <a href="https://steamprofile.com/sig/76561197984029462/">
-        <img className="profile-card" src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" alt="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com" title="Steam Profile badge for ryhr: Get your our own Steam Signature at SteamProfile.com"/>
+        <img className="profile-card" src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" />
       </a>
     </div>
     <div className="profile">
