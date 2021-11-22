@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "@mhoc/synthesize": "^0.3.0",
