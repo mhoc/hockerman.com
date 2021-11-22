@@ -23,6 +23,22 @@ export class SpotifyApplication {
     return new SpotifyClient(access_token, addSeconds(new Date(), expires_in), refresh_token, scope);
   }
 
+  public async clientFromRefreshToken(refreshToken: string): Promise<SpotifyClient> {
+    const authBody = new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+    });
+    const authHeader = Buffer.from(`${this.clientId()}:${this.clientSecret()}`).toString("base64");
+    const tokenResp = await axios.post("https://accounts.spotify.com/api/token", authBody, {
+      headers: {
+        Authorization: `Basic ${authHeader}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    const { access_token, expires_in, refresh_token, scope } = tokenResp.data;
+    return new SpotifyClient(access_token, addSeconds(new Date(), expires_in), refresh_token, scope);
+  }
+
   public clientId(): string {
     return process.env.SPOTIFY_CLIENT_ID;
   }

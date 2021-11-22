@@ -10,6 +10,10 @@ export class SpotifyUsers {
     this.supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ROOT_KEY);
   }
 
+  public async getById(id: string): Promise<SpotifyUser> {
+    return (await this.supabase.from("spotify_users").select().eq("id", id)).data[0];
+  }
+
   public async insert(user: SpotifyUser): Promise<{ created: boolean }> {
     const existingUserQueryResp = await this.supabase
       .from("spotify_users")
@@ -21,15 +25,15 @@ export class SpotifyUsers {
     if (existingUserQueryResp.data.length === 0) {
       const insertResp = await this.supabase.from("spotify_users").insert({
         id: nanoid(),
-        access_token: user.accessToken,
-        access_token_expires_at: user.accessTokenExpiresAt,
+        access_token: user.access_token,
+        access_token_expires_at: user.access_token_expires_at,
         country: user.country,
-        display_name: user.displayName,
+        display_name: user.display_name,
         email: user.email,
         href: user.href,
-        refresh_token: user.refreshToken,
-        spotify_id: user.spotifyId,
-        sync_play_history: user.syncPlayHistory,
+        refresh_token: user.refresh_token,
+        spotify_id: user.spotify_id,
+        sync_play_history: user.sync_play_history,
       });
       if (insertResp.error) {
         throw new Error(`${insertResp.error.message}`);

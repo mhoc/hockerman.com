@@ -26,6 +26,10 @@ interface UserOutput {
   id: string;
 }
 
+interface CurrentlyPlayingOutput {
+  currentlyPlaying: any;
+}
+
 export class SpotifyClient {
 
   constructor(
@@ -34,6 +38,14 @@ export class SpotifyClient {
     public readonly refreshToken: string,
     public readonly scope: string,
   ) {}
+
+  public async currentlyPlaying(): Promise<CurrentlyPlayingOutput> {
+    await this.refresh();
+    const recentlyPlayedResp = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
+      headers: { Authorization: `Bearer ${this.accessToken}` },
+    });
+    return { currentlyPlaying: recentlyPlayedResp.data };
+  }
 
   public async recentlyPlayed(): Promise<RecentlyPlayedOutput> {
     await this.refresh();

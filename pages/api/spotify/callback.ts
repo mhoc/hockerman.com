@@ -1,4 +1,4 @@
-import { SpotifyUsers } from "../../../server/base";
+import { MusicArtists, SpotifyUsers } from "../../../server/base";
 import { SpotifyApplication } from "../../../server/spotify";
 
 export default async function handler(req, res) {
@@ -17,19 +17,32 @@ export default async function handler(req, res) {
     });
   }
   const spotifyClient = await spotifyApp.clientFromAuthCode(code);
+  const musicArtists = new MusicArtists();
   const spotifyUsers = new SpotifyUsers();
   const { country, displayName, email, href, id: spotifyId } = await spotifyClient.user();
   const { created } = await spotifyUsers.insert({
-    accessToken: spotifyClient.accessToken,
-    accessTokenExpiresAt: spotifyClient.expiresAt,
+    access_token: spotifyClient.accessToken,
+    access_token_expires_at: spotifyClient.expiresAt,
     country,
-    displayName,
+    display_name: displayName,
     email,
     href,
     id: null,
-    refreshToken: spotifyClient.refreshToken,
-    spotifyId,
-    syncPlayHistory: false,
+    refresh_token: spotifyClient.refreshToken,
+    spotify_id: spotifyId,
+    sync_play_history: false,
   });
+  // Initial load of recent play history
+  const { recentPlays } = await spotifyClient.recentlyPlayed();
+  for (const recentPlay of recentPlays) {
+    for (const artist of recentPlay.track.artists) {
+      await musicArtists.insert({
+        id: null,
+        name: artist.name,
+        spotifyHref: artist.href,
+        spotifyId: artist.id,
+      });
+    }
+  }
   res.status(200).json({ success: true, created });
 }
