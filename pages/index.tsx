@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import BasePage from "../components/BasePage";
+import { useSpotifyNowPlaying } from "../components/hooks/useSpotifyNowPlaying";
 import {
   BodyJSON,
   LineBreakJSONEntity,
@@ -12,25 +13,14 @@ import {
 import { TextLoading } from "../components/text";
 
 const IndexPage = () => {
-  const [ listeningTo, setListeningTo ] = useState<{ 
-    artist: string, track: string, state: "play" | "pause",
-  } | undefined>();
-  useEffect(() => {
-    fetch("/api/spotify/now_playing")
-      .then(r => r.json())
-      .then(({ currentlyPlaying }) => {
-        if (!currentlyPlaying) {
-          return setListeningTo(undefined);
-        }
-        setListeningTo({
-          artist: currentlyPlaying.item.artists[0].name,
-          track: currentlyPlaying.item.name,
-          state: currentlyPlaying.is_playing ? "play" : "pause",
-        });
-      });
-  }, []);
-
-  const listeningToText = listeningTo ? `${listeningTo.track} | ${listeningTo.artist}` : "Nothing :)";
+  const snp = useSpotifyNowPlaying();
+  let listeningTo: React.ReactNode = "";
+  switch (snp.state) {
+    case "loading": listeningTo = <TextLoading />; break;
+    case "nothing": listeningTo = "Nothing :)"; break;
+    case "playing":
+    case "paused": listeningTo = `${snp.track} | ${snp.artist}`; break;
+  }
 
   const data = [
     new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
@@ -40,7 +30,7 @@ const IndexPage = () => {
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
       <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
-      !!listeningTo ? listeningToText : <TextLoading />,
+      listeningTo,
       { href: listeningTo ? "/music" : undefined },
     ),
     new LineBreakJSONEntity(),
