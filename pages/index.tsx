@@ -1,10 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import { truncate } from "lodash";
 import React, { useEffect, useState } from 'react';
 
 import BasePage from "../components/BasePage";
-import BodyJSON from "../components/BodyJSON";
+import {
+  BodyJSON,
+  LineBreakJSONEntity,
+  KeyValueJSONEntity,
+  SingleLineArrayJSONEntity,
+} from "../components/json";
 
 const IndexPage = () => {
   const [ listeningTo, setListeningTo ] = useState<string>("loading...");
@@ -20,26 +24,21 @@ const IndexPage = () => {
   });
 
   const data = [
-    { kind: "item", key: "email", value: "mike@hockerman.com", href: "mailto:mike@hockerman.com" },
-    { kind: "item", key: "twitter", value: "@mikehockerman", href: "https://twitter.com/mikehockerman", isExternal: true },
-    { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
-    { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
-    { kind: "br" },
-    { 
-      kind: "item", 
-      key: <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
-      value: listeningTo,
-      href: "/music",
-    },
-    { kind: "br" },
-    { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
-    { 
-      kind: "array.single-line",
-      key: "crypto",
-      items: [
-        { value: "eth", href: "/crypto/eth" },
-      ],
-    },
+    new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
+    new KeyValueJSONEntity("twitter", "@mikehockerman", { href: "https://twitter.com/mikehockerman" }),
+    new KeyValueJSONEntity("github", "mhoc", { href: "https://github.com/mhoc" }),
+    new KeyValueJSONEntity("resume.pdf", "download", { href: "/resume-mike-hockerman.pdf" }),
+    new LineBreakJSONEntity(),
+    new KeyValueJSONEntity(
+      <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
+      listeningTo,
+      { href: "/music" },
+    ),
+    new LineBreakJSONEntity(),
+    new KeyValueJSONEntity("gaming", "/gaming", { href: "/gaming" }),
+    new SingleLineArrayJSONEntity("crypto", [
+      { value: "eth", href: "/crypto/eth" },
+    ]),
   ];
   return (
     <BasePage header="cat ./mike_hockerman.json" nav={[{label:"home"}]}>
