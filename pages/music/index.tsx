@@ -50,7 +50,7 @@ const MusicPage = () => {
       <BasePage header="ffplay ./mp3s/" nav={[{label:"home", href:"/"},{label:"music"}]}>
         <div className="now-playing-header">
           <TextSubheader>
-            <FontAwesomeIcon className="spotify-icon" icon={faSpotify} />&nbsp;
+            <FontAwesomeIcon className="spotify-icon" icon={faSpotify} style={{ height: "20px", width: "20px" }} />&nbsp;
             {listeningToState === "loading" && <TextDeemph>Loading...</TextDeemph>}
             {listeningToState === "nothing" && <TextDeemph>Now Playing: Nothing :)</TextDeemph>}
             {listeningToState === "playing" && (

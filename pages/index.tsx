@@ -27,7 +27,7 @@ const IndexPage = () => {
     { kind: "br" },
     { 
       kind: "item", 
-      key: <FontAwesomeIcon icon={faSpotify} />,
+      key: <FontAwesomeIcon icon={faSpotify} style={{ height: "20px", width: "20px" }} />,
       value: listeningTo, 
       href: "/music" 
     },
