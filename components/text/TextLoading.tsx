@@ -11,7 +11,7 @@ export const TextLoading = (props: TextLoadingProps) => {
     const interval = setInterval(() => {
       setLoadingState(state => {
         if (state.p === 10) {
-          return { p: 9, t: `█████████░` };
+          return { p: 8, t: `████████░░` };
         } else {
           return {
             p: state.p + 1,
