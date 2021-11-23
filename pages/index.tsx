@@ -12,17 +12,25 @@ import {
 import { TextLoading } from "../components/text";
 
 const IndexPage = () => {
-  const [ listeningTo, setListeningTo ] = useState<string | undefined>();
+  const [ listeningTo, setListeningTo ] = useState<{ 
+    artist: string, track: string, state: "play" | "pause",
+  } | undefined>();
   useEffect(() => {
     fetch("/api/spotify/now_playing")
       .then(r => r.json())
       .then(({ currentlyPlaying }) => {
         if (!currentlyPlaying) {
-          return setListeningTo("Nothing :)");
+          return setListeningTo(undefined);
         }
-        setListeningTo(`${currentlyPlaying.item.name.toLowerCase()} | ${currentlyPlaying.item.artists[0].name.toLowerCase()}`);
+        setListeningTo({
+          artist: currentlyPlaying.item.artists[0].name,
+          track: currentlyPlaying.item.name,
+          state: currentlyPlaying.is_playing ? "play" : "pause",
+        });
       });
-  });
+  }, []);
+
+  const listeningToText = listeningTo ? `${listeningTo.track} | ${listeningTo.artist}` : "Nothing :)";
 
   const data = [
     new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
@@ -32,7 +40,7 @@ const IndexPage = () => {
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
       <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
-      !!listeningTo ? listeningTo : <TextLoading />,
+      !!listeningTo ? listeningToText : <TextLoading />,
       { href: listeningTo ? "/music" : undefined },
     ),
     new LineBreakJSONEntity(),
