@@ -9,9 +9,10 @@ import {
   KeyValueJSONEntity,
   SingleLineArrayJSONEntity,
 } from "../components/json";
+import { TextLoading } from "../components/text";
 
 const IndexPage = () => {
-  const [ listeningTo, setListeningTo ] = useState<string>("loading...");
+  const [ listeningTo, setListeningTo ] = useState<string | undefined>();
   useEffect(() => {
     fetch("/api/spotify/now_playing")
       .then(r => r.json())
@@ -31,8 +32,8 @@ const IndexPage = () => {
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
       <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
-      listeningTo,
-      { href: "/music" },
+      !!listeningTo ? listeningTo : <TextLoading />,
+      { href: listeningTo ? "/music" : undefined },
     ),
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity("gaming", "/gaming", { href: "/gaming" }),

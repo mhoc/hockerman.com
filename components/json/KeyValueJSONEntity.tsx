@@ -11,7 +11,7 @@ export class KeyValueJSONEntity extends JSONEntity {
 
   constructor(
     public readonly key: React.ReactNode,
-    public readonly value: string, 
+    public readonly value: React.ReactNode,
     public readonly props?: KeyValueJSONEntityProps,
   ) { super(); }
 
@@ -30,7 +30,7 @@ export class KeyValueJSONEntity extends JSONEntity {
           </TextLink>
         ) : (
           <TextDeemph>{this.value}</TextDeemph>
-        )})
+        )}
         <TextDeemph>"</TextDeemph>
         {index < total - 1 && <TextDeemph>,</TextDeemph>}
       </>
