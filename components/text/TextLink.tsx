@@ -8,11 +8,12 @@ interface Props {
   href?: string;
   onClick?: () => void;
   rel?: "noopener";
+  target?: "_blank";
 }
 
-export const TextLink = ({ children, hideUnderline, href, onClick, rel }: Props) => (
+export const TextLink = ({ children, hideUnderline, href, onClick, rel, target }: Props) => (
   <>
-    <a className={`link ${hideUnderline ? "no-underline" : ""}`} href={href ? href : "#"} onClick={onClick ? onClick : undefined} rel={rel}>
+    <a className={`link ${hideUnderline ? "no-underline" : ""}`} href={href ? href : "#"} onClick={onClick ? onClick : undefined} rel={rel} target={target}>
       {children}
     </a>
     <style jsx>{`

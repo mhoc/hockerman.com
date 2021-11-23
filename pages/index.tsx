@@ -5,7 +5,6 @@ import BodyJSON from "../components/BodyJSON";
 
 const IndexPage = () => {
   const [ listeningTo, setListeningTo ] = useState<string>("loading...");
-  const [ listeningToHref, setListeningToHref ] = useState<string | undefined>();
   useEffect(() => {
     fetch("/api/spotify/now_playing")
       .then(r => r.json())
@@ -13,8 +12,7 @@ const IndexPage = () => {
         if (!currentlyPlaying) {
           return setListeningTo("Nothing :)");
         }
-        setListeningTo(`${currentlyPlaying.item.name} - ${currentlyPlaying.item.artists[0].name}`);
-        setListeningToHref(`https://open.spotify.com/track/${currentlyPlaying.item.id}`);
+        setListeningTo(`${currentlyPlaying.item.name} | ${currentlyPlaying.item.artists[0].name}`);
       });
   });
 
@@ -24,7 +22,7 @@ const IndexPage = () => {
     { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
     { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
     { kind: "br" },
-    { kind: "item", key: "listening_to", value: listeningTo, href: listeningToHref },
+    { kind: "item", key: "listening_to", value: listeningTo, href: "/music" },
     { kind: "br" },
     { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
     { 

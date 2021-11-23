@@ -12,6 +12,10 @@
     "start": "next start -p 8080"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@mhoc/synthesize": "^0.3.0",
     "@supabase/supabase-js": "^1.28.1",
     "axios": "^0.24.0",
