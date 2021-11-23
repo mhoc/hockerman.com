@@ -4,7 +4,7 @@ import { SpotifyApplication } from "../../../server/spotify";
 export default async function handler(req, res) {
   const spotifyApp = new SpotifyApplication();
   
-  const superSecretAuthenticationPlzDontHackMe = req.query.superSecret;
+  const superSecretAuthenticationPlzDontHackMe = req.headers.Authorization;
   if (process.env.SUPER_SECRET !== superSecretAuthenticationPlzDontHackMe) {
     throw new Error("BAD AUTH BAD BAD BAD");
   }
