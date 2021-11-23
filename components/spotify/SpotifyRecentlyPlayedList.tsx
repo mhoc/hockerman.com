@@ -10,8 +10,8 @@ export const SpotifyRecentlyPlayedList = () => {
     <>
       <div className="container">
         {srp.state === "loading" && (
-          times(4, () => (
-            <div>
+          times(4, (i) => (
+            <div key={`spotify-recently-played-loader-skeleton-${i}`}>
               <TextDeemph>[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</TextDeemph>
               &nbsp;
               <TextLoading />
@@ -22,7 +22,7 @@ export const SpotifyRecentlyPlayedList = () => {
         )}
         {srp.state === "results" && (
           srp.recentlyPlayed.slice(0, 4).map(rp => (
-            <div>
+            <div key={`spotify-recently-played-item-${rp.track}`}>
               <TextDeemph>
                 [{formatDistanceToNow(rp.playedAt, { addSuffix: true })}] {rp.track} - {rp.artist}
               </TextDeemph>
@@ -40,7 +40,7 @@ export const SpotifyRecentlyPlayedList = () => {
           justify-content: space-between;
           display: flex;
           flex-direction: column;
-          height: 85px;
+          min-height: 85px;
         }
       `}</style>
     </>

@@ -17,7 +17,8 @@ const MusicPage = () => {
         .now-playing-banner-container {
           align-items: center;
           display: flex;
-          height: 35px;
+          min-height: 35px;
+          padding-bottom: 4px;
         }
       `}</style>
     </>
