@@ -10,6 +10,10 @@ export class SpotifyUsers {
     this.supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ROOT_KEY);
   }
 
+  public async findWithSyncEnabled(): Promise<SpotifyUser[]> {
+    return (await this.supabase.from("spotify_users").select().eq("sync_play_history", true)).data;
+  }
+
   public async getById(id: string): Promise<SpotifyUser> {
     return (await this.supabase.from("spotify_users").select().eq("id", id)).data[0];
   }

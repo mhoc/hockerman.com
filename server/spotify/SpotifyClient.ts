@@ -4,16 +4,21 @@ import { isAfter } from "date-fns";
 interface RecentlyPlayedOutput {
   recentPlays: {
     context: {};
-    playedAt: Date;
+    played_at: string;
     track: {
       artists: {
         href: string;
         id: string;
         name: string;
       }[];
+      album: {
+        name: string;
+        id: string;
+      };
       id: string;
       href: string;
       name: string;
+      duration_ms: number;
     };
   }[];
 }
