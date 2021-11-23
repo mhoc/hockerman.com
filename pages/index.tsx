@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { truncate } from "lodash";
 import React, { useEffect, useState } from 'react';
 
 import BasePage from "../components/BasePage";
@@ -12,7 +15,7 @@ const IndexPage = () => {
         if (!currentlyPlaying) {
           return setListeningTo("Nothing :)");
         }
-        setListeningTo(`${currentlyPlaying.item.name} | ${currentlyPlaying.item.artists[0].name}`);
+        setListeningTo(`${truncate(currentlyPlaying.item.name, { length: 20 }).toLowerCase()} | ${truncate(currentlyPlaying.item.artists[0].name, { length: 8 }).toLowerCase()}`);
       });
   });
 
@@ -22,7 +25,12 @@ const IndexPage = () => {
     { kind: "item", key: "github", value: "mhoc", href: "https://github.com/mhoc", isExternal: true },
     { kind: "item", key: "resume.pdf", value: "download", href: "/resume-mike-hockerman.pdf" },
     { kind: "br" },
-    { kind: "item", key: "listening_to", value: listeningTo, href: "/music" },
+    { 
+      kind: "item", 
+      key: <FontAwesomeIcon icon={faSpotify} />,
+      value: listeningTo, 
+      href: "/music" 
+    },
     { kind: "br" },
     { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
     { 
