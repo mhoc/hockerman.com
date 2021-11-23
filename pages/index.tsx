@@ -15,7 +15,7 @@ const IndexPage = () => {
         if (!currentlyPlaying) {
           return setListeningTo("Nothing :)");
         }
-        setListeningTo(`${truncate(currentlyPlaying.item.name, { length: 20 }).toLowerCase()} | ${truncate(currentlyPlaying.item.artists[0].name, { length: 8 }).toLowerCase()}`);
+        setListeningTo(`${currentlyPlaying.item.name.toLowerCase()} | ${currentlyPlaying.item.artists[0].name.toLowerCase()}`);
       });
   });
 
@@ -27,9 +27,9 @@ const IndexPage = () => {
     { kind: "br" },
     { 
       kind: "item", 
-      key: <FontAwesomeIcon icon={faSpotify} style={{ height: "20px", width: "20px" }} />,
-      value: listeningTo, 
-      href: "/music" 
+      key: <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
+      value: listeningTo,
+      href: "/music",
     },
     { kind: "br" },
     { kind: "item", key: "gaming", value: "/gaming", href: "/gaming" },
