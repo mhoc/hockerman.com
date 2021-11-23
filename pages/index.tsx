@@ -31,7 +31,7 @@ const IndexPage = () => {
     new KeyValueJSONEntity(
       <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
       listeningTo,
-      { href: listeningTo ? "/music" : undefined },
+      { href: snp.state === "loading" ? undefined : "/music" },
     ),
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity("gaming", "/gaming", { href: "/gaming" }),
