@@ -10,7 +10,9 @@ export const SpotifyNowPlayingBanner = () => {
     <>
       <div className="container">
         <TextSubheader>
-          <FontAwesomeIcon className="spotify-icon" icon={faSpotify} />
+          <div className="spotify-icon">
+            <FontAwesomeIcon icon={faSpotify} />
+          </div>
         </TextSubheader>
         &nbsp;
         {snp.state === "loading" && <TextLoading />}
@@ -38,6 +40,9 @@ export const SpotifyNowPlayingBanner = () => {
           flex-direction: row;
         }
         .spotify-icon {
+          align-items: center;
+          display: flex;
+          flex-direction: row;
           height: 20px;
           width: 20px;
         }
