@@ -19,7 +19,7 @@ const IndexPage = () => {
     case "loading": listeningTo = <TextLoading />; break;
     case "nothing": listeningTo = "Nothing :)"; break;
     case "playing":
-    case "paused": listeningTo = `${snp.track} | ${snp.artist}`; break;
+    case "paused": listeningTo = `${snp.track} - ${snp.artist}`; break;
   }
 
   const data = [
