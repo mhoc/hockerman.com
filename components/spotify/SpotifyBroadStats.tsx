@@ -10,20 +10,20 @@ export const SpotifyBroadStats = () => {
           <div>
             <span>
               <TextDeemph>Plays (Past 24 Hours):</TextDeemph>&nbsp;
-              <TextStd>{sbs.playsInLast24Hours}</TextStd>
+              <TextStd glow>{sbs.playsInLast24Hours}</TextStd>
             </span>
             <br />
             <span>
               <TextDeemph>Top Artists (Past Week):</TextDeemph>&nbsp;
-              <TextStd>
+              <TextStd glow>
                 {sbs.topArtistsInLastWeek[0]}
               </TextStd>
               <TextDeemph>, </TextDeemph>
-              <TextStd>
+              <TextStd glow>
                 {sbs.topArtistsInLastWeek[1]}
               </TextStd>
               <TextDeemph>, and </TextDeemph>
-              <TextStd>
+              <TextStd glow>
                 {sbs.topArtistsInLastWeek[2]}
               </TextStd>
             </span>
