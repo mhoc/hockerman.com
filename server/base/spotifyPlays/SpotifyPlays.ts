@@ -1,3 +1,4 @@
+import { entries } from "lodash";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { nanoid } from "nanoid";
 
@@ -27,6 +28,42 @@ export class SpotifyPlays {
     }
     return play;
     // otherwise, there was one queried, which means this play is already registered. continue onward
+  }
+
+  public async statTop3ArtistsSince(userId: string, since: Date): Promise<string[]> {
+    const plays = (await this.supabase.from<SpotifyPlay>("spotify_plays").select()
+      .eq("played_by", userId)
+      .gte("played_at", since.toISOString())).data;
+    const byArtist: {[name: string]: number} = plays.reduce((p, c) => {
+      if (p[c.artist_1_name]) {
+        p[c.artist_1_name] += 1;
+      } else {
+        p[c.artist_1_name] = 1;
+      }
+      if (c.artist_2_name && p[c.artist_2_name]) {
+        p[c.artist_2_name] += 1;
+      } else if (c.artist_2_name) {
+        p[c.artist_2_name] = 1;
+      }
+      if (c.artist_3_name && p[c.artist_3_name]) {
+        p[c.artist_3_name] += 1;
+      } else if (c.artist_3_name) {
+        p[c.artist_3_name] = 1;
+      }
+      return p;
+    }, {});
+    const sorted = entries(byArtist).sort((a, b) => b[1] - a[1]);
+    return [
+      sorted.length > 0 ? sorted[0][0] : undefined,
+      sorted.length > 1 ? sorted[1][0] : undefined,
+      sorted.length > 2 ? sorted[2][0] : undefined,
+    ];
+  }
+
+  public async statTotalPlaysSince(userId: string, since: Date): Promise<number> {
+    return (await this.supabase.from("spotify_plays").select("id", { count: "exact" })
+      .eq("played_by", userId)
+      .gte("played_at", since.toISOString())).count;
   }
 
 }
