@@ -1,3 +1,4 @@
+import { addMinutes, subMinutes } from "date-fns";
 import { entries } from "lodash";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { nanoid } from "nanoid";
@@ -14,7 +15,8 @@ export class SpotifyPlays {
   public async insert(play: SpotifyPlay): Promise<SpotifyPlay> {
     const existingPlays = (await this.supabase.from("spotify_plays")
       .select()
-      .eq("played_at", play.played_at)
+      .gte("played_at", subMinutes(new Date(play.played_at), 5))
+      .lte("played_at", addMinutes(new Date(play.played_at), 5))
       .eq("played_by", play.played_by)
       .eq("spotify_track_id", play.spotify_track_id));
     if (existingPlays.error) {
