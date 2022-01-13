@@ -1,5 +1,6 @@
-.DS_Store
-.next/*
-node_modules/*
-out/*
-.env*
+**/.DS_Store
+**.env*
+
+web/.next/*
+web/node_modules/*
+web/out/*
