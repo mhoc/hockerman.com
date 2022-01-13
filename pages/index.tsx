@@ -26,7 +26,7 @@ const IndexPage = () => {
     new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
     new KeyValueJSONEntity("twitter", "@mikehockerman", { href: "https://twitter.com/mikehockerman" }),
     new KeyValueJSONEntity("github", "mhoc", { href: "https://github.com/mhoc" }),
-    new KeyValueJSONEntity("resume.pdf", "download", { href: "/resume-mike-hockerman.pdf" }),
+    new KeyValueJSONEntity("resume.pdf", ".pdf", { href: "/resume-mike-hockerman.pdf" }),
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
       <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
