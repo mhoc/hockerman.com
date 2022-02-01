@@ -17,7 +17,7 @@ const IndexPage = () => {
   let listeningTo: React.ReactNode = "";
   switch (snp.state) {
     case "loading": listeningTo = <TextLoading />; break;
-    case "nothing": listeningTo = "Nothing :)"; break;
+    case "nothing": listeningTo = "Now Playing: Nothing"; break;
     case "playing":
     case "paused": listeningTo = `${snp.track} - ${snp.artist}`; break;
   }
