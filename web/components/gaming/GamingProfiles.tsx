@@ -1,44 +1,21 @@
 import React from 'react';
 
-import { TextLink, TextStd, TextSubheader } from "../text";
+import { TextDeemph, TextLink, TextStd, TextSubheader } from "../text";
 
 const GamingProfiles = () => (
   <>
     <div className="profile">
       <div className="profile-key">
-        <TextSubheader>psn</TextSubheader>
-      </div>
-      <a href="https://psnprofiles.com/ryhr">
-        <img className="profile-card" src="https://card.psnprofiles.com/1/ryhr.png" />
-      </a>
-    </div>
-    <div className="profile">
-      <div className="profile-key">
-        <TextSubheader>steam</TextSubheader>
-      </div>
-      <a href="https://steamprofile.com/sig/76561197984029462/">
-        <img className="profile-card" src="https://badges.steamprofile.com/profile/default/steam/76561197984029462.png" />
-      </a>
-    </div>
-    <div className="profile">
-      <div className="profile-key">
-        <TextSubheader>xbox</TextSubheader>
-      </div>
-      <a href="https://www.trueachievements.com/gamer/ryhre">
-        <img className="profile-card" src="https://www.trueachievements.com/gamercards/ryhre.png"/>
-      </a>
-    </div>
-    <div className="profile">
-      <div className="profile-key">
         <TextSubheader>discord</TextSubheader>
       </div>
-      <TextStd>mhoc #0001</TextStd>
+      <TextStd>mhoc&nbsp;</TextStd>
+      <TextDeemph>#0001</TextDeemph>
     </div>
     <div className="profile">
-    <div className="profile-key">
+      <div className="profile-key">
         <TextSubheader>epic</TextSubheader>
       </div>
-      <TextStd>passbyvalue</TextStd>
+      <TextStd>aka_ryhr</TextStd>
     </div>
     <div className="profile">
       <div className="profile-key">
@@ -54,15 +31,34 @@ const GamingProfiles = () => (
     </div>
     <div className="profile">
       <div className="profile-key">
+        <TextSubheader>psn</TextSubheader>
+      </div>
+      <TextLink href="https://psnprofiles.com/ryhr">ryhr</TextLink>
+    </div>
+    <div className="profile">
+      <div className="profile-key">
         <TextSubheader>riot</TextSubheader>
       </div>
-      <TextStd>empath #000</TextStd>
+      <TextStd>empath&nbsp;</TextStd>
+      <TextDeemph>#000</TextDeemph>
+    </div>
+    <div className="profile">
+      <div className="profile-key">
+        <TextSubheader>steam</TextSubheader>
+      </div>
+      <TextLink href="https://steamcommunity.com/id/ryhr/">ryhr</TextLink>
     </div>
     <div className="profile">
       <div className="profile-key">
         <TextSubheader>twitch</TextSubheader>
       </div>
       <TextLink href="https://twitch.tv/passbyvalue">passbyvalue</TextLink>
+    </div>
+    <div className="profile">
+      <div className="profile-key">
+        <TextSubheader>xbox</TextSubheader>
+      </div>
+      <TextStd>ryhre</TextStd>
     </div>
     <style jsx>{`
       .profile {
