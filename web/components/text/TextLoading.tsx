@@ -2,6 +2,7 @@ import times from "lodash/times";
 import { useEffect, useState } from "react";
 
 import { TextDeemph } from "./TextDeemph";
+import { TextStd } from "./TextStd";
 
 interface TextLoadingProps {}
 
@@ -22,5 +23,15 @@ export const TextLoading = (props: TextLoadingProps) => {
     }, 100);
     return () => clearInterval(interval);
   }, []);
-  return <TextDeemph>{loadingState.t}</TextDeemph>
+  // this is weird & hacky, but: in nearly every case this loading text is used to load-in some
+  // <TextStd />. however, <TextDeemph /> is by design a smaller font size, which means when the
+  // transition from deemph to std happens, the vertical position of the block which contains
+  // the text jumps. So, this adds an invisible character at the std size to the end of the
+  // loading state, which forces the containing block to take on the vertical size of textstd.
+  return (
+    <span>
+      <TextDeemph>{loadingState.t}</TextDeemph>
+      <TextStd>&zwj;</TextStd>
+    </span>
+  );
 }

@@ -7,14 +7,12 @@ interface Props {
   glow?: boolean;
 }
 
-/**
- * a zero-width joiner is used here to specifically stop safari from turning some text fields
- * into phone numbers.
- */
 export const TextStd = ({ children, glow }: Props) => {
   const style = glow ? {
     textShadow: `0 0 1px ${colors.secondary}, 0 0 2px ${colors.secondary}, 0 0 32px ${colors.secondary}, 0 0 256px ${colors.secondary}`,
   } : {};
+  // a zero-width joiner is used here to specifically stop safari from turning some text fields
+  // into phone numbers.
   return (
     <>
       <span className="content" style={style}>
