@@ -19,8 +19,10 @@ const Image = ({ caption, url }) => {
           margin-bottom: 32px;
         }
         #thumbnail {
-            border-radius: 32px;
+            border-radius: 8px;
+            height: auto;
             max-width: 800px;
+            width: 100%;
           }
       `}</style>
     </>
