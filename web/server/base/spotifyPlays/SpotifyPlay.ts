@@ -1,11 +1,15 @@
-import { io, iotstypes } from "@mhoc/synthesize";
+import { io } from "@mhoc/synthesize";
 
 export const SpotifyPlay = io.type({
   id: io.union([ io.null, io.undefined, io.string ]),
   album_name: io.union([ io.null, io.undefined, io.string ]),
+  album_spotify_id: io.union([ io.null, io.undefined, io.string ]),
   artist_1_name: io.union([ io.null, io.undefined, io.string ]),
+  artist_1_spotify_id: io.union([ io.null, io.undefined, io.string ]),
   artist_2_name: io.union([ io.null, io.undefined, io.string ]),
+  artist_2_spotify_id: io.union([ io.null, io.undefined, io.string ]),
   artist_3_name: io.union([ io.null, io.undefined, io.string ]),
+  artist_3_spotify_id: io.union([ io.null, io.undefined, io.string ]),
   played_at: io.union([ io.null, io.undefined, io.string ]),
   played_by: io.union([ io.null, io.undefined, io.string ]),
   spotify_track_id: io.union([ io.null, io.undefined, io.string ]),

@@ -23,9 +23,13 @@ export default async function handler(req: IncomingMessage, res) {
         await spotifyPlays.insert({
           id: null,
           album_name: play.track.album.name,
+          album_spotify_id: play.track.album.id,
           artist_1_name: play.track.artists[0].name,
+          artist_1_spotify_id: play.track.artists[0].id,
           artist_2_name: play.track.artists.length > 1 ? play.track.artists[1].name : undefined,
+          artist_2_spotify_id: play.track.artists.length > 1 ? play.track.artists[1].id : undefined,
           artist_3_name: play.track.artists.length > 2 ? play.track.artists[2].name : undefined,
+          artist_3_spotify_id: play.track.artists.length > 2 ? play.track.artists[2].id : undefined,
           played_at: play.played_at,
           played_by: user.id,
           spotify_track_id: play.track.id,
