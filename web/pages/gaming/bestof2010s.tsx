@@ -12,6 +12,7 @@ const BestOf2010sPage = () => {
         header="./best_of_2010s"
         nav={[
           { label: "home", href: "/" }, 
+          { label: "mike" },
           { label: "gaming", href: "/gaming" }, 
           { label: "bestof2010s" }, 
         ]}

@@ -6,7 +6,8 @@ import { CryptoWallet } from "../../components/crypto/CryptoWallet";
 const CryptoETH = () => {
   return (
     <BasePage header="ethereum-cli --getaddress" nav={[
-      { label: "home", href: "/" }, 
+      { label: "home", href: "/" },
+      { label: "mike" },
       { label: "crypto" }, 
       { label: "eth" }, 
     ]}>

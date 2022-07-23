@@ -40,7 +40,10 @@ const IndexPage = () => {
     ]),
   ];
   return (
-    <BasePage header="cat ./mike_hockerman.json" nav={[{label:"home"}]}>
+    <BasePage header="cat ./mike_hockerman.json" nav={[
+      { label: "home" },
+      { label: "mike" },
+    ]}>
       <BodyJSON data={data} />
     </BasePage>
   );

@@ -9,7 +9,7 @@ import colors from "../../styles/colors";
 const MusicPage = () => {
   return (
     <>
-      <BasePage header="ffplay ./mp3s/" nav={[{label:"home", href:"/"},{label:"music"}]}>
+      <BasePage header="ffplay ./mp3s/" nav={[{ label:"home", href:"/" }, { label: "mike" }, { label:"music" }]}>
         <div className="now-playing-banner-container">
           <SpotifyNowPlayingBanner />
         </div>

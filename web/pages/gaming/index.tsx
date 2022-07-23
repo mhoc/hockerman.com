@@ -9,7 +9,7 @@ const GamingPage = () => {
   return (
     <BasePage
       header="./gaming"
-      nav={[{ label: "home", href: "/" }, { label: "gaming" } ]}
+      nav={[{ label: "home", href: "/" }, { label: "mike" }, { label: "gaming" } ]}
       onClickTab={onSelectedTabChange}
       selectedTab={selectedTab}
       tabs={["profiles"]}

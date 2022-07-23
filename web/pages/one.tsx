@@ -21,7 +21,7 @@ const Item = ({ title, link, category, description }) => {
 const One = () => {
   return (
     <BasePage
-      nav={[{ label: "home", href: "/"}, { label: "one" }]}
+      nav={[{ label: "home", href: "/"}, { label: "mike" }, { label: "one" }]}
       header="echo '${COMPANY} One'"
     >
       <div className="subheader">

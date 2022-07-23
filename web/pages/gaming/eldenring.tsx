@@ -35,7 +35,8 @@ const EldenRing = () => {
       <BasePage
         header="elden ring"
         nav={[
-          { label: "home", href: "/" }, 
+          { label: "home", href: "/" },
+          { label: "mike" },
           { label: "gaming", href: "/gaming" },
         ]}
       >
