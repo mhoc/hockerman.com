@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
-type SpotifyRecentlyPlayedHookResult = SpotifyRecentlyPlayedHookResultLoading
+export type SpotifyRecentlyPlayedHookResult = SpotifyRecentlyPlayedHookResultLoading
   | SpotifyRecentlyPlayedHookResultError
   | SpotifyRecentlyPlayedHookResultWithResults;
 
-interface SpotifyRecentlyPlayedHookResultLoading {
+export interface SpotifyRecentlyPlayedHookResultLoading {
   state: "loading";
 }
 
-interface SpotifyRecentlyPlayedHookResultError {
+export interface SpotifyRecentlyPlayedHookResultError {
   state: "error";
   error: string;
 }
 
-interface SpotifyRecentlyPlayedHookResultWithResults {
+export interface SpotifyRecentlyPlayedHookResultWithResults {
   state: "results";
   recentlyPlayed: {
     /** track name */
@@ -24,6 +24,7 @@ interface SpotifyRecentlyPlayedHookResultWithResults {
     artist: string;
     /** url to link to artist on open.spotify.com */
     artistHref: string;
+    albumImage: string;
     /** name of album */
     album: string;
     /** url to link to album on open.spotify.com */
@@ -48,6 +49,7 @@ export const useSpotifyRecentlyPlayed = (): SpotifyRecentlyPlayedHookResult => {
             trackHref: `https://open.spotify.com/track/${p.track.id}`,
             artist: p.track.artists[0].name,
             artistHref: `https://open.spotify.com/artist/${p.track.artists[0].id}`,
+            albumImage: p.track.album.images[0].url,
             album: p.track.album.name,
             albumHref: `https://open.spotify.com/album/${p.track.album.id}`,
             playedAt: new Date(p.played_at),

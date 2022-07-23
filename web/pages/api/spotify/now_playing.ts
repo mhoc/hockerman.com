@@ -11,7 +11,6 @@ export default async function handler(req, res) {
   const user = await spotifyUsers.getById(MIKES_USER_ID_NOT_SECRET_NO_HACKERINO);
   const spotifyClient = await spotifyApp.clientFromRefreshToken(user.refresh_token);
   const { currentlyPlaying } = await spotifyClient.currentlyPlaying();
-  console.log(currentlyPlaying);
   setImmediate(async () => {
     if (currentlyPlaying && currentlyPlaying.currently_playing_type === "track") {
       await spotifyPlays.insert({

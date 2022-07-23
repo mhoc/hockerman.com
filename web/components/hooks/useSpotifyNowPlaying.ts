@@ -1,25 +1,25 @@
 import intervalToDuration from "date-fns/intervalToDuration";
 import { useEffect, useState } from "react";
 
-type SpotifyNowPlayingHookResult = SpotifyNowPlayingHookResultLoading
+export type SpotifyNowPlayingHookResult = SpotifyNowPlayingHookResultLoading
   | SpotifyNowPlayingHookResultNothing
   | SpotifyNowPlayingHookResultError
   | SpotifyNowPlayingHookResultWithTrack;
 
-interface SpotifyNowPlayingHookResultLoading {
+export interface SpotifyNowPlayingHookResultLoading {
   state: "loading";
 }
 
-interface SpotifyNowPlayingHookResultNothing {
+export interface SpotifyNowPlayingHookResultNothing {
   state: "nothing";
 }
 
-interface SpotifyNowPlayingHookResultError {
+export interface SpotifyNowPlayingHookResultError {
   state: "error";
   error: string;
 }
 
-interface SpotifyNowPlayingHookResultWithTrack {
+export interface SpotifyNowPlayingHookResultWithTrack {
   state: "playing" | "paused";
   /** track name */
   track: string;
@@ -33,6 +33,7 @@ interface SpotifyNowPlayingHookResultWithTrack {
   album: string;
   /** url to link to album on open.spotify.com */
   albumHref: string;
+  albumImage: string;
   /** progress through song, in milliseconds */
   progressCurrentMs: number;
   /** progress through song, string formatted in MM:SS */
@@ -61,6 +62,7 @@ export const useSpotifyNowPlaying = (): SpotifyNowPlayingHookResult => {
           artist: currentlyPlaying.item.artists[0].name,
           artistHref: `https://open.spotify.com/artist/${currentlyPlaying.item.artists[0].id}`,
           album: currentlyPlaying.item.album.name,
+          albumImage: currentlyPlaying.item.album.images[0].url,
           albumHref: `https://open.spotify.com/album/${currentlyPlaying.item.album.id}`,
           progressCurrentMs: currentlyPlaying.progress_ms,
           progressCurrentFmt: `${currentProgressDuration.minutes}:${String(currentProgressDuration.seconds).padStart(2, "0")}`,

@@ -1,11 +1,14 @@
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import times from "lodash/times";
 
-import { useSpotifyRecentlyPlayed } from "../hooks/useSpotifyRecentlyPlayed";
+import { SpotifyRecentlyPlayedHookResult } from "../hooks/useSpotifyRecentlyPlayed";
 import { TextDeemph, TextLink, TextLoading } from "../text";
 
-export const SpotifyRecentlyPlayedList = () => {
-  const srp = useSpotifyRecentlyPlayed();
+interface Props {
+  srp: SpotifyRecentlyPlayedHookResult;
+}
+
+export const SpotifyRecentlyPlayedList = ({ srp }: Props) => {
   return (
     <>
       <div className="container">

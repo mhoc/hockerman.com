@@ -1,20 +1,27 @@
 import React from "react";
 
 import BasePage from "../../components/BasePage";
+import { useSpotifyNowPlaying } from "../../components/hooks/useSpotifyNowPlaying";
+import { useSpotifyRecentlyPlayed } from "../../components/hooks/useSpotifyRecentlyPlayed";
+import { SpotifyAlbumCollage } from "../../components/spotify/SpotifyAlbumCollage";
 import { SpotifyBroadStats } from "../../components/spotify/SpotifyBroadStats";
 import { SpotifyNowPlayingBanner } from "../../components/spotify/SpotifyNowPlayingBanner";
 import { SpotifyRecentlyPlayedList } from "../../components/spotify/SpotifyRecentlyPlayedList";
+
 import colors from "../../styles/colors";
 
 const MusicPage = () => {
+  const snp = useSpotifyNowPlaying();
+  const srp = useSpotifyRecentlyPlayed();
   return (
     <>
       <BasePage header="ffplay ./mp3s/" nav={[{ label:"home", href:"/" }, { label: "mike" }, { label:"music" }]}>
+        <SpotifyAlbumCollage snp={snp} srp={srp} />
         <div className="now-playing-banner-container">
-          <SpotifyNowPlayingBanner />
+          <SpotifyNowPlayingBanner snp={snp} />
         </div>
         <div className="recently-played-container">
-          <SpotifyRecentlyPlayedList />
+          <SpotifyRecentlyPlayedList srp={srp} />
         </div>
         <div className="rule" />
         <div className="stats-container">

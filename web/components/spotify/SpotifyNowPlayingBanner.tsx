@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
-import { useSpotifyNowPlaying } from "../hooks/useSpotifyNowPlaying";
+import { SpotifyNowPlayingHookResult } from "../hooks/useSpotifyNowPlaying";
 import { TextDeemph, TextLink, TextLoading, TextSubheader } from "../text";
 
-export const SpotifyNowPlayingBanner = () => {
-  const snp = useSpotifyNowPlaying();
+interface Props {
+  snp: SpotifyNowPlayingHookResult;
+}
+
+export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
   return (
     <>
       <div className="container">
