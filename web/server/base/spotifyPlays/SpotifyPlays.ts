@@ -63,9 +63,12 @@ export class SpotifyPlays {
   }
 
   public async statTotalPlaysSince(userId: string, since: Date): Promise<number> {
-    return (await this.supabase.from("spotify_plays").select("id", { count: "exact" })
+    return (await this.supabase
+      .from("spotify_plays")
+      .select("id", { count: "exact" })
       .eq("played_by", userId)
-      .gte("played_at", since.toISOString())).count;
+      .gte("played_at", since.toISOString())
+    ).count;
   }
 
 }

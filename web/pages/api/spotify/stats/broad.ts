@@ -12,6 +12,7 @@ export default async function handler(req, res) {
   ]);
   res.status(200).json({ 
     playsInLast24Hours: results[0],
-    topArtistsInLastWeek: results[1],
+    // topArtistsInLastWeek: results[1],
+    topArtistsInLastWeek: [],
   });
 }
