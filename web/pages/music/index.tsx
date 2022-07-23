@@ -15,7 +15,7 @@ const MusicPage = () => {
   const srp = useSpotifyRecentlyPlayed();
   return (
     <>
-      <BasePage header="ffplay ./mp3s/" nav={[{ label:"home", href:"/" }, { label: "mike" }, { label:"music" }]}>
+      <BasePage header="nvlc ./mp3s/" nav={[{ label:"home", href:"/" }, { label: "mike" }, { label:"music" }]}>
         <SpotifyAlbumCollage snp={snp} srp={srp} />
         <div className="now-playing-banner-container">
           <SpotifyNowPlayingBanner snp={snp} />
