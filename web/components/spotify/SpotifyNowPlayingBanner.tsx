@@ -36,12 +36,12 @@ export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
           )}&nbsp;
         </div>
         <div className="album">
-          {(snp.state === "playing" || snp.state === "paused") && (
+          {(snp.state === "playing" || snp.state === "paused") && snp.album !== snp.track && (
             <span>
               <TextDeemph>on</TextDeemph>&nbsp;
-              <TextLink href={snp.albumHref} target="_blank" rel="noopener">{truncate(snp.album, { length: 30})}</TextLink>
+              <TextLink href={snp.albumHref} target="_blank" rel="noopener">{truncate(snp.album, { length: 30})}</TextLink>&nbsp;
             </span>
-          )}&nbsp;
+          )}
         </div>
         <div className="playcounter">
           {(snp.state === "playing" || snp.state === "paused") && (
