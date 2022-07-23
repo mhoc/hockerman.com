@@ -1,4 +1,4 @@
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import intlFormatDistance from "date-fns/intlFormatDistance";
 import times from "lodash/times";
 
 import { SpotifyRecentlyPlayedHookResult } from "../hooks/useSpotifyRecentlyPlayed";
@@ -27,7 +27,10 @@ export const SpotifyRecentlyPlayedList = ({ srp }: Props) => {
           srp.recentlyPlayed.slice(0, 4).map(rp => (
             <div key={`spotify-recently-played-item-${rp.track}`}>
               <TextDeemph>
-                [{formatDistanceToNow(rp.playedAt, { addSuffix: true })}] {rp.track} - {rp.artist}
+                <span className="recently-played-when">
+                  [{intlFormatDistance(rp.playedAt, new Date(), { style: "long" })}]&nbsp;
+                </span>
+                 {rp.track} - {rp.artist}
               </TextDeemph>
               &nbsp;
               <TextLink hideUnderline href={rp.albumHref} target="_blank">
@@ -44,6 +47,11 @@ export const SpotifyRecentlyPlayedList = ({ srp }: Props) => {
           display: flex;
           flex-direction: column;
           min-height: 85px;
+        }
+        @media only screen and (max-width: 600px) {
+          .recently-played-when {
+            display: none;
+          }
         }
       `}</style>
     </>

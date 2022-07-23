@@ -33,7 +33,7 @@ const MusicPage = () => {
           align-items: center;
           display: flex;
           min-height: 35px;
-          padding-bottom: 4px;
+          padding-bottom: 12px;
         }
         .recently-played-container {
         
