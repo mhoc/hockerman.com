@@ -29,12 +29,10 @@ export const useSpotifyPlayCount = (sinceHours: number): SpotifyPlayCountState =
     fetch(`/api/spotify/stats/playCount?sinceHours=${sinceHours}`)
       .then(r => r.json())
       .then((result) => {
-        setTimeout(() => {
-          setState({
-            state: "results",
-            playCount: result.playCount,
-          });
-        }, 750);
+        setState({
+          state: "results",
+          playCount: result.playCount,
+        });
       });
   }, [ sinceHours ]);
   return state;

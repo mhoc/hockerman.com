@@ -18,11 +18,11 @@ interface SpotifyTopArtistsStateResult {
   topArtists: string[];
 }
 
-export const useSpotifyTopArtists = (): SpotifyTopArtistsState => {
+export const useSpotifyTopArtists = (sinceHours: number): SpotifyTopArtistsState => {
   const [ state, setState ] = useState<SpotifyTopArtistsState>({ state: "loading" });
   useEffect(() => {
     setState({ state: "loading" });
-    fetch("/api/spotify/stats/topArtists")
+    fetch(`/api/spotify/stats/topArtists?count=3&sinceHours=${sinceHours}`)
       .then(r => r.json())
       .then((stats) => {
         setState({
@@ -30,6 +30,6 @@ export const useSpotifyTopArtists = (): SpotifyTopArtistsState => {
           topArtists: stats.topArtists,
         });
       });
-  }, []);
+  }, [ sinceHours ]);
   return state;
 }

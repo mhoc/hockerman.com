@@ -4,17 +4,41 @@ import { useSpotifyPlayCount } from "../hooks/useSpotifyPlayCount";
 import { TextDeemph, TextLink, TextLoading, TextStd } from "../text";
 
 export const SpotifyBroadStats = () => {
-  const [ sinceHours, setSinceHours ] = useState(24);
-  const spc = useSpotifyPlayCount(sinceHours);
-  const sta = useSpotifyTopArtists();
+  const [ playCountSinceHours, setPlayCountSinceHours ] = useState(24);
+  const [ topArtistsSincePeriod, setTopArtistsSincePeriod ] = useState("Past Week");
 
-  const clickHours = () => {
-    setSinceHours((current: number): number => {
+  const topArtistsSinceHours = ((): number => {
+    switch (topArtistsSincePeriod) {
+      case "Past Day": return 24;
+      case "Past Week": return 24 * 7;
+      case "Past Month": return 24 * 30;
+      case "Past Year": return 24 * 365;
+      case "All Time": return 24 * 365 * 30;
+    }
+  })();
+
+  const spc = useSpotifyPlayCount(playCountSinceHours);
+  const sta = useSpotifyTopArtists(topArtistsSinceHours);
+
+  const clickPlayCountHours = () => {
+    setPlayCountSinceHours((current: number): number => {
       switch (current) {
         case 12: return 24;
         case 24: return 48;
         case 48: return 96;
         case 96: return 12;
+      }
+    });
+  }
+
+  const clickTopArtistsSincePeriod = () => {
+    setTopArtistsSincePeriod((current: string) => {
+      switch (current) {
+        case "Past Day": return "Past Week";
+        case "Past Week": return "Past Month";
+        case "Past Month": return "Past Year";
+        case "Past Year": return "All Time";
+        case "All Time": return "Past Day";
       }
     });
   }
@@ -28,14 +52,14 @@ export const SpotifyBroadStats = () => {
       <div>
         <span>
           <TextDeemph>
-            Plays (Past <TextLink color="deemph" onClick={clickHours}>{sinceHours}</TextLink> Hours):
+            Plays (Past <TextLink color="deemph" onClick={clickPlayCountHours}>{playCountSinceHours}</TextLink> Hours):
           </TextDeemph>&nbsp;
           {spc.state === "loading" && <TextLoading />}
           {spc.state === "results" && <TextStd glow>{spc.playCount}</TextStd>}
         </span>
         <br />
         <span>
-          <TextDeemph>Top Artists (Past Week):</TextDeemph>&nbsp;
+          <TextDeemph>Top Artists (<TextLink color="deemph" onClick={clickTopArtistsSincePeriod}>{topArtistsSincePeriod}</TextLink>):</TextDeemph>&nbsp;
           {sta.state === "loading" && <TextLoading />}
           {sta.state === "results" && sta.topArtists.length === 0 && (
             <TextDeemph>None :(</TextDeemph>
