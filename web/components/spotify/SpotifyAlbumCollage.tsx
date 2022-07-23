@@ -26,7 +26,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
             )}
             {srp.state === "results" && (
               srp.recentlyPlayed.map((rp, i) => (
-                <img className="bgimage recent-1" src={rp.albumImage} style={{ 
+                <img className="bgimage recent-1" key={`${i}${rp.albumImage}`} src={rp.albumImage} style={{ 
                   "animationDelay": `${0.05*(i+1)}s`,
                 }} />
               ))

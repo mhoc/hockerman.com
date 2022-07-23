@@ -28,7 +28,7 @@ export const VerticalBarGraph = ({ data, maxBarLength }: Props) => {
     <>
       <div className="container">
         {data.map(({ label, value }) => (
-          <span>
+          <span key={label}>
             {/* DO NOT CHANGE THE PADDING CHARACTER HERE */}
             {/* I have no idea what it is. */}
             {/* Normal spaces won't work here, because they come out variable length w.r.t the monospace font in TextStd */}
