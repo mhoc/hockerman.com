@@ -5,6 +5,12 @@ import { nanoid } from "nanoid";
 
 import { SpotifyPlay } from "./SpotifyPlay";
 
+interface StatTopArtistsSinceInput {
+  count: number;
+  since: Date;
+  userId: string;
+}
+
 export class SpotifyPlays {
   private supabase: SupabaseClient;
 
@@ -32,7 +38,7 @@ export class SpotifyPlays {
     // otherwise, there was one queried, which means this play is already registered. continue onward
   }
 
-  public async statTop3ArtistsSince(userId: string, since: Date): Promise<string[]> {
+  public async statTopArtistsSince({ userId, since, count }: StatTopArtistsSinceInput): Promise<string[]> {
     const plays = (await this.supabase.from<SpotifyPlay>("spotify_plays").select()
       .eq("played_by", userId)
       .gte("played_at", since.toISOString())).data;
@@ -55,11 +61,7 @@ export class SpotifyPlays {
       return p;
     }, {});
     const sorted = entries(byArtist).sort((a, b) => b[1] - a[1]);
-    return [
-      sorted.length > 0 ? sorted[0][0] : undefined,
-      sorted.length > 1 ? sorted[1][0] : undefined,
-      sorted.length > 2 ? sorted[2][0] : undefined,
-    ];
+    return sorted.map((v) => v[0]).slice(0, count);
   }
 
   public async statTotalPlaysSince(userId: string, since: Date): Promise<number> {
