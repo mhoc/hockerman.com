@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { truncate } from "lodash";
 
 import { SpotifyNowPlayingHookResult } from "../hooks/useSpotifyNowPlaying";
 import { TextDeemph, TextLink, TextLoading, TextSubheader } from "../text";
@@ -22,13 +23,13 @@ export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
         {snp.state === "nothing" && <TextDeemph>Now Playing: Nothing :)</TextDeemph>}
         {(snp.state === "playing" || snp.state === "paused") && (
           <>
-            <TextLink href={snp.trackHref} target="_blank" rel="noopener">{snp.track}</TextLink>
+            <TextLink href={snp.trackHref} target="_blank" rel="noopener">{truncate(snp.track, { length: 40})}</TextLink>
             &nbsp;<TextDeemph>by</TextDeemph>&nbsp;
-            <TextLink href={snp.artistHref} target="_blank" rel="noopener">{snp.artist}</TextLink>
+            <TextLink href={snp.artistHref} target="_blank" rel="noopener">{truncate(snp.artist, { length: 20 })}</TextLink>
             {snp.album !== snp.track && (
               <>
                 &nbsp;<TextDeemph>on</TextDeemph>&nbsp;
-                <TextLink href={snp.albumHref} target="_blank" rel="noopener">{snp.album}</TextLink>
+                <TextLink href={snp.albumHref} target="_blank" rel="noopener">{truncate(snp.album, { length: 30})}</TextLink>
               </>
             )}
             &nbsp;

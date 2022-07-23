@@ -14,7 +14,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
           { snp.state === "playing" && <img className="bgimage" src={snp.albumImage} />}
           { snp.state === "playing" && srp.state === "results" && srp.recentlyPlayed.map((rp, i) => (
             <img className="bgimage recent-1" src={rp.albumImage} style={{ 
-              "animationDelay": `${0.05*(i+1)}s`,
+              "animationDelay": `${0.1*(i+1)}s`,
             }} />
           ))}
         </div>
@@ -47,6 +47,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
           filter: blur(2px);
           opacity: 0;
           height: 35vh;
+          user-select: none;
           width: 35vh;
         }
       `}</style>
