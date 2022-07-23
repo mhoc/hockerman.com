@@ -9,9 +9,13 @@ interface DataItem {
 
 interface Props {
   data: DataItem[];
+  maxBarLength?: number;
 }
 
-export const VerticalBarGraph = ({ data }: Props) => {
+export const VerticalBarGraph = ({ data, maxBarLength }: Props) => {
+  if (!maxBarLength) {
+    maxBarLength = 20;
+  }
   const maxLabelLength = data.reduce((prev, cur) => {
     if (cur.label.length > prev) return cur.label.length;
     else return prev;
@@ -30,7 +34,7 @@ export const VerticalBarGraph = ({ data }: Props) => {
             {/* Normal spaces won't work here, because they come out variable length w.r.t the monospace font in TextStd */}
             {/* This thing: doesn't. Whatever it is. One of the many invisible unicode characters. */}
             <TextStd>{padStart(label, maxLabelLength, " ")} [</TextStd>&nbsp;
-            <TextDeemph>{times(Math.ceil((value / maxValue) * 20), () => "#")}{times((20-((value) / maxValue) * 20), () => " ")}</TextDeemph>
+            <TextDeemph>{times(Math.ceil((value / maxValue) * maxBarLength), () => "#")}{times((maxBarLength-((value) / maxValue) * maxBarLength), () => " ")}</TextDeemph>
             &nbsp;
             <TextStd>]</TextStd>&nbsp;
             <TextStd>{value}</TextStd>

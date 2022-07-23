@@ -60,7 +60,7 @@ export const SpotifyBroadStats = () => {
           <VerticalBarGraph data={[
             { label: "Total", value: spc.playCount },
             ...sta.topArtists.map((artist) => ({ label: artist.artistName, value: artist.playCount })),
-          ]} />
+          ]} maxBarLength={10} />
         )}
       </div>
       <style jsx>{`

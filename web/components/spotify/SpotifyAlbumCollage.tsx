@@ -36,7 +36,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
         <style jsx>{`
           @keyframes ease-in {
             from { opacity: 0; }
-            to { opacity: 0.25; }
+            to { opacity: 0.2; }
           }
           .art-drag-blocker {
             height: 100vh;
