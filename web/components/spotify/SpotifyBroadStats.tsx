@@ -1,17 +1,31 @@
+import { useState } from "react";
 import { useSpotifyBroadStats } from "../hooks/useSpotifyBroadStats";
 import { useSpotifyPlayCount } from "../hooks/useSpotifyPlayCount";
-import { TextDeemph, TextLoading, TextStd } from "../text";
-
-const SINCE_HOURS = 24;
+import { TextDeemph, TextLink, TextLoading, TextStd } from "../text";
 
 export const SpotifyBroadStats = () => {
-  const spc = useSpotifyPlayCount({ sinceHours: SINCE_HOURS });
+  const [ sinceHours, setSinceHours ] = useState(24);
+  const spc = useSpotifyPlayCount(sinceHours);
   const sbs = useSpotifyBroadStats();
+
+  const clickHours = () => {
+    setSinceHours((current: number): number => {
+      switch (current) {
+        case 12: return 24;
+        case 24: return 48;
+        case 48: return 96;
+        case 96: return 12;
+      }
+    });
+  }
+
   return (
     <>
       <div>
         <span>
-          <TextDeemph>Plays (Past {SINCE_HOURS} Hours):</TextDeemph>&nbsp;
+          <TextDeemph>
+            Plays (Past <TextLink color="deemph" onClick={clickHours}>{sinceHours}</TextLink> Hours):
+          </TextDeemph>&nbsp;
           {spc.state === "loading" && <TextLoading />}
           {spc.state === "results" && <TextStd glow>{spc.playCount}</TextStd>}
         </span>

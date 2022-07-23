@@ -2,6 +2,7 @@ import colors from "../../styles/colors";
 
 interface Props {
   children: React.ReactNode;
+  color?: "primary" | "deemph";
   hideUnderline?: boolean;
   href?: string;
   onClick?: () => void;
@@ -9,7 +10,8 @@ interface Props {
   target?: "_blank";
 }
 
-export const TextLink = ({ children, hideUnderline, href, onClick, rel, target }: Props) => {
+export const TextLink = ({ children, color, hideUnderline, href, onClick, rel, target }: Props) => {
+  const linkColor = (!color || color === "primary") ? colors.secondary : colors.deemphasize;
   return (
     <>
       <a 
@@ -23,7 +25,7 @@ export const TextLink = ({ children, hideUnderline, href, onClick, rel, target }
       </a>
       <style jsx>{`
         .link {
-          color: ${colors.secondary};
+          color: ${linkColor};
           line-height: 1.4;
         }
         .link-loading {

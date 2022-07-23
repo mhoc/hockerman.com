@@ -22,10 +22,10 @@ interface SpotifyPlayCountStateResults {
   playCount: number;
 }
 
-export const useSpotifyPlayCount = (input: UseSpotifyPlayCountInput): SpotifyPlayCountState => {
-  const { sinceHours } = input;
+export const useSpotifyPlayCount = (sinceHours: number): SpotifyPlayCountState => {
   const [ state, setState ] = useState<SpotifyPlayCountState>({ state: "loading" });
   useEffect(() => {
+    setState({ state: "loading" });
     fetch(`/api/spotify/stats/playCount?sinceHours=${sinceHours}`)
       .then(r => r.json())
       .then((result) => {
@@ -34,8 +34,8 @@ export const useSpotifyPlayCount = (input: UseSpotifyPlayCountInput): SpotifyPla
             state: "results",
             playCount: result.playCount,
           });
-        }, 1000);
+        }, 750);
       });
-  }, []);
+  }, [ sinceHours ]);
   return state;
 }
