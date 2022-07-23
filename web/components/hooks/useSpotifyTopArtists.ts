@@ -15,14 +15,14 @@ interface SpotifyTopArtistsStateError {
 
 interface SpotifyTopArtistsStateResult {
   state: "results";
-  topArtists: string[];
+  topArtists: { artistName: string, playCount: number }[];
 }
 
 export const useSpotifyTopArtists = (sinceHours: number): SpotifyTopArtistsState => {
   const [ state, setState ] = useState<SpotifyTopArtistsState>({ state: "loading" });
   useEffect(() => {
     setState({ state: "loading" });
-    fetch(`/api/spotify/stats/topArtists?count=3&sinceHours=${sinceHours}`)
+    fetch(`/api/spotify/stats/topArtists?count=5&sinceHours=${sinceHours}`)
       .then(r => r.json())
       .then((stats) => {
         setState({

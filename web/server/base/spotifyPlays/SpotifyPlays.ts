@@ -38,7 +38,7 @@ export class SpotifyPlays {
     // otherwise, there was one queried, which means this play is already registered. continue onward
   }
 
-  public async statTopArtistsSince({ userId, since, count }: StatTopArtistsSinceInput): Promise<string[]> {
+  public async statTopArtistsSince({ userId, since, count }: StatTopArtistsSinceInput): Promise<any[]> {
     const plays = (await this.supabase.from<SpotifyPlay>("spotify_plays").select()
       .eq("played_by", userId)
       .gte("played_at", since.toISOString())).data;
@@ -61,7 +61,7 @@ export class SpotifyPlays {
       return p;
     }, {});
     const sorted = entries(byArtist).sort((a, b) => b[1] - a[1]);
-    return sorted.map((v) => v[0]).slice(0, count);
+    return sorted.map((v) => ({ artistName: v[0], playCount: v[1] })).slice(0, count);
   }
 
   public async statTotalPlaysSince(userId: string, since: Date): Promise<number> {

@@ -2,90 +2,73 @@ import { useState } from "react";
 import { useSpotifyTopArtists } from "../hooks/useSpotifyTopArtists";
 import { useSpotifyPlayCount } from "../hooks/useSpotifyPlayCount";
 import { TextDeemph, TextLink, TextLoading, TextStd } from "../text";
+import { VerticalBarGraph } from "../graphs/VerticalBarGraph";
+
+const periodToHours = (period: string): number => {
+  switch (period) {
+    case "Past Day": return 24;
+    case "Past Week": return 24 * 7;
+    case "Past Month": return 24 * 30;
+    case "Past Year": return 24 * 365;
+    case "All Time": return 24 * 365 * 30;
+  }
+}
 
 export const SpotifyBroadStats = () => {
-  const [ playCountInPeriod, setPlayCountInPeriod ] = useState("Past Day");
-  const [ topArtistsInPeriod, setTopArtistsInPeriod ] = useState("Past Day");
+  const [ statsSubject, setStatsSubject ] = useState<"song"|"artist">("artist");
+  const [ period, setPeriod ] = useState("Past Day");
 
-  const periodToHours = (period: string): number => {
-    switch (period) {
-      case "Past Day": return 24;
-      case "Past Week": return 24 * 7;
-      case "Past Month": return 24 * 30;
-      case "Past Year": return 24 * 365;
-      case "All Time": return 24 * 365 * 30;
-    }
+  const spc = useSpotifyPlayCount(periodToHours(period));
+  const sta = useSpotifyTopArtists(periodToHours(period));
+
+  const onClickSubject = (newSubject: "song" | "artist") => {
+    return () => setStatsSubject(newSubject);
+  }
+  const onClickPeriod = (newPeriod: string) => {
+    return () => setPeriod(newPeriod);
   }
 
-  const spc = useSpotifyPlayCount(periodToHours(playCountInPeriod));
-  const sta = useSpotifyTopArtists(periodToHours(topArtistsInPeriod));
+  const anyDataLoading = spc.state !== "results" || sta.state !== "results";
 
-  const clickPlayCountPeriod = () => {
-    setPlayCountInPeriod((current: string): string => {
-      switch (current) {
-        case "Past Day": return "Past Week";
-        case "Past Week": return "Past Month";
-        case "Past Month": return "Past Year";
-        case "Past Year": return "All Time";
-        case "All Time": return "Past Day";
-      }
-    });
-  }
-
-  const clickTopArtistsPeriod = () => {
-    setTopArtistsInPeriod((current: string) => {
-      switch (current) {
-        case "Past Day": return "Past Week";
-        case "Past Week": return "Past Month";
-        case "Past Month": return "Past Year";
-        case "Past Year": return "All Time";
-        case "All Time": return "Past Day";
-      }
-    });
-  }
-
-  // the conditional rendering based on the length of the top artists array isn't something im
-  // super proud of. but, my thinking is, because the different text elements within the string
-  // have different treatments applied to them, its difficult to use some kind of generic
-  // "turn this array of strings into an english sentence" helper function.
   return (
     <>
-      <div>
+      <div className="container">
         <span>
-          <TextDeemph>
-            Plays (<TextLink color="deemph" onClick={clickPlayCountPeriod}>{playCountInPeriod}</TextLink>):
-          </TextDeemph>&nbsp;
-          {spc.state === "loading" && <TextLoading />}
-          {spc.state === "results" && <TextStd glow>{spc.playCount}</TextStd>}
+          <TextDeemph>Plays By [</TextDeemph>&nbsp;
+          { statsSubject === "song" && <TextLink onClick={onClickSubject("artist")}>Artist</TextLink>}
+          { statsSubject === "artist" && <TextStd glow>Artist</TextStd>}&nbsp;
+          {/* { statsSubject === "song" && <TextStd glow>Song</TextStd>}
+          { statsSubject === "artist" && <TextLink onClick={onClickSubject("song")}>Song</TextLink>}&nbsp; */}
+          <TextDeemph>]</TextDeemph>
         </span>
-        <br />
         <span>
-          <TextDeemph>Top Artists (<TextLink color="deemph" onClick={clickTopArtistsPeriod}>{topArtistsInPeriod}</TextLink>):</TextDeemph>&nbsp;
-          {sta.state === "loading" && <TextLoading />}
-          {sta.state === "results" && sta.topArtists.length === 0 && (
-            <TextDeemph>None :(</TextDeemph>
-          )}
-          {sta.state === "results" && sta.topArtists.length === 1 && (
-            <TextStd glow>{sta.topArtists[0]}</TextStd>
-          )}
-          {sta.state === "results" && sta.topArtists.length === 2 && (
-            <span>
-              <TextStd glow>{sta.topArtists[0]}</TextStd>
-              <TextDeemph> and </TextDeemph>
-              <TextStd glow>{sta.topArtists[1]}</TextStd>
-            </span>
-          )}
-          {sta.state === "results" && sta.topArtists.length >= 3 && (
-            <span>
-              <TextStd glow>{sta.topArtists[0]}</TextStd>
-              <TextDeemph>, </TextDeemph>
-              <TextStd glow>{sta.topArtists[1]}</TextStd>
-              <TextDeemph>, and </TextDeemph>
-              <TextStd glow>{sta.topArtists[2]}</TextStd>
-            </span>
-          )}
+          <TextDeemph>In the Past [</TextDeemph>&nbsp;
+          { period === "Past Day" && <TextStd glow>Day</TextStd>}
+          { period !== "Past Day" && <TextLink onClick={onClickPeriod("Past Day")}>Day</TextLink>}&nbsp;
+          { period === "Past Week" && <TextStd glow>Week</TextStd>}
+          { period !== "Past Week" && <TextLink onClick={onClickPeriod("Past Week")}>Week</TextLink>}&nbsp;
+          { period === "Past Month" && <TextStd glow>Month</TextStd>}
+          { period !== "Past Month" && <TextLink onClick={onClickPeriod("Past Month")}>Month</TextLink>}&nbsp;
+          { period === "Past Year" && <TextStd glow>Year</TextStd>}
+          { period !== "Past Year" && <TextLink onClick={onClickPeriod("Past Year")}>Year</TextLink>}&nbsp;
+          { period === "All Time" && <TextStd glow>Eternity</TextStd>}
+          { period !== "All Time" && <TextLink onClick={onClickPeriod("All Time")}>Eternity</TextLink>}&nbsp;
+          <TextDeemph>]</TextDeemph>
         </span>
+        {anyDataLoading && <TextLoading />}
+        {spc.state === "results" && sta.state === "results" && (
+          <VerticalBarGraph data={[
+            { label: "Total", value: spc.playCount },
+            ...sta.topArtists.map((artist) => ({ label: artist.artistName, value: artist.playCount })),
+          ]} />
+        )}
       </div>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+        }
+      `}</style>
     </>
   )
 }
