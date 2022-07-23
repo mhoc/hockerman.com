@@ -46,8 +46,8 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
           background-size: cover;
           filter: blur(2px);
           opacity: 0;
-          height: 320px;
-          width: 320px;
+          height: 35vh;
+          width: 35vh;
         }
       `}</style>
     </>
