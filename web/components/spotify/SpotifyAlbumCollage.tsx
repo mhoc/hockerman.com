@@ -22,7 +22,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
       <style jsx>{`
         @keyframes ease-in {
           from { opacity: 0; }
-          to { opacity: 0.15; }
+          to { opacity: 0.1; }
         }
         .viewport-container {
           height: 100vh;
@@ -44,7 +44,7 @@ export const SpotifyAlbumCollage = ({ snp, srp }: Props) => {
           animation-fill-mode: forwards;
           animation-name: ease-in;
           background-size: cover;
-          filter: blur(2px);
+          filter: blur(4px);
           opacity: 0;
           height: 35vh;
           user-select: none;

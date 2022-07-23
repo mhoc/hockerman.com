@@ -25,6 +25,6 @@ func main() {
 			log.Fatalf("error issuing http request: %v", err.Error())
 		}
 		log.Printf("probably went ok??")
-		time.Sleep(20 * time.Minute)
+		time.Sleep(15 * time.Minute)
 	}
 }
