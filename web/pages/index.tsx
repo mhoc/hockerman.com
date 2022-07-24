@@ -24,7 +24,10 @@ const IndexPage = () => {
 
   const data = [
     new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
-    new KeyValueJSONEntity("twitter", "@mikehockerman", { href: "https://twitter.com/mikehockerman" }),
+    new SingleLineArrayJSONEntity("twitter", [
+      { "value": "@mikehockerman", href: "https://twitter.com/mikehockerman" },
+      { "value": "search", href: "/twitter" },
+    ]),
     new KeyValueJSONEntity("github", "mhoc", { href: "https://github.com/mhoc" }),
     new KeyValueJSONEntity("resume", ".pdf", { href: "/resume-mike-hockerman.pdf" }),
     new LineBreakJSONEntity(),
