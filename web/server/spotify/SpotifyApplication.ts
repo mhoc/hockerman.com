@@ -61,7 +61,7 @@ export class SpotifyApplication {
   }
 
   public stateToken(): string {
-    return crypto.createHash("sha256").update(process.env.SPOTIFY_CLIENT_SECRET).digest("hex");
+    return "statelol";
   }
 
 }
