@@ -4,10 +4,21 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 )
 
 func main() {
+	log.Printf("setting up signal handlers")
+	sigs := make(chan os.Signal, 1)
+	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+	go func() {
+		sig := <-sigs
+		log.Printf("received signal: %v", sig)
+		os.Exit(0)
+	}()
+
 	log.Printf("running...")
 	superSecretToken := os.Getenv("SUPER_SECRET")
 	if superSecretToken == "" {
