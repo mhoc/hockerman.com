@@ -1,5 +1,11 @@
 package main
 
+import (
+	"log"
+	"net/http"
+	"os"
+)
+
 func main() {
 	log.Printf("running...")
 	superSecretToken := os.Getenv("SUPER_SECRET")
@@ -7,7 +13,7 @@ func main() {
 		log.Fatalf("We need the SUPER_SECRET token :(")
 	}
 	log.Printf("refreshing tweets...")
-	req, err = http.NewRequest("GET", "https://hockerman.com/api/twitter/indexTweets", nil)
+	req, err := http.NewRequest("GET", "https://hockerman.com/api/twitter/indexTweets", nil)
 	if err != nil {
 		log.Fatalf("error constructing request: %v", err.Error())
 	}

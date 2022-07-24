@@ -19,3 +19,25 @@ services:
       - fromGroup: hockerman-com-super-secret
       - fromGroup: supabase-hockerman-com
       - fromGroup: spotify-auth-hockerman-com
+  - name: hockerman-com-update-spotify-plays
+    type: cron
+    schedule: "*/15 * * * *"
+    env: docker
+    dockerfilePath: update-spotify-plays/Dockerfile
+    dockerContext: update-spotify-plays
+    region: ohio
+    plan: starter
+    branch: master
+    envVars:
+      - fromGroup: hockerman-com-super-secret
+  - name: hockerman-com-update-tweets
+    type: cron
+    schedule: "*/15 * * * *"
+    env: docker
+    dockerfilePath: update-tweets/Dockerfile
+    dockerContext: update-tweets
+    region: ohio
+    plan: starter
+    branch: master
+    envVars:
+      - fromGroup: hockerman-com-super-secret
