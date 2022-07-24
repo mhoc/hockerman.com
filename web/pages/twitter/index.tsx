@@ -18,7 +18,6 @@ const Twitter = () => {
   }
 
   const results = useTwitterSearch(searchTerm, submit);
-  console.log(results);
   
   return (
     <>
@@ -27,6 +26,9 @@ const Twitter = () => {
           <TextDeemph>
             Ever tried to use <TextLink href="https://twitter.com/search-advanced?lang=en">Twitter's advanced search</TextLink>?
             It is quite bad. Pretty incredible that just a full text search index in Postgres is better. Type and hit enter.
+          </TextDeemph>
+          <TextDeemph>
+            This is, uh, just my tweets though. Sorry. Fork it :)
           </TextDeemph>
           <input 
             className="search-input" 
@@ -68,7 +70,8 @@ const Twitter = () => {
         }
         .results {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          flex-wrap: wrap;
           max-width: 600px;
         }
         .result {
