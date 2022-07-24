@@ -1,4 +1,3 @@
-import { debounce } from "lodash";
 import { useEffect, useState } from "react";
 
 export type UseTwitterSearchState = UseTwitterSearchStateLoading
@@ -23,7 +22,7 @@ export const useTwitterSearch = (searchTerm: string, submit: number): UseTwitter
   const [ state, setState ] = useState<UseTwitterSearchState>({ state: "loading" });
   useEffect(() => {
     setState({ state: "loading" });
-    fetch(`/api/twitter/search?searchTerm=${searchTerm}`)
+    fetch(`/api/twitter/search?searchTerm=${encodeURIComponent(searchTerm)}`)
       .then(r => r.json())
       .then((result) => {
         setState({
