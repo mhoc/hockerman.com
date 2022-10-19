@@ -39,7 +39,7 @@ export class SpotifyPlays {
   }
 
   public async statTopArtistsSince({ userId, since, count }: StatTopArtistsSinceInput): Promise<any[]> {
-    const plays = (await this.supabase.from<SpotifyPlay>("spotify_plays").select()
+    const plays = (await this.supabase.from("spotify_plays").select()
       .eq("played_by", userId)
       .gte("played_at", since.toISOString())).data;
     const byArtist: {[name: string]: number} = plays.reduce((p, c) => {
