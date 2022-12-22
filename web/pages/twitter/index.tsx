@@ -25,10 +25,13 @@ const Twitter = () => {
         <div className="container">
           <TextDeemph>
             Ever tried to use <TextLink href="https://twitter.com/search-advanced?lang=en">Twitter's advanced search</TextLink>?
-            It is quite bad. Pretty incredible that just a full text search index in Postgres is better. Type and hit enter.
+            Its pretty unusable.
           </TextDeemph>
           <TextDeemph>
-            This is, uh, just my tweets though. Sorry. Fork it :)
+            So, I've loaded my Tweets into postgres and use a full-text search index; which works far better.
+          </TextDeemph>
+          <TextDeemph>
+            Just my tweets though. Sorry. Fork it :)
           </TextDeemph>
           <input 
             className="search-input" 
