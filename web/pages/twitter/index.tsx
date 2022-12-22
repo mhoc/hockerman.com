@@ -4,7 +4,6 @@ import BasePage from "../../components/BasePage";
 import { TextDeemph, TextLink, TextLoading, TextStd } from "../../components/text";
 import { useTwitterSearch } from "../../components/hooks/useTwitterSearch";
 import colors from "../../styles/colors";
-import fonts from "../../styles/fonts";
 
 const Twitter = () => {
   const [ searchTerm, setSearchTerm ] = useState("");
