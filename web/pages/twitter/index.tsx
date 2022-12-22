@@ -66,7 +66,6 @@ const Twitter = () => {
           border: none;
           border-bottom: 1px solid ${colors.secondary};
           color: ${colors.primary};
-          font-family: ${fonts.primary};
           margin: 16px 0px;
           max-width: 50%;
           padding: 8px;

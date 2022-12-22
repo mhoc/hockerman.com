@@ -1,6 +1,7 @@
-const fonts = {
-  primary: "JetBrainsMono, monospace",
-  serif: "IBM Plex Serif, serif",
-}
+import localFont from '@next/font/local';
 
-export default fonts;
+const jetBrainsMono = localFont({ src: '../public/fonts/JetBrainsMono-Medium.woff2' });
+
+export {
+  jetBrainsMono,
+}
