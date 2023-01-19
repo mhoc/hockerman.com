@@ -33,8 +33,8 @@ export const VerticalBarGraph = ({ data, maxBarLength }: Props) => {
             {/* I have no idea what it is. */}
             {/* Normal spaces won't work here, because they come out variable length w.r.t the monospace font in TextStd */}
             {/* This thing: doesn't. Whatever it is. One of the many invisible unicode characters. */}
-            <TextStd>{padStart(label, maxLabelLength, " ")} [</TextStd>&nbsp;
-            <TextDeemph>{times(Math.ceil((value / maxValue) * maxBarLength), () => "#")}{times((maxBarLength-((value) / maxValue) * maxBarLength), () => " ")}</TextDeemph>
+            <TextStd>{padStart(label, maxLabelLength, " ")} [</TextStd>&nbsp;
+            <TextDeemph>{times(Math.ceil((value / maxValue) * maxBarLength), () => "#")}{times((maxBarLength-((value) / maxValue) * maxBarLength), () => " ")}</TextDeemph>
             &nbsp;
             <TextStd>]</TextStd>&nbsp;
             <TextStd>{value}</TextStd>
