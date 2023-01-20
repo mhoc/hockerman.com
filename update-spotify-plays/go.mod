@@ -1,1 +1,0 @@
-module github.com/mhoc/hockerman.com/update-spotify-plays

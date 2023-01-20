@@ -1,65 +1,74 @@
+import { format, startOfMonth, startOfWeek, startOfYear } from 'date-fns';
+import { doc, getFirestore } from "firebase/firestore";
+import { sortBy, toPairs } from "lodash";
 import { useState } from "react";
-import { useSpotifyTopArtists } from "../hooks/useSpotifyTopArtists";
-import { useSpotifyPlayCount } from "../hooks/useSpotifyPlayCount";
+import { useDocumentOnce } from 'react-firebase-hooks/firestore';
+
+import { FirebaseMuse } from "../../firebase/firebase";
 import { TextDeemph, TextLink, TextLoading, TextStd } from "../text";
 import { VerticalBarGraph } from "../graphs/VerticalBarGraph";
 
-const periodToHours = (period: string): number => {
-  switch (period) {
-    case "Past Day": return 24;
-    case "Past Week": return 24 * 7;
-    case "Past Month": return 24 * 30;
-    case "Past Year": return 24 * 365;
-    case "All Time": return 24 * 365 * 30;
-  }
-}
 
 export const SpotifyBroadStats = () => {
-  const [ statsSubject, setStatsSubject ] = useState<"song"|"artist">("artist");
-  const [ period, setPeriod ] = useState("Past Day");
+  const [ statsSubject ] = useState<"artist">("artist");
+  const [ period, setPeriod ] = useState("today");
 
-  const spc = useSpotifyPlayCount(periodToHours(period));
-  const sta = useSpotifyTopArtists(periodToHours(period));
+  const bucketKey = (() => {
+    switch (period) {
+      case 'today': return `day_${format(new Date(), 'yyyy-MM-dd')}`;
+      case 'week': return `week_${format(startOfWeek(new Date()), 'yyyy-MM-dd')}`;
+      case 'month': return `month_${format(startOfMonth(new Date()), 'yyyy-MM-dd')}`;
+      case 'year': return `year_${format(startOfYear(new Date()), 'yyyy-MM-dd')}`;
+      case 'eternity': return 'eternity';
+    }
+  })()
 
-  const onClickSubject = (newSubject: "song" | "artist") => {
-    return () => setStatsSubject(newSubject);
-  }
+  const [ value, loading ] = useDocumentOnce(
+    doc(getFirestore(FirebaseMuse), `users/QYGfHh7CVBB9CuWkW659/stats_temporal/${bucketKey}`),
+  );
+
   const onClickPeriod = (newPeriod: string) => {
     return () => setPeriod(newPeriod);
   }
+  
+  const playsByArtist = !loading && value && value.exists()
+    ? toPairs(value.data().plays_by_artist_name as Record<string, number>)
+    : [];
 
-  const anyDataLoading = spc.state !== "results" || sta.state !== "results";
+  const playsByArtistTotal = playsByArtist.reduce((p, c) => {
+    return p + c[1];
+  }, 0);
+  const topArtists = sortBy(playsByArtist, (i) => `${i[1]} ${i[0]}`)
+    .reverse()
+    .slice(0, 5);
 
   return (
     <>
       <div className="container">
         <span>
           <TextDeemph>Plays By [</TextDeemph>&nbsp;
-          { statsSubject === "song" && <TextLink onClick={onClickSubject("artist")}>Artist</TextLink>}
-          { statsSubject === "artist" && <TextStd glow>Artist</TextStd>}&nbsp;
-          {/* { statsSubject === "song" && <TextStd glow>Song</TextStd>}
-          { statsSubject === "artist" && <TextLink onClick={onClickSubject("song")}>Song</TextLink>}&nbsp; */}
+            { statsSubject === "artist" && <TextStd glow>Artist</TextStd>}&nbsp;
           <TextDeemph>]</TextDeemph>
         </span>
         <span>
-          <TextDeemph>In the Past [</TextDeemph>&nbsp;
-          { period === "Past Day" && <TextStd glow>Day</TextStd>}
-          { period !== "Past Day" && <TextLink onClick={onClickPeriod("Past Day")}>Day</TextLink>}&nbsp;
-          { period === "Past Week" && <TextStd glow>Week</TextStd>}
-          { period !== "Past Week" && <TextLink onClick={onClickPeriod("Past Week")}>Week</TextLink>}&nbsp;
-          { period === "Past Month" && <TextStd glow>Month</TextStd>}
-          { period !== "Past Month" && <TextLink onClick={onClickPeriod("Past Month")}>Month</TextLink>}&nbsp;
-          { period === "Past Year" && <TextStd glow>Year</TextStd>}
-          { period !== "Past Year" && <TextLink onClick={onClickPeriod("Past Year")}>Year</TextLink>}&nbsp;
-          { period === "All Time" && <TextStd glow>Eternity</TextStd>}
-          { period !== "All Time" && <TextLink onClick={onClickPeriod("All Time")}>Eternity</TextLink>}&nbsp;
+          <TextDeemph>This [</TextDeemph>&nbsp;
+          { period === "today" && <TextStd glow>Day</TextStd>}
+          { period !== "today" && <TextLink onClick={onClickPeriod("today")}>Day</TextLink>}&nbsp;
+          { period === "week" && <TextStd glow>Week</TextStd>}
+          { period !== "week" && <TextLink onClick={onClickPeriod("week")}>Week</TextLink>}&nbsp;
+          { period === "month" && <TextStd glow>Month</TextStd>}
+          { period !== "month" && <TextLink onClick={onClickPeriod("month")}>Month</TextLink>}&nbsp;
+          { period === "year" && <TextStd glow>Year</TextStd>}
+          { period !== "year" && <TextLink onClick={onClickPeriod("year")}>Year</TextLink>}&nbsp;
+          { period === "eternity" && <TextStd glow>Eternity</TextStd>}
+          { period !== "eternity" && <TextLink onClick={onClickPeriod("eternity")}>Eternity</TextLink>}&nbsp;
           <TextDeemph>]</TextDeemph>
         </span>
-        {anyDataLoading && <TextLoading />}
-        {spc.state === "results" && sta.state === "results" && (
+        
+        {!loading && (
           <VerticalBarGraph data={[
-            { label: "Total", value: spc.playCount },
-            ...sta.topArtists.map((artist) => ({ label: artist.artistName, value: artist.playCount })),
+            { label: "Total", value: playsByArtistTotal },
+            ...topArtists.map(i => ({ label: i[0], value: i[1] })),
           ]} maxBarLength={10} />
         )}
       </div>
