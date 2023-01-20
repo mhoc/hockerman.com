@@ -1,9 +1,6 @@
 import * as firebase from "firebase/app"
 import "firebase/auth"
 import "firebase/firestore"
-import { DocumentData, DocumentReference } from "firebase/firestore"
-import { useEffect, useState } from "react"
-import { useDocument, useDocumentOnce } from "react-firebase-hooks/firestore"
 
 // nothing here is secret :)
 export const FirebaseMuse = firebase.initializeApp({
