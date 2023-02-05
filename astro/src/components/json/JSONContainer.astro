@@ -1,0 +1,10 @@
+---
+import TextLight from "../text/TextLight.astro"
+
+interface Props {}
+---
+<div>
+  <TextLight>{"{"}</TextLight>
+  <slot />
+  <TextLight>{"}"}</TextLight>
+</div>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  glow?: boolean;
+}
+const { glow } = Astro.props
+const contentStyle = glow ? {
+  textShadow: `0 0 1px #b2ebf2, 0 0 2px #b2ebf2, 0 0 32px #b2ebf2, 0 0 256px #b2ebf2`,
+} : {};
+---
+<span class="content" style={contentStyle}>&zwj;<slot /></span>
+<style>
+  .content {
+    color: #f3e5f5;
+    font-family: 'JetBrainsMono';
+    line-height: 1.4;
+  }
+  @media only screen and (max-width: 600px) {
+    .content {
+      font-size: 0.9rem;
+    }
+  }
+</style>

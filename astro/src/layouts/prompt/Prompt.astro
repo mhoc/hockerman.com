@@ -13,8 +13,8 @@ interface Props {
 const { header, nav } = Astro.props
 ---
 <Global>
-  <header>
-    <div class="global-container">
+  <div class="global-container">
+    <header>
       <div class="nav-container">
         <div class="pwd">
           <TextLight>$PWD=</TextLight>
@@ -28,11 +28,11 @@ const { header, nav } = Astro.props
           <TypingCursor />
         </TextHeader>
       </div>
-    </div>
-  </header>
-  <main>
-    <slot />
-  </main>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </div>
 </Global>
 <style>
   html {
@@ -62,13 +62,5 @@ const { header, nav } = Astro.props
     display: flex;
     flex-direction: row;
     margin-bottom: 24px;
-  }
-  .tab-container {
-    margin-right: 8px;
-    padding: 2px 4px;
-  }
-  .tab-selected {
-    border-radius: 4px;
-    border: 1px solid #b2ebf2;
   }
 </style>

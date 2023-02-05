@@ -1,6 +1,38 @@
 ---
 import Prompt from "../layouts/prompt/Prompt.astro"
+
+import JSONComma from "../components/json/JSONComma.astro"
+import JSONContainer from "../components/json/JSONContainer.astro"
+import JSONLine from "../components/json/JSONLine.astro"
+import JSONKey from "../components/json/JSONKey.astro"
+import JSONValueString from "../components/json/JSONValueString.astro"
+import JSONTab from "../components/json/JSONTab.astro"
+
 ---
 <Prompt header="cat ./mike_hockerman.json" nav={[{ label: "home" }, { label: "mike" }]}>
-	
+	<JSONContainer>
+    <JSONLine>
+      <JSONTab />
+      <JSONKey>email</JSONKey>
+      <JSONValueString href="mailto:mike@hockerman.com">mike@hockerman.com</JSONValueString>
+      <JSONComma />
+    </JSONLine>
+    <JSONLine>
+      <JSONTab />
+      <JSONKey>twitter</JSONKey>
+      <JSONValueString href="https://twitter.com/mikehockerman">@mikehockerman</JSONValueString>
+      <JSONComma />
+    </JSONLine>
+    <JSONLine>
+      <JSONTab />
+      <JSONKey>github</JSONKey>
+      <JSONValueString href="https://github.com/mhoc">mhoc</JSONValueString>
+      <JSONComma />
+    </JSONLine>
+    <JSONLine>
+      <JSONTab />
+      <JSONKey>resume</JSONKey>
+      <JSONValueString href="/resume-mike-hockerman.pdf">.pdf</JSONValueString>
+    </JSONLine>
+  </JSONContainer>
 </Prompt>

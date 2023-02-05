@@ -1,0 +1,24 @@
+---
+import TextLight from "../text/TextLight.astro"
+import TextLink from "../text/TextLink.astro"
+
+interface Props {
+  href?: string
+}
+const { href } = Astro.props
+const rel = href?.startsWith("http") ? "noopener" : undefined
+---
+<span class="container">
+  <TextLight>{`"`}</TextLight>
+  {href ? (
+    <TextLink href={href} rel={rel}><slot /></TextLink>
+  ) : (
+    <TextLight><slot /></TextLight>
+  )}
+  <TextLight>"</TextLight>
+</span>
+<style>
+  .container {
+    display: flex;
+  }
+</style>
