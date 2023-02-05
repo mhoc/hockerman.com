@@ -1,0 +1,23 @@
+---
+import TextLight from "../../components/text/TextLight.astro"
+import TextLink from "../../components/text/TextLink.astro"
+
+interface Props {
+  label: string
+  href?: string
+}
+
+const { label, href } = Astro.props
+---
+<span class="container">
+  <TextLight>/</TextLight>
+  {href 
+    ? <TextLink hideUnderline href={href}>{label}</TextLink>
+    : <TextLight>{label}</TextLight>
+  }
+</span>
+<style>
+  .container {
+    display: flex;
+  }
+</style>

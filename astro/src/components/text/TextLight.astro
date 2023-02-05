@@ -1,0 +1,15 @@
+---
+interface Props {}
+---
+<span class="light"><slot /></span>
+<style>
+  .light {
+    color: #455a64;
+    font-family: 'JetBrainsMono';
+  }
+  @media only screen and (max-width: 600px) {
+    .light {
+      font-size: 0.9rem;
+    }
+  }
+`}</style>
