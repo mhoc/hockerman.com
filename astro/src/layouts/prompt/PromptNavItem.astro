@@ -12,7 +12,7 @@ const { label, href } = Astro.props
 <span class="container">
   <TextLight>/</TextLight>
   {href 
-    ? <TextLink hideUnderline href={href}>{label}</TextLink>
+    ? <TextLink href={href}>{label}</TextLink>
     : <TextLight>{label}</TextLight>
   }
 </span>
