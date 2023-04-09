@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 import { Text } from "../common/Text";
 import colors from "../styles/colors";
-import { TextSubheader } from "../text";
 
 interface Props {
   kind: string;
@@ -237,7 +236,7 @@ export const CryptoWallet = (props: Props) => {
           <Loader />
         )}
         <div className="wallet-text-container">
-          <TextSubheader>{kind}</TextSubheader>
+          <Text size="h2">{kind}</Text>
           <Text>{address}</Text>
           <Text color="muted">{copied ? "Copied" : "Copy"}</Text>
           {meta ? (
