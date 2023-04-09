@@ -117,6 +117,8 @@ const BasePage = ({
         .tab-container {
           margin-right: 8px;
           padding: 2px 4px;
+          border-radius: 4px;
+          border: 1px solid ${colors.background};
         }
         .tab-selected {
           border-radius: 4px;

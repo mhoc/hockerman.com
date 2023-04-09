@@ -25,7 +25,7 @@ export const Link = ({
     <>
       <a
         className={`link ${hideUnderline ? "no-underline" : ""}`}
-        href={href ? href : "#"}
+        href={href ? href : "javascript:void"}
         onClick={onClick ? onClick : undefined}
         rel={rel}
         target={target}

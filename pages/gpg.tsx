@@ -1,9 +1,15 @@
 import { useRouter } from "next/router";
+import * as gpg from "openpgp";
+import { useState } from "react";
 
 import BasePage from "../components/BasePage";
 import { Text } from "../components/common/Text";
+import { Link } from "../components/common/Link";
+import colors from "../components/styles/colors";
+import * as fonts from "../components/styles/fonts";
 
 const key = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
 mDMEZAAZkBYJKwYBBAHaRw8BAQdAFgNYCJH6GTSmQpG08IxizmnCcl7L+LPxRWe+
 XGAgCOy0I01pa2UgSG9ja2VybWFuIDxtaWtlQGhvY2tlcm1hbi5jb20+iJMEExYK
 ADsWIQTBpsI6/u2b2kVVGkV+FjeQREAVZQUCZAAZkAIbAwULCQgHAgIiAgYVCgkI
@@ -18,38 +24,114 @@ mQEAhUt3Vg/5qU69WdfJqfhnJMjo09vzknmFkmn7t+KkdgM=
 
 const GPGPage = () => {
   const router = useRouter();
+  const [tab, setTab] = useState("key");
+  const [unencryptedMessage, setUnencryptedMessage] = useState("");
+  const [encryptedMessage, setEncryptedMessage] = useState("");
 
   const onClickTab = (tab: string) => {
     if (tab === "download") {
       router.push("/mike@hockerman.com.1.gpg");
+    } else {
+      setTab(tab);
     }
   };
   const onClickKey = () => {
     navigator.clipboard.writeText(key);
   };
+  const onClickEncryptedMessage = () => {
+    navigator.clipboard.writeText(encryptedMessage);
+  };
+  const encryptMessage = async (message: string) => {
+    const gpgKey = await gpg.readKey({ armoredKey: key });
+    const encrypted = await gpg.encrypt({
+      message: await gpg.createMessage({ text: message }),
+      encryptionKeys: gpgKey,
+    });
+    setEncryptedMessage(`${encrypted}`);
+  };
+
   return (
     <>
       <BasePage
         header="gpg --armor --export mike@hockerman.com"
         nav={[{ label: "home", href: "/" }, { label: "gpg" }]}
         onClickTab={onClickTab}
-        selectedTab="key"
-        tabs={["key", "download"]}
+        selectedTab={tab}
+        tabs={["key", "download", "encrypt"]}
       >
-        <div
-          onClick={onClickKey}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "8px",
-          }}
-        >
-          {key.split("\n").map((line) => (
-            <Text color="muted">{line}</Text>
-          ))}
-        </div>
+        {tab === "key" && (
+          <div
+            onClick={onClickKey}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginTop: "8px",
+            }}
+          >
+            {key
+              .split("\n")
+              .map((line) =>
+                line === "" ? (
+                  <Text color="muted">&nbsp;</Text>
+                ) : (
+                  <Text color="muted">{line}</Text>
+                )
+              )}
+          </div>
+        )}
+        {tab === "encrypt" && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginTop: "8px",
+            }}
+          >
+            <textarea
+              className="text-field"
+              rows={2}
+              onChange={(e) => {
+                setUnencryptedMessage(e.target.value);
+                encryptMessage(e.target.value);
+              }}
+              value={unencryptedMessage}
+            />
+            <div
+              onClick={onClickEncryptedMessage}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                paddingTop: "16px",
+              }}
+            >
+              {encryptedMessage
+                .split("\n")
+                .map((line) =>
+                  line === "" ? (
+                    <Text color="muted">&nbsp;</Text>
+                  ) : (
+                    <Text color="muted">{line}</Text>
+                  )
+                )}
+            </div>
+          </div>
+        )}
       </BasePage>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .text-field {
+          background-color: ${colors.deemphasizeMajor};
+          border: 1px solid ${colors.deemphasize};
+          color: ${colors.primary};
+          font-family: ${fonts.jetBrainsMono.style.fontFamily};
+          font-size: 0.8rem;
+          max-width: 400px;
+          min-width: 400px;
+          padding: 8px;
+        }
+        .text-field:focus {
+          outline: none !important;
+        }
+      `}</style>
     </>
   );
 };
