@@ -7,7 +7,7 @@
     "url": "https://github.com/mhoc/hockerman.com"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "dev": "next",
