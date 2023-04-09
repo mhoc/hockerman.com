@@ -1,18 +1,18 @@
+import { Analytics } from "@vercel/analytics/react";
 import App from "next/app";
 import Head from "next/head";
-import React from "react";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
-    return { pageProps }
+    return { pageProps };
   }
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     return (
       <>
         <Head>
@@ -20,8 +20,9 @@ class MyApp extends App {
           <title>Mike Hockerman</title>
         </Head>
         <Component {...pageProps} />
+        <Analytics />
       </>
-    )
+    );
   }
 }
 
