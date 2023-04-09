@@ -1,17 +1,30 @@
-import { TextDeemph, TextHeader, TextLink, TextStd, TypingCursor } from "../components/text";
-import colors from "../styles/colors";
-import * as fonts from "../styles/fonts";
+import {
+  TextDeemph,
+  TextHeader,
+  TextLink,
+  TextStd,
+  TypingCursor,
+} from "../components/text";
+import colors from "./styles/colors";
+import * as fonts from "./styles/fonts";
 
 interface Props {
   children: any;
   header: any;
-  nav: { label: string, href?: string }[];
+  nav: { label: string; href?: string }[];
   onClickTab?: (tab: string) => void;
   selectedTab?: string;
   tabs?: string[];
 }
 
-const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Props) => {
+const BasePage = ({
+  children,
+  header,
+  nav,
+  onClickTab,
+  selectedTab,
+  tabs,
+}: Props) => {
   return (
     <>
       <div className={`globalcontainer ${fonts.jetBrainsMono}`}>
@@ -19,37 +32,54 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
           <div className="nav-container">
             <div className="pwd">
               <TextDeemph>$PWD=</TextDeemph>
-              {nav.map(navItem => {
+              {nav.map((navItem) => {
                 return (
                   <span key={navItem.label}>
                     <TextDeemph>/</TextDeemph>
-                    {navItem.href 
-                      ? <TextLink hideUnderline href={navItem.href}>{navItem.label}</TextLink>
-                      : <TextDeemph>{navItem.label}</TextDeemph>
-                    }
+                    {navItem.href ? (
+                      <TextLink hideUnderline href={navItem.href}>
+                        {navItem.label}
+                      </TextLink>
+                    ) : (
+                      <TextDeemph>{navItem.label}</TextDeemph>
+                    )}
                   </span>
-                )
+                );
               })}
               <TextDeemph>/</TextDeemph>
             </div>
           </div>
           <div className="header-container">
-            <TextHeader>{header}<TypingCursor /></TextHeader>
-            &nbsp;
-            &nbsp;
-            {tabs && tabs.length > 1 ? tabs.map(tab => (
-              <div className={`tab-container${selectedTab === tab ? " tab-selected" : ""}`} key={tab}>
-                {selectedTab === tab
-                  ? <TextStd>{tab}</TextStd>
-                  : <TextLink onClick={() => onClickTab ? onClickTab(tab) : undefined}>{tab}</TextLink>
-                }
-              </div>
-            )) : null}
+            <TextHeader>
+              {header}
+              <TypingCursor />
+            </TextHeader>
+            &nbsp; &nbsp;
+            {tabs && tabs.length > 1
+              ? tabs.map((tab) => (
+                  <div
+                    className={`tab-container${
+                      selectedTab === tab ? " tab-selected" : ""
+                    }`}
+                    key={tab}
+                  >
+                    {selectedTab === tab ? (
+                      <TextStd>{tab}</TextStd>
+                    ) : (
+                      <TextLink
+                        onClick={() =>
+                          onClickTab ? onClickTab(tab) : undefined
+                        }
+                      >
+                        {tab}
+                      </TextLink>
+                    )}
+                  </div>
+                ))
+              : null}
           </div>
         </header>
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </div>
       <style jsx global>{`
         html {
@@ -74,7 +104,7 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
           margin-bottom: 4px;
         }
         .pwd {
-          display: flex; 
+          display: flex;
           flex-direction: row;
         }
         .header-container {
@@ -94,6 +124,6 @@ const BasePage = ({ children, header, nav, onClickTab, selectedTab, tabs }: Prop
       `}</style>
     </>
   );
-}
+};
 
 export default BasePage;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import colors from "../../styles/colors";
+import colors from "../styles/colors";
 
 interface Props {
   children: React.ReactNode;
@@ -27,5 +27,5 @@ export const TextHeader = ({ children, underline }: Props) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};

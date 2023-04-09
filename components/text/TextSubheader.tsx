@@ -1,6 +1,4 @@
-import React from "react";
-
-import colors from "../../styles/colors";
+import colors from "../styles/colors";
 
 export const TextSubheader = ({ children }) => {
   return (
@@ -13,10 +11,10 @@ export const TextSubheader = ({ children }) => {
         }
         @media only screen and (max-width: 600px) {
           .title {
-            font-size: 1.0rem;
+            font-size: 1rem;
           }
         }
       `}</style>
     </>
-  )
-}
+  );
+};

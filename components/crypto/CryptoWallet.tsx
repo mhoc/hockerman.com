@@ -1,7 +1,7 @@
 import * as qrcode from "qrcode";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-import colors from "../../styles/colors";
+import colors from "../styles/colors";
 import { TextDeemph, TextStd, TextSubheader } from "../text";
 
 interface Props {
@@ -28,12 +28,14 @@ const AVAILABLE_COLORS = [
   "#ffe082",
   "#ffcc80",
   "#ffab91",
-]
+];
 
 // lol this is dumb
 const Loader = () => {
-  const color1 = AVAILABLE_COLORS[Math.floor(Math.random()*AVAILABLE_COLORS.length)];
-  const color2 = AVAILABLE_COLORS[Math.floor(Math.random()*AVAILABLE_COLORS.length)]; 
+  const color1 =
+    AVAILABLE_COLORS[Math.floor(Math.random() * AVAILABLE_COLORS.length)];
+  const color2 =
+    AVAILABLE_COLORS[Math.floor(Math.random() * AVAILABLE_COLORS.length)];
   return (
     <>
       <div className="loader">
@@ -102,16 +104,50 @@ const Loader = () => {
           height: 40px;
           width: 40px;
         }
-        
-        #cell00 { animation-delay: 0.2s; }
-        #cell01, #cell10 { animation-delay: 0.3s; }
-        #cell02, #cell11, #cell20 { animation-delay: 0.4s; }
-        #cell03, #cell12, #cell21, #cell30 { animation-delay: 0.5s; }
-        #cell04, #cell40, #cell13, #cell22, #cell31 { animation-delay: 0.6s }
-        #cell14, #cell23, #cell32, #cell41 { animation-delay: 0.7s; }
-        #cell24, #cell33, #cell42 { animation-delay: 0.8s; }
-        #cell34, #cell43 { animation-delay: 0.9s; }
-        #cell44 { animation-delay: 1.0s; }
+
+        #cell00 {
+          animation-delay: 0.2s;
+        }
+        #cell01,
+        #cell10 {
+          animation-delay: 0.3s;
+        }
+        #cell02,
+        #cell11,
+        #cell20 {
+          animation-delay: 0.4s;
+        }
+        #cell03,
+        #cell12,
+        #cell21,
+        #cell30 {
+          animation-delay: 0.5s;
+        }
+        #cell04,
+        #cell40,
+        #cell13,
+        #cell22,
+        #cell31 {
+          animation-delay: 0.6s;
+        }
+        #cell14,
+        #cell23,
+        #cell32,
+        #cell41 {
+          animation-delay: 0.7s;
+        }
+        #cell24,
+        #cell33,
+        #cell42 {
+          animation-delay: 0.8s;
+        }
+        #cell34,
+        #cell43 {
+          animation-delay: 0.9s;
+        }
+        #cell44 {
+          animation-delay: 1s;
+        }
 
         .cell-eye-container {
           display: flex;
@@ -137,58 +173,83 @@ const Loader = () => {
           width: 20px;
           height: 20px;
         }
-        #cell00-pupil { animation-delay: 0.2s; }
-        #cell04-pupil, #cell40-pupil { animation-delay: 0.6s; }
-        
+        #cell00-pupil {
+          animation-delay: 0.2s;
+        }
+        #cell04-pupil,
+        #cell40-pupil {
+          animation-delay: 0.6s;
+        }
+
         @keyframes mosaic-ripple {
-          0% { background-color: ${color1}; }
-          50% { background-color: ${colors.secondary}; }
-          100% { background-color: ${color2}; }
+          0% {
+            background-color: ${color1};
+          }
+          50% {
+            background-color: ${colors.secondary};
+          }
+          100% {
+            background-color: ${color2};
+          }
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
 export const CryptoWallet = (props: Props) => {
   const { address, kind, meta, qrCode } = props;
 
-  const [qrcodeDataUrl, setQrcodeDataUrl ] = useState<string | undefined>();
+  const [qrcodeDataUrl, setQrcodeDataUrl] = useState<string | undefined>();
   useEffect(() => {
-    qrcode.toDataURL(qrCode, {
-      color: { dark: colors.secondary, light: colors.background },
-      margin: 0,
-      scale: 6,
-    }, (error, url) => {
-      if (error) { return console.error(error) };
-      // who doesn't like intentionally lengthened load sequences to showcase a cool loading animation
-      setTimeout(() => setQrcodeDataUrl(url), 2000);
-    });
+    qrcode.toDataURL(
+      qrCode,
+      {
+        color: { dark: colors.secondary, light: colors.background },
+        margin: 0,
+        scale: 6,
+      },
+      (error, url) => {
+        if (error) {
+          return console.error(error);
+        }
+        // who doesn't like intentionally lengthened load sequences to showcase a cool loading animation
+        setTimeout(() => setQrcodeDataUrl(url), 2000);
+      }
+    );
   }, [qrCode]);
 
   const [copied, setCopied] = useState(false);
 
   return (
     <>
-      <div className="wallet" onClick={() => {
-        navigator.clipboard.writeText(address);
-        setCopied(true);
-      }}>
-        {qrcodeDataUrl
-          ? <img className="qrcode" src={qrcodeDataUrl} />
-          : <Loader />
-        }
+      <div
+        className="wallet"
+        onClick={() => {
+          navigator.clipboard.writeText(address);
+          setCopied(true);
+        }}
+      >
+        {qrcodeDataUrl ? (
+          <img className="qrcode" src={qrcodeDataUrl} />
+        ) : (
+          <Loader />
+        )}
         <div className="wallet-text-container">
           <TextSubheader>{kind}</TextSubheader>
           <TextStd>{address}</TextStd>
           <TextDeemph>{copied ? "Copied" : "Copy"}</TextDeemph>
-          {meta ? Object.keys(meta).map(k => (
-            <div className="meta-container">
-              <TextStd>{k}</TextStd>
-              &br
-              <TextStd>{meta[k]}</TextStd>
-            </div>
-          )) : <div />}
+          {meta ? (
+            Object.keys(meta).map((k) => (
+              <div className="meta-container">
+                <TextStd>{k}</TextStd>
+                &br
+                <TextStd>{meta[k]}</TextStd>
+              </div>
+            ))
+          ) : (
+            <div />
+          )}
         </div>
       </div>
       <style jsx>{`
@@ -219,4 +280,4 @@ export const CryptoWallet = (props: Props) => {
       `}</style>
     </>
   );
-}
+};
