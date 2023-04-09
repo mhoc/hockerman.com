@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import React from 'react';
+import React from "react";
 
 import BasePage from "../components/BasePage";
 import { useSpotifyNowPlaying } from "../components/hooks/useSpotifyNowPlaying";
@@ -12,44 +12,60 @@ import {
 } from "../components/json";
 import { TextLoading } from "../components/text";
 
-const IndexPage = () => {
+const Index = () => {
   const snp = useSpotifyNowPlaying();
   let listeningTo: React.ReactNode = "";
   switch (snp.state) {
-    case "loading": listeningTo = <TextLoading />; break;
-    case "nothing": listeningTo = "Now Playing: Nothing"; break;
+    case "loading":
+      listeningTo = <TextLoading />;
+      break;
+    case "nothing":
+      listeningTo = "Now Playing: Nothing";
+      break;
     case "playing":
-    case "paused": listeningTo = `${snp.track} - ${snp.artist}`; break;
+    case "paused":
+      listeningTo = `${snp.track} - ${snp.artist}`;
+      break;
   }
 
   const data = [
-    new KeyValueJSONEntity("email", "mike@hockerman.com", { href: "mailto:mike@hockerman.com" }),
+    new KeyValueJSONEntity("email", "mike@hockerman.com", {
+      href: "mailto:mike@hockerman.com",
+    }),
     new SingleLineArrayJSONEntity("twitter", [
-      { "value": "@mikehockerman", href: "https://twitter.com/mikehockerman" },
-      { "value": "search", href: "/twitter" },
+      { value: "@mikehockerman", href: "https://twitter.com/mikehockerman" },
+      { value: "search", href: "/twitter" },
     ]),
-    new KeyValueJSONEntity("github", "mhoc", { href: "https://github.com/mhoc" }),
-    new KeyValueJSONEntity("resume", ".pdf", { href: "/resume-mike-hockerman.pdf" }),
+    new KeyValueJSONEntity("github", "mhoc", {
+      href: "https://github.com/mhoc",
+    }),
+    new KeyValueJSONEntity("resume", ".pdf", {
+      href: "/resume-mike-hockerman.pdf",
+    }),
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
-      <FontAwesomeIcon icon={faSpotify} style={{ height: "15px", width: "15px" }} />,
+      (
+        <FontAwesomeIcon
+          icon={faSpotify}
+          style={{ height: "15px", width: "15px" }}
+        />
+      ),
       listeningTo,
-      { href: snp.state === "loading" ? undefined : "/music" },
+      { href: snp.state === "loading" ? undefined : "/music" }
     ),
     new LineBreakJSONEntity(),
-    new KeyValueJSONEntity("gaming", "/gaming", { href: "/gaming" }),
     new SingleLineArrayJSONEntity("crypto", [
       { value: "eth", href: "/crypto/eth" },
     ]),
   ];
   return (
-    <BasePage header="cat ./mike_hockerman.json" nav={[
-      { label: "home" },
-      { label: "mike" },
-    ]}>
+    <BasePage
+      header="cat ./mike_hockerman.json"
+      nav={[{ label: "home" }, { label: "mike" }]}
+    >
       <BodyJSON data={data} />
     </BasePage>
   );
-}
+};
 
-export default IndexPage;
+export default Index;

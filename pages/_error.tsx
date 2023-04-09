@@ -1,35 +1,25 @@
-import React from 'react'
+import { useRouter } from "next/router";
 
 import BasePage from "../components/BasePage";
 import { TextStd } from "../components/text";
+import { useEffect, useState } from "react";
 
-interface State {
-  path: string;
-}
+const Error = () => {
+  const [url, setUrl] = useState("");
+  const router = useRouter();
 
-class Error extends React.Component<{}, State> {
+  useEffect(() => {
+    setUrl(router.asPath);
+  }, []);
 
-  constructor(props) {
-    super(props);
-    this.state = { path: "" };
-  }
+  return (
+    <BasePage
+      header={`cat .${url}`}
+      nav={[{ label: "home", href: "/" }, { label: "mike" }]}
+    >
+      <TextStd>{`cat: .${url}: No such file or directory`}</TextStd>
+    </BasePage>
+  );
+};
 
-  componentDidMount() {
-    this.setState({ path: window.location.pathname });
-  }
-
-  render() {
-    const { path } = this.state;
-    return (
-      <BasePage header={`cat .${path}`} nav={[
-        { label: "home", href: "/" },
-        { label: "mike" },
-      ]}>
-        <TextStd>{`cat: .${path}: No such file or directory`}</TextStd>
-      </BasePage>
-    );
-  }
-
-}
-
-export default Error
+export default Error;
