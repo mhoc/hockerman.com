@@ -50,29 +50,30 @@ const BasePage = ({
               {header}
               <TypingCursor />
             </Text>
-            &nbsp; &nbsp;
-            {tabs && tabs.length > 1
-              ? tabs.map((tab) => (
-                  <div
-                    className={`tab-container${
-                      selectedTab === tab ? " tab-selected" : ""
-                    }`}
-                    key={tab}
-                  >
-                    {selectedTab === tab ? (
-                      <Text>{tab}</Text>
-                    ) : (
-                      <Link
-                        onClick={() =>
-                          onClickTab ? onClickTab(tab) : undefined
-                        }
-                      >
-                        {tab}
-                      </Link>
-                    )}
-                  </div>
-                ))
-              : null}
+            <div className="tabs-container">
+              {tabs && tabs.length > 1
+                ? tabs.map((tab) => (
+                    <div
+                      className={`tab-container${
+                        selectedTab === tab ? " tab-selected" : ""
+                      }`}
+                      key={tab}
+                    >
+                      {selectedTab === tab ? (
+                        <Text>{tab}</Text>
+                      ) : (
+                        <Link
+                          onClick={() =>
+                            onClickTab ? onClickTab(tab) : undefined
+                          }
+                        >
+                          {tab}
+                        </Link>
+                      )}
+                    </div>
+                  ))
+                : null}
+            </div>
           </div>
         </header>
         <main>{children}</main>
@@ -104,10 +105,14 @@ const BasePage = ({
           flex-direction: row;
         }
         .header-container {
-          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 24px;
+        }
+        .tabs-container {
           display: flex;
           flex-direction: row;
-          margin-bottom: 24px;
+          margin-top: 4px;
         }
         .tab-container {
           margin-right: 8px;

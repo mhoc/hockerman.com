@@ -9,7 +9,6 @@ import {
   BodyJSON,
   LineBreakJSONEntity,
   KeyValueJSONEntity,
-  SingleLineArrayJSONEntity,
 } from "../components/json";
 
 const Index = () => {
@@ -32,15 +31,14 @@ const Index = () => {
     new KeyValueJSONEntity("email", "mike@hockerman.com", {
       href: "mailto:mike@hockerman.com",
     }),
-    new SingleLineArrayJSONEntity("twitter", [
-      { value: "@mikehockerman", href: "https://twitter.com/mikehockerman" },
-      { value: "search", href: "/twitter" },
-    ]),
     new KeyValueJSONEntity("github", "mhoc", {
       href: "https://github.com/mhoc",
     }),
     new KeyValueJSONEntity("resume", ".pdf", {
       href: "/resume-mike-hockerman.pdf",
+    }),
+    new KeyValueJSONEntity("gpg", "c1a6c2..", {
+      href: "/gpg",
     }),
     new LineBreakJSONEntity(),
     new KeyValueJSONEntity(
@@ -53,10 +51,6 @@ const Index = () => {
       listeningTo,
       { href: snp.state === "loading" ? undefined : "/music" }
     ),
-    new LineBreakJSONEntity(),
-    new SingleLineArrayJSONEntity("crypto", [
-      { value: "eth", href: "/crypto/eth" },
-    ]),
   ];
   return (
     <BasePage

@@ -31,6 +31,7 @@ export const Text = (props: TextProps) => {
           color: ${colors.primary};
         }
         .color-glow {
+          color: ${colors.primary};
           textshadow: 0 0 1px ${colors.secondary}, 0 0 2px ${colors.secondary},
             0 0 32px ${colors.secondary}, 0 0 256px ${colors.secondary};
         }
