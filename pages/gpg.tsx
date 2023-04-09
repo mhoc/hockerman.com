@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import BasePage from "../components/BasePage";
 import { Text } from "../components/common/Text";
-import { Link } from "../components/common/Link";
 import colors from "../components/styles/colors";
 import * as fonts from "../components/styles/fonts";
+import { TextArea } from "../components/common/TextArea";
 
 const key = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -87,12 +87,10 @@ const GPGPage = () => {
               marginTop: "8px",
             }}
           >
-            <textarea
-              className="text-field"
-              rows={2}
-              onChange={(e) => {
-                setUnencryptedMessage(e.target.value);
-                encryptMessage(e.target.value);
+            <TextArea
+              onChange={(t) => {
+                setUnencryptedMessage(t);
+                encryptMessage(t);
               }}
               value={unencryptedMessage}
             />
