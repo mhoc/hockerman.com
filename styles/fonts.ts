@@ -1,4 +1,4 @@
-import localFont from '@next/font/local';
+import localFont from 'next/font/local';
 
 const jetBrainsMono = localFont({ src: '../public/fonts/JetBrainsMono-Medium.woff2' });
 
