@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import BasePage from "../components/BasePage";
 import { Link } from "../components/common/Link";
+import { Loader } from "../components/common/Loader";
 import { Text } from "../components/common/Text";
-import { TextLoading } from "../components/text";
 import { useTwitterSearch } from "../components/hooks/useTwitterSearch";
 import colors from "../components/styles/colors";
 
@@ -44,7 +44,7 @@ const Twitter = () => {
             onChange={onInputChange}
             onKeyDown={onInputKeyDown}
           />
-          {results.state === "loading" && <TextLoading />}
+          {results.state === "loading" && <Loader variant="text" />}
           {results.state === "results" &&
             (!results.hits || results.hits.length === 0) && (
               <Text>No Results!</Text>

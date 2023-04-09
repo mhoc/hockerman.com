@@ -3,6 +3,7 @@ import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { ReactNode } from "react";
 
 import BasePage from "../components/BasePage";
+import { Loader } from "../components/common/Loader";
 import { useSpotifyNowPlaying } from "../components/hooks/useSpotifyNowPlaying";
 import {
   BodyJSON,
@@ -10,14 +11,13 @@ import {
   KeyValueJSONEntity,
   SingleLineArrayJSONEntity,
 } from "../components/json";
-import { TextLoading } from "../components/text";
 
 const Index = () => {
   const snp = useSpotifyNowPlaying();
   let listeningTo: ReactNode = "";
   switch (snp.state) {
     case "loading":
-      listeningTo = <TextLoading />;
+      listeningTo = <Loader variant="text" />;
       break;
     case "nothing":
       listeningTo = "Now Playing: Nothing";

@@ -3,9 +3,9 @@ import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { truncate } from "lodash";
 
 import { Link } from "../common/Link";
+import { Loader } from "../common/Loader";
 import { Text } from "../common/Text";
 import { SpotifyNowPlayingHookResult } from "../hooks/useSpotifyNowPlaying";
-import { TextLoading } from "../text";
 
 interface Props {
   snp: SpotifyNowPlayingHookResult;
@@ -22,7 +22,7 @@ export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
             </div>
           </Text>
           &nbsp;
-          {snp.state === "loading" && <TextLoading />}
+          {snp.state === "loading" && <Loader variant="text" />}
           {snp.state === "nothing" && (
             <Text color="muted">Now Playing: Nothing :)</Text>
           )}

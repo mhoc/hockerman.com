@@ -2,9 +2,9 @@ import intlFormatDistance from "date-fns/intlFormatDistance";
 import times from "lodash/times";
 
 import { Link } from "../common/Link";
+import { Loader } from "../common/Loader";
 import { Text } from "../common/Text";
 import { SpotifyRecentlyPlayedHookResult } from "../hooks/useSpotifyRecentlyPlayed";
-import { TextLoading } from "../text";
 
 interface Props {
   srp: SpotifyRecentlyPlayedHookResult;
@@ -21,7 +21,7 @@ export const SpotifyRecentlyPlayedList = ({ srp }: Props) => {
                 [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
               </Text>
               &nbsp;
-              <TextLoading />
+              <Loader variant="text" />
               &nbsp;
               <Link hideUnderline>{">"}</Link>
             </div>

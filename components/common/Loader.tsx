@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 
 import { Text } from "../common/Text";
 
-interface TextLoadingProps {}
+interface TextLoadingProps {
+  variant: "text";
+}
 
-export const TextLoading = (props: TextLoadingProps) => {
+export const Loader = (props: TextLoadingProps) => {
   const [loadingState, setLoadingState] = useState({ p: 1, t: "#---------" });
   useEffect(() => {
     const interval = setInterval(() => {
