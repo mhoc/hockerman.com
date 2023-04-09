@@ -6,6 +6,18 @@ const Document = () => {
       <Head>
         <meta charSet="utf-8" />
         <meta name="Description" content="Mike Hockerman's personal website." />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
       </Head>
       <body>
         <Main />

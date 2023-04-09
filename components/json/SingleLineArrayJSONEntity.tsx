@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
-import { TextDeemph, TextLink, TextStd } from "../text";
+
+import { Link } from "../common/Link";
+import { Text } from "../common/Text";
 import { JSONEntity, JSONEntityRenderProps } from "./JSONEntity";
 
 export interface SingleLineArrayJSONEntityProps {}
@@ -10,21 +12,22 @@ export interface SingleLineArrayJSONEntityItem {
 }
 
 export class SingleLineArrayJSONEntity extends JSONEntity {
-
   constructor(
     public readonly key: React.ReactNode,
-    public readonly items: SingleLineArrayJSONEntityItem[], 
-    public readonly props?: SingleLineArrayJSONEntityProps,
-  ) { super(); }
+    public readonly items: SingleLineArrayJSONEntityItem[],
+    public readonly props?: SingleLineArrayJSONEntityProps
+  ) {
+    super();
+  }
 
   public render({ index, total }: JSONEntityRenderProps): React.ReactNode {
     return (
       <>
         <br />
         &nbsp;&nbsp;
-        <TextDeemph>{`"`}</TextDeemph>
-        <TextStd>{this.key}</TextStd>
-        <TextDeemph>{`": [ `}</TextDeemph>
+        <Text color="muted">{`"`}</Text>
+        <Text>{this.key}</Text>
+        <Text color="muted">{`": [ `}</Text>
         <div className="smallDisplay">
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -32,16 +35,21 @@ export class SingleLineArrayJSONEntity extends JSONEntity {
         <>
           {this.items.map((item, itemi) => (
             <Fragment key={`body-json-${index}-arsl-${itemi}`}>
-              <TextDeemph>{`"`}</TextDeemph>
+              <Text color="muted">{`"`}</Text>
               {item.href ? (
-                <TextLink href={item.href} rel={item.href.startsWith("http") ? "noopener" : undefined}>
+                <Link
+                  href={item.href}
+                  rel={item.href.startsWith("http") ? "noopener" : undefined}
+                >
                   {item.value}
-                </TextLink>
+                </Link>
               ) : (
-                <TextStd>{item.value}</TextStd>
+                <Text>{item.value}</Text>
               )}
-              <TextDeemph>{`"`}</TextDeemph>
-              {itemi !== this.items.length - 1 && <TextDeemph>{`, `}</TextDeemph>}
+              <Text color="muted">{`"`}</Text>
+              {itemi !== this.items.length - 1 && (
+                <Text color="muted">{`, `}</Text>
+              )}
             </Fragment>
           ))}
         </>
@@ -52,8 +60,8 @@ export class SingleLineArrayJSONEntity extends JSONEntity {
         <div className="largeDisplay">
           <span> </span>
         </div>
-        <TextDeemph>{`]`}</TextDeemph>
-        {index < total - 1 && <TextDeemph>,</TextDeemph>}
+        <Text color="muted">{`]`}</Text>
+        {index < total - 1 && <Text color="muted">,</Text>}
         <style jsx>{`
           .largeDisplay {
             display: inline;
@@ -73,5 +81,4 @@ export class SingleLineArrayJSONEntity extends JSONEntity {
       </>
     );
   }
-
 }

@@ -1,10 +1,6 @@
-import {
-  TextDeemph,
-  TextHeader,
-  TextLink,
-  TextStd,
-  TypingCursor,
-} from "../components/text";
+import { TypingCursor } from "../components/text";
+import { Link } from "./common/Link";
+import { Text } from "./common/Text";
 import colors from "./styles/colors";
 import * as fonts from "./styles/fonts";
 
@@ -31,29 +27,29 @@ const BasePage = ({
         <header>
           <div className="nav-container">
             <div className="pwd">
-              <TextDeemph>$PWD=</TextDeemph>
+              <Text color="muted">$PWD=</Text>
               {nav.map((navItem) => {
                 return (
                   <span key={navItem.label}>
-                    <TextDeemph>/</TextDeemph>
+                    <Text color="muted">/</Text>
                     {navItem.href ? (
-                      <TextLink hideUnderline href={navItem.href}>
+                      <Link hideUnderline href={navItem.href}>
                         {navItem.label}
-                      </TextLink>
+                      </Link>
                     ) : (
-                      <TextDeemph>{navItem.label}</TextDeemph>
+                      <Text color="muted">{navItem.label}</Text>
                     )}
                   </span>
                 );
               })}
-              <TextDeemph>/</TextDeemph>
+              <Text color="muted">/</Text>
             </div>
           </div>
           <div className="header-container">
-            <TextHeader>
+            <Text size="h1">
               {header}
               <TypingCursor />
-            </TextHeader>
+            </Text>
             &nbsp; &nbsp;
             {tabs && tabs.length > 1
               ? tabs.map((tab) => (
@@ -64,15 +60,15 @@ const BasePage = ({
                     key={tab}
                   >
                     {selectedTab === tab ? (
-                      <TextStd>{tab}</TextStd>
+                      <Text>{tab}</Text>
                     ) : (
-                      <TextLink
+                      <Link
                         onClick={() =>
                           onClickTab ? onClickTab(tab) : undefined
                         }
                       >
                         {tab}
-                      </TextLink>
+                      </Link>
                     )}
                   </div>
                 ))

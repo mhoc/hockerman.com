@@ -1,8 +1,9 @@
 import * as qrcode from "qrcode";
 import { useState, useEffect } from "react";
 
+import { Text } from "../common/Text";
 import colors from "../styles/colors";
-import { TextDeemph, TextStd, TextSubheader } from "../text";
+import { TextSubheader } from "../text";
 
 interface Props {
   kind: string;
@@ -237,14 +238,14 @@ export const CryptoWallet = (props: Props) => {
         )}
         <div className="wallet-text-container">
           <TextSubheader>{kind}</TextSubheader>
-          <TextStd>{address}</TextStd>
-          <TextDeemph>{copied ? "Copied" : "Copy"}</TextDeemph>
+          <Text>{address}</Text>
+          <Text color="muted">{copied ? "Copied" : "Copy"}</Text>
           {meta ? (
             Object.keys(meta).map((k) => (
               <div className="meta-container">
-                <TextStd>{k}</TextStd>
+                <Text>{k}</Text>
                 &br
-                <TextStd>{meta[k]}</TextStd>
+                <Text>{meta[k]}</Text>
               </div>
             ))
           ) : (

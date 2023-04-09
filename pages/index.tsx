@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import React from "react";
+import { ReactNode } from "react";
 
 import BasePage from "../components/BasePage";
 import { useSpotifyNowPlaying } from "../components/hooks/useSpotifyNowPlaying";
@@ -14,7 +14,7 @@ import { TextLoading } from "../components/text";
 
 const Index = () => {
   const snp = useSpotifyNowPlaying();
-  let listeningTo: React.ReactNode = "";
+  let listeningTo: ReactNode = "";
   switch (snp.state) {
     case "loading":
       listeningTo = <TextLoading />;

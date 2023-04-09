@@ -1,6 +1,7 @@
 import React from "react";
 
-import { TextDeemph, TextLink, TextStd } from "../text";
+import { Link } from "../common/Link";
+import { Text } from "../common/Text";
 import { JSONEntity, JSONEntityRenderProps } from "./JSONEntity";
 
 export interface KeyValueJSONEntityProps {
@@ -8,12 +9,13 @@ export interface KeyValueJSONEntityProps {
 }
 
 export class KeyValueJSONEntity extends JSONEntity {
-
   constructor(
     public readonly key: React.ReactNode,
     public readonly value: React.ReactNode,
-    public readonly props?: KeyValueJSONEntityProps,
-  ) { super(); }
+    public readonly props?: KeyValueJSONEntityProps
+  ) {
+    super();
+  }
 
   public render({ index, total }: JSONEntityRenderProps): React.ReactNode {
     const hrefIsExternal = this.props?.href?.startsWith("http");
@@ -21,20 +23,22 @@ export class KeyValueJSONEntity extends JSONEntity {
       <>
         <br />
         &nbsp;&nbsp;
-        <TextDeemph>{`"`}</TextDeemph>
-        <TextStd>{this.key}</TextStd>
-        <TextDeemph>{`": "`}</TextDeemph>
+        <Text color="muted">{`"`}</Text>
+        <Text>{this.key}</Text>
+        <Text color="muted">{`": "`}</Text>
         {this.props?.href ? (
-          <TextLink href={this.props.href} rel={hrefIsExternal ? "noopener" : undefined}>
+          <Link
+            href={this.props.href}
+            rel={hrefIsExternal ? "noopener" : undefined}
+          >
             {this.value}
-          </TextLink>
+          </Link>
         ) : (
-          <TextDeemph>{this.value}</TextDeemph>
+          <Text color="muted">{this.value}</Text>
         )}
-        <TextDeemph>"</TextDeemph>
-        {index < total - 1 && <TextDeemph>,</TextDeemph>}
+        <Text color="muted">"</Text>
+        {index < total - 1 && <Text color="muted">,</Text>}
       </>
     );
   }
-
 }

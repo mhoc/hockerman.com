@@ -10,7 +10,7 @@ interface Props {
   target?: "_blank";
 }
 
-export const TextLink = ({
+export const Link = ({
   children,
   color,
   hideUnderline,

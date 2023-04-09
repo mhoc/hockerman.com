@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 
 import BasePage from "../components/BasePage";
-import { TextStd } from "../components/text";
 import { useEffect, useState } from "react";
+import { Text } from "../components/common/Text";
 
 const Error = () => {
   const [url, setUrl] = useState("");
@@ -17,7 +17,7 @@ const Error = () => {
       header={`cat .${url}`}
       nav={[{ label: "home", href: "/" }, { label: "mike" }]}
     >
-      <TextStd>{`cat: .${url}: No such file or directory`}</TextStd>
+      <Text>{`cat: .${url}: No such file or directory`}</Text>
     </BasePage>
   );
 };

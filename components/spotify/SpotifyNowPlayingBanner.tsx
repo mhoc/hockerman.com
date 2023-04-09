@@ -2,8 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { truncate } from "lodash";
 
+import { Link } from "../common/Link";
+import { Text } from "../common/Text";
 import { SpotifyNowPlayingHookResult } from "../hooks/useSpotifyNowPlaying";
-import { TextDeemph, TextLink, TextLoading, TextSubheader } from "../text";
+import { TextLoading } from "../text";
 
 interface Props {
   snp: SpotifyNowPlayingHookResult;
@@ -14,30 +16,30 @@ export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
     <>
       <div className="container">
         <div className="song-title">
-          <TextSubheader>
+          <Text>
             <div className="spotify-icon">
               <FontAwesomeIcon icon={faSpotify} />
             </div>
-          </TextSubheader>
+          </Text>
           &nbsp;
           {snp.state === "loading" && <TextLoading />}
           {snp.state === "nothing" && (
-            <TextDeemph>Now Playing: Nothing :)</TextDeemph>
+            <Text color="muted">Now Playing: Nothing :)</Text>
           )}
           {(snp.state === "playing" || snp.state === "paused") && (
-            <TextLink href={snp.trackHref} target="_blank" rel="noopener">
+            <Link href={snp.trackHref} target="_blank" rel="noopener">
               {truncate(snp.track, { length: 40 })}
-            </TextLink>
+            </Link>
           )}
           &nbsp;
         </div>
         <div className="artist">
           {(snp.state === "playing" || snp.state === "paused") && (
             <span>
-              <TextDeemph>by</TextDeemph>&nbsp;
-              <TextLink href={snp.artistHref} target="_blank" rel="noopener">
+              <Text color="muted">by</Text>&nbsp;
+              <Link href={snp.artistHref} target="_blank" rel="noopener">
                 {truncate(snp.artist, { length: 20 })}
-              </TextLink>
+              </Link>
             </span>
           )}
           &nbsp;
@@ -46,19 +48,19 @@ export const SpotifyNowPlayingBanner = ({ snp }: Props) => {
           {(snp.state === "playing" || snp.state === "paused") &&
             snp.album !== snp.track && (
               <span>
-                <TextDeemph>on</TextDeemph>&nbsp;
-                <TextLink href={snp.albumHref} target="_blank" rel="noopener">
+                <Text color="muted">on</Text>&nbsp;
+                <Link href={snp.albumHref} target="_blank" rel="noopener">
                   {truncate(snp.album, { length: 30 })}
-                </TextLink>
+                </Link>
                 &nbsp;
               </span>
             )}
         </div>
         <div className="playcounter">
           {(snp.state === "playing" || snp.state === "paused") && (
-            <TextDeemph>
+            <Text color="muted">
               ({snp.progressCurrentFmt}/{snp.durationFmt})
-            </TextDeemph>
+            </Text>
           )}
         </div>
       </div>
