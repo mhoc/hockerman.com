@@ -18,6 +18,6 @@ export default async function handler(
     user.refresh_token
   );
   const { currentlyPlaying } = await spotifyClient.currentlyPlaying();
-  res.setHeader("Cache-Control", "public, max-age=300, immutable");
+  res.setHeader("Cache-Control", "public, max-age=15, immutable");
   res.status(200).json({ currentlyPlaying });
 }
