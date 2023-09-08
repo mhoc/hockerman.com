@@ -1,7 +1,13 @@
 .container {
   align-items: center;
+  animation: fadeIn 1s;
   display: flex;
   flex-direction: row;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @media only screen and (max-width: 600px) {
