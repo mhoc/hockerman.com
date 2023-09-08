@@ -56,7 +56,7 @@ export default function Page() {
   return (
     <BasePage
       header="gpg --armor --export mike@hockerman.com"
-      nav={[{ label: "home", href: "/" }, { label: "gpg" }]}
+      nav={[{ label: "home", href: "/" }, { label: "mike" }, { label: "gpg" }]}
       onClickTab={onClickTab}
       selectedTab={tab}
       tabs={["key", "download", "encrypt"]}
