@@ -1,4 +1,3 @@
-import axios from "axios";
 import { addSeconds } from "date-fns";
 
 import SpotifyClient from "./SpotifyClient";
@@ -15,17 +14,17 @@ export default class SpotifyApplication {
     const authHeader = Buffer.from(
       `${this.clientId()}:${this.clientSecret()}`
     ).toString("base64");
-    const tokenResp = await axios.post(
-      "https://accounts.spotify.com/api/token",
-      authBody,
-      {
-        headers: {
-          Authorization: `Basic ${authHeader}`,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    );
-    const { access_token, expires_in, refresh_token, scope } = tokenResp.data;
+    const tokenResp = await fetch("https://accounts.spotify.com/api/token", {
+      body: authBody,
+      headers: {
+        Authorization: `Basic ${authHeader}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      method: "POST",
+      next: { revalidate: 10 },
+    });
+    const { access_token, expires_in, refresh_token, scope } =
+      await tokenResp.json();
     return new SpotifyClient(
       access_token,
       addSeconds(new Date(), expires_in),
@@ -44,17 +43,17 @@ export default class SpotifyApplication {
     const authHeader = Buffer.from(
       `${this.clientId()}:${this.clientSecret()}`
     ).toString("base64");
-    const tokenResp = await axios.post(
-      "https://accounts.spotify.com/api/token",
-      authBody,
-      {
-        headers: {
-          Authorization: `Basic ${authHeader}`,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    );
-    const { access_token, expires_in, refresh_token, scope } = tokenResp.data;
+    const tokenResp = await fetch("https://accounts.spotify.com/api/token", {
+      body: authBody,
+      headers: {
+        Authorization: `Basic ${authHeader}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      method: "POST",
+      next: { revalidate: 10 },
+    });
+    const { access_token, expires_in, refresh_token, scope } =
+      await tokenResp.json();
     return new SpotifyClient(
       access_token,
       addSeconds(new Date(), expires_in),

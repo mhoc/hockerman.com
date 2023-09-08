@@ -1,4 +1,3 @@
-import axios from "axios";
 import { isAfter } from "date-fns";
 
 interface RecentlyPlayedOutput {
@@ -48,24 +47,26 @@ export default class SpotifyClient {
 
   public async currentlyPlaying(): Promise<CurrentlyPlayingOutput> {
     await this.refresh();
-    const recentlyPlayedResp = await axios.get(
+    const recentlyPlayedResp = await fetch(
       "https://api.spotify.com/v1/me/player/currently-playing",
       {
         headers: { Authorization: `Bearer ${this.accessToken}` },
+        next: { revalidate: 15 },
       }
     );
-    return { currentlyPlaying: recentlyPlayedResp.data };
+    return { currentlyPlaying: await recentlyPlayedResp.json() };
   }
 
   public async recentlyPlayed(): Promise<RecentlyPlayedOutput> {
     await this.refresh();
-    const recentlyPlayedResp = await axios.get(
+    const recentlyPlayedResp = await fetch(
       "https://api.spotify.com/v1/me/player/recently-played",
       {
         headers: { Authorization: `Bearer ${this.accessToken}` },
+        next: { revalidate: 120 },
       }
     );
-    const { items } = recentlyPlayedResp.data;
+    const { items } = await recentlyPlayedResp.json();
     return { recentPlays: items };
   }
 
@@ -78,10 +79,11 @@ export default class SpotifyClient {
 
   public async user(): Promise<UserOutput> {
     await this.refresh();
-    const userResp = await axios.get("https://api.spotify.com/v1/me", {
+    const userResp = await fetch("https://api.spotify.com/v1/me", {
       headers: { Authorization: `Bearer ${this.accessToken}` },
+      next: { revalidate: 600 },
     });
-    const { country, display_name, email, href, id } = userResp.data;
+    const { country, display_name, email, href, id } = await userResp.json();
     return {
       country,
       displayName: display_name,

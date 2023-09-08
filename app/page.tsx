@@ -8,6 +8,7 @@ import Text from "./_components/Text/Text";
 import TextLoader from "./_components/TextLoader/TextLoader";
 
 import SpotifyNowPlayingLink from "./SpotifyNowPlayingLink";
+import styles from "./page.module.css";
 
 export default function Page() {
   const spotifyIcon = (
