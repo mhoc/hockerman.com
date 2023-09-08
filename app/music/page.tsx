@@ -1,13 +1,11 @@
 import { Suspense } from "react";
 
 import BasePage from "../_components/BasePage/BasePage";
-import TextLoader from "../_components/TextLoader/TextLoader";
 
 import styles from "./page.module.css";
 import SpotifyAlbumCollage from "./SpotifyAlbumCollage";
 import SpotifyNowPlayingBanner from "./SpotifyNowPlayingBanner";
 import SpotifyRecentlyPlayedList from "./SpotifyRecentlyPlayedList";
-import SpotifyRecentlyPlayedSkeletion from "./SpotifyRecentlyPlayedSkeleton";
 
 export default async function Page() {
   return (
@@ -23,12 +21,12 @@ export default async function Page() {
         <SpotifyAlbumCollage />
       </Suspense>
       <div className={styles.nowPlayingBannerContainer}>
-        <Suspense fallback={<TextLoader />}>
+        <Suspense fallback={<div />}>
           <SpotifyNowPlayingBanner />
         </Suspense>
       </div>
       <div className={styles.recentlyPlayedContainer}>
-        <Suspense fallback={<SpotifyRecentlyPlayedSkeletion />}>
+        <Suspense fallback={<div />}>
           <SpotifyRecentlyPlayedList />
         </Suspense>
       </div>

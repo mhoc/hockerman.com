@@ -12,7 +12,7 @@ export default async function SpotifyRecentlyPlayedList({}: Props) {
   const { recentPlays } = await getSpotifyRecentlyPlayed();
   return (
     <div>
-      {recentPlays.slice(0, 4).map((rp) => (
+      {recentPlays.slice(0, 5).map((rp) => (
         <div
           className={styles.recentlyPlayedItem}
           key={`spotify-recently-played-item-${rp.track}`}

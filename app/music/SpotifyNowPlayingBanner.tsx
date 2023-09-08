@@ -16,11 +16,14 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.songTitle}>
-        <Text>
-          <div className={styles.spotifyIcon}>
-            <FontAwesomeIcon icon={faSpotify} />
-          </div>
-        </Text>
+        <div className={styles.spotifyIconContainer}>
+          <Text>
+            <FontAwesomeIcon
+              icon={faSpotify}
+              style={{ height: "20px", width: "20px" }}
+            />
+          </Text>
+        </div>
         &nbsp;
         {!currentlyPlaying && (
           <Text color="muted">Now Playing: Nothing :)</Text>
