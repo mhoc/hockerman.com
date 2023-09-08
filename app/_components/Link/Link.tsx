@@ -20,7 +20,7 @@ export default function Link({
   return (
     <a
       className={`${styles.link} ${hideUnderline ? styles.nounderline : ""}`}
-      href={href ? href : "javascript:void"}
+      href={href}
       onClick={onClick ? onClick : undefined}
       rel={rel}
       target={target}

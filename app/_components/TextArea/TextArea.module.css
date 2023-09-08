@@ -1,0 +1,20 @@
+.textarea {
+  background-color: #263238;
+  border: 1px solid #455a64;
+  color: #f3e5f5;
+  font-size: 0.8rem;
+  max-width: 400px;
+  min-width: 400px;
+  padding: 8px;
+}
+
+.textarea:focus {
+  outline: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .textarea {
+    max-width: 300px;
+    min-width: 300px;
+  }
+}

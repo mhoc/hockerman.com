@@ -54,7 +54,7 @@ export default function BasePage({
               ? tabs.map((tab) => (
                   <div
                     className={`${styles.tabcontainer} ${
-                      selectedTab === tab ? "tab-selected" : ""
+                      selectedTab === tab ? styles.tabselected : ""
                     }`}
                     key={tab}
                   >
