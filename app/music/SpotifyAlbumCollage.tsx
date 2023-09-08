@@ -1,22 +1,11 @@
-import SpotifyApplication from "../_server/spotify/SpotifyApplication";
-import SpotifyUsers from "../_server/spotify/SpotifyUsers";
+import getSpotifyRecentlyPlayed from "../_server/spotify/getSpotifyRecentlyPlayed";
 
 import styles from "./SpotifyAlbumCollage.module.css";
-
-const MIKES_USER_ID_NOT_SECRET_NO_HACKERINO = "2pkxvc9fMW5IH-MsSdj-h";
 
 interface Props {}
 
 export default async function SpotifyAlbumCollage({}: Props) {
-  const spotifyApp = new SpotifyApplication();
-  const spotifyUsers = new SpotifyUsers();
-  const user = await spotifyUsers.getById(
-    MIKES_USER_ID_NOT_SECRET_NO_HACKERINO
-  );
-  const spotifyClient = await spotifyApp.clientFromRefreshToken(
-    user.refresh_token!
-  );
-  const { recentPlays } = await spotifyClient.recentlyPlayed();
+  const { recentPlays } = await getSpotifyRecentlyPlayed();
   const albumImageUrls = recentPlays.map(
     (recentPlay) => recentPlay.track.album.images[0].url
   );

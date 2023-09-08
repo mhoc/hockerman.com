@@ -2,26 +2,14 @@ import intlFormatDistance from "date-fns/intlFormatDistance";
 
 import Link from "../_components/Link/Link";
 import Text from "../_components/Text/Text";
+import getSpotifyRecentlyPlayed from "../_server/spotify/getSpotifyRecentlyPlayed";
 
 import styles from "./SpotifyRecentlyPlayedList.module.css";
-import SpotifyApplication from "../_server/spotify/SpotifyApplication";
-import SpotifyUsers from "../_server/spotify/SpotifyUsers";
-
-const MIKES_USER_ID_NOT_SECRET_NO_HACKERINO = "2pkxvc9fMW5IH-MsSdj-h";
 
 interface Props {}
 
 export default async function SpotifyRecentlyPlayedList({}: Props) {
-  const spotifyApp = new SpotifyApplication();
-  const spotifyUsers = new SpotifyUsers();
-  const user = await spotifyUsers.getById(
-    MIKES_USER_ID_NOT_SECRET_NO_HACKERINO
-  );
-  const spotifyClient = await spotifyApp.clientFromRefreshToken(
-    user.refresh_token!
-  );
-  const { recentPlays } = await spotifyClient.recentlyPlayed();
-
+  const { recentPlays } = await getSpotifyRecentlyPlayed();
   return (
     <div>
       {recentPlays.slice(0, 4).map((rp) => (
