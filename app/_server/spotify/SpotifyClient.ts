@@ -14,6 +14,9 @@ interface RecentlyPlayedOutput {
       album: {
         name: string;
         id: string;
+        images: {
+          url: string;
+        }[];
       };
       id: string;
       href: string;

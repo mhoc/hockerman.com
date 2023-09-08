@@ -1,0 +1,14 @@
+.nowPlayingBannerContainer {
+  align-items: center;
+  display: flex;
+  min-height: 35px;
+  padding-bottom: 12px;
+}
+
+.recentlyPlayedContainer {
+  align-items: space-between;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  min-height: 85px;
+}

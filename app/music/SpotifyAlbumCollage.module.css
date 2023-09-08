@@ -1,0 +1,48 @@
+@keyframes ease-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+.artDragBlocker {
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.viewportContainer {
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -2;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 140vw;
+}
+
+.bgimage {
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-name: ease-in;
+  background-size: cover;
+  filter: blur(4px);
+  height: 35vh;
+  opacity: 0;
+  user-select: none;
+  width: 35vh;
+}
