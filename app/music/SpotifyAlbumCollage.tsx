@@ -28,7 +28,7 @@ export default async function SpotifyAlbumCollage({}: Props) {
               className={styles.bgimage}
               key={`${i}${u}`}
               src={u}
-              style={{ animationDelay: `${0.05 * (i + 1)}s` }}
+              style={{ animationDelay: `${0.1 * (i + 1)}s` }}
             />
           ))}
         </div>
