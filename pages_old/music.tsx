@@ -1,4 +1,4 @@
-import BasePage from "../components/BasePage";
+import BasePage from "../app/_components/BasePage/BasePage";
 import { useSpotifyNowPlaying } from "../components/hooks/useSpotifyNowPlaying";
 import { useSpotifyRecentlyPlayed } from "../components/hooks/useSpotifyRecentlyPlayed";
 import { SpotifyAlbumCollage } from "../components/spotify/SpotifyAlbumCollage";

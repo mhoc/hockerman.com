@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import * as gpg from "openpgp";
 import { useState } from "react";
 
-import BasePage from "../components/BasePage";
+import BasePage from "../app/_components/BasePage/BasePage";
 import { Text } from "../components/common/Text";
 import colors from "../components/styles/colors";
 import * as fonts from "../components/styles/fonts";

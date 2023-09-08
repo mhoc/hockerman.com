@@ -1,1 +1,1 @@
-export * from "./SpotifyApplication";
+export * from "../../app/_server/spotify/SpotifyApplication";

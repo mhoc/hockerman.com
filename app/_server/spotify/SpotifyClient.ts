@@ -35,28 +35,33 @@ interface CurrentlyPlayingOutput {
   currentlyPlaying: any;
 }
 
-export class SpotifyClient {
-
+export default class SpotifyClient {
   constructor(
     public readonly accessToken: string,
     public readonly expiresAt: Date,
     public readonly refreshToken: string,
-    public readonly scope: string,
+    public readonly scope: string
   ) {}
 
   public async currentlyPlaying(): Promise<CurrentlyPlayingOutput> {
     await this.refresh();
-    const recentlyPlayedResp = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
-      headers: { Authorization: `Bearer ${this.accessToken}` },
-    });
+    const recentlyPlayedResp = await axios.get(
+      "https://api.spotify.com/v1/me/player/currently-playing",
+      {
+        headers: { Authorization: `Bearer ${this.accessToken}` },
+      }
+    );
     return { currentlyPlaying: recentlyPlayedResp.data };
   }
 
   public async recentlyPlayed(): Promise<RecentlyPlayedOutput> {
     await this.refresh();
-    const recentlyPlayedResp = await axios.get("https://api.spotify.com/v1/me/player/recently-played", {
-      headers: { Authorization: `Bearer ${this.accessToken}` },
-    });
+    const recentlyPlayedResp = await axios.get(
+      "https://api.spotify.com/v1/me/player/recently-played",
+      {
+        headers: { Authorization: `Bearer ${this.accessToken}` },
+      }
+    );
     const { items } = recentlyPlayedResp.data;
     return { recentPlays: items };
   }
@@ -82,5 +87,4 @@ export class SpotifyClient {
       id,
     };
   }
-
 }

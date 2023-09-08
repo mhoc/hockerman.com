@@ -1,0 +1,42 @@
+.text {
+  font-family: monospace;
+}
+
+.colorprimary {
+  color: #f3e5f5;
+}
+
+.colorglow {
+  color: #f3e5f5;
+  text-shadow: 0 0 1px #b2ebf2, 0 0 2px "#b2ebf2", 0 0 32px "#b2ebf2", 0 0 256px "#b2ebf2";
+}
+
+.colormuted {
+  color: #455a64;
+}
+
+.sizebody {
+  font-size: 1rem;
+}
+
+.sizeh1 {
+  font-size: 1.6rem;
+}
+
+.sizeh2 {
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .sizebody {
+    font-size: 0.9rem;
+  }
+
+  .sizeh1 {
+    font-size: 1.2rem;
+  }
+
+  .sizeh2 {
+    font-size: 1rem;
+  }
+}

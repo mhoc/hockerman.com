@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import BasePage from "../components/BasePage";
+import BasePage from "../app/_components/BasePage/BasePage";
 import { useEffect, useState } from "react";
 import { Text } from "../components/common/Text";
 
