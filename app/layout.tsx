@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
 
@@ -26,6 +27,7 @@ export default function Layout({ children }: Props) {
       <body>
         <div className={font.className}>{children}</div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

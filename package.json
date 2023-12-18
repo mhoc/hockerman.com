@@ -15,24 +15,24 @@
     "start": "next start --port ${PORT-8080}"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "0.2.0",
-    "@mhoc/synthesize": "0.3.0",
-    "@vercel/analytics": "^1.0.2",
-    "@vercel/edge-config": "^0.3.0",
-    "date-fns": "^2.30.0",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/edge-config": "^0.4.1",
+    "@vercel/speed-insights": "^1.0.2",
+    "date-fns": "^3.0.0",
     "lodash": "4.17.21",
-    "next": "^13.4.19",
-    "openpgp": "^5.10.1",
+    "next": "^14.0.4",
+    "openpgp": "^5.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.198",
-    "@types/node": "^20.5.9",
-    "@types/react": "^18.2.21",
-    "typescript": "^5.2.2"
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "typescript": "^5.3.3"
   }
 }

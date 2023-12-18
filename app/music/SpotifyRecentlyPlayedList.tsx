@@ -1,4 +1,4 @@
-import intlFormatDistance from "date-fns/intlFormatDistance";
+import { intlFormatDistance } from "date-fns";
 
 import Link from "../_components/Link/Link";
 import Text from "../_components/Text/Text";
