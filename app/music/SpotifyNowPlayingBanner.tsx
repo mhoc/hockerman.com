@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import { truncate } from "lodash";
 
 import Link from "../_components/Link/Link";
 import Text from "../_components/Text/Text";
 import getSpotifyCurrentlyPlaying from "../_server/spotify/getSpotifyCurrentlyPlaying";
+import { truncate } from "../_util/truncate";
 
 import styles from "./SpotifyNowPlayingBanner.module.css";
 
@@ -34,7 +34,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
             rel="noopener"
             target="_blank"
           >
-            {truncate(currentlyPlaying.item.name, { length: 40 })}
+            {truncate(currentlyPlaying.item.name, 40)}
           </Link>
         )}
         &nbsp;
@@ -48,7 +48,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
               rel="noopener"
               target="_blank"
             >
-              {truncate(currentlyPlaying.item.artists[0].name, { length: 20 })}
+              {truncate(currentlyPlaying.item.artists[0].name, 20)}
             </Link>
           </span>
         )}
@@ -64,7 +64,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
                 rel="noopener"
                 target="_blank"
               >
-                {truncate(currentlyPlaying.item.album.name, { length: 30 })}
+                {truncate(currentlyPlaying.item.album.name, 30)}
               </Link>
               &nbsp;
             </span>
