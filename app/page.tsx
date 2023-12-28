@@ -20,7 +20,14 @@ export default function Page() {
         </span>
 
         <div style={{ minHeight: "12px" }} />
-        <div style={{ display: "flex", flexDirection: "row", gap: "12px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: "12px",
+          }}
+        >
           <Badge
             icon="email"
             link="mailto:mike@hockerman.com"
