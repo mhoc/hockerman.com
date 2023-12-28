@@ -6,7 +6,6 @@ import BasePage from "./_components/BasePage/BasePage";
 import JSONEntityKeyValue from "./_components/JSONEntityKeyValue/JSONEntityKeyValue";
 import Text from "./_components/Text/Text";
 import TextLoader from "./_components/TextLoader/TextLoader";
-
 import SpotifyNowPlayingLink from "./SpotifyNowPlayingLink";
 
 export default function Page() {
@@ -45,9 +44,6 @@ export default function Page() {
           renderTrailingComma
         >
           .pdf
-        </JSONEntityKeyValue>
-        <JSONEntityKeyValue href="/gpg" label="gpg" renderTrailingComma>
-          c1a6c2..
         </JSONEntityKeyValue>
 
         <br />
