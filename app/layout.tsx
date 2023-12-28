@@ -5,7 +5,7 @@ import { Inconsolata } from "next/font/google";
 
 import "./globals.css";
 
-const font = Inconsolata({ subsets: ["latin"], weight: "500" });
+const font = Inconsolata({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   description: "Mike Hockerman's personal website.",

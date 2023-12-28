@@ -1,0 +1,59 @@
+.container {
+  animation: fadeIn 2s;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, .15);
+  border-radius: 8px;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  display: flex;
+  flex-direction: row;
+  padding: 16px 64px 16px 16px;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.nowPlayingContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.artistLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.spotifyIconContainer {
+  margin-right: 24px;
+}
+
+.faicon {
+  color: #28323E;
+}
+
+.texth1 {
+  color: #28323E;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.textfaded {
+  color: #50647C;
+  font-size: 1.25rem;
+}
+
+.text {
+  color: #28323E;
+  font-size: 1.25rem;
+}

@@ -1,0 +1,42 @@
+.link {
+  text-decoration: none;
+}
+
+.badge {
+  align-items: center;
+  background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
+  background-size: 200% 100%;
+  border: 1px solid #28323E;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4px 12px 4px 12px;
+  transition: .25s ease-out;
+}
+
+.badge:hover {
+  background-position: left;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.badge:hover .faicon {
+  color: #ECF0F1;
+}
+
+.badge:hover .label {
+  color: #ECF0F1;
+}
+
+.faicon {
+  color: #28323E;
+  height: 22px;
+  transition: .25s ease-out;
+  width: 22px;
+}
+
+.label {
+  color: #28323E;
+  margin-left: 8px;
+  transition: .25s ease-out;
+}

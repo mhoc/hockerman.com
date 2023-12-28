@@ -9,7 +9,6 @@ export default async function SpotifyAlbumCollage({}: Props) {
   const albumImageUrls = recentPlays.map(
     (recentPlay) => recentPlay.track.album.images[0].url
   );
-
   // this art-drag-blocker is a weird one.
   // obviously, this is just a grid of imgs; so, they're interactable. but I want it to be more like
   // a background.
@@ -28,7 +27,7 @@ export default async function SpotifyAlbumCollage({}: Props) {
               className={styles.bgimage}
               key={`${i}${u}`}
               src={u}
-              style={{ animationDelay: `${0.05 * (i + 1)}s` }}
+              style={{ animationDelay: `${0.075 * (i + 1)}s` }}
             />
           ))}
         </div>

@@ -1,67 +1,64 @@
-import { faSpotify } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Suspense } from "react";
 
-import BasePage from "./_components/BasePage/BasePage";
-import JSONEntityKeyValue from "./_components/JSONEntityKeyValue/JSONEntityKeyValue";
-import Text from "./_components/Text/Text";
-import SpotifyNowPlayingLink from "./SpotifyNowPlayingLink";
+import { Badge } from "./_components/Badge/Badge";
+import { SpotifyNowPlayingText } from "./SpotifyNowPlayingText";
+
+import styles from "./index.module.css";
 
 export default function Page() {
-  const spotifyIcon = (
-    <FontAwesomeIcon
-      icon={faSpotify}
-      style={{ height: "15px", width: "15px" }}
-    />
-  );
-
   return (
-    <BasePage
-      header="cat ./mike_hockerman.json"
-      nav={[{ label: "home" }, { label: "mike" }]}
-    >
-      <div>
-        <Text color="muted">{"{"}</Text>
-        <JSONEntityKeyValue
-          href="mailto:mike@hockerman.com"
-          label="email"
-          renderTrailingComma
+    <div className={styles.gradient}>
+      <div className={styles.container}>
+        <span
+          style={{
+            color: "#28323E",
+            fontSize: "2.5rem",
+            fontStyle: "italic",
+            fontWeight: "bold",
+          }}
         >
-          mike@hockerman.com
-        </JSONEntityKeyValue>
-        <JSONEntityKeyValue
-          href="https://github.com/mhoc"
-          hrefIsExternal
-          label="github"
-          renderTrailingComma
-        >
-          mhoc
-        </JSONEntityKeyValue>
-        <JSONEntityKeyValue
-          href="/resume-mike-hockerman.pdf"
-          label="resume"
-          renderTrailingComma
-        >
-          .pdf
-        </JSONEntityKeyValue>
+          Mike Hockerman
+        </span>
 
-        <br />
-
-        <Suspense
-          fallback={
-            <JSONEntityKeyValue label={spotifyIcon}>
-              <Text color="muted">...</Text>
-            </JSONEntityKeyValue>
+        <div style={{ minHeight: "12px" }} />
+        <div style={{ display: "flex", flexDirection: "row", gap: "12px" }}>
+          <Badge
+            icon="email"
+            link="mailto:mike@hockerman.com"
+            target="_blank"
+            text="mike@hockerman.com"
+          />
+          <Badge
+            icon="file"
+            link="/resume-mike-hockerman.pdf"
+            target="_blank"
+            text="Resume"
+          />
+          <Badge
+            icon="github"
+            link="https://github.com/mhoc"
+            target="_blank"
+            text="mhoc"
+          />
+          <Badge
+            icon="linkedin"
+            link="https://www.linkedin.com/in/mhoc/"
+            target="_blank"
+            text="mhoc"
+          />
+        </div>
+        <div style={{ minHeight: "12px" }} />
+        <Badge
+          icon="spotify"
+          link="/music"
+          target="_self"
+          text={
+            <Suspense fallback={<span style={{ color: "#ECF0F1" }}>...</span>}>
+              <SpotifyNowPlayingText />
+            </Suspense>
           }
-        >
-          <JSONEntityKeyValue label={spotifyIcon}>
-            <SpotifyNowPlayingLink />
-          </JSONEntityKeyValue>
-        </Suspense>
-
-        <br />
-        <Text color="muted">{"}"}</Text>
+        />
       </div>
-    </BasePage>
+    </div>
   );
 }

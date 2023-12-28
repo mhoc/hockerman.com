@@ -1,0 +1,27 @@
+.gradient {
+  animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #FF8080, #FFCF96, #F6FDC3, #CDFAD5, #B4E4FF, #BA90C6);
+	background-size: 400% 400%;
+  height: 100vh;
+}
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 8vw;
+  max-height: 80vh;
+  max-width: 1200px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

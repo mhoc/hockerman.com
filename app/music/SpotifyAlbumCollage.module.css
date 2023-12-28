@@ -3,8 +3,34 @@
     opacity: 0;
   }
   to {
-    opacity: 0.15;
+    opacity: 0.5;
   }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.viewportContainer {
+  animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #FF8080, #FFCF96, #F6FDC3, #CDFAD5);
+	background-size: 400% 400%;
+  background-size: 400% 400%;
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -2;
 }
 
 .artDragBlocker {
@@ -16,16 +42,6 @@
   top: 0;
   width: 100vw;
   z-index: -1;
-}
-
-.viewportContainer {
-  height: 100vh;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  z-index: -2;
 }
 
 .container {

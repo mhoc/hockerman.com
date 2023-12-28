@@ -1,7 +1,5 @@
 import { intlFormatDistance } from "date-fns";
 
-import Link from "../_components/Link/Link";
-import Text from "../_components/Text/Text";
 import getSpotifyRecentlyPlayed from "../_server/spotify/getSpotifyRecentlyPlayed";
 
 import styles from "./SpotifyRecentlyPlayedList.module.css";
@@ -17,7 +15,7 @@ export default async function SpotifyRecentlyPlayedList({}: Props) {
           className={styles.recentlyPlayedItem}
           key={`spotify-recently-played-item-${rp.track}`}
         >
-          <Text color="muted">
+          <span style={{ color: "#28323E" }}>
             <span className={styles.recentlyPlayedWhen}>
               [
               {intlFormatDistance(new Date(rp.played_at), new Date(), {
@@ -26,15 +24,7 @@ export default async function SpotifyRecentlyPlayedList({}: Props) {
               ]&nbsp;
             </span>
             {rp.track.name} - {rp.track.artists[0].name}
-          </Text>
-          &nbsp;
-          <Link
-            hideUnderline
-            href={`https://open.spotify.com/album/${rp.track.album.id}`}
-            target="_blank"
-          >
-            {">"}
-          </Link>
+          </span>
         </div>
       ))}
     </div>
