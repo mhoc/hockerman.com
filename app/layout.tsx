@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Inconsolata } from "next/font/google";
 
 import "./globals.css";
@@ -13,8 +13,11 @@ export const metadata: Metadata = {
     { rel: "icon", url: "/favicon-32x32.png", sizes: "32x32" },
     { rel: "icon", url: "/favicon-16x16.png", sizes: "16x16" },
   ],
-  themeColor: "#000a12",
   title: "Mike Hockerman",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000a12",
 };
 
 interface Props {

@@ -22,7 +22,7 @@
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
     "@vercel/speed-insights": "^1.0.2",
-    "date-fns": "^3.0.0",
+    "date-fns": "^3.0.6",
     "lodash": "4.17.21",
     "next": "^14.0.4",
     "openpgp": "^5.11.0",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.46",
     "typescript": "^5.3.3"
   }
 }
