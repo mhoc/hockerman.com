@@ -14,7 +14,6 @@ export default function Page() {
             color: "#28323E",
             fontSize: "2.5rem",
             fontStyle: "italic",
-            fontWeight: "bold",
           }}
         >
           Mike Hockerman
