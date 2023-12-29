@@ -11,8 +11,10 @@ export default async function SpotifyTopTracks({}: Props) {
   return (
     <GlassCard title="Top Tracks" subtitle="Past Month">
       <div className={styles.topTracksList}>
-        {topTracks.items.slice(0, 4).map((topTrack) => (
+        {topTracks.items.slice(0, 4).map((topTrack, i) => (
           <Badge
+            backgroundColor="#CDFAD5"
+            borderColor="#69F282"
             key={topTrack.name}
             label={`${topTrack.name} - ${topTrack.artists[0].name}`}
           />

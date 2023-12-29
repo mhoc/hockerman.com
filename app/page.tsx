@@ -1,9 +1,14 @@
+import { faEnvelope, faFileArchive } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faSpotify,
+} from "@fortawesome/free-brands-svg-icons";
 import { Suspense } from "react";
 
-import { SpotifyNowPlayingText } from "./SpotifyNowPlayingText";
-
-import styles from "./index.module.css";
 import { BadgeClickable } from "./_components/Badge/BadgeClickable";
+import { SpotifyNowPlayingText } from "./SpotifyNowPlayingText";
+import styles from "./index.module.css";
 
 export default function Page() {
   return (
@@ -29,25 +34,25 @@ export default function Page() {
           }}
         >
           <BadgeClickable
-            icon="email"
+            icon={faEnvelope}
             label="mike@hockerman.com"
             link="mailto:mike@hockerman.com"
             target="_blank"
           />
           <BadgeClickable
-            icon="file"
+            icon={faFileArchive}
             label="Resume"
             link="/resume-mike-hockerman.pdf"
             target="_blank"
           />
           <BadgeClickable
-            icon="github"
+            icon={faGithub}
             label="mhoc"
             link="https://github.com/mhoc"
             target="_blank"
           />
           <BadgeClickable
-            icon="linkedin"
+            icon={faLinkedin}
             label="mhoc"
             link="https://www.linkedin.com/in/mhoc/"
             target="_blank"
@@ -55,7 +60,7 @@ export default function Page() {
         </div>
         <div style={{ minHeight: "12px" }} />
         <BadgeClickable
-          icon="spotify"
+          icon={faSpotify}
           label={
             <Suspense fallback={<span style={{ color: "#ECF0F1" }}>...</span>}>
               <SpotifyNowPlayingText />

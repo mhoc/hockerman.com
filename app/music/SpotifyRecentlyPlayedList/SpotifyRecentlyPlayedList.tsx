@@ -14,6 +14,8 @@ export default async function SpotifyRecentlyPlayedList({}: Props) {
         {recentPlays.slice(0, 4).map((rp) => {
           return (
             <Badge
+              backgroundColor="#CDFAD5"
+              borderColor="#69F282"
               key={rp.track.name}
               label={`${rp.track.name} - ${rp.track.artists[0].name}`}
             />

@@ -16,7 +16,7 @@ export const GlassCard = ({
   const progressStyling = backgroundProgress
     ? {
         background:
-          "linear-gradient(to left, rgba(255, 255, 255, 0.6) 50%, rgba(16, 185, 129, 0.6) 50%) right",
+          "linear-gradient(to left, rgba(255, 255, 255, 0.6) 50%, #CDFAD5 50%) right",
         backgroundSize: "200% 100%",
         backgroundPosition: `${100 - backgroundProgress * 100}%`,
       }
