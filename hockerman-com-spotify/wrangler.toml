@@ -1,0 +1,10 @@
+name = "hockerman-com-spotify"
+main = "src/index.ts"
+compatibility_date = "2023-12-18"
+
+[vars]
+SPOTIFY_CLIENT_ID = "2beb0c8d12ab48c793bc45fdf29c661d"
+
+[[kv_namespaces]]
+binding = "KV_HOCKERMAN_COM_SPOTIFY_REFRESH_TOKENS"
+id = "e9d623be545f4126b0f4eb1e38918ed5"
