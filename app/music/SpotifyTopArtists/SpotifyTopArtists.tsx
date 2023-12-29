@@ -9,10 +9,10 @@ interface Props {}
 export default async function SpotifyTopArtists({}: Props) {
   const { topArtists } = await getSpotifyTopArtists();
   return (
-    <GlassCard title="Top Artists (Past Month)">
+    <GlassCard title="Top Artists" subtitle="Past Month">
       <div className={styles.topArtistsList}>
         {topArtists.items.slice(0, 4).map((topArtist) => (
-          <Badge label={topArtist.name} />
+          <Badge key={topArtist.name} label={topArtist.name} />
         ))}
       </div>
     </GlassCard>

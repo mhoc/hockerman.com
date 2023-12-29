@@ -5,6 +5,7 @@ import SpotifyAlbumCollage from "./SpotifyAlbumCollage/SpotifyAlbumCollage";
 import SpotifyNowPlayingBanner from "./SpotifyNowPlayingBanner/SpotifyNowPlayingBanner";
 import SpotifyRecentlyPlayedList from "./SpotifyRecentlyPlayedList/SpotifyRecentlyPlayedList";
 import SpotifyTopArtists from "./SpotifyTopArtists/SpotifyTopArtists";
+import SpotifyTopTracks from "./SpotifyTopTracks/SpotifyTopTracks";
 
 export default async function Page() {
   return (
@@ -23,6 +24,7 @@ export default async function Page() {
         >
           <SpotifyRecentlyPlayedList />
           <SpotifyTopArtists />
+          <SpotifyTopTracks />
         </div>
       </Suspense>
     </div>

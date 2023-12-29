@@ -3,10 +3,16 @@ import styles from "./GlassCard.module.css";
 interface Props {
   backgroundProgress?: number;
   children: React.ReactNode;
+  subtitle?: string;
   title?: string;
 }
 
-export const GlassCard = ({ backgroundProgress, children, title }: Props) => {
+export const GlassCard = ({
+  backgroundProgress,
+  children,
+  subtitle,
+  title,
+}: Props) => {
   const progressStyling = backgroundProgress
     ? {
         background:
@@ -20,6 +26,7 @@ export const GlassCard = ({ backgroundProgress, children, title }: Props) => {
       {title && (
         <div className={styles.titleContainer}>
           <span className={styles.title}>{title}</span>
+          {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </div>
       )}
       {title && (

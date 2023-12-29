@@ -17,6 +17,11 @@
   font-size: 1.2rem;
 }
 
+.subtitle {
+  font-size: 0.8rem;
+  margin-left: 8px;
+}
+
 .content {
   padding: 16px 64px 16px 16px;
 }
