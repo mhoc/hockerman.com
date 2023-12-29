@@ -13,7 +13,7 @@ export default async function SpotifyRecentlyPlayedList({}: Props) {
   return (
     <GlassCard title="Recently Played">
       <div className={styles.recentlyPlayedList}>
-        {recentPlays.slice(0, 6).map((rp) => {
+        {recentPlays.slice(0, 4).map((rp) => {
           return (
             <Badge
               key={rp.track.name}

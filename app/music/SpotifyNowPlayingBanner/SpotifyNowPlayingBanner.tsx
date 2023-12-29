@@ -13,6 +13,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
   const { currentlyPlaying } = await getSpotifyCurrentlyPlaying();
   const trackName = truncate(currentlyPlaying?.item?.name, 40);
   const artist = truncate(currentlyPlaying?.item?.artists[0].name, 20);
+  const album = truncate(currentlyPlaying?.item?.album?.name, 30);
   const trackProgress =
     currentlyPlaying?.progress_ms / currentlyPlaying?.item?.duration_ms;
   return (
@@ -30,6 +31,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
             <>
               <span className={styles.texth1}>{trackName}</span>
               <span className={styles.text}>{artist}</span>
+              <span className={styles.text}>{album}</span>
             </>
           )}
           {!currentlyPlaying && (

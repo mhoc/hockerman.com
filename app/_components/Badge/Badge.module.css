@@ -4,7 +4,6 @@
   border-radius: 12px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   padding: 4px 12px 4px 12px;
   transition: .25s ease-out;
 }
