@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 
-import { Badge } from "./_components/Badge/Badge";
 import { SpotifyNowPlayingText } from "./SpotifyNowPlayingText";
 
 import styles from "./index.module.css";
