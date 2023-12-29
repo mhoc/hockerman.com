@@ -1,11 +1,5 @@
-.link {
-  text-decoration: none;
-}
-
 .badge {
   align-items: center;
-  background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
-  background-size: 200% 100%;
   border: 1px solid #28323E;
   border-radius: 12px;
   display: flex;
@@ -15,16 +9,22 @@
   transition: .25s ease-out;
 }
 
-.badge:hover {
+.badgeClickable {
+  background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
+  background-size: 200% 100%;
+  text-decoration: none;
+}
+
+.badgeClickable:hover {
   background-position: left;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.badge:hover .faicon {
+.badgeClickable:hover .faicon {
   color: #ECF0F1;
 }
 
-.badge:hover .label {
+.badgeClickable:hover .label {
   color: #ECF0F1;
 }
 
@@ -37,6 +37,9 @@
 
 .label {
   color: #28323E;
-  margin-left: 8px;
   transition: .25s ease-out;
+}
+
+.labelWithIcon {
+  margin-left: 8px;
 }

@@ -4,6 +4,7 @@ import { Badge } from "./_components/Badge/Badge";
 import { SpotifyNowPlayingText } from "./SpotifyNowPlayingText";
 
 import styles from "./index.module.css";
+import { BadgeClickable } from "./_components/Badge/BadgeClickable";
 
 export default function Page() {
   return (
@@ -28,41 +29,41 @@ export default function Page() {
             gap: "12px",
           }}
         >
-          <Badge
+          <BadgeClickable
             icon="email"
+            label="mike@hockerman.com"
             link="mailto:mike@hockerman.com"
             target="_blank"
-            text="mike@hockerman.com"
           />
-          <Badge
+          <BadgeClickable
             icon="file"
+            label="Resume"
             link="/resume-mike-hockerman.pdf"
             target="_blank"
-            text="Resume"
           />
-          <Badge
+          <BadgeClickable
             icon="github"
+            label="mhoc"
             link="https://github.com/mhoc"
             target="_blank"
-            text="mhoc"
           />
-          <Badge
+          <BadgeClickable
             icon="linkedin"
+            label="mhoc"
             link="https://www.linkedin.com/in/mhoc/"
             target="_blank"
-            text="mhoc"
           />
         </div>
         <div style={{ minHeight: "12px" }} />
-        <Badge
+        <BadgeClickable
           icon="spotify"
-          link="/music"
-          target="_self"
-          text={
+          label={
             <Suspense fallback={<span style={{ color: "#ECF0F1" }}>...</span>}>
               <SpotifyNowPlayingText />
             </Suspense>
           }
+          link="/music"
+          target="_self"
         />
       </div>
     </div>

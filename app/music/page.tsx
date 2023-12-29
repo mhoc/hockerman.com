@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 
 import styles from "./page.module.css";
-import SpotifyAlbumCollage from "./SpotifyAlbumCollage";
+import SpotifyAlbumCollage from "./SpotifyAlbumCollage/SpotifyAlbumCollage";
 import SpotifyNowPlayingBanner from "./SpotifyNowPlayingBanner/SpotifyNowPlayingBanner";
-import SpotifyRecentlyPlayedList from "./SpotifyRecentlyPlayedList";
+import SpotifyRecentlyPlayedList from "./SpotifyRecentlyPlayedList/SpotifyRecentlyPlayedList";
 
 export default async function Page() {
   return (

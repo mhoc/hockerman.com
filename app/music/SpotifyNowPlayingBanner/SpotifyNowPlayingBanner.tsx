@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
+import { GlassCard } from "../../_components/GlassCard/GlassCard";
 import getSpotifyCurrentlyPlaying from "../../_server/spotify/getSpotifyCurrentlyPlaying";
 import { truncate } from "../../_util/truncate";
 
@@ -12,31 +13,30 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
   const { currentlyPlaying } = await getSpotifyCurrentlyPlaying();
   const trackName = truncate(currentlyPlaying?.item?.name, 40);
   const artist = truncate(currentlyPlaying?.item?.artists[0].name, 20);
-  const album = truncate(currentlyPlaying?.item?.album?.name, 30);
+  const trackProgress =
+    currentlyPlaying?.progress_ms / currentlyPlaying?.item?.duration_ms;
   return (
-    <div className={styles.container}>
-      <div className={styles.spotifyIconContainer}>
-        <FontAwesomeIcon
-          className={styles.faicon}
-          icon={faSpotify}
-          style={{ height: "44px", width: "44px" }}
-        />
-      </div>
-      <div className={styles.nowPlayingContainer}>
-        <span className={styles.texth1}>{trackName}</span>
-        <div className={styles.artistLine}>
-          <span className={styles.textfaded}>by</span>
-          <span className={styles.text} style={{ marginLeft: "8px" }}>
-            {artist}
-          </span>
-          <span className={styles.textfaded} style={{ marginLeft: "8px" }}>
-            on
-          </span>
-          <span className={styles.text} style={{ marginLeft: "8px" }}>
-            {album}
-          </span>
+    <GlassCard backgroundProgress={trackProgress}>
+      <div className={styles.container}>
+        <div className={styles.spotifyIconContainer}>
+          <FontAwesomeIcon
+            className={styles.faicon}
+            icon={faSpotify}
+            style={{ height: "32px", width: "32px" }}
+          />
+        </div>
+        <div className={styles.nowPlayingContainer}>
+          {currentlyPlaying && (
+            <>
+              <span className={styles.texth1}>{trackName}</span>
+              <span className={styles.text}>{artist}</span>
+            </>
+          )}
+          {!currentlyPlaying && (
+            <span className={styles.text}>Nothing Playing :(</span>
+          )}
         </div>
       </div>
-    </div>
+    </GlassCard>
   );
 }

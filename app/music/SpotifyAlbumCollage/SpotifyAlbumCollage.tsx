@@ -1,4 +1,4 @@
-import getSpotifyRecentlyPlayed from "../_server/spotify/getSpotifyRecentlyPlayed";
+import getSpotifyRecentlyPlayed from "../../_server/spotify/getSpotifyRecentlyPlayed";
 
 import styles from "./SpotifyAlbumCollage.module.css";
 

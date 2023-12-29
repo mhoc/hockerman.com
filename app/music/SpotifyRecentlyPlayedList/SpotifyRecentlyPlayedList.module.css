@@ -1,0 +1,25 @@
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.header {
+  color: #28323E;
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.recentlyPlayedList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+  .recentlyPlayedWhen {
+    display: none;
+  }
+}

@@ -10,7 +10,7 @@ export default async function getSpotifyCurrentlyPlaying(): Promise<CurrentlyPla
     "https://api.spotify.com/v1/me/player/currently-playing",
     {
       headers: { Authorization: `Bearer ${accessToken}` },
-      next: { revalidate: 15 },
+      next: { revalidate: 5 },
     }
   );
   if (currentlyPlayingResponse.status === 204) {

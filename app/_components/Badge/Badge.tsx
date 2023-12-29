@@ -3,24 +3,19 @@ import {
   faLinkedin,
   faSpotify,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faEnvelope,
-  faFile,
-  faFileAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
 
 import styles from "./Badge.module.css";
 
-interface Props {
-  icon: "email" | "file" | "github" | "linkedin" | "spotify";
-  link: string;
-  target?: "_self" | "_blank";
-  text: React.ReactNode;
+export interface Props {
+  hoverEffect?: boolean;
+  icon?: "email" | "file" | "github" | "linkedin" | "spotify";
+  label: React.ReactNode;
 }
 
-export const Badge = ({ icon, link, target, text }: Props) => {
-  const linkTarget = target ?? "_self";
+export const Badge = ({ hoverEffect, icon, label }: Props) => {
   let faicon;
   switch (icon) {
     case "email":
@@ -40,11 +35,13 @@ export const Badge = ({ icon, link, target, text }: Props) => {
       break;
   }
   return (
-    <a className={styles.link} href={link} target={linkTarget}>
-      <span className={styles.badge}>
-        <FontAwesomeIcon className={styles.faicon} icon={faicon} />
-        <span className={styles.label}>{text}</span>
+    <span
+      className={clsx([styles.badge, hoverEffect && styles.badgeClickable])}
+    >
+      {icon && <FontAwesomeIcon className={styles.faicon} icon={faicon} />}
+      <span className={clsx(styles.label, icon && styles.labelWithIcon)}>
+        {label}
       </span>
-    </a>
+    </span>
   );
 };
