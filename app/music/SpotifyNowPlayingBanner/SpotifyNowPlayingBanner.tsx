@@ -35,7 +35,7 @@ export default async function SpotifyNowPlayingBanner({}: Props) {
             </>
           )}
           {!currentlyPlaying && (
-            <span className={styles.text}>Nothing Playing :(</span>
+            <span className={styles.text}>Playing Nothing</span>
           )}
         </div>
       </div>

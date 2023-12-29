@@ -3,12 +3,12 @@ import getSpotifyCurrentlyPlaying from "./_server/spotify/getSpotifyCurrentlyPla
 export async function SpotifyNowPlayingText() {
   const { currentlyPlaying } = await getSpotifyCurrentlyPlaying();
   if (!currentlyPlaying) {
-    return "Silence";
+    return "Playing Nothing";
   }
   const track = currentlyPlaying.item?.name;
   const artist = currentlyPlaying.item?.artists[0].name;
   if (!track || !artist) {
-    return "Silence";
+    return "Playing Nothing";
   }
   const trackArtist = `${track} - ${artist}`;
   return trackArtist;
