@@ -46,7 +46,7 @@ async function current(env: Env) {
 	const currentlyPlayingResponse = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
 		cf: {
 			cacheEverything: true,
-			cacheTtl: 5,
+			cacheTtl: 20,
 		},
 		headers: { Authorization: `Bearer ${accessToken}` },
 	});
@@ -73,7 +73,7 @@ async function recent(env: Env) {
 	const recentlyPlayedResponse = await fetch('https://api.spotify.com/v1/me/player/recently-played', {
 		cf: {
 			cacheEverything: true,
-			cacheTtl: 15,
+			cacheTtl: 30,
 		},
 		headers: { Authorization: `Bearer ${accessToken}` },
 	});
