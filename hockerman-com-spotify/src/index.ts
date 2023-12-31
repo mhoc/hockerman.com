@@ -1,5 +1,5 @@
 export interface Env {
-	KV_HOCKERMAN_COM_SPOTIFY_REFRESH_TOKENS: KVNamespace;
+	KV_HOCKERMAN_COM_SPOTIFY: KVNamespace;
 	SPOTIFY_CLIENT_ID: string;
 	SPOTIFY_CLIENT_SECRET: string;
 }
@@ -8,6 +8,7 @@ export interface Env {
 // Its not meant to be secret, and nothing this API exposes isn't already available on
 // hockerman.com; its just a small mitigation for bots and such.
 const KINDA_SECRET = 'OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3';
+const SPOTIFY_USER_ID = '2pkxvc9fMW5IH-MsSdj-h';
 
 const CORS_HEADERS = {
 	'Access-Control-Allow-Headers': 'Authorization',
@@ -16,9 +17,13 @@ const CORS_HEADERS = {
 };
 
 async function getSpotifyAccessToken(env: Env): Promise<string> {
-	const refresh_token = await env.KV_HOCKERMAN_COM_SPOTIFY_REFRESH_TOKENS.get('2pkxvc9fMW5IH-MsSdj-h');
+	const cachedAccessToken = await env.KV_HOCKERMAN_COM_SPOTIFY.get(`access_token:${SPOTIFY_USER_ID}`);
+	if (cachedAccessToken) {
+		return cachedAccessToken;
+	}
+	const refresh_token = await env.KV_HOCKERMAN_COM_SPOTIFY.get(`refresh:${SPOTIFY_USER_ID}`);
 	if (!refresh_token) {
-		throw new Error("no refresh token for '2pkxvc9fMW5IH-MsSdj-h'");
+		throw new Error(`no refresh token for '${SPOTIFY_USER_ID}'`);
 	}
 	const authBody = new URLSearchParams({
 		grant_type: 'refresh_token',
@@ -27,62 +32,48 @@ async function getSpotifyAccessToken(env: Env): Promise<string> {
 	const authHeader = btoa(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`);
 	const tokenResp = await fetch('https://accounts.spotify.com/api/token', {
 		body: authBody,
-		cf: {
-			cacheEverything: true,
-			cacheTtl: 3500,
-		},
 		headers: {
 			Authorization: `Basic ${authHeader}`,
 			'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		method: 'POST',
 	});
-	const { access_token } = (await tokenResp.json()) as any;
-	return access_token;
+	const accessToken = ((await tokenResp.json()) as any).access_token;
+	await env.KV_HOCKERMAN_COM_SPOTIFY.put(`access_token:${SPOTIFY_USER_ID}`, accessToken, {
+		expirationTtl: 3500,
+	});
+	return accessToken;
 }
 
-async function current(env: Env) {
+async function current(env: Env): Promise<string> {
+	const cacheHit = await env.KV_HOCKERMAN_COM_SPOTIFY.get(`current:${SPOTIFY_USER_ID}`);
+	if (cacheHit) {
+		return cacheHit;
+	}
 	const accessToken = await getSpotifyAccessToken(env);
 	const currentlyPlayingResponse = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
-		cf: {
-			cacheEverything: true,
-			cacheTtl: 20,
-		},
 		headers: { Authorization: `Bearer ${accessToken}` },
 	});
 	if (currentlyPlayingResponse.status === 204) {
-		return new Response('', {
-			headers: {
-				'Content-Type': 'application/json',
-				...CORS_HEADERS,
-			},
-			status: 204,
-		});
+		return '';
 	}
-	return new Response(JSON.stringify(await currentlyPlayingResponse.json()), {
-		headers: {
-			'Content-Type': 'application/json',
-			...CORS_HEADERS,
-		},
-		status: 200,
-	});
+	const respBody = JSON.stringify(await currentlyPlayingResponse.json());
+	await env.KV_HOCKERMAN_COM_SPOTIFY.put(`current:${SPOTIFY_USER_ID}`, respBody, { expirationTtl: 60 });
+	return respBody;
 }
 
-async function recent(env: Env) {
+async function recent(env: Env): Promise<string> {
+	const cacheHit = await env.KV_HOCKERMAN_COM_SPOTIFY.get(`recent:${SPOTIFY_USER_ID}`);
+	if (cacheHit) {
+		return cacheHit;
+	}
 	const accessToken = await getSpotifyAccessToken(env);
 	const recentlyPlayedResponse = await fetch('https://api.spotify.com/v1/me/player/recently-played', {
-		cf: {
-			cacheEverything: true,
-			cacheTtl: 30,
-		},
 		headers: { Authorization: `Bearer ${accessToken}` },
 	});
-	return new Response(JSON.stringify(await recentlyPlayedResponse.json()), {
-		headers: {
-			'Content-Type': 'application/json',
-			...CORS_HEADERS,
-		},
-	});
+	const respBody = JSON.stringify(await recentlyPlayedResponse.json());
+	await env.KV_HOCKERMAN_COM_SPOTIFY.put(`recent:${SPOTIFY_USER_ID}`, respBody, { expirationTtl: 120 });
+	return respBody;
 }
 
 export default {
@@ -104,9 +95,14 @@ export default {
 		const url = new URL(request.url);
 		switch (url.pathname) {
 			case '/current':
-				return current(env);
+				const rCurrent = await current(env);
+				if (rCurrent === '') {
+					return new Response(rCurrent, { headers: CORS_HEADERS, status: 204 });
+				}
+				return new Response(rCurrent, { headers: CORS_HEADERS, status: 200 });
 			case '/recent':
-				return recent(env);
+				const rRecent = await recent(env);
+				return new Response(rRecent, { headers: CORS_HEADERS, status: 200 });
 		}
 		return new Response('Not Found', { status: 404 });
 	},

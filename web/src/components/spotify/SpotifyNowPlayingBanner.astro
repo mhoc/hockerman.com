@@ -4,17 +4,31 @@ import { Icon } from 'astro-icon/components';
 import GlassCard from "../GlassCard.astro";
 import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
 ---
-<GlassCard background="gradient-animation">
-  <div class="container">
-    <div class="spotify-icon-container">
-      <Icon class="icon" name="fa6-brands:spotify" />
+<div class="fade-in">
+  <GlassCard background="gradient-animation">
+    <div class="container">
+      <div class="spotify-icon-container">
+        <Icon class="icon" name="fa6-brands:spotify" />
+      </div>
+      <div class="now-playing-container">
+        <SpotifyNowPlayingBannerContent client:load />
+      </div>
     </div>
-    <div class="now-playing-container">
-      <SpotifyNowPlayingBannerContent client:load />
-    </div>
-  </div>
-</GlassCard>
+  </GlassCard>
+</div>
 <style>
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation: fade-in 1s ease-out;
+    animation-delay: 0.5s;
+  }
   .container {
     align-items: center;
     display: flex;
