@@ -2,7 +2,6 @@
 interface Props {
 	title: string;
 }
-
 const { title } = Astro.props;
 ---
 
@@ -26,22 +25,14 @@ const { title } = Astro.props;
 		font-family: 'Inconsolata';
 		font-style: normal;
 		font-weight: normal;
-		src: url('/fonts/inconsolata.ttf') format('ttf');
-	}
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		src: url('/fonts/inconsolata.ttf');
 	}
 	html {
-		font-family: Inconsolata, monospace;
 		background: #13151a;
 		background-size: 224px;
+		font-family: Inconsolata, monospace;
+	}
+	body {
+		margin: 0px;
 	}
 </style>
