@@ -1,23 +1,55 @@
 ---
 interface Props {
+  background?: "standard" | "gradient-animation";
   title?: string;
 }
-const { title } = Astro.props;
+const { background = "standard", title } = Astro.props;
 ---
-<div class="container">
+<div class:list={[
+  "container",
+  { "container-bg-standard": background === "standard" },
+  { "container-bg-gradient-animation": background === "gradient-animation" },
+]}>
   <div class="content">
     <slot />
   </div>
 </div>
 <style>
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
   .container {
     align-items: flex-start;
-    backdrop-filter: blur(2px);
-    background-color: rgba(255, 255, 255, .6);
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     display: flex;
     flex-direction: column;
+  }
+  .container-bg-standard {
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, .6);
+  }
+  .container-bg-gradient-animation {
+    animation: gradient 10s ease infinite;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(
+      -45deg, 
+      #FF8080BB,
+      #FFCF96BB, 
+      #F6FDC3BB,
+      #CDFAD5BB,
+      #B4E4FFBB,
+      #BA90C6BB
+    );
+    background-size: 400% 400%;
   }
   .titleContainer {
     padding: 16px 16px 8px 16px;

@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon/components';
 import GlassCard from "../GlassCard.astro";
 import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
 ---
-<GlassCard>
+<GlassCard background="gradient-animation">
   <div class="container">
     <div class="spotify-icon-container">
       <Icon class="icon" name="fa6-brands:spotify" />
@@ -19,6 +19,7 @@ import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
     align-items: center;
     display: flex;
     flex-direction: row;
+    width: 400px;
   }
   .spotify-icon-container {
     margin-right: 24px;
