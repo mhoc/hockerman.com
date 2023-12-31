@@ -1,0 +1,17 @@
+---
+interface Props {
+  gap?: string;
+}
+const { gap = "0px" } = Astro.props;
+---
+<div class="row" style={{ gap }}>
+  <slot />
+</div>
+<style>
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: {gap};
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import Badge from '../components/Badge.astro';
+import ClickableNoDecoration from '../components/ClickableNoDecoration.astro';
+import Spacer from '../components/Spacer.astro';
+import SpotifyNowPlayingBadge from '../components/spotify/SpotifyNowPlayingBadge.astro';
+import TextH1 from '../components/TextH1.astro';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import GradientBackgroundLayout from '../layouts/GradientBackgroundLayout.astro';
+import RootLayout from '../layouts/RootLayout.astro';
+import Row from '../layouts/Row.astro';
+---
+
+<RootLayout title="Mike Hockerman">
+	<GradientBackgroundLayout>
+		<main>
+			<ContentLayout>
+				<TextH1>Mike Hockerman</TextH1>
+				<Spacer />
+				<Row gap="12px">
+					<ClickableNoDecoration href="mailto:mike@hockerman.com" target="_blank">
+						<Badge icon="fa6-solid:envelope" hover>mike@hockerman.com</Badge>
+					</ClickableNoDecoration>
+					<ClickableNoDecoration href="/resume-mike-hockerman.pdf" target="_blank">
+						<Badge icon="fa6-solid:file" hover>Resume</Badge>
+					</ClickableNoDecoration>
+					<ClickableNoDecoration href="https://github.com/mhoc" target="_blank">
+						<Badge icon="fa6-brands:github" hover>mhoc</Badge>
+					</ClickableNoDecoration>
+					<ClickableNoDecoration href="https://linkedin.com/in/mhoc" target="_blank">
+						<Badge icon="fa6-brands:linkedin" hover>mhoc</Badge>
+					</ClickableNoDecoration>
+				</Row>
+				<Spacer />
+				<SpotifyNowPlayingBadge />
+			</ContentLayout>
+		</main>
+	</GradientBackgroundLayout>
+</RootLayout>

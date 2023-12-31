@@ -1,0 +1,33 @@
+---
+import Badge from "../Badge.astro";
+import ClickableNoDecoration from "../ClickableNoDecoration.astro";
+---
+<ClickableNoDecoration href="/music" target="_self">
+  <Badge icon="fa6-brands:spotify" hover>
+    <span id="spotify-now-playing-content">...</span>
+  </Badge>
+</ClickableNoDecoration>
+<script>
+  const label = document.querySelector('#spotify-now-playing-content');
+  if (!label) {
+    throw new Error("no label selector found");
+  }
+  const r = await fetch("https://hockerman-com-spotify.mhoc.workers.dev/current", {
+    headers: {
+      Authorization: `Basic OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3`,
+    }
+  });
+  if (r.status === 200) {
+    const body = await r.json();
+    const track = body.item?.name;
+    const artist = body.item?.artists[0].name;
+    if (!track || !artist) {
+      label.innerHTML = "Nothing Playing";
+    } else {
+      const trackArtist = `${track} - ${artist}`;
+      label.innerHTML = trackArtist;
+    }
+  } else if (r.status === 204) {
+    label.innerHTML = "Nothing Playing"
+  }
+</script>

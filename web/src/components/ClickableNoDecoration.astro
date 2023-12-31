@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  target: string;
+}
+const { href, target } = Astro.props;
+---
+<a href={href} id="click-container" target={target}>
+  <slot />
+</a>
+<style>
+  #click-container {
+    text-decoration: none;
+  }
+</style>

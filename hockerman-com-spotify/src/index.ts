@@ -9,6 +9,12 @@ export interface Env {
 // hockerman.com; its just a small mitigation for bots and such.
 const KINDA_SECRET = 'OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3';
 
+const CORS_HEADERS = {
+	'Access-Control-Allow-Headers': '*',
+	'Access-Control-Allow-Methods': 'GET',
+	'Access-Control-Allow-Origin': '*',
+};
+
 async function getSpotifyAccessToken(env: Env): Promise<string> {
 	const refresh_token = await env.KV_HOCKERMAN_COM_SPOTIFY_REFRESH_TOKENS.get('2pkxvc9fMW5IH-MsSdj-h');
 	if (!refresh_token) {
@@ -46,16 +52,29 @@ async function current(env: Env) {
 	});
 	if (currentlyPlayingResponse.status === 204) {
 		return new Response('', {
+			headers: {
+				'Content-Type': 'application/json',
+				...CORS_HEADERS,
+			},
 			status: 204,
 		});
 	}
 	return new Response(JSON.stringify(await currentlyPlayingResponse.json()), {
+		headers: {
+			'Content-Type': 'application/json',
+			...CORS_HEADERS,
+		},
 		status: 200,
 	});
 }
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+		if (request.method === 'OPTIONS') {
+			return new Response('OK', {
+				headers: CORS_HEADERS,
+			});
+		}
 		const authHeader = request.headers.get('Authorization')?.split(' ');
 		if (authHeader?.length !== 2 || authHeader[0] !== 'Basic' || authHeader[1] !== KINDA_SECRET) {
 			return new Response('Unauthorized', { status: 401 });

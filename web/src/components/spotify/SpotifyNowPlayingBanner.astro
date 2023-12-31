@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components'
+import GlassCard from "../GlassCard.astro";
+---
+<GlassCard>
+  <div class="container">
+    <div class="spotify-icon-container">
+      <Icon class="icon" name="fa6-brands:spotify" />
+    </div>
+    <div class="now-playing-container">
+      <span id="title" class="texth1">&nbsp;</span>
+      <span id="artist" class="text">...</span>
+      <span id="album" class="text">&nbsp;</span>
+    </div>
+  </div>
+</GlassCard>
+<style>
+  .container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+  .spotify-icon-container {
+    margin-right: 24px;
+  }
+  @media only screen and (max-width: 600px) {
+    .spotifyIconContainer {
+      display: none;
+    }
+  }
+  .icon {
+    color: #28323E;
+    height: 32px;
+    width: 32px;
+  }
+  .now-playing-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .texth1 {
+    color: #28323E;
+    font-size: 1.2rem;
+    font-style: italic;
+    transition: all .25s ease-out;
+  }
+  .text {
+    color: #28323E;
+    font-size: 0.9rem;
+    transition: all .25s ease-out;
+  }
+</style>
+<script>
+  const titleSpan = document.querySelector('#title');
+  const artistSpan = document.querySelector('#artist');
+  const albumSpan = document.querySelector('#album');
+  if (!titleSpan || !artistSpan || !albumSpan) {
+    throw new Error(`selector not matched`);
+  }
+  const r = await fetch("https://hockerman-com-spotify.mhoc.workers.dev/current", {
+    headers: {
+      Authorization: `Basic OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3`,
+    }
+  });
+  if (r.status === 200) {
+    const body = await r.json();
+    const trackName = body?.item?.name;
+    const artist = body?.item?.artists[0].name;
+    const album = body?.item?.album?.name;
+    if (!trackName || !artist || !album) {
+      artistSpan.innerHTML = `Playing Nothing`;
+    } else {
+      titleSpan.innerHTML = trackName;
+      artistSpan.innerHTML = artist
+      albumSpan.innerHTML = album;
+    }
+  } else if (r.status === 204) {
+    artistSpan.innerHTML = `Playing Nothing`
+  }
+</script>
