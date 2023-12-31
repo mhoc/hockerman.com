@@ -1,15 +1,18 @@
 ---
+import SpotifyAlbumCollage from "../components/spotify/SpotifyAlbumCollage.astro";
 import SpotifyNowPlayingBanner from "../components/spotify/SpotifyNowPlayingBanner.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
-import GradientBackgroundLayout from "../layouts/GradientBackgroundLayout.astro";
 import RootLayout from "../layouts/RootLayout.astro";
+import Row from "../layouts/Row.astro";
 ---
 <RootLayout title="Music">
-  <GradientBackgroundLayout>
-    <main>
-      <ContentLayout>
-        <SpotifyNowPlayingBanner />
-      </ContentLayout>
-    </main>
-  </GradientBackgroundLayout>
+  <SpotifyAlbumCollage />
+  <main>
+    <ContentLayout>
+      <SpotifyNowPlayingBanner />
+      <Row>
+        
+      </Row>
+    </ContentLayout>
+  </main>
 </RootLayout>

@@ -10,7 +10,7 @@ export interface Env {
 const KINDA_SECRET = 'OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3';
 
 const CORS_HEADERS = {
-	'Access-Control-Allow-Headers': '*',
+	'Access-Control-Allow-Headers': 'Authorization',
 	'Access-Control-Allow-Methods': 'GET',
 	'Access-Control-Allow-Origin': '*',
 };
@@ -68,11 +68,33 @@ async function current(env: Env) {
 	});
 }
 
+async function recent(env: Env) {
+	const accessToken = await getSpotifyAccessToken(env);
+	const recentlyPlayedResponse = await fetch('https://api.spotify.com/v1/me/player/recently-played', {
+		cf: {
+			cacheEverything: true,
+			cacheTtl: 15,
+		},
+		headers: { Authorization: `Bearer ${accessToken}` },
+	});
+	return new Response(JSON.stringify(await recentlyPlayedResponse.json()), {
+		headers: {
+			'Content-Type': 'application/json',
+			...CORS_HEADERS,
+		},
+	});
+}
+
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		if (request.method === 'OPTIONS') {
 			return new Response('OK', {
 				headers: CORS_HEADERS,
+			});
+		}
+		if (request.method !== 'GET') {
+			return new Response('Not Found', {
+				status: 404,
 			});
 		}
 		const authHeader = request.headers.get('Authorization')?.split(' ');
@@ -83,7 +105,8 @@ export default {
 		switch (url.pathname) {
 			case '/current':
 				return current(env);
-				break;
+			case '/recent':
+				return recent(env);
 		}
 		return new Response('Not Found', { status: 404 });
 	},

@@ -21,7 +21,7 @@ const { hover, icon } = Astro.props;
     display: flex;
     flex-direction: row;
     padding: 4px 12px 4px 12px;
-    transition: .25s ease-out;
+    transition: all .25s ease-out;
   }
   .icon {
     color: #28323E;
@@ -31,7 +31,7 @@ const { hover, icon } = Astro.props;
   }
   .label {
     color: #28323E;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     transition: .25s ease-out;
   }
   .label-with-icon {
@@ -39,7 +39,7 @@ const { hover, icon } = Astro.props;
   }
   .with-hover {
     background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
-    background-size: 200% 100%;
+    background-size: 300% 100%;
   }
   .with-hover:hover {
     background-position: left;
