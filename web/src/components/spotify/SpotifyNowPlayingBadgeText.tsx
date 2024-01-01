@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function SpotifyNowPlayingBadgeText() {
-  const [text, setText] = useState("...");
+  const [text, setText] = useState("................");
   useEffect(() => {
     console.log("useEffect");
     async function getData() {
