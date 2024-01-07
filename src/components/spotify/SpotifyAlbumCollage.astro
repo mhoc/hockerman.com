@@ -1,0 +1,51 @@
+---
+import SpotifyAlbumCollageImages from "./SpotifyAlbumCollageImages";
+---
+<div>
+  <div class="art-drag-blocker" />
+  <div class="viewport">
+    <div class="container">
+      <SpotifyAlbumCollageImages client:load />
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes ease-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.4;
+    }
+  }
+  .art-drag-blocker {
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: -1;
+  }
+  .viewport {
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: -2;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 140vw;
+  }
+  @media only screen and (max-width: 600px) {
+    .container {
+      width: 180vw;
+    }
+  }
+</style>

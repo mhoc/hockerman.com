@@ -1,0 +1,16 @@
+---
+interface Props {
+  orientation?: "horizontal" | "vertical";
+}
+const { orientation = "vertical" } = Astro.props;
+const id = orientation === "vertical" ? "spacer-v" : "spacer-h";
+---
+<div id={id}></div>
+<style>
+  #spacer-h {
+    min-width: 12px;
+  }
+  #spacer-v {
+    min-height: 12px;
+  }
+</style>

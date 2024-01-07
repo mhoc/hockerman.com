@@ -2,35 +2,31 @@
   "name": "hockerman.com",
   "private": true,
   "license": "Unlicense",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mhoc/hockerman.com"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start --port ${PORT-8080}"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "0.2.0",
-    "@vercel/analytics": "^1.1.1",
-    "@vercel/edge-config": "^0.4.1",
-    "@vercel/speed-insights": "^1.0.2",
-    "clsx": "^2.0.0",
-    "date-fns": "^3.0.6",
-    "next": "^14.0.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.10.5",
+    "@astrojs/check": "^0.3.4",
+    "@astrojs/react": "^3.0.9",
+    "@iconify-json/fa6-brands": "^1.1.18",
+    "@iconify-json/fa6-solid": "^1.1.20",
     "@types/react": "^18.2.46",
+    "astro": "^4.1.1",
+    "astro-icon": "^1.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "typescript": "^5.3.3"
   }
 }
