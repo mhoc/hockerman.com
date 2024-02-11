@@ -7,27 +7,31 @@ interface Props {
 }
 const { hover, icon } = Astro.props;
 ---
-<div class:list={["flex flex-row items-center px-2 py-1 border border-slate-900 rounded-xl transition-all duration-500", { "xhover": hover }]}}>
-  <Icon class="xicon h-5 w-5 text-slate-900 transition duration-500" name={icon} />
-  <span class:list={["xlabel text-slate-900 text-md transition duration-500", { "ml-2": !!icon }]}>
+<div class:list={["flex flex-row items-center px-2 py-1 border border-zinc-200 rounded-xl transition-all", { "xhover": hover }]}}>
+  <Icon class="xicon h-5 w-5 text-zinc-200 transition" name={icon} />
+  <span class:list={["xlabel text-zinc-200 text-md transition", { "ml-2": !!icon }]}>
     <slot />
   </span>
 </div>
 <style>
-  .xicon {}
-  .xlabel {}
+  .xicon {
+    transition-duration: 800ms;
+  }
+  .xlabel {
+    transition-duration: 800ms;
+  }
   .xhover {
-    background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
+    background: linear-gradient(to left, rgba(0,0,0,0) 50%, #e4e4e7 50%) right;
     background-size: 300% 100%;
+    transition-duration: 800ms;
   }
   .xhover:hover {
     background-position: left;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   .xhover:hover .xicon {
-    color: #ECF0F1;
+    color: #27272a;
   }
   .xhover:hover .xlabel {
-    color: #ECF0F1;
+    color: #27272a;
   }
 </style>

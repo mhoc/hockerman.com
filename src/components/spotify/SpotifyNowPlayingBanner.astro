@@ -5,12 +5,12 @@ import GlassCard from "../GlassCard.astro";
 import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
 ---
 <div class="fade-in">
-  <GlassCard background="gradient-animation">
+  <GlassCard>
     <div class="container">
-      <div class="spotify-icon-container">
-        <Icon class="icon" name="fa6-brands:spotify" />
+      <div class="mr-4">
+        <Icon class="h-10 w-10 text-zinc-300" name="fa6-brands:spotify" />
       </div>
-      <div class="now-playing-container">
+      <div class="flex flex-col">
         <SpotifyNowPlayingBannerContent client:load />
       </div>
     </div>
@@ -36,21 +36,9 @@ import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
     display: flex;
     flex-direction: row;
   }
-  .spotify-icon-container {
-    margin-right: 24px;
-  }
   @media only screen and (max-width: 600px) {
     .spotifyIconContainer {
       display: none;
     }
-  }
-  .icon {
-    color: #28323E;
-    height: 32px;
-    width: 32px;
-  }
-  .now-playing-container {
-    display: flex;
-    flex-direction: column;
   }
 </style>

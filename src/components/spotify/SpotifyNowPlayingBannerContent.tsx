@@ -34,32 +34,13 @@ export default function SpotifyNowPlayingBannerContent() {
   }, []);
   return (
     <>
-      <span
-        style={{
-          color: "#28323E",
-          fontSize: "1.2rem",
-          fontStyle: "italic",
-          transition: "all .25s ease-out",
-        }}
-      >
+      <span className="text-lg lg:text-xl text-zinc-200 italic leading-4 transition-all">
         {trackName ? trackName : <>&nbsp;</>}
       </span>
-      <span
-        style={{
-          color: "#28323E",
-          fontSize: "0.9rem",
-          transition: "all .25s ease-out",
-        }}
-      >
+      <span className="text-sm lg:text-md text-zinc-400 leading-3 transition-all">
         {artistName}
       </span>
-      <span
-        style={{
-          color: "#28323E",
-          fontSize: "0.9rem",
-          transition: "all .25s ease-out",
-        }}
-      >
+      <span className="text-sm lg:text-md text-zinc-400 leading-3 transition-all">
         {albumName ? albumName : <>&nbsp;</>}
       </span>
     </>

@@ -3,13 +3,13 @@ import Badge from '../components/Badge.astro';
 import ClickableNoDecoration from '../components/ClickableNoDecoration.astro';
 import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText';
 import ContentLayout from '../layouts/ContentLayout.astro';
-import GradientBackgroundLayout from '../layouts/GradientBackgroundLayout.astro';
+import CornerStripeBackgroundLayout from '../layouts/CornerStripeBackgroundLayout.astro';
 import RootLayout from '../layouts/RootLayout.astro';
 ---
 <RootLayout title="Mike Hockerman">
-	<GradientBackgroundLayout>
+	<CornerStripeBackgroundLayout>
 		<ContentLayout>
-			<span class="text-2xl italic text-slate-900 mb-2">Mike Hockerman</span>
+			<span class="text-xl italic text-slate-200 mb-2">Mike Hockerman</span>
 			<div class="flex flex-row flex-wrap gap-2 mb-2">
 				<ClickableNoDecoration href="mailto:mike@hockerman.com" target="_blank">
 					<Badge hover icon="fa6-solid:envelope">mike@hockerman.com</Badge>
@@ -32,7 +32,7 @@ import RootLayout from '../layouts/RootLayout.astro';
 				</Badge>
 			</ClickableNoDecoration>
 		</ContentLayout>
-	</GradientBackgroundLayout>
+	</CornerStripeBackgroundLayout>
 </RootLayout>
 <style>
 	@keyframes fade-in {
