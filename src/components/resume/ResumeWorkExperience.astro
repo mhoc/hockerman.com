@@ -3,27 +3,32 @@ interface Props {
   borderColor: string;
   bullets: Array<string>;
   company: string;
+  companyHref: string;
   location: string;
   positions: Array<{
     title: string;
     years: string;
   }>;
 }
-const { borderColor, bullets, company, location, positions } = Astro.props;
+const { borderColor, bullets, company, companyHref, location, positions } = Astro.props;
 ---
-<div class="xcontainer p-4" style={{
+<div class="xcontainer p-2" style={{
   "border-color": borderColor,
 }}>
   <div class="grid grid-cols-1 lg:grid-cols-2">
     <div class="flex flex-col">
       <div class="flex flex-row items-baseline">
-        <span class="text-xl text-zinc-100 mr-3 leading-5">{company}</span>
-        <span class="text-md text-zinc-500 leading-5">{location}</span>
+        <a href={companyHref} target="_blank">
+          <span class="text-lg lg:text-xl text-zinc-100 mr-3 leading-5">
+            {company}
+          </span>
+        </a>
+        <span class="text-sm lg:text-md text-zinc-500 leading-5">{location}</span>
       </div>
       {positions.map(position => (
         <div class="flex flex-row items-baseline">
-          <span class="text-md text-zinc-400 mr-3 leading-5">{position.title}</span>
-          {position.years && <span class="text-sm text-zinc-500 leading-5">({position.years})</span>}
+          <span class="text-sm lg:text-md text-zinc-400 mr-3 leading-5">{position.title}</span>
+          {position.years && <span class="text-xs lg:text-sm text-zinc-500 leading-5">({position.years})</span>}
         </div>
       ))}
     </div>

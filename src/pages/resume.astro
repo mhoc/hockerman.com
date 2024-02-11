@@ -17,7 +17,9 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
   <div class="xbg">
     <ContentLayout>
       <div class="flex flex-row items-baseline">
-        <span class="text-md text-zinc-200 mr-4">everything i've done</span>
+        <span class="text-md text-zinc-200 mr-4">
+          things i've done
+        </span>
         <a class="text-zinc-400 underline" href="/resume-v9-mike-hockerman.pdf" target="_blank">
           in .pdf
         </a>
@@ -32,6 +34,7 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Mentored a team of entry and mid-level engineers, assisting with architecture, decision making, documentation, career development, and implementation."
         ]}
         company="Trava"
+        companyHref="https://travasecurity.com"
         location="Indianapolis, IN"
         positions={[{ title: "Senior Software Engineer", years: "2023-now" }]}
       />
@@ -41,6 +44,7 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Planned & implemented back-of-house technical systems, including online accounts, mailing lists, domain management, and the primary marketing website.",
         ]}
         company="Women Investors Network"
+        companyHref="https://womeninvestorsnetwork.org"
         location="Indianapolis, IN"
         positions={[{ title: "Volunteer Web Engineer", years: "2019-now" }]}
       />
@@ -52,17 +56,20 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Responded to high severity on-call incidents affecting millions of customers and internet users, implementing observability and alerting improvements across our services."
         ]}
         company="Cloudflare"
+        companyHref="https://cloudflare.com"
         location="Remote"
         positions={[{ title: "Systems Engineer", years: "2021-2023" }]}
       />
       <ResumeWorkExperience
         borderColor={STRUCTURAL_COLOR}
         bullets={[
-          "Architected & implemented new API and domains-facing platform features for enterprise customers including opt-in domain security enhancements and API access over mTLS.",
-          "Modernized dozens of legacy workloads from traditional servers to Kubernetes.",
-          "Responded to high severity on-call incidents affecting millions of customers and internet users, implementing observability and alerting improvements across our services."
+          "Shipped countless product features spanning Structural’s Typescript & Node.JS backend and React frontend, including user sign-in and authorization, bulk user importing, business metrics tracking, the in-app admin panel, and more.",
+          "Owned and maintained all cloud deployed assets on AWS, evolving our deployment strategy over the years from a single EC2 instance, to adopting Docker, Kubernetes, and eventually AWS ECS.",
+          "Acted as engineering point-of-contact on security reviews and compliance, including four years of successful SOC-2 Type II audits.",
+          "Led the implementation of a variety of system monitoring and instrumentation capabilities, including alerting, refining our on-call procedures, logging, and distributed tracing, generally with Datadog."
         ]}
         company="Structural"
+        companyHref="https://structural.com"
         location="Indianapolis, IN"
         positions={[
           { title: "Senior Software Engineer", years: "2020-2021" },
@@ -75,6 +82,7 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Served as Vice President and President of Purdue's ACM Special Interest Group for Application Development (SIGAPP)."
         ]}
         company="Purdue University"
+        companyHref="https://purdue.edu"
         location="West Lafayette, IN"
         positions={[
           { title: "B.S. Computer Science", years: "2012-2015" },
@@ -87,6 +95,7 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Optimized log search times in a MySQL-sourced data pipeline for business analytics, and engineered a mapping/filtering system to flag and censor personally identifiable information within the pipeline.",
         ]}
         company="Yelp"
+        companyHref="https://yelp.com"
         location="San Francisco, CA"
         positions={[
           { title: "Software Engineering Intern", years: "2015" },
@@ -98,6 +107,7 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           "Shipped an end-to-end system which scanned PDF documents, applied optical character recognition and barcode scanning, and indexed the results in Elasticsearch.",
         ]}
         company="Genesys"
+        companyHref="https://genesys.com"
         location="Indianapolis, IN"
         positions={[
           { title: "Software Engineering Intern", years: "2014" },
