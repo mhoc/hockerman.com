@@ -17,12 +17,12 @@ const { borderColor, bullets, company, location, positions } = Astro.props;
   <div class="grid grid-cols-1 lg:grid-cols-2">
     <div class="flex flex-col">
       <div class="flex flex-row items-baseline">
-        <span class="text-2xl text-zinc-100 font-bold mr-3 leading-5">{company}</span>
+        <span class="text-xl text-zinc-100 mr-3 leading-5">{company}</span>
         <span class="text-md text-zinc-500 leading-5">{location}</span>
       </div>
       {positions.map(position => (
         <div class="flex flex-row items-baseline">
-          <span class="text-md text-zinc-300 mr-3 leading-5">{position.title}</span>
+          <span class="text-md text-zinc-400 mr-3 leading-5">{position.title}</span>
           {position.years && <span class="text-sm text-zinc-500 leading-5">({position.years})</span>}
         </div>
       ))}
