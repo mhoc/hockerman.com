@@ -1,6 +1,6 @@
 **/.DS_Store
 **.env*
-
+.astro/*
 .next/*
 node_modules/*
 out/*
