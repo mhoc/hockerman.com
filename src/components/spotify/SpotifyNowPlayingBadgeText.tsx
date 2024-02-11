@@ -13,7 +13,7 @@ export default function SpotifyNowPlayingBadgeText() {
         }
       );
       if (r.status === 200) {
-        const body = await r.json();
+        const body = await r.json<any>();
         const track = body.item?.name;
         const artist = body.item?.artists[0].name;
         if (!track || !artist) {

@@ -105,11 +105,7 @@ async function recent(env: Env): Promise<string> {
 }
 
 export default {
-  async fetch(
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === "OPTIONS") {
       return new Response("OK", {
         headers: CORS_HEADERS,

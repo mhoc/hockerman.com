@@ -15,7 +15,7 @@ export default function SpotifyNowPlayingBannerContent() {
         }
       );
       if (r.status === 200) {
-        const body = await r.json();
+        const body = await r.json<any>();
         const trackName = body?.item?.name;
         const artist = body?.item?.artists[0].name;
         const album = body?.item?.album?.name;
