@@ -1,0 +1,13 @@
+---
+import Badge from "../components/Badge.astro"
+import ClickableNoDecoration from "../components/ClickableNoDecoration.astro"
+import ContentLayout from "../layouts/ContentLayout.astro"
+import RootLayout from "../layouts/RootLayout.astro"
+---
+<RootLayout title="Mike Hockerman">
+  <ContentLayout>
+    <ClickableNoDecoration href="/resume-v9-mike-hockerman.pdf" target="_blank">
+      <Badge hover icon="fa6-solid:file">.pdf</Badge>
+    </ClickableNoDecoration>
+  </ContentLayout>
+</RootLayout>

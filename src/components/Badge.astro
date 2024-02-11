@@ -7,48 +7,27 @@ interface Props {
 }
 const { hover, icon } = Astro.props;
 ---
-<div class:list={["container", { "with-hover": hover }]}}>
-  <Icon class="icon" name={icon} />
-  <span class:list={["label", { "label-with-icon": !!icon }]}>
+<div class:list={["flex flex-row items-center px-2 py-1 border border-slate-900 rounded-xl transition-all duration-500", { "xhover": hover }]}}>
+  <Icon class="xicon h-5 w-5 text-slate-900 transition duration-500" name={icon} />
+  <span class:list={["xlabel text-slate-900 text-md transition duration-500", { "ml-2": !!icon }]}>
     <slot />
   </span>
 </div>
 <style>
-  .container {
-    align-items: center;
-    border: 1px solid #28323E;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: row;
-    padding: 4px 12px 4px 12px;
-    transition: all .25s ease-out;
-  }
-  .icon {
-    color: #28323E;
-    height: 22px;
-    transition: .25s ease-out;
-    width: 22px;
-  }
-  .label {
-    color: #28323E;
-    font-size: 0.9rem;
-    transition: .25s ease-out;
-  }
-  .label-with-icon {
-    margin-left: 8px;
-  }
-  .with-hover {
+  .xicon {}
+  .xlabel {}
+  .xhover {
     background: linear-gradient(to left, rgba(0,0,0,0) 50%, #28323E 50%) right;
     background-size: 300% 100%;
   }
-  .with-hover:hover {
+  .xhover:hover {
     background-position: left;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  .with-hover:hover .icon {
+  .xhover:hover .xicon {
     color: #ECF0F1;
   }
-  .with-hover:hover .label {
+  .xhover:hover .xlabel {
     color: #ECF0F1;
   }
 </style>

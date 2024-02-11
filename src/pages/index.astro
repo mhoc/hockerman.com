@@ -1,44 +1,37 @@
 ---
 import Badge from '../components/Badge.astro';
 import ClickableNoDecoration from '../components/ClickableNoDecoration.astro';
-import Spacer from '../components/Spacer.astro';
 import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText';
-import TextH1 from '../components/TextH1.astro';
 import ContentLayout from '../layouts/ContentLayout.astro';
 import GradientBackgroundLayout from '../layouts/GradientBackgroundLayout.astro';
 import RootLayout from '../layouts/RootLayout.astro';
-import Row from '../layouts/Row.astro';
 ---
 <RootLayout title="Mike Hockerman">
 	<GradientBackgroundLayout>
-		<main>
-			<ContentLayout>
-				<TextH1>Mike Hockerman</TextH1>
-				<Spacer />
-				<Row gap="12px">
-					<ClickableNoDecoration href="mailto:mike@hockerman.com" target="_blank">
-						<Badge hover icon="fa6-solid:envelope">mike@hockerman.com</Badge>
-					</ClickableNoDecoration>
-					<ClickableNoDecoration href="/resume-v9-mike-hockerman.pdf" target="_blank">
-						<Badge hover icon="fa6-solid:file">Resume</Badge>
-					</ClickableNoDecoration>
-					<ClickableNoDecoration href="https://github.com/mhoc" target="_blank">
-						<Badge hover icon="fa6-brands:github">mhoc</Badge>
-					</ClickableNoDecoration>
-					<ClickableNoDecoration href="https://linkedin.com/in/mhoc" target="_blank">
-						<Badge hover icon="fa6-brands:linkedin">mhoc</Badge>
-					</ClickableNoDecoration>
-				</Row>
-				<Spacer />
-				<ClickableNoDecoration href="/music" target="_self">
-					<Badge hover icon="fa6-brands:spotify">
-						<div class="fade-in">
-							<SpotifyNowPlayingBadgeText client:load />
-						</div>
-					</Badge>
+		<ContentLayout>
+			<span class="text-2xl italic text-slate-900 mb-2">Mike Hockerman</span>
+			<div class="flex flex-row gap-2 mb-2">
+				<ClickableNoDecoration href="mailto:mike@hockerman.com" target="_blank">
+					<Badge hover icon="fa6-solid:envelope">mike@hockerman.com</Badge>
 				</ClickableNoDecoration>
-			</ContentLayout>
-		</main>
+				<ClickableNoDecoration href="/resume" target="_self">
+					<Badge hover icon="fa6-solid:file">Resume</Badge>
+				</ClickableNoDecoration>
+				<ClickableNoDecoration href="https://github.com/mhoc" target="_blank">
+					<Badge hover icon="fa6-brands:github">mhoc</Badge>
+				</ClickableNoDecoration>
+				<ClickableNoDecoration href="https://linkedin.com/in/mhoc" target="_blank">
+					<Badge hover icon="fa6-brands:linkedin">mhoc</Badge>
+				</ClickableNoDecoration>
+			</div>
+			<ClickableNoDecoration href="/music" target="_self">
+				<Badge hover icon="fa6-brands:spotify">
+					<div class="fade-in">
+						<SpotifyNowPlayingBadgeText client:load />
+					</div>
+				</Badge>
+			</ClickableNoDecoration>
+		</ContentLayout>
 	</GradientBackgroundLayout>
 </RootLayout>
 <style>

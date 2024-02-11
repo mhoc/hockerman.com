@@ -1,16 +1,12 @@
 ---
-interface Props {}
 ---
-<div id="container">
-  <slot />
-</div>
+<main>
+  <div class="flex flex-col items-start max-w-4xl xcontainer">
+    <slot />
+  </div>
+</main>
 <style>
-  #container {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    max-height: 80vh;
-    max-width: 1200px;
+  .xcontainer {
     padding: 10vh 8vw;
   }
 </style>
