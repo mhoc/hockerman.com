@@ -5,13 +5,98 @@ import ResumeWorkExperience from "../components/resume/ResumeWorkExperience.astr
 import ContentLayout from "../layouts/ContentLayout.astro"
 import RootLayout from "../layouts/RootLayout.astro"
 
-const TRAVA_COLOR = "#34d399";      // emerald-400
-const WIN_COLOR = "#7c3aed";        // violet-600
-const CLOUDFLARE_COLOR = "#fb923c"; // orange-400
-const STRUCTURAL_COLOR = "#c084fc"; // purple-400
-const PURDUE_COLOR = "#fbbf24";     // amber-400
-const YELP_COLOR = "#ef4444";       // red-500
-const ININ_COLOR = "#22d3ee";       // cyan-400
+const ITEMS = [
+  {
+    borderColor: "#34d399",
+    bullets: [
+      "Architected, built, maintained, and evolved an array of TypeScript and Golang-based systems powering cybersecurity scanning for our customers, leveraging technologies such as Temporal, React, and open source scanning tools to identify vulnerabilities.",
+      "Balanced the prioritization of customer needs, business requirements, product evolution, and technical debt to meaningfully move the product suite forward.",
+      "Mentored a team of entry and mid-level engineers, assisting with architecture, decision making, documentation, career development, and implementation."
+    ],
+    company: "Trava",
+    companyHref: "https://travasecurity.com",
+    location: "Indianapolis, IN",
+    positions: [{ title: "Senior Software Engineer", years: "2023-now" }],
+  },
+  {
+    borderColor: "#7c3aed",
+    bullets: [
+      "Planned & implemented back-of-house technical systems, including online accounts, mailing lists, domain management, and the primary marketing website.",
+    ],
+    company: "Women Investors Network",
+    companyHref: "https://womeninvestorsnetwork.org",
+    location: "Indianapolis, IN",
+    positions: [{ title: "Volunteer Web Engineer", years: "2019-now" }],
+  },
+  {
+    borderColor: "#fb923c",
+    bullets: [
+      "Architected & implemented new API and domains-facing platform features for enterprise customers including opt-in domain security enhancements and API access over mTLS.",
+      "Modernized dozens of legacy workloads from traditional servers to Kubernetes.",
+      "Responded to high severity on-call incidents affecting millions of customers and internet users, implementing observability and alerting improvements across our services."
+    ],
+    company: "Cloudflare",
+    companyHref: "https://cloudflare.com",
+    location: "Remote",
+    positions: [{ title: "Systems Engineer", years: "2021-2023" }],
+  },
+  {
+    borderColor: "#c084fc",
+    bullets: [
+      "Shipped countless product features spanning Structural’s Typescript & Node.JS backend and React frontend, including user sign-in and authorization, bulk user importing, business metrics tracking, the in-app admin panel, and more.",
+      "Owned and maintained all cloud deployed assets on AWS, evolving our deployment strategy over the years from a single EC2 instance, to adopting Docker, Kubernetes, and eventually AWS ECS.",
+      "Acted as engineering point-of-contact on security reviews and compliance, including four years of successful SOC-2 Type II audits.",
+      "Led the implementation of a variety of system monitoring and instrumentation capabilities, including alerting, refining our on-call procedures, logging, and distributed tracing, generally with Datadog."
+    ],
+    company: "Structural",
+    companyHref: "https://structural.com",
+    location: "Indianapolis, IN",
+    positions: [
+      { title: "Senior Software Engineer", years: "2020-2021" },
+      { title: "Software Engineer", years: "2016-2020" }
+    ],
+  },
+  {
+    borderColor: "#fbbf24",
+    bullets: [
+      "Served as Vice President and President of Purdue's ACM Special Interest Group for Application Development (SIGAPP)."
+    ],
+    company: "Purdue University",
+    companyHref: "https://purdue.edu",
+    location: "West Lafayette, IN",
+    positions: [
+      { title: "B.S. Computer Science", years: "2012-2015" },
+      { title: "Minor, Organizational Leadership", years: ""},
+    ],
+  },
+  {
+    borderColor: "#ef4444",
+    bullets: [
+      "Optimized log search times in a MySQL-sourced data pipeline for business analytics, and engineered a mapping/filtering system to flag and censor personally identifiable information within the pipeline.",
+    ],
+    company: "Yelp",
+    companyHref: "https://yelp.com",
+    location: "San Francisco, CA",
+    positions: [
+      { title: "Software Engineering Intern", years: "2015" },
+    ],
+  },
+  {
+    borderColor: "#22d3ee",
+    bullets: [
+      "Shipped an end-to-end system which scanned PDF documents, applied optical character recognition and barcode scanning, and indexed the results in Elasticsearch.",
+    ],
+    company: "Genesys",
+    companyHref: "https://genesys.com",
+    location: "Indianapolis, IN",
+    positions: [
+      { title: "Software Engineering Intern", years: "2014" },
+    ],
+  }
+]
+
+const filter = Astro.url.searchParams.get('filter') || 'all';
+
 ---
 <RootLayout title="Mike Hockerman">
   <div class="xbg">
@@ -24,95 +109,12 @@ const ININ_COLOR = "#22d3ee";       // cyan-400
           in .pdf
         </a>
       </div>
-      
       <div class="mb-8" />
-      <ResumeWorkExperience
-        borderColor={TRAVA_COLOR}
-        bullets={[
-          "Architected, built, maintained, and evolved an array of TypeScript and Golang-based systems powering cybersecurity scanning for our customers, leveraging technologies such as Temporal, React, and open source scanning tools to identify vulnerabilities.",
-          "Balanced the prioritization of customer needs, business requirements, product evolution, and technical debt to meaningfully move the product suite forward.",
-          "Mentored a team of entry and mid-level engineers, assisting with architecture, decision making, documentation, career development, and implementation."
-        ]}
-        company="Trava"
-        companyHref="https://travasecurity.com"
-        location="Indianapolis, IN"
-        positions={[{ title: "Senior Software Engineer", years: "2023-now" }]}
-      />
-      <ResumeWorkExperience
-        borderColor={WIN_COLOR}
-        bullets={[
-          "Planned & implemented back-of-house technical systems, including online accounts, mailing lists, domain management, and the primary marketing website.",
-        ]}
-        company="Women Investors Network"
-        companyHref="https://womeninvestorsnetwork.org"
-        location="Indianapolis, IN"
-        positions={[{ title: "Volunteer Web Engineer", years: "2019-now" }]}
-      />
-      <ResumeWorkExperience
-        borderColor={CLOUDFLARE_COLOR}
-        bullets={[
-          "Architected & implemented new API and domains-facing platform features for enterprise customers including opt-in domain security enhancements and API access over mTLS.",
-          "Modernized dozens of legacy workloads from traditional servers to Kubernetes.",
-          "Responded to high severity on-call incidents affecting millions of customers and internet users, implementing observability and alerting improvements across our services."
-        ]}
-        company="Cloudflare"
-        companyHref="https://cloudflare.com"
-        location="Remote"
-        positions={[{ title: "Systems Engineer", years: "2021-2023" }]}
-      />
-      <ResumeWorkExperience
-        borderColor={STRUCTURAL_COLOR}
-        bullets={[
-          "Shipped countless product features spanning Structural’s Typescript & Node.JS backend and React frontend, including user sign-in and authorization, bulk user importing, business metrics tracking, the in-app admin panel, and more.",
-          "Owned and maintained all cloud deployed assets on AWS, evolving our deployment strategy over the years from a single EC2 instance, to adopting Docker, Kubernetes, and eventually AWS ECS.",
-          "Acted as engineering point-of-contact on security reviews and compliance, including four years of successful SOC-2 Type II audits.",
-          "Led the implementation of a variety of system monitoring and instrumentation capabilities, including alerting, refining our on-call procedures, logging, and distributed tracing, generally with Datadog."
-        ]}
-        company="Structural"
-        companyHref="https://structural.com"
-        location="Indianapolis, IN"
-        positions={[
-          { title: "Senior Software Engineer", years: "2020-2021" },
-          { title: "Software Engineer", years: "2016-2020" }
-        ]}
-      />
-      <ResumeWorkExperience
-        borderColor={PURDUE_COLOR}
-        bullets={[
-          "Served as Vice President and President of Purdue's ACM Special Interest Group for Application Development (SIGAPP)."
-        ]}
-        company="Purdue University"
-        companyHref="https://purdue.edu"
-        location="West Lafayette, IN"
-        positions={[
-          { title: "B.S. Computer Science", years: "2012-2015" },
-          { title: "Minor, Organizational Leadership", years: ""},
-        ]}
-      />
-      <ResumeWorkExperience
-        borderColor={YELP_COLOR}
-        bullets={[
-          "Optimized log search times in a MySQL-sourced data pipeline for business analytics, and engineered a mapping/filtering system to flag and censor personally identifiable information within the pipeline.",
-        ]}
-        company="Yelp"
-        companyHref="https://yelp.com"
-        location="San Francisco, CA"
-        positions={[
-          { title: "Software Engineering Intern", years: "2015" },
-        ]}
-      />
-      <ResumeWorkExperience
-        borderColor={ININ_COLOR}
-        bullets={[
-          "Shipped an end-to-end system which scanned PDF documents, applied optical character recognition and barcode scanning, and indexed the results in Elasticsearch.",
-        ]}
-        company="Genesys"
-        companyHref="https://genesys.com"
-        location="Indianapolis, IN"
-        positions={[
-          { title: "Software Engineering Intern", years: "2014" },
-        ]}
-      />
+      {ITEMS.map(item => (
+        <div>
+          <ResumeWorkExperience {...item} />
+        </div>
+      ))}
     </ContentLayout>
   </div>
 </RootLayout>
