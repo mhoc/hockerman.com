@@ -177,11 +177,11 @@ const ResumeExperienceList = () => {
 
   return (
     <div>
-      <div className="flex flex-row items-center mb-2">
-        <span className="text-sm text-zinc-300 mr-2">filter</span>
+      <div className="flex flex-row flex-wrap items-center gap-2 mb-2">
+        <span className="text-sm text-zinc-300">filter</span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": filter !== "all",
             "text-zinc-800": filter === "all",
@@ -194,7 +194,7 @@ const ResumeExperienceList = () => {
         </span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": filter !== "professional",
             "text-zinc-800": filter === "professional",
@@ -207,7 +207,7 @@ const ResumeExperienceList = () => {
         </span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": filter !== "hustles",
             "text-zinc-800": filter === "hustles",
@@ -220,7 +220,7 @@ const ResumeExperienceList = () => {
         </span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": filter !== "edu",
             "text-zinc-800": filter === "edu",
@@ -233,7 +233,7 @@ const ResumeExperienceList = () => {
         </span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": filter !== "community",
             "text-zinc-800": filter === "community",
@@ -245,11 +245,11 @@ const ResumeExperienceList = () => {
           community
         </span>
       </div>
-      <div className="flex flex-row items-center">
-        <span className="text-sm text-zinc-300 mr-2">prose</span>
+      <div className="flex flex-row flex-wrap items-center gap-2">
+        <span className="text-sm text-zinc-300">prose</span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": prose !== "none",
             "text-zinc-800": prose === "none",
@@ -262,7 +262,7 @@ const ResumeExperienceList = () => {
         </span>
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer mr-2 transition-all":
+            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": prose !== "resume",
             "text-zinc-800": prose === "resume",
