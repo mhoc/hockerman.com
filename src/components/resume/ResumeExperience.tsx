@@ -1,6 +1,7 @@
+import { AnimatePresence, motion } from "framer-motion";
+
 interface Props {
   borderColor: string;
-  bullets: Array<string>;
   company: string;
   companyHref?: string;
   location: string;
@@ -8,15 +9,18 @@ interface Props {
     title: string;
     years: string;
   }>;
+  prose: Array<string>;
+  proseRender: boolean;
 }
 
 const ResumeExperience = ({
   borderColor,
-  bullets,
   company,
   companyHref,
   location,
   positions,
+  prose,
+  proseRender,
 }: Props) => {
   return (
     <div
@@ -30,7 +34,7 @@ const ResumeExperience = ({
         <div className="flex flex-col">
           <div className="flex flex-row items-baseline">
             {companyHref ? (
-              <a href={companyHref} target="_blank">
+              <a href={companyHref} rel="noreferrer" target="_blank">
                 <span className="text-lg lg:text-xl text-zinc-100 mr-3 leading-5">
                   {company}
                 </span>
@@ -57,14 +61,26 @@ const ResumeExperience = ({
             </div>
           ))}
         </div>
-        <div className="flex flex-col max-w-xl">
-          {bullets.map((bullet) => (
-            <div className="flex flex-row">
-              <span className="text-sm text-zinc-400 mr-2">•</span>
-              <span className="text-sm text-zinc-400">{bullet}</span>
-            </div>
-          ))}
-        </div>
+        <AnimatePresence>
+          {proseRender && (
+            <motion.div
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 50 }}
+              key={`${company}-prose`}
+              className="flex flex-row"
+            >
+              <div className="flex flex-col max-w-xl">
+                {prose.map((content) => (
+                  <div className="flex flex-row">
+                    <span className="text-sm text-zinc-400 mr-2">•</span>
+                    <span className="text-sm text-zinc-400">{content}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
