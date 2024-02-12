@@ -277,7 +277,7 @@ const ResumeExperienceList = () => {
       <div className="mb-8" />
       <div>
         {visibilityTagged.map((item) => (
-          <AnimatePresence>
+          <AnimatePresence key={item.company}>
             {item.isVisibile && (
               <motion.div
                 animate={{ opacity: 1, x: 0 }}
