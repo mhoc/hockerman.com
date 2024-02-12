@@ -20,11 +20,10 @@ const ResumeExperience = ({
 }: Props) => {
   return (
     <div
-      className="px-4 py-2 transition border-r-zinc-900 hover:border-r-2 hover:border-r-zinc-700"
+      className="px-4 py-2 transition"
       style={{
         borderColor: borderColor,
         borderLeftWidth: "2px",
-        borderRightWidth: "2px",
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2">
