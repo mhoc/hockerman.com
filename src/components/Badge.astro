@@ -7,13 +7,16 @@ interface Props {
 }
 const { hover, icon } = Astro.props;
 ---
-<div class:list={["flex flex-row items-center px-2 py-1 border border-zinc-200 rounded-xl transition-all", { "xhover": hover }]}}>
+<div class:list={["flex flex-row items-center px-2 py-1 border border-zinc-200 transition-all xcontainer", { "xhover": hover }]}}>
   <Icon class="xicon h-5 w-5 text-zinc-200 transition" name={icon} />
   <span class:list={["xlabel text-zinc-200 text-md transition", { "ml-2": !!icon }]}>
     <slot />
   </span>
 </div>
 <style>
+  .xcontainer {
+    border-radius: 300px;
+  }
   .xicon {
     transition-duration: 800ms;
   }
