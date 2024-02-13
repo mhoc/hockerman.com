@@ -9,8 +9,7 @@ interface Props {
     title: string;
     years: string;
   }>;
-  prose: Array<string>;
-  proseRender: boolean;
+  resume?: Array<string>;
 }
 
 const ResumeExperience = ({
@@ -19,8 +18,7 @@ const ResumeExperience = ({
   companyHref,
   location,
   positions,
-  prose,
-  proseRender,
+  resume,
 }: Props) => {
   return (
     <div
@@ -62,16 +60,16 @@ const ResumeExperience = ({
           ))}
         </div>
         <AnimatePresence>
-          {proseRender && (
+          {resume && (
             <motion.div
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              initial={{ opacity: 0, x: 50 }}
+              exit={{ opacity: 0, x: 10 }}
+              initial={{ opacity: 0, x: 10 }}
               key={`${company}-prose`}
               className="flex flex-row"
             >
               <div className="flex flex-col max-w-xl">
-                {prose.map((content) => (
+                {resume.map((content) => (
                   <div className="flex flex-row" key={content}>
                     <span className="text-sm text-zinc-400 mr-2">•</span>
                     <span className="text-sm text-zinc-400">{content}</span>
