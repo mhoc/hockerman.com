@@ -71,7 +71,7 @@ const ALL_ITEMS = [
         "Practical Creatives was an Etsy store focused on the design, production, and sale of bespoke & useful 3D printed things.",
       ],
     },
-    tags: ["hustles"],
+    tags: ["projects"],
   },
   {
     borderColor: "#c084fc",
@@ -209,14 +209,14 @@ const ResumeExperienceList = () => {
           className={clsx({
             "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
-            "text-zinc-300": filter !== "hustles",
-            "text-zinc-800": filter === "hustles",
-            "bg-zinc-300": filter === "hustles",
+            "text-zinc-300": filter !== "projects",
+            "text-zinc-800": filter === "projects",
+            "bg-zinc-300": filter === "projects",
           })}
-          onClick={() => setFilter("hustles")}
-          onKeyUp={(e) => e.key === "Enter" && setFilter("hustles")}
+          onClick={() => setFilter("projects")}
+          onKeyUp={(e) => e.key === "Enter" && setFilter("projects")}
         >
-          hustles
+          projects
         </span>
         <span
           className={clsx({
