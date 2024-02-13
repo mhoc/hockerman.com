@@ -26,6 +26,7 @@ export default function SpotifyAlbumCollageImages() {
     <>
       {albumUrls.map((albumUrl, i) => (
         <img
+          key={albumUrl}
           src={albumUrl}
           style={{
             animationDelay: `${0.075 * (i + 1)}s`,

@@ -12,6 +12,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Mike Hockerman's Personal Website" />
+		<meta name="theme-color" content="#18181b">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
@@ -31,7 +32,7 @@ const { title } = Astro.props;
 		src: url('/fonts/inconsolata.ttf');
 	}
 	html {
-		background: #13151a;
+		background: #18181b;
 		background-size: 224px;
 		font-family: Inconsolata, monospace;
 	}
@@ -39,7 +40,7 @@ const { title } = Astro.props;
 		margin: 0px;
 	}
 	::-webkit-scrollbar {
-		width: 12px;
+		width: 8px;
 	}
 	::-webkit-scrollbar-track {
 		background: #27272a;

@@ -49,7 +49,7 @@ const ResumeExperience = ({
             </span>
           </div>
           {positions.map((position) => (
-            <div className="flex flex-row items-baseline">
+            <div className="flex flex-row items-baseline" key={position.title}>
               <span className="text-sm lg:text-md text-zinc-400 mr-3 leading-5">
                 {position.title}
               </span>
@@ -72,7 +72,7 @@ const ResumeExperience = ({
             >
               <div className="flex flex-col max-w-xl">
                 {prose.map((content) => (
-                  <div className="flex flex-row">
+                  <div className="flex flex-row" key={content}>
                     <span className="text-sm text-zinc-400 mr-2">•</span>
                     <span className="text-sm text-zinc-400">{content}</span>
                   </div>

@@ -4,27 +4,19 @@ import ContentLayout from "../layouts/ContentLayout.astro"
 import RootLayout from "../layouts/RootLayout.astro"
 ---
 <RootLayout title="Mike Hockerman">
-  <div class="xbg">
-    <ContentLayout>
-      <div class="flex flex-row mb-2">
-        <span class="text-md text-zinc-200 mr-4">
-          the things i've done
-        </span>
-        <a
-          class="text-md text-zinc-300 underline mr-8"
-          href="/resume-v9-mike-hockerman.pdf"
-          target="_blank"
-        >
-          in .pdf
-        </a>
-      </div>
-      <ResumeExperienceList client:load />
-    </ContentLayout>
-  </div>
+  <ContentLayout>
+    <div class="flex flex-row mb-2">
+      <span class="text-md text-zinc-200 mr-4">
+        the things i've done
+      </span>
+      <a
+        class="text-md text-zinc-300 underline mr-8"
+        href="/resume-v9-mike-hockerman.pdf"
+        target="_blank"
+      >
+        in .pdf
+      </a>
+    </div>
+    <ResumeExperienceList client:load />
+  </ContentLayout>
 </RootLayout>
-<style>
-  .xbg {
-    background-color: #18181b; /** zinc-800 */
-    min-height: 100vh;
-  }
-</style>
