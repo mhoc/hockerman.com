@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import ResumeTechBadge from "./ResumeTechBadge";
 
 interface Props {
   borderColor: string;
@@ -10,6 +11,7 @@ interface Props {
     years: string;
   }>;
   resume?: Array<string>;
+  tech?: Array<string>;
 }
 
 const ResumeExperience = ({
@@ -19,6 +21,7 @@ const ResumeExperience = ({
   location,
   positions,
   resume,
+  tech,
 }: Props) => {
   return (
     <div
@@ -28,7 +31,7 @@ const ResumeExperience = ({
         borderLeftWidth: "2px",
       }}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
         <div className="flex flex-col">
           <div className="flex flex-row items-baseline">
             {companyHref ? (
@@ -59,26 +62,47 @@ const ResumeExperience = ({
             </div>
           ))}
         </div>
-        <AnimatePresence>
-          {resume && (
-            <motion.div
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-              initial={{ opacity: 0, x: 10 }}
-              key={`${company}-prose`}
-              className="flex flex-row"
-            >
-              <div className="flex flex-col max-w-xl">
-                {resume.map((content) => (
-                  <div className="flex flex-row" key={content}>
-                    <span className="text-sm text-zinc-400 mr-2">•</span>
-                    <span className="text-sm text-zinc-400">{content}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div>
+          <AnimatePresence>
+            {resume && (
+              <motion.div
+                animate={{ opacity: 1, x: 0 }}
+                className="flex flex-row"
+                exit={{ opacity: 0, position: "absolute", x: 10 }}
+                initial={{ opacity: 0, x: 10 }}
+                key={`${company}-resume`}
+              >
+                <div className="flex flex-col max-w-xl">
+                  {resume.map((content) => (
+                    <div className="flex flex-row" key={content}>
+                      <span className="text-sm text-zinc-400 mr-2">•</span>
+                      <span className="text-sm text-zinc-400">{content}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {tech && (
+              <motion.div
+                animate={{ opacity: 1, x: 0 }}
+                className="flex flex-row"
+                exit={{ opacity: 0, position: "absolute", x: 10 }}
+                initial={{ opacity: 0, x: 10 }}
+                key={`${company}-tech`}
+              >
+                <div className="flex flex-row gap-2 max-w-xl flex-wrap">
+                  {tech.map((content) => (
+                    <div key={content}>
+                      <ResumeTechBadge tech={content} />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,16 @@ export const ALL_EXPERIENCE = [
       "Mentored a team of entry and mid-level engineers, assisting with architecture, decision making, documentation, career development, and implementation.",
     ],
     tags: ["professional"],
-    tech: ["react"],
+    tech: [
+      "React",
+      "Node.js",
+      "TypeScript",
+      "Temporal",
+      "Go",
+      "Google Cloud",
+      "Kubernetes",
+      "Firebase",
+    ],
   },
   {
     borderColor: "#7c3aed",
@@ -23,6 +32,7 @@ export const ALL_EXPERIENCE = [
       "Planned & implemented back-of-house technical systems, including online accounts, mailing lists, domain management, and the primary marketing website.",
     ],
     tags: ["community"],
+    tech: ["Astro"],
   },
   {
     borderColor: "#1d4ed8",
@@ -34,6 +44,7 @@ export const ALL_EXPERIENCE = [
       "Every year, the Xtern program matches hundreds of applicants for central Indiana technology internships to companies. Since ~2018, this matching has been automated using software I help execute and maintain.",
     ],
     tags: ["community"],
+    tech: ["Go"],
   },
   {
     borderColor: "#fb923c",
@@ -47,6 +58,7 @@ export const ALL_EXPERIENCE = [
       "Responded to high severity on-call incidents affecting millions of customers and internet users, implementing observability and alerting improvements across our services.",
     ],
     tags: ["professional"],
+    tech: ["Go", "PHP", "Postgres", "Kubernetes"],
   },
   {
     borderColor: "#f1f5f9",
@@ -57,6 +69,7 @@ export const ALL_EXPERIENCE = [
       "Practical Creatives was an Etsy store focused on the design, production, and sale of bespoke & useful 3D printed things.",
     ],
     tags: ["projects"],
+    tech: ["Shapr3D", "Fusion 360", "3D Printing", "Etsy", "SEO"],
   },
   {
     borderColor: "#c084fc",
@@ -74,6 +87,17 @@ export const ALL_EXPERIENCE = [
       "Led the implementation of a variety of system monitoring and instrumentation capabilities, including alerting, refining our on-call procedures, logging, and distributed tracing, generally with Datadog.",
     ],
     tags: ["professional"],
+    tech: [
+      "TypeScript",
+      "Node.js",
+      "AWS",
+      "MongoDB",
+      "Kubernetes",
+      "ECS",
+      "Go",
+      "React",
+      "Next.js",
+    ],
   },
   {
     borderColor: "#15803d",
@@ -103,6 +127,7 @@ export const ALL_EXPERIENCE = [
       "Served as Vice President and President of Purdue's ACM Special Interest Group for Application Development (SIGAPP).",
     ],
     tags: ["edu"],
+    tech: ["Android", "iOS", "C++", "Python", "JavaScript"],
   },
   {
     borderColor: "#ef4444",
@@ -114,6 +139,7 @@ export const ALL_EXPERIENCE = [
       "Optimized log search times in a MySQL-sourced data pipeline for business analytics, and engineered a mapping/filtering system to flag and censor personally identifiable information within the pipeline.",
     ],
     tags: ["professional"],
+    tech: ["Python"],
   },
   {
     borderColor: "#22d3ee",
@@ -125,6 +151,7 @@ export const ALL_EXPERIENCE = [
       "Shipped an end-to-end system which scanned PDF documents, applied optical character recognition and barcode scanning, and indexed the results in Elasticsearch.",
     ],
     tags: ["professional"],
+    tech: ["Java"],
   },
   {
     borderColor: "#1d4ed8",
