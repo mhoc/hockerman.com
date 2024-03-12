@@ -32,7 +32,7 @@ const ResumeExperience = ({
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
-        <div className="flex flex-col">
+        <div className="flex flex-col pr-8">
           <div className="flex flex-row items-baseline">
             {companyHref ? (
               <a href={companyHref} rel="noreferrer" target="_blank">
