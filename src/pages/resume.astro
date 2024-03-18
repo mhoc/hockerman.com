@@ -1,21 +1,19 @@
 ---
+import Badge from "../components/Badge.astro"
+import ClickableNoDecoration from "../components/ClickableNoDecoration.astro"
 import ResumeExperienceList from "../components/resume/ResumeExperienceList"
 import ContentLayout from "../layouts/ContentLayout.astro"
 import RootLayout from "../layouts/RootLayout.astro"
 ---
 <RootLayout title="Mike Hockerman">
   <ContentLayout>
-    <div class="flex flex-row mb-2">
+    <div class="flex flex-row mb-2 items-center">
       <span class="text-md text-zinc-200 mr-4">
-        the things i've done
+        things i've done
       </span>
-      <a
-        class="text-md text-zinc-300 underline mr-8"
-        href="/resume-v9-mike-hockerman.pdf"
-        target="_blank"
-      >
-        in .pdf
-      </a>
+      <ClickableNoDecoration href="/resume-v9-mike-hockerman.pdf" target="_blank">
+        <Badge hover size="sm">in pdf</Badge>
+      </ClickableNoDecoration>
     </div>
     <ResumeExperienceList client:load />
   </ContentLayout>

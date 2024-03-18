@@ -93,8 +93,8 @@ export default function ResumeTechBadge({ tech }: Props) {
 
   return (
     <div className="border border-zinc-800 rounded-3xl px-2 py-1 flex flex-row gap-2 items-center">
-      {Icon && <Icon style={{ color: "#a1a1aa" }} />}
-      <span className="text-sm text-zinc-400">{tech}</span>
+      {Icon && <Icon style={{ color: "#71717a" }} />}
+      <span className="text-sm text-zinc-500">{tech}</span>
     </div>
   );
 }

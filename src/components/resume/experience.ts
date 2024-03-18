@@ -1,5 +1,28 @@
 export const ALL_EXPERIENCE = [
   {
+    borderColor: "#fcd34d",
+    company: "IndyHackers",
+    companyHref: "https://www.indyhackers.org",
+    location: "Indianapolis, IN",
+    positions: [{ title: "Board Member", years: "2024-now" }],
+    resume: [
+      "IndyHackers strives to help tech people in Indiana grow by fostering community connections and celebrating individual successes.",
+    ],
+    tags: ["community"],
+    tech: [],
+  },
+  {
+    borderColor: "#f97316",
+    company: "Take The Reins",
+    location: "Noblesville, IN",
+    positions: [{ title: "Volunteer Web Engineer", years: "2024-now" }],
+    resume: [
+      "I began working with Take The Reins in early 2024 to help revitalize their web and social media presence.",
+    ],
+    tags: ["community"],
+    tech: [],
+  },
+  {
     borderColor: "#34d399",
     company: "Trava",
     companyHref: "https://travasecurity.com",
@@ -32,7 +55,7 @@ export const ALL_EXPERIENCE = [
       "Planned & implemented back-of-house technical systems, including online accounts, mailing lists, domain management, and the primary marketing website.",
     ],
     tags: ["community"],
-    tech: ["Astro"],
+    tech: [],
   },
   {
     borderColor: "#1d4ed8",
@@ -44,7 +67,7 @@ export const ALL_EXPERIENCE = [
       "Every year, the Xtern program matches hundreds of applicants for central Indiana technology internships to companies. Since ~2018, this matching has been automated using software I help execute and maintain.",
     ],
     tags: ["community"],
-    tech: ["Go"],
+    tech: [],
   },
   {
     borderColor: "#fb923c",
@@ -113,6 +136,7 @@ export const ALL_EXPERIENCE = [
       "During my service, I helped build the foundations for the Tech Fellowship's curriculum program, including planning technology-oriented workshops for other members and running lunch-and-learns and fireside chats with local business leaders.",
     ],
     tags: ["community"],
+    tech: [],
   },
   {
     borderColor: "#fbbf24",
@@ -163,5 +187,6 @@ export const ALL_EXPERIENCE = [
       "Alongside my internship with Genesys, I participated in the first class of TechPoint's Xtern program.",
     ],
     tags: ["community"],
+    tech: [],
   },
 ];

@@ -19,7 +19,7 @@ export default function ResumeRadioList({
       {items.map((item) => (
         <span
           className={clsx({
-            "text-sm border-zinc-300 border border-1 px-2 rounded-xl cursor-pointer transition-all":
+            "text-sm border-zinc-600 border border-1 px-2 rounded-xl cursor-pointer transition-all":
               true,
             "text-zinc-300": selected !== item,
             "text-zinc-800": selected === item,

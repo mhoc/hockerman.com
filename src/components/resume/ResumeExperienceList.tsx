@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
@@ -7,13 +6,10 @@ import ResumeExperience from "./ResumeExperience";
 import ResumeRadioList from "./ResumeRadioList";
 
 const ResumeExperienceList = () => {
-  const [filter, setFilter] = useState("all");
-  const [meta, setMeta] = useState("resume");
+  const [filter, setFilter] = useState("professional");
 
   const processed = ALL_EXPERIENCE.map((item) => ({
     ...item,
-    resume: meta === "resume" ? item.resume : undefined,
-    tech: meta === "tech" ? item.tech : undefined,
     visible: filter === "all" ? true : item.tags.includes(filter),
   }));
 
@@ -21,15 +17,9 @@ const ResumeExperienceList = () => {
     <div>
       <ResumeRadioList
         label="filter"
-        items={["all", "professional", "projects", "edu", "community"]}
+        items={["all", "professional", "edu", "projects", "community"]}
         onSelect={setFilter}
         selected={filter}
-      />
-      <ResumeRadioList
-        label="meta"
-        items={["none", "resume", "tech"]}
-        onSelect={setMeta}
-        selected={meta}
       />
       <div className="mb-8" />
       <div>

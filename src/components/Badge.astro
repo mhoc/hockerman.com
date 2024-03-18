@@ -1,22 +1,29 @@
 ---
 import { Icon } from 'astro-icon/components'
-
 interface Props {
   hover?: boolean;
   icon?: string;
+  size?: "md" | "sm";
 }
-const { hover, icon } = Astro.props;
+const { hover, icon, size = "md" } = Astro.props;
 ---
-<div class:list={["flex flex-row items-center px-2 py-1 border border-zinc-200 transition-all xcontainer", { "xhover": hover }]}}>
-  <Icon class="xicon h-5 w-5 text-zinc-200 transition" name={icon} />
-  <span class:list={["xlabel text-zinc-200 text-md transition", { "ml-2": !!icon }]}>
+<div class:list={[
+  "flex flex-row items-center border border-zinc-600 transition-all rounded-2xl",
+  { "xhover": hover },
+  { "px-4 py-1": size === "md"},
+  { "px-2": size === "sm" }
+]}}>
+  {icon && <Icon class="xicon h-5 w-5 text-zinc-300 transition" name={icon} />}
+  <span class:list={[
+    "xlabel text-zinc-300 transition",
+    { "ml-2": !!icon },
+    { "text-md": size === "md" },
+    { "text-sm": size === "sm" }
+  ]}>
     <slot />
   </span>
 </div>
 <style>
-  .xcontainer {
-    border-radius: 300px;
-  }
   .xicon {
     transition-duration: 800ms;
   }

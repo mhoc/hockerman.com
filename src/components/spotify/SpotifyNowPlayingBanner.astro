@@ -6,7 +6,7 @@ import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
 ---
 <div class="fade-in">
   <GlassCard>
-    <div class="container">
+    <div class="flex flex-row items-center ">
       <div class="mr-4">
         <Icon class="h-10 w-10 text-zinc-300" name="fa6-brands:spotify" />
       </div>
@@ -30,11 +30,6 @@ import SpotifyNowPlayingBannerContent from './SpotifyNowPlayingBannerContent';
     animation-delay: 0.2s;
     animation-fill-mode: forwards;
     opacity: 0;
-  }
-  .container {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
   }
   @media only screen and (max-width: 600px) {
     .spotifyIconContainer {
