@@ -24,10 +24,10 @@ const ResumeExperience = ({
 }: Props) => {
   return (
     <div
-      className="px-4 py-4 transition"
+      className="px-4 py-4 transition xcontainerx"
       style={{
         borderColor: borderColor,
-        borderLeftWidth: "2px",
+        borderLeftWidth: "1px",
       }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
