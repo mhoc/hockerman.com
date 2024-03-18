@@ -16,7 +16,6 @@ const ResumeExperienceList = () => {
   return (
     <div>
       <ResumeRadioList
-        label="filter"
         items={["all", "professional", "edu", "projects", "community"]}
         onSelect={setFilter}
         selected={filter}
