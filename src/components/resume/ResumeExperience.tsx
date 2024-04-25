@@ -35,7 +35,7 @@ const ResumeExperience = ({
           <div className="flex flex-row items-baseline">
             {companyHref ? (
               <a href={companyHref} rel="noreferrer" target="_blank">
-                <span className="text-lg lg:text-xl text-zinc-100 mr-3 leading-5">
+                <span className="text-lg lg:text-xl text-zinc-100 mr-3 leading-5 font-semibold">
                   {company}
                 </span>
               </a>
@@ -76,11 +76,15 @@ const ResumeExperience = ({
           )}
         </div>
         <div>
-          <div className="flex flex-col max-w-xl">
+          <div className="flex flex-col max-w-xl gap-2">
             {resume?.map((content) => (
               <div className="flex flex-row" key={content}>
-                <span className="text-sm text-zinc-400 mr-2">•</span>
-                <span className="text-sm text-zinc-300">{content}</span>
+                <span className="text-sm text-zinc-400 mr-2 leading-tight">
+                  •
+                </span>
+                <span className="text-sm text-zinc-300 leading-tight">
+                  {content}
+                </span>
               </div>
             ))}
           </div>
