@@ -1,7 +1,7 @@
 ---
 import Badge from '../components/Badge.astro';
 import ClickableNoDecoration from '../components/ClickableNoDecoration.astro';
-import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText';
+import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText.astro';
 import ContentLayout from '../layouts/ContentLayout.astro';
 import RootLayout from '../layouts/RootLayout.astro';
 ---
@@ -25,7 +25,7 @@ import RootLayout from '../layouts/RootLayout.astro';
 		<ClickableNoDecoration href="/music" target="_self">
 			<Badge hover icon="fa6-brands:spotify">
 				<div class="fade-in">
-					<SpotifyNowPlayingBadgeText client:load />
+					<SpotifyNowPlayingBadgeText />
 				</div>
 			</Badge>
 		</ClickableNoDecoration>
