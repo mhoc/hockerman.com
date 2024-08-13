@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 import { getSpotifyCurrentlyPlayingSong } from "../../server/spotify/getSpotifyCurrentlyPlayingSong";
-import GlassCard from "../GlassCard.astro";
+import GlassCard from "../common/GlassCard.astro";
 
 const { item } = await getSpotifyCurrentlyPlayingSong();
 const track = item === "none" ? "" : item.name;
