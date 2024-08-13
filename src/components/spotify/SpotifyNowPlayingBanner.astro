@@ -4,50 +4,26 @@ import { Icon } from 'astro-icon/components';
 import { getSpotifyCurrentlyPlayingSong } from "../../server/spotify/getSpotifyCurrentlyPlayingSong";
 import GlassCard from "../GlassCard.astro";
 
-const currentlyPlayingResponse = await getSpotifyCurrentlyPlayingSong();
-
-const trackName = currentlyPlayingResponse?.item?.name;
-const artist = currentlyPlayingResponse?.item?.artists?.[0].name;
-const album = currentlyPlayingResponse?.item?.album?.name;
+const { item } = await getSpotifyCurrentlyPlayingSong();
+const track = item === "none" ? "" : item.name;
+const artist = item === "none" ? "Nothing Playing" : item.artists[0].name;
+const album = item === "none" ? "" : item.album.name;
 ---
-<div class="fade-in">
-  <GlassCard>
-    <div class="flex flex-row items-center ">
-      <div class="mr-4">
-        <Icon class="h-10 w-10 text-zinc-300" name="fa6-brands:spotify" />
-      </div>
-      <div class="flex flex-col">
-        <span class="text-lg lg:text-xl text-zinc-200 italic transition-all">
-          {trackName ? trackName : <>&nbsp;</>}
-        </span>
-        <span class="text-sm lg:text-md text-zinc-400 transition-all">
-          {artist ?? "Nothing Playing"}
-        </span>
-        <span class="text-sm lg:text-md text-zinc-400 transition-all">
-          {album ? album : <>&nbsp;</>}
-        </span>
-      </div>
+<GlassCard>
+  <div class="flex flex-row items-center ">
+    <div class="mr-4">
+      <Icon class="h-10 w-10 text-zinc-300" name="fa6-brands:spotify" />
     </div>
-  </GlassCard>
-</div>
-<style>
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  .fade-in {
-    animation: fade-in 1s ease-out;
-    animation-delay: 0.2s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-  }
-  @media only screen and (max-width: 600px) {
-    .spotifyIconContainer {
-      display: none;
-    }
-  }
-</style>
+    <div class="flex flex-col">
+      <span class="text-lg lg:text-xl text-zinc-200 italic transition-all">
+        {track}
+      </span>
+      <span class="text-sm lg:text-md text-zinc-400 transition-all">
+        {artist}
+      </span>
+      <span class="text-sm lg:text-md text-zinc-400 transition-all">
+        {album}
+      </span>
+    </div>
+  </div>
+</GlassCard>

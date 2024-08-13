@@ -24,22 +24,8 @@ import RootLayout from '../layouts/RootLayout.astro';
 		</div>
 		<ClickableNoDecoration href="/music" target="_self">
 			<Badge hover icon="fa6-brands:spotify">
-				<div class="fade-in">
-					<SpotifyNowPlayingBadgeText />
-				</div>
+				<SpotifyNowPlayingBadgeText />
 			</Badge>
 		</ClickableNoDecoration>
 	</ContentLayout>
 </RootLayout>
-<style>
-	@keyframes fade-in {
-		0% { opacity: 0; }
-		100% { opacity: 1; }
-	}
-	.fade-in {
-		animation: fade-in 0.1s ease-out 0.2s;
-		animation-fill-mode: forwards;
-		min-width: 220px;
-		opacity: 0;
-	}
-</style>

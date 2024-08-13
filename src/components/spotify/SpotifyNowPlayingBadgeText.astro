@@ -1,15 +1,12 @@
 ---
 import { getSpotifyCurrentlyPlayingSong } from "../../server/spotify/getSpotifyCurrentlyPlayingSong";
 
-const currentlyPlayingResponse = await getSpotifyCurrentlyPlayingSong();
-const track = currentlyPlayingResponse.item?.name;
-const artist = currentlyPlayingResponse.item?.artists[0].name;
-
-let text;
-if (!track || !artist) {
+const { item } = await getSpotifyCurrentlyPlayingSong();
+let text: string;
+if (item === "none") {
   text = "Nothing Playing";
 } else {
-  text = `${track} - ${artist}`;
+  text = `${item.name} - ${item.artists[0].name}`;
 }
 ---
 <>{text}</>

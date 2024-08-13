@@ -1,9 +1,29 @@
 import { MemoryCache } from "../lib/MemoryCache";
 import { getSpotifyAccessToken } from "./getSpotifyAccessToken";
 
+type GetSpotifyCurrentlyPlayingSongOutput =
+  | GetSpotifyCurrentlyPlayingSongOutputNone
+  | GetSpotifyCurrentlyPlayingSongOutputResult;
+
+type GetSpotifyCurrentlyPlayingSongOutputNone = {
+  item: "none";
+};
+
+type GetSpotifyCurrentlyPlayingSongOutputResult = {
+  item: {
+    album: {
+      name: string;
+    };
+    artists: {
+      name: string;
+    }[];
+    name: string;
+  };
+};
+
 let cache = new MemoryCache<string>(30);
 
-export async function getSpotifyCurrentlyPlayingSong(): Promise<any> {
+export async function getSpotifyCurrentlyPlayingSong(): Promise<GetSpotifyCurrentlyPlayingSongOutput> {
   const cachedCurrentlyPlayingResponse = cache.get();
   if (cachedCurrentlyPlayingResponse) {
     return JSON.parse(cachedCurrentlyPlayingResponse);
@@ -16,8 +36,12 @@ export async function getSpotifyCurrentlyPlayingSong(): Promise<any> {
     }
   );
   if (currentlyPlayingResponse.status === 204) {
-    return "";
+    let resp = { item: "none" as const };
+    cache.set(JSON.stringify(resp));
+    return resp;
+  } else {
+    const response = await currentlyPlayingResponse.text();
+    cache.set(response);
+    return JSON.parse(response);
   }
-  const response = await currentlyPlayingResponse.text();
-  return JSON.parse(response);
 }
