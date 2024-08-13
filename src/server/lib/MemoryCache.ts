@@ -10,7 +10,7 @@ export class MemoryCache<D> {
     }
     if (
       this._at.getTime() / 1000 + this.expiresInSeconds <
-      new Date().getTime()
+      new Date().getTime() / 1000
     ) {
       this._at = undefined;
       this._value = undefined;
