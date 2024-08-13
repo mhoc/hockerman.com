@@ -13,7 +13,7 @@ export default function SpotifyAlbumCollageImages() {
         }
       );
       if (r.status === 200) {
-        const body = await r.json<any>();
+        const body = await r.json();
         const albumImageUrls = body.items?.map((item: any) => {
           return item.track?.album?.images[0].url;
         });

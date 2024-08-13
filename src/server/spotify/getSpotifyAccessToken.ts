@@ -6,7 +6,7 @@ import { getSpotifyRefreshToken } from "./getSpotifyRefreshToken";
  * Its not meant to be secret, and nothing this API exposes isn't already available on
  * hockerman.com; its just a small mitigation for bots.
  */
-const KINDA_SECRET = "OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3";
+// const KINDA_SECRET = "OxcnwUZBWMrwf_hQKMpJmmcXkNcf9ID3";
 
 /** Local cache for the spotify access token */
 const accessToken = new MemoryCache<string>(3500);
