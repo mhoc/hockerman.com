@@ -1,6 +1,6 @@
 import { getSpotifyAccessToken } from "./getSpotifyAccessToken";
 
-export async function recent(): Promise<string> {
+export async function getSpotifyRecentlyPlayed(): Promise<any> {
   const accessToken = await getSpotifyAccessToken();
   const recentlyPlayedResponse = await fetch(
     "https://api.spotify.com/v1/me/player/recently-played",
@@ -8,6 +8,5 @@ export async function recent(): Promise<string> {
       headers: { Authorization: `Bearer ${accessToken}` },
     }
   );
-  const respBody = JSON.stringify(await recentlyPlayedResponse.json());
-  return respBody;
+  return await recentlyPlayedResponse.json();
 }
