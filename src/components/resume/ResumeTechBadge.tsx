@@ -12,8 +12,7 @@ import {
   SiAndroid,
   SiApple,
   SiAstro,
-  SiAmazonaws,
-  SiAmazonecs,
+  SiAmazonwebservices,
   SiBlueprint,
   SiCplusplus,
   SiFirebase,
@@ -43,11 +42,11 @@ export default function ResumeTechBadge({ tech }: Props) {
       case "Astro":
         return SiAstro;
       case "AWS":
-        return SiAmazonaws;
+        return SiAmazonwebservices;
       case "C++":
         return SiCplusplus;
       case "ECS":
-        return SiAmazonecs;
+        return SiAmazonwebservices;
       case "Etsy":
         return FaEtsy;
       case "Firebase":
