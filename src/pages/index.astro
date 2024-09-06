@@ -22,10 +22,17 @@ import RootLayout from '../layouts/RootLayout.astro';
 				<Badge hover icon="fa6-brands:linkedin">mhoc</Badge>
 			</Link>
 		</div>
-		<Link href="/music" target="_self">
-			<Badge hover icon="fa6-brands:spotify">
-				<SpotifyNowPlayingBadgeText />
-			</Badge>
-		</Link>
+		<div class="flex flex-row flex-wrap gap-2 mb-2">
+			<Link href="https://notes.hockerman.com" target="_self">
+				<Badge hover icon="fa6-solid:rainbow">
+					Notes
+				</Badge>
+			</Link>
+			<Link href="/music" target="_self">
+				<Badge hover icon="fa6-brands:spotify">
+					<SpotifyNowPlayingBadgeText />
+				</Badge>
+			</Link>
+		</div>
 	</ContentLayout>
 </RootLayout>
