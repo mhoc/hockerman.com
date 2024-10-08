@@ -11,7 +11,7 @@ export async function POST({ request }) {
     });
   }
   const body = await request.json();
-  console.log(body);
+  console.log(JSON.stringify(body));
 
   return new Response("ok!", {
     status: 200,
