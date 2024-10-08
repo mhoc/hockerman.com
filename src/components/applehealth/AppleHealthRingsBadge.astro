@@ -1,4 +1,5 @@
 ---
+import Badge from '../common/Badge.astro';
 import { startOfDay } from 'date-fns';
 import { supabase } from '../../server/lib/Supabase';
 
@@ -23,4 +24,11 @@ const [activeEnergy, appleExerciseTime, appleStandHour] = await Promise.all([
   ?.toFixed(0) ?? "0"
 ]);
 ---
-<>{activeEnergy} / {appleExerciseTime} / {appleStandHour}</>
+<Badge hover icon="xcustom:apple-health-rings">
+  <span class='text-md'>{activeEnergy}</span>
+  <span class='text-xs text-zinc-600'>kcal</span>
+  <span class='text-md'>{appleExerciseTime}</span>
+  <span class='text-xs text-zinc-600'>min</span>
+  <span class='text-md'>{appleStandHour}</span>
+  <span class='text-xs text-zinc-600'>hr</span>
+</Badge>

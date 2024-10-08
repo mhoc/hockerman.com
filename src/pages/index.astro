@@ -1,6 +1,6 @@
 ---
-import AppleHealthRingsText from '../components/applehealth/AppleHealthRingsText.astro';
-import AppleHealthHeartRateText from '../components/applehealth/AppleHealthHeartRateText.astro';
+import AppleHealthRingsBadge from '../components/applehealth/AppleHealthRingsBadge.astro';
+import AppleHealthHeartRateBadge from '../components/applehealth/AppleHealthHeartRateBadge.astro';
 import Badge from '../components/common/Badge.astro';
 import Link from '../components/common/Link.astro';
 import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText.astro';
@@ -37,12 +37,8 @@ import RootLayout from '../layouts/RootLayout.astro';
 			</Link>
 		</div>
 		<div class='flex flex-row gap-2 mb-2'>
-			<Badge hover icon="xcustom:apple-health-rings">
-				<AppleHealthRingsText />
-			</Badge>
-			<Badge color='text-red-400' hover icon="fa6-solid:heart-pulse">
-				<AppleHealthHeartRateText />
-			</Badge>
+			<AppleHealthRingsBadge />
+			<AppleHealthHeartRateBadge />
 		</div>
 	</ContentLayout>
 </RootLayout>
