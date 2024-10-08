@@ -17,20 +17,47 @@ export async function POST({ request }) {
   for (const metric of body?.data?.metrics ?? []) {
     console.log(`importing metric=${metric.name} (unit=${metric.unit})`);
     for (const metricData of metric.data) {
-      const value = metricData.qty;
-      const at = new Date(metricData.date);
-      console.log(
-        `inserting ${metric.name}+${at.toISOString()} (${JSON.stringify(metricData)})`
-      );
-      await supabase.from("apple_health_metrics").upsert({
-        at,
-        metric: metric.name,
-        value,
-      });
+      await importMetric(metric.name, metricData);
     }
   }
 
   return new Response("ok!", {
     status: 200,
   });
+}
+
+async function importMetric(metricName, metricData) {
+  console.log(
+    `inserting ${metric.name}+${at.toISOString()} (${JSON.stringify(metricData)})`
+  );
+  switch (metricName) {
+    case "heart_rate":
+      await Promise.all([
+        supabase.from("apple_health_metrics").upsert({
+          at: new Date(metricData.date),
+          metric: `heart_rate:avg`,
+          value: metricData.Avg,
+        }),
+        supabase.from("apple_health_metrics").upsert({
+          at: new Date(metricData.date),
+          metric: `heart_rate:max`,
+          value: metricData.Max,
+        }),
+        supabase.from("apple_health_metrics").upsert({
+          at: new Date(metricData.date),
+          metric: `heart_rate:min`,
+          value: metricData.Min,
+        }),
+      ]);
+      break;
+    default:
+      if (metricData.qty) {
+        await supabase.from("apple_health_metrics").upsert({
+          at: new Date(metricData.date),
+          metric: metricName,
+          value: metricData.qty,
+        });
+      }
+      break;
+  }
 }
