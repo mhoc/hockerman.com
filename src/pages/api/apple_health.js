@@ -20,7 +20,7 @@ export async function POST({ request }) {
       const value = metricData.qty;
       const at = new Date(metricData.date);
       console.log(
-        `inserting ${metric.name}+${at.toISOString()} (${metricData})`
+        `inserting ${metric.name}+${at.toISOString()} (${JSON.stringify(metricData)})`
       );
       await supabase.from("apple_health_metrics").upsert({
         at,
