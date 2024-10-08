@@ -1,12 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-);
+import { supabase } from "../../server/lib/Supabase";
 
 export async function POST({ request }) {
-  const importToken = process.env.APPLE_HEALTH_IMPORT_TOKEN;
+  const importToken = import.meta.env.APPLE_HEALTH_IMPORT_TOKEN;
   if (!importToken) {
     return new Response("unauthorized", {
       status: 401,

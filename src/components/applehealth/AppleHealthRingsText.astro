@@ -1,0 +1,26 @@
+---
+import { startOfDay } from 'date-fns';
+import { supabase } from '../../server/lib/Supabase';
+
+const [activeEnergy, appleExerciseTime, appleStandHour] = await Promise.all([
+  (await supabase.from("apple_health_metrics")
+  .select("*")
+  .eq("metric", "active_energy")
+  .gte("at", startOfDay(new Date()).toISOString()))
+  .data?.reduce((p, v) => p + v.value, 0)
+  ?.toFixed(0) ?? "0",
+  (await supabase.from("apple_health_metrics")
+  .select("*")
+  .eq("metric", "apple_exercise_time")
+  .gte("at", startOfDay(new Date()).toISOString()))
+  .data?.reduce((p, v) => p + v.value, 0)
+  ?.toFixed(0) ?? "0",
+  (await supabase.from("apple_health_metrics")
+  .select("*")
+  .eq("metric", "apple_stand_hour")
+  .gte("at", startOfDay(new Date()).toISOString()))
+  .data?.reduce((p, v) => p + v.value, 0)
+  ?.toFixed(0) ?? "0"
+]);
+---
+<>{activeEnergy} kcal / {appleExerciseTime} min / {appleStandHour} hr</>
