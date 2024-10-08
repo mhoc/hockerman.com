@@ -24,6 +24,7 @@
     "@astrojs/tailwind": "^5.1.1",
     "@iconify-json/fa6-brands": "^1.2.1",
     "@iconify-json/fa6-solid": "^1.2.1",
+    "@supabase/supabase-js": "^2.45.4",
     "astro": "^4.15.12",
     "astro-icon": "^1.1.1",
     "clsx": "^2.1.1",
