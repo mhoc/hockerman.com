@@ -3,12 +3,13 @@ import { Icon } from 'astro-icon/components'
 import IconAppleHealthRings from './IconAppleHealthRings.astro';
 
 interface Props {
+  color?: string;
   hover?: boolean;
   icon?: string;
   size?: "md" | "sm";
 }
 
-const { hover, icon, size = "md" } = Astro.props;
+const { color = "text-zinc-300", hover, icon, size = "md" } = Astro.props;
 ---
 <div class:list={[
   "flex flex-row items-center border border-zinc-600 transition-all rounded-2xl",
@@ -20,7 +21,7 @@ const { hover, icon, size = "md" } = Astro.props;
     <IconAppleHealthRings />
   }
   {icon && icon !== "xcustom:apple-health-rings" &&
-    <Icon class="xicon h-6 w-6 text-zinc-300 transition" name={icon} />
+    <Icon class:list={["xicon h-6 w-6 transition", color]} name={icon} />
   }
   <span class:list={[
     "xlabel text-zinc-300 transition",

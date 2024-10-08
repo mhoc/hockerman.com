@@ -15,11 +15,13 @@ export async function POST({ request }) {
 
   const body = await request.json();
   for (const metric of body?.data?.metrics ?? []) {
-    console.log(`importing metric=${metric.name} (${metric.unit})`);
+    console.log(`importing metric=${metric.name} (unit=${metric.unit})`);
     for (const metricData of metric.data) {
       const value = metricData.qty;
       const at = new Date(metricData.date);
-      console.log(`inserting ${metric.name}+${at.toISOString()}`);
+      console.log(
+        `inserting ${metric.name}+${at.toISOString()} (${metricData})`
+      );
       await supabase.from("apple_health_metrics").upsert({
         at,
         metric: metric.name,

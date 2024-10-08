@@ -1,0 +1,14 @@
+---
+import { startOfDay } from 'date-fns';
+import { supabase } from '../../server/lib/Supabase';
+
+const [heartRate] = await Promise.all([
+  (await supabase.from("apple_health_metrics")
+  .select("*")
+  .eq("metric", "heart_rate")
+  .gte("at", startOfDay(new Date()).toISOString()))
+  .data?.reduce((p, v) => p + v.value, 0)
+  ?.toFixed(0) ?? "0",
+]);
+---
+<>{heartRate}</>

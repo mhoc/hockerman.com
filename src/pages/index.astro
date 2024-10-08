@@ -1,5 +1,6 @@
 ---
 import AppleHealthRingsText from '../components/applehealth/AppleHealthRingsText.astro';
+import AppleHealthHeartRateText from '../components/applehealth/AppleHealthHeartRateText.astro';
 import Badge from '../components/common/Badge.astro';
 import Link from '../components/common/Link.astro';
 import SpotifyNowPlayingBadgeText from '../components/spotify/SpotifyNowPlayingBadgeText.astro';
@@ -11,33 +12,36 @@ import RootLayout from '../layouts/RootLayout.astro';
 		<span class="text-xl italic text-slate-200 mb-2">Mike Hockerman</span>
 		<div class="flex flex-row flex-wrap gap-2 mb-2">
 			<Link href="mailto:mike@hockerman.com" target="_blank">
-				<Badge hover icon="fa6-solid:envelope">mike@hockerman.com</Badge>
+				<Badge color='text-red-300' hover icon="fa6-solid:envelope">mike@hockerman.com</Badge>
 			</Link>
 			<Link href="/resume" target="_self">
-				<Badge hover icon="fa6-solid:file-lines">Resume</Badge>
+				<Badge color='text-blue-200' hover icon="fa6-solid:file-lines">Resume</Badge>
 			</Link>
 			<Link href="https://github.com/mhoc" target="_blank">
 				<Badge hover icon="fa6-brands:github">mhoc</Badge>
 			</Link>
 			<Link href="https://linkedin.com/in/mhoc" target="_blank">
-				<Badge hover icon="fa6-brands:linkedin">mhoc</Badge>
+				<Badge color='text-blue-600' hover icon="fa6-brands:linkedin">mhoc</Badge>
 			</Link>
 		</div>
 		<div class="flex flex-row flex-wrap gap-2 mb-2">
 			<Link href="https://notes.hockerman.com" target="_self">
-				<Badge hover icon="fa6-solid:rainbow">
+				<Badge color='text-purple-200' hover icon="fa6-solid:rainbow">
 					Notes
 				</Badge>
 			</Link>
 			<Link href="/music" target="_self">
-				<Badge hover icon="fa6-brands:spotify">
+				<Badge color='text-green-300' hover icon="fa6-brands:spotify">
 					<SpotifyNowPlayingBadgeText />
 				</Badge>
 			</Link>
 		</div>
-		<div>
+		<div class='flex flex-row gap-2 mb-2'>
 			<Badge hover icon="xcustom:apple-health-rings">
 				<AppleHealthRingsText />
+			</Badge>
+			<Badge color='text-red-400' hover icon="fa6-solid:heart-pulse">
+				<AppleHealthHeartRateText />
 			</Badge>
 		</div>
 	</ContentLayout>
