@@ -28,7 +28,7 @@ export async function POST({ request }) {
 
 async function importMetric(metricName, metricData) {
   console.log(
-    `inserting ${metric.name}+${at.toISOString()} (${JSON.stringify(metricData)})`
+    `inserting ${metricName}+${new Date(metricData.date).toISOString()} (${JSON.stringify(metricData)})`
   );
   switch (metricName) {
     case "heart_rate":
