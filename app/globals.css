@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-display: swap;
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/inconsolata.ttf');
+}
+
+html {
+  background: #18181b;
+  background-size: 224px;
+  font-family: Inconsolata, monospace;
+}
+
+body {
+  margin: 0px;
+}

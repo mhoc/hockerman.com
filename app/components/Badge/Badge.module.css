@@ -1,0 +1,25 @@
+.xicon {
+  transition-duration: 800ms;
+}
+
+.xlabel {
+  transition-duration: 800ms;
+}
+
+.xhover {
+  background: linear-gradient(to left, rgba(0,0,0,0) 50%, #e4e4e7 50%) right;
+  background-size: 300% 100%;
+  transition-duration: 800ms;
+}
+
+.xhover:hover {
+  background-position: left;
+}
+
+.xhover:hover .xicon {
+  color: #27272a;
+}
+
+.xhover:hover .xlabel {
+  color: #27272a;
+}
