@@ -1,3 +1,4 @@
+import { get } from "@vercel/edge-config";
 import { MemoryCache } from "./MemoryCache";
 
 /** Local cache for the spotify access token */
@@ -12,13 +13,17 @@ export async function getSpotifyAccessToken(): Promise<string> {
   if (cachedAccessToken) {
     return cachedAccessToken;
   }
-  const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
-  if (!refresh_token) {
-    throw new Error("SPOTIFY_REFRESH_TOKEN is undefined");
+  const refreshTokenRecord = await get<{ refresh_token: string }>(
+    `2pkxvc9fMW5IH-MsSdj-h`
+  );
+  if (!refreshTokenRecord) {
+    throw new Error(
+      `no edge config refresh token record found for userId=2pkxvc9fMW5IH-MsSdj-h`
+    );
   }
   const authBody = new URLSearchParams({
     grant_type: "refresh_token",
-    refresh_token,
+    refresh_token: refreshTokenRecord.refresh_token,
   });
   const authHeader = btoa(
     `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
