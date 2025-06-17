@@ -5,9 +5,8 @@ export function LinearGauge({ value }: { value: number }) {
         .map((_, index) => {
           const threshold = index / 10;
           if (value >= threshold + 0.1) {
-            return "█"; // Full block for filled sections
+            return "█";
           } else if (value > threshold) {
-            // Partial blocks based on how much is filled
             const partialFill = Math.floor((value - threshold) * 10);
             switch (partialFill) {
               case 1:
@@ -28,7 +27,7 @@ export function LinearGauge({ value }: { value: number }) {
                 return "░";
             }
           } else {
-            return "░"; // Empty block for unfilled sections
+            return "░";
           }
         })
         .join("")}
