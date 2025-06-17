@@ -2,6 +2,7 @@ import { SpotifyAlbumWipeBackground } from "./SpotifyAlbumWipeBackground";
 import { SpotifyNowPlayingHeader } from "./SpotifyNowPlayingHeader";
 import { SpotifyRecentlyPlayedCard } from "./SpotifyRecentlyPlayedCard";
 import { SpotifyTopArtistsCard } from "./SpotifyTopArtistsCard";
+import { SpotifyTrendingSongsCard } from "./SpotifyTrendingSongsCard";
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
           <SpotifyTopArtistsCard title="Past Month" twindow="-30 days" />
           <SpotifyTopArtistsCard title="Past Year" twindow="-365 days" />
         </div>
+        <SpotifyTrendingSongsCard />
       </div>
     </>
   );

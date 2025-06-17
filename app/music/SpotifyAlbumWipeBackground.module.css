@@ -12,7 +12,7 @@
   animation-fill-mode: forwards;
   animation-name: ease-in;
   background-size: cover;
-  filter: blur(4px);
+  filter: blur(2px);
   opacity: 0;
   height: 35vh;
   user-select: none;
