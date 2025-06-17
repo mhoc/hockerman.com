@@ -14,7 +14,7 @@ export const Badge = ({ children, color, hover, Icon, size = "md" }: Props) => {
   return (
     <div
       className={clsx(
-        "flex flex-row items-center border border-zinc-600 transition-all rounded-2xl",
+        "flex flex-row items-center border border-gray-600 transition-all rounded-2xl",
         { [styles.xhover]: hover },
         { "px-4 py-1": size === "md" },
         { "px-2": size === "sm" }
@@ -24,7 +24,7 @@ export const Badge = ({ children, color, hover, Icon, size = "md" }: Props) => {
       <span
         className={clsx(
           styles.xlabel,
-          "text-zinc-300",
+          "text-gray-300",
           { "ml-2": !!Icon },
           { "text-md": size === "md" },
           { "text-sm": size === "sm" }

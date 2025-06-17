@@ -1,7 +1,11 @@
+import "./globals.css";
+
 import { Analytics } from "@vercel/analytics/react";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+
+import styles from "./index.module.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,12 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html>
+      <body className={clsx(geistSans.variable, geistMono.variable, "antialiased bg-gray-950")}>
         <Analytics />
-        {children}
+        <main className={styles.xcontainer}>{children}</main>
       </body>
     </html>
   );
