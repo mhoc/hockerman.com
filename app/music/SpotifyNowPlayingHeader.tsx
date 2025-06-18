@@ -10,10 +10,10 @@ export async function SpotifyNowPlayingHeader() {
     return <span className="text-xl italic text-gray-200 mb-2">Nothing Playing...</span>;
   }
   const response = await currentlyPlayingResponse.json();
-  const title = `${response.item.name}`;
-  const artist = `${response.item.artists[0].name}`;
-  const album = `${response.item.album.name}`;
-  const link = `${response.item.external_urls?.spotify}`;
+  const title = `${response?.item.name}`;
+  const artist = `${response?.item.artists[0].name}`;
+  const album = `${response?.item.album.name}`;
+  const link = `${response?.item.external_urls?.spotify}`;
   return (
     <div className="flex flex-col gap-0">
       <a className="text-lg text-emerald-200 leading-none flex flex-row gap-2 items-center" href={link} target="_blank">

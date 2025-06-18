@@ -7,7 +7,7 @@ export async function SpotifyRecentlyPlayedCard() {
   const { items } = await getSpotifyRecentlyPlayed();
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-lg text-gray-200 font-semibold">Recently Played</span>
+      <span className="text-lg text-gray-100 font-semibold">Recently Played</span>
       <div className="flex flex-row gap-8 flex-wrap">
         <div className="flex flex-col gap-1">
           {items.slice(0, 4).map((item: any) => (
@@ -15,7 +15,7 @@ export async function SpotifyRecentlyPlayedCard() {
               <IoTime className="text-emerald-400" />
               <div className="flex flex-col">
                 <span className="text-md text-gray-300 leading-none">{item.track.name}</span>
-                <span className="text-md text-gray-400 leading-none">{item.track.artists[0].name}</span>
+                <span className="text-md text-gray-500 leading-none">{item.track.artists[0].name}</span>
               </div>
             </div>
           ))}
@@ -26,7 +26,7 @@ export async function SpotifyRecentlyPlayedCard() {
               <IoTime className="text-emerald-400" />
               <div className="flex flex-col">
                 <span className="text-md text-gray-300 leading-none">{item.track.name}</span>
-                <span className="text-md text-gray-400 leading-none">{item.track.artists[0].name}</span>
+                <span className="text-md text-gray-500 leading-none">{item.track.artists[0].name}</span>
               </div>
             </div>
           ))}
