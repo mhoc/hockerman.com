@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { getSpotifyAccessToken } from "../server/getSpotifyAccessToken";
+import { getSpotifyRecentlyPlayed } from "../server/getSpotifyRecentlyPlayed";
 import styles from "./SpotifyAlbumWipeBackground.module.css";
 
 export async function SpotifyAlbumWipeBackground() {
@@ -10,10 +11,7 @@ export async function SpotifyAlbumWipeBackground() {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
   const currentlyPlayingBody = await currentlyPlayingResponse.json();
-  const recentlyPlayedResponse = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=20", {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  const recentlyPlayedBody = await recentlyPlayedResponse.json();
+  const { items: recentlyPlayedItems } = await getSpotifyRecentlyPlayed();
 
   // obviously, this is just a grid of imgs; so, they're interactable. but I want it to be more like
   // a background.
@@ -36,7 +34,7 @@ export async function SpotifyAlbumWipeBackground() {
               width={350}
             />
           )}
-          {recentlyPlayedBody.items.map((item: any, i: number) => (
+          {recentlyPlayedItems.map((item: any, i: number) => (
             <Image
               alt={`${item.artist} - ${item.album}`}
               className={styles.bgimage}

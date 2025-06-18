@@ -8,8 +8,6 @@ export async function SpotifyTrendingSongsCard() {
   });
   const { results } = await response.json();
 
-  console.log(results);
-
   return (
     <div className="flex flex-col">
       <span className="text-lg text-gray-200 font-semibold">Trending</span>

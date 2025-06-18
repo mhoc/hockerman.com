@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { getSpotifyAccessToken } from "../server/getSpotifyAccessToken";
+import { getSpotifyRecentlyPlayed } from "../server/getSpotifyRecentlyPlayed";
 
 export async function SpotifyRecentlyPlayedCard() {
-  const accessToken = await getSpotifyAccessToken();
-  const currentlyPlayingResponse = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=10", {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  const { items } = await currentlyPlayingResponse.json();
+  const { items } = await getSpotifyRecentlyPlayed();
   return (
     <div className="flex flex-col gap-1">
       <span className="text-lg text-gray-200 font-semibold">Recently Played</span>
