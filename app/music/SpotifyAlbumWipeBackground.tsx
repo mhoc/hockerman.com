@@ -21,7 +21,7 @@ export async function SpotifyAlbumWipeBackground() {
         <div className="flex flex-row flex-wrap w-[calc(100vw+20vw)]">
           {recentlyPlayedItems.map((item: any, i: number) => (
             <img
-              alt={`${item.artist} - ${item.album}`}
+              alt={`${item.track.artists[0].name} - ${item.track.album.name}`}
               className={styles.bgimage}
               key={`${i}${item.track.album.images[0].url}`}
               src={item.track.album.images[0].url}
