@@ -6,15 +6,16 @@ import { getSpotifyArtist } from "../server/getSpotifyArtist";
 export async function SpotifyTopArtistsCardItem({
   artistId,
   artistName,
-  maxPlays,
-  plays,
+  duration,
+  maxDuration,
 }: {
   artistId: string;
   artistName: string;
-  maxPlays: number;
-  plays: number;
+  duration: number;
+  maxDuration: number;
 }) {
   const artist = await getSpotifyArtist(artistId);
+  const durationInMinutes = duration / 60000;
   return (
     <tr className="h-8">
       <td>
@@ -24,10 +25,10 @@ export async function SpotifyTopArtistsCardItem({
         </div>
       </td>
       <td>
-        <LinearGauge value={plays / maxPlays} />
+        <LinearGauge value={duration / maxDuration} />
       </td>
       <td>
-        <span className="text-md text-gray-400">{plays}</span>
+        <span className="text-md text-gray-400">{durationInMinutes.toFixed(0)} min</span>
       </td>
     </tr>
   );

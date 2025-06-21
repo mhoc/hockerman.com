@@ -7,10 +7,10 @@ export async function SpotifyTrendingSongsCard() {
     headers: { "X-SECRET": "D8ci5xysFy9-WX8U" },
   });
   const { results } = await response.json();
-
   return (
     <div className="flex flex-col">
       <span className="text-lg text-gray-100 font-semibold">Trending</span>
+      {results.length === 0 && <span className="text-md text-gray-400">No trending songs</span>}
       {results.slice(0, 4).map((result: any) => (
         <div className="flex flex-row gap-2 items-center" key={`${result.track_name}-${result.artist_1_name}`}>
           <IoTrendingUp className="text-emerald-400" />
