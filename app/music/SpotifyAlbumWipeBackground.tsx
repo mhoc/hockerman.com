@@ -1,16 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { getSpotifyAccessToken } from "../server/getSpotifyAccessToken";
 import { getSpotifyRecentlyPlayed } from "../server/getSpotifyRecentlyPlayed";
 import styles from "./SpotifyAlbumWipeBackground.module.css";
 
 export async function SpotifyAlbumWipeBackground() {
-  const accessToken = await getSpotifyAccessToken();
-  const currentlyPlayingResponse = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
-  const currentlyPlayingBody = await currentlyPlayingResponse.json();
   const { items: recentlyPlayedItems } = await getSpotifyRecentlyPlayed();
 
   // obviously, this is just a grid of imgs; so, they're interactable. but I want it to be more like
@@ -25,9 +19,6 @@ export async function SpotifyAlbumWipeBackground() {
       <div className="absolute top-0 left-0 h-screen w-screen -z-10 overflow-hidden" />
       <div className="absolute top-0 left-0 h-screen w-screen -z-10 overflow-hidden">
         <div className="flex flex-row flex-wrap w-[calc(100vw+20vw)]">
-          {currentlyPlayingBody.is_playing && (
-            <img alt="now-playing" className={styles.bgimage} src={currentlyPlayingBody.item.album.images[0].url} />
-          )}
           {recentlyPlayedItems.map((item: any, i: number) => (
             <img
               alt={`${item.artist} - ${item.album}`}
