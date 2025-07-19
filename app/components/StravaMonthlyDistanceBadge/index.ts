@@ -1,0 +1,1 @@
+export { StravaMonthlyDistanceBadge } from "./StravaMonthlyDistanceBadge";

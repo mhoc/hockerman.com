@@ -1,7 +1,7 @@
+import { eq } from "drizzle-orm";
 import { MemoryCache } from "./MemoryCache";
 import { db } from "./db";
 import { strava_tokens } from "./db/strava_tokens";
-import { eq } from "drizzle-orm";
 
 export abstract class Strava {
   private static _accessToken = new MemoryCache<string>(10000);
@@ -21,7 +21,7 @@ export abstract class Strava {
     // Check if access token is still valid (expires in next 5 minutes)
     const now = new Date();
     const expiresAt = tokenRecord.access_token_expires_at;
-    
+
     if (expiresAt && expiresAt > new Date(now.getTime() + 5 * 60 * 1000)) {
       // Token is still valid
       Strava._accessToken.set(tokenRecord.access_token!);
@@ -72,10 +72,7 @@ export abstract class Strava {
       return result[0] || null;
     } else {
       // Get any valid tokens (for backward compatibility)
-      const result = await db
-        .select()
-        .from(strava_tokens)
-        .limit(1);
+      const result = await db.select().from(strava_tokens).limit(1);
       return result[0] || null;
     }
   }
@@ -92,7 +89,7 @@ export abstract class Strava {
     }
 
     const responseBody = await response.json();
-    
+
     if (!Array.isArray(responseBody)) {
       throw new Error(`Expected activities array, got: ${typeof responseBody}`);
     }
@@ -112,12 +109,5 @@ export abstract class Strava {
       return process.env.STRAVA_CLIENT_SECRET;
     }
     throw new Error("STRAVA_CLIENT_SECRET not defined");
-  }
-
-  static personalRefreshToken(): string {
-    if (process.env.STRAVA_PERSONAL_REFRESH_TOKEN) {
-      return process.env.STRAVA_PERSONAL_REFRESH_TOKEN;
-    }
-    throw new Error("STRAVA_PERSONAL_REFRESH_TOKEN not defined");
   }
 }
