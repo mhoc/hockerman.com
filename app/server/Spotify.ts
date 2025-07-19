@@ -1,4 +1,3 @@
-import { get as edgeConfigGet } from "@vercel/edge-config";
 import { MemoryCache } from "./MemoryCache";
 
 export abstract class Spotify {
@@ -11,13 +10,13 @@ export abstract class Spotify {
     if (cachedAccessToken) {
       return cachedAccessToken;
     }
-    const refreshTokenRecord = await edgeConfigGet<{ refresh_token: string }>(Spotify._spotifyMikeHockermanUserId);
-    if (!refreshTokenRecord) {
-      throw new Error(`no edge config refresh token record found for userId=${Spotify._spotifyMikeHockermanUserId}`);
+    const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
+    if (!refreshToken) {
+      throw new Error("SPOTIFY_REFRESH_TOKEN is not defined");
     }
     const authBody = new URLSearchParams({
       grant_type: "refresh_token",
-      refresh_token: refreshTokenRecord.refresh_token,
+      refresh_token: refreshToken,
     });
     const authHeader = btoa(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`);
     const tokenResp = await fetch("https://accounts.spotify.com/api/token", {

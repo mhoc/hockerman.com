@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/strava/sync_activities",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
