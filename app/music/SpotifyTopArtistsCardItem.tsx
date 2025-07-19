@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { LinearGauge } from "../components/LinearGauge/LinearGauge";
-import { getSpotifyArtist } from "../server/getSpotifyArtist";
+import { Spotify } from "../server/Spotify";
 
 export async function SpotifyTopArtistsCardItem({
   artistId,
@@ -14,7 +14,7 @@ export async function SpotifyTopArtistsCardItem({
   duration: number;
   maxDuration: number;
 }) {
-  const artist = await getSpotifyArtist(artistId);
+  const artist = await Spotify.artist(artistId);
   const durationInMinutes = duration / 60000;
   return (
     <tr className="h-8">

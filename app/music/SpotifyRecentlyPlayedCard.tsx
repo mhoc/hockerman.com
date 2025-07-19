@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { IoTime } from "react-icons/io5";
-import { getSpotifyRecentlyPlayed } from "../server/getSpotifyRecentlyPlayed";
+import { Spotify } from "../server/Spotify";
 
 export async function SpotifyRecentlyPlayedCard() {
-  const { items } = await getSpotifyRecentlyPlayed();
+  const { items } = await Spotify.recentlyPlayed();
   return (
     <div className="flex flex-col gap-1">
       <span className="text-lg text-gray-100 font-semibold">Recently Played</span>

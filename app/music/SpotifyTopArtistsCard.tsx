@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { Spotify } from "../server/Spotify";
 import { SpotifyTopArtistsCardItem } from "./SpotifyTopArtistsCardItem";
 
 export async function SpotifyTopArtistsCard({ title, twindow }: { title: string; twindow: string }) {
-  const response = await fetch(`https://spotify-bridge.hockerman.com/top_artists?window=${twindow}`, {
-    headers: { "X-SECRET": "D8ci5xysFy9-WX8U" },
-  });
+  const response = await Spotify.topArtists(twindow);
   const { results } = await response.json();
   const maxDuration = results[0].total_duration_ms as number;
   return (

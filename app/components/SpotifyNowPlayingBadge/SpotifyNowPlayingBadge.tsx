@@ -1,12 +1,9 @@
 import { FaSpotify } from "react-icons/fa6";
 import { Badge } from "@/app/components/Badge";
-import { getSpotifyAccessToken } from "@/app/server/getSpotifyAccessToken";
+import { Spotify } from "@/app/server/Spotify";
 
 export const SpotifyNowPlayingBadge = async () => {
-  const accessToken = await getSpotifyAccessToken();
-  const currentlyPlayingResponse = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-    headers: { Authorization: `Bearer ${accessToken}` },
-  });
+  const currentlyPlayingResponse = await Spotify.currentlyPlaying();
   let text: string;
   if (currentlyPlayingResponse.status === 204) {
     text = "Nothing Playing";

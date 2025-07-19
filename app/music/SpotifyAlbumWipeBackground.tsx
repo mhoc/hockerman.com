@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { getSpotifyRecentlyPlayed } from "../server/getSpotifyRecentlyPlayed";
+import { Spotify } from "../server/Spotify";
 import styles from "./SpotifyAlbumWipeBackground.module.css";
 
 export async function SpotifyAlbumWipeBackground() {
-  const { items: recentlyPlayedItems } = await getSpotifyRecentlyPlayed();
+  const { items: recentlyPlayedItems } = await Spotify.recentlyPlayed();
 
   // obviously, this is just a grid of imgs; so, they're interactable. but I want it to be more like
   // a background.

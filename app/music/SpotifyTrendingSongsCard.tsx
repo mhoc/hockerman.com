@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { IoTrendingUp } from "react-icons/io5";
+import { Spotify } from "../server/Spotify";
 
 export async function SpotifyTrendingSongsCard() {
-  const response = await fetch(`https://spotify-bridge.hockerman.com/trending_songs`, {
-    headers: { "X-SECRET": "D8ci5xysFy9-WX8U" },
-  });
+  const response = await Spotify.trendingSongs();
   const { results } = await response.json();
   return (
     <div className="flex flex-col">
