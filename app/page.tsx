@@ -5,9 +5,9 @@ import { StravaMonthlyDistanceBadge } from "./components/StravaMonthlyDistanceBa
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col gap-2">
       <span className="text-xl italic text-gray-200">Mike Hockerman</span>
-      <div className="flex flex-row flex-wrap gap-2 mb-2">
+      <div className="flex flex-row flex-wrap gap-2">
         <a href="mailto:mike@hockerman.com" target="_blank">
           <Badge color="text-red-300" hover Icon={FaEnvelope}>
             mike@hockerman.com
@@ -29,12 +29,12 @@ export default function Home() {
           </Badge>
         </a>
       </div>
-      <div className="flex flex-row flex-wrap gap-2 mb-2">
+      <div className="flex flex-row flex-wrap gap-2">
         <SpotifyNowPlayingBadge />
       </div>
-      <div className="flex flex-row flex-wrap gap-2 mb-2">
+      <div className="flex flex-row flex-wrap gap-2">
         <StravaMonthlyDistanceBadge />
       </div>
-    </>
+    </div>
   );
 }
