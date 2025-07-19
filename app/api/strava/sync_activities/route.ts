@@ -1,11 +1,18 @@
+import { NextRequest } from "next/server";
 import { Strava } from "@/app/server/Strava";
 import { db } from "@/app/server/db";
 import { strava_activities } from "@/app/server/db/strava_activities";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authHeader = request.headers.get("authorization");
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new Response("Unauthorized", {
+      status: 401,
+    });
+  }
   try {
     const activities = await Strava.activities();
-    
+
     if (!Array.isArray(activities)) {
       return Response.json({ error: "Invalid activities response" }, { status: 500 });
     }
@@ -58,12 +65,8 @@ export async function GET() {
       totalActivities: activities.length,
       processed: insertedCount,
     });
-
   } catch (error) {
     console.error("Sync activities error:", error);
-    return Response.json(
-      { error: "Failed to sync activities" },
-      { status: 500 }
-    );
+    return Response.json({ error: "Failed to sync activities" }, { status: 500 });
   }
 }
