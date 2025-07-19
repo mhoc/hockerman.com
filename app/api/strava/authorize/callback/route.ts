@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
       message: "Strava authorization successful",
       athlete: tokenData.athlete,
     });
-  } catch (error) {
+  } catch {
     return Response.json(
       {
         error: "Failed to complete authorization",

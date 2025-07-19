@@ -18,11 +18,10 @@ export async function GET(request: NextRequest) {
     }
 
     let insertedCount = 0;
-    let updatedCount = 0;
 
     for (const activity of activities) {
       try {
-        const result = await db
+        await db
           .insert(strava_activities)
           .values({
             id: activity.id.toString(),
@@ -51,8 +50,6 @@ export async function GET(request: NextRequest) {
             },
           });
 
-        // Note: Drizzle doesn't provide easy way to detect if it was insert vs update
-        // so we'll count all as insertedCount for simplicity
         insertedCount++;
       } catch (error) {
         console.error(`Failed to sync activity ${activity.id}:`, error);
