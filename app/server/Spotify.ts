@@ -42,6 +42,7 @@ export abstract class Spotify {
   static async currentlyPlaying() {
     const currentlyPlayingResponse = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
       headers: { Authorization: `Bearer ${await Spotify.accessToken()}` },
+      next: { revalidate: 60 },
     });
     return currentlyPlayingResponse;
   }
@@ -49,6 +50,7 @@ export abstract class Spotify {
   static async recentlyPlayed() {
     const response = await fetch(`https://spotify-bridge.hockerman.com/recently_played`, {
       headers: { "X-SECRET": Spotify._spotifyBridgeKindaSecret },
+      next: { revalidate: 300 },
     });
     return await response.json();
   }
@@ -56,6 +58,7 @@ export abstract class Spotify {
   static async trendingSongs() {
     const response = await fetch(`https://spotify-bridge.hockerman.com/trending_songs`, {
       headers: { "X-SECRET": Spotify._spotifyBridgeKindaSecret },
+      next: { revalidate: 3600 },
     });
     return response;
   }
@@ -63,6 +66,7 @@ export abstract class Spotify {
   static async topArtists(twindow: string) {
     const response = await fetch(`https://spotify-bridge.hockerman.com/top_artists?window=${twindow}`, {
       headers: { "X-SECRET": Spotify._spotifyBridgeKindaSecret },
+      next: { revalidate: 3600 },
     });
     return response;
   }
