@@ -3,18 +3,19 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-
-import styles from "./index.module.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  display: "swap",
   subsets: ["latin"],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-ibm-plex-sans",
+  weight: "500",
 });
 
 export const metadata: Metadata = {
@@ -28,9 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={clsx(geistSans.variable, geistMono.variable, "antialiased bg-gray-950")}>
+      <body className={clsx(ibmPlexSans.variable, geistMono.variable, "antialiased")}>
         <Analytics />
-        <main className={styles.xcontainer}>{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

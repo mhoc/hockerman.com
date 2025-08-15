@@ -3,16 +3,16 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-geist-mono);
+  --text-xs: 0.60rem;
+  --text-sm: 0.75rem;
+  --text-md: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.25rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 1.875rem;
 }
 
 @font-face {
@@ -24,9 +24,41 @@
 }
 
 html {
-  font-family: Inconsolata, monospace;
+  font-family: "Geist Mono";
 }
 
 body {
   margin: 0px;
+}
+
+@keyframes smooth-gradient-flow {
+  0% { 
+    background-position: 0% 0%;
+  }
+  100% { 
+    background-position: 0% 200%;
+  }
+}
+
+.animate-pastel-colors {
+  background: linear-gradient(
+    180deg,
+    #FF6B6B 0%,
+    #4ECDC4 14.28%,
+    #45B7D1 28.57%,
+    #96CEB4 42.86%,
+    #FFEAA7 57.14%,
+    #DDA0DD 71.43%,
+    #FF7675 85.71%,
+    #FF6B6B 100%,
+    #4ECDC4 114.28%,
+    #45B7D1 128.57%,
+    #96CEB4 142.86%,
+    #FFEAA7 157.14%,
+    #DDA0DD 171.43%,
+    #FF7675 185.71%,
+    #FF6B6B 200%
+  );
+  background-size: 100% 300%;
+  animation: smooth-gradient-flow 15s linear infinite;
 }
