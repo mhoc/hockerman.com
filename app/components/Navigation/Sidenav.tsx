@@ -3,7 +3,7 @@ import { SpotifyNowPlayingBanner } from "../SpotifyNowPlayingBanner";
 
 export function Sidenav() {
   return (
-    <div className="hidden md:flex flex-col items-end bg-[#08080D] h-screen w-[30vw] p-16">
+    <div className="hidden md:flex flex-col items-end bg-[#08080D] h-screen min-w-[30vw] w-[30vw] p-16">
       <div className="flex flex-col gap-8">
         <div className="flex flex-col">
           <span className="text-gray-300 text-xl">Mike Hockerman</span>
@@ -39,7 +39,7 @@ export function Sidenav() {
         <SpotifyNowPlayingBanner />
         <div className="flex flex-col">
           <div className="flex flex-row gap-2 items-center">
-            <span className="text-sm text-slate-500">AI Experiments</span>
+            <span className="text-sm text-slate-500">AI</span>
           </div>
           <a className="flex flex-row gap-2 items-center" href="/articles/gpt-5-and-chess">
             <span className="text-sm text-slate-300">GPT-5 and Chess</span>
