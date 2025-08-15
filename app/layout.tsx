@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Geist_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Sidenav } from "./components/Navigation";
+import { GradientSeparator } from "./components/GradientSeparator";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -31,7 +33,13 @@ export default function RootLayout({
     <html>
       <body className={clsx(ibmPlexSans.variable, geistMono.variable, "antialiased")}>
         <Analytics />
-        <main>{children}</main>
+        <main className="flex flex-row">
+          <Sidenav />
+          <div className="h-screen">
+            <GradientSeparator vertical animated />
+          </div>
+          <div className="flex flex-col min-h-screen grow bg-[#101019]">{children}</div>
+        </main>
       </body>
     </html>
   );

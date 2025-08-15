@@ -37,6 +37,19 @@ export function Sidenav() {
           </a>
         </div>
         <SpotifyNowPlayingBanner />
+        <div className="flex flex-col">
+          <div className="flex flex-row gap-2 items-center">
+            <span className="text-sm text-slate-500">AI Experiments</span>
+          </div>
+          <a className="flex flex-row gap-2 items-center" href="/articles/gpt-5-and-chess">
+            <span className="text-sm text-slate-300">GPT-5 and Chess</span>
+            <span className="text-xs text-slate-500">2025-08</span>
+          </a>
+          <a className="flex flex-row gap-2 items-center">
+            <span className="text-sm text-slate-300">Novel Two Sum in GPT-5</span>
+            <span className="text-xs text-slate-500">2025-08</span>
+          </a>
+        </div>
       </div>
     </div>
   );
