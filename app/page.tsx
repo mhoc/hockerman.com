@@ -1,7 +1,6 @@
 import { FaEnvelope, FaFileLines, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Badge } from "./components/Badge/Badge";
 import { SpotifyNowPlayingBadge } from "./components/SpotifyNowPlayingBadge/SpotifyNowPlayingBadge";
-import { StravaMonthlyDistanceBadge } from "./components/StravaMonthlyDistanceBadge/StravaMonthlyDistanceBadge";
 
 export default function Home() {
   return (
@@ -31,9 +30,6 @@ export default function Home() {
       </div>
       <div className="flex flex-row flex-wrap gap-2">
         <SpotifyNowPlayingBadge />
-      </div>
-      <div className="flex flex-row flex-wrap gap-2">
-        <StravaMonthlyDistanceBadge />
       </div>
     </div>
   );
