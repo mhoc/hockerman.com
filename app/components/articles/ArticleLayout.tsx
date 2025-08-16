@@ -12,9 +12,9 @@ export function ArticleLayout({
   toc: { href: string; label: string }[];
 }) {
   return (
-    <div className="flex flex-row h-full pl-16 pr-4 gap-8">
+    <div className="flex flex-row h-full pl-4 md:pl-16 md:pr-4 gap-8">
       <div
-        className="flex flex-col gap-8 min-h-0 overflow-y-auto py-16 pr-16"
+        className="flex flex-col gap-8 min-h-0 overflow-y-auto py-16 pr-4 md:pr-16"
         style={{ scrollbarColor: "black", scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col flex-shrink-0">

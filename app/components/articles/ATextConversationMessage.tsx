@@ -21,7 +21,7 @@ export function ATextConversationMessage({
   const [showMeta, setShowMeta] = useState(false);
   return (
     <div
-      className={clsx("flex flex-col gap-2 max-w-[70%] rounded-xl px-3 py-2", {
+      className={clsx("flex flex-col gap-2 max-w-[95%] md:max-w-[70%] rounded-xl px-3 py-2", {
         "bg-cobalt-800 border-1 border-cobalt-600 self-end": sender === "user",
         "bg-gray-900 border-1 border-gray-700": sender === "ai",
       })}
@@ -31,7 +31,7 @@ export function ATextConversationMessage({
           p: ({ children }) => {
             return (
               <p
-                className={clsx("text-md font-serif", {
+                className={clsx("text-md font-serif wrap-normal", {
                   "text-sky-100": sender === "user",
                   "text-slate-300": sender === "ai" && !showMeta,
                   "text-slate-400 italic": sender === "ai" && showMeta,
