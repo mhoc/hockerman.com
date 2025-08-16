@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './styles/cobalt.css';
 
 @theme {
   --color-background: var(--background);
@@ -23,15 +24,6 @@
   src: url('/fonts/inconsolata.ttf');
 }
 
-html {
-  font-family: "Geist Mono";
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0px;
-}
-
 @keyframes smooth-gradient-flow {
   0% { 
     background-position: 0% 0%;
@@ -41,7 +33,17 @@ body {
   }
 }
 
+html {
+  font-family: "Geist Mono";
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+}
+
 .animate-pastel-colors {
+  animation: smooth-gradient-flow 15s linear infinite;
   background: linear-gradient(
     180deg,
     #FF6B6B 0%,
@@ -61,5 +63,4 @@ body {
     #FF6B6B 200%
   );
   background-size: 100% 300%;
-  animation: smooth-gradient-flow 15s linear infinite;
 }

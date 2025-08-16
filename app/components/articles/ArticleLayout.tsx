@@ -18,14 +18,14 @@ export function ArticleLayout({
         style={{ scrollbarColor: "black", scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col flex-shrink-0">
-          <span className="text-2xl text-slate-300 font-semibold font-serif">{title}</span>
-          <span className="text-md text-slate-500 font-serif">{date}</span>
+          <span className="text-2xl text-cobalt-300 font-semibold font-serif">{title}</span>
+          <span className="text-md text-cobalt-500 font-serif">{date}</span>
         </div>
         <div className="flex flex-col gap-2 max-w-3xl">{children}</div>
       </div>
       <div className="hidden md:flex flex-col grow gap-2 pt-32 pb-16">
         {toc.map((tocItem) => (
-          <Link className="text-md text-slate-500 font-serif" key={tocItem.href} href={tocItem.href}>
+          <Link className="text-md text-cobalt-500 font-serif" key={tocItem.href} href={tocItem.href}>
             {tocItem.label}
           </Link>
         ))}

@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Geist_Mono, IBM_Plex_Sans } from "next/font/google";
-import { Sidenav } from "./components/Navigation";
+import { Sidenav } from "./components/navigation/Sidenav";
 import { GradientSeparator } from "./components/GradientSeparator";
 
 const geistMono = Geist_Mono({
@@ -38,7 +38,7 @@ export default function RootLayout({
           <div className="h-screen">
             <GradientSeparator vertical animated />
           </div>
-          <div className="flex flex-col h-screen grow bg-[#101019] overflow-hidden">{children}</div>
+          <div className="flex flex-col h-screen grow bg-cobalt-900 overflow-hidden">{children}</div>
         </main>
       </body>
     </html>

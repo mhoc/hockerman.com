@@ -1,0 +1,43 @@
+import { ColorSample } from "./ColorSample";
+
+export default function Cobalt() {
+  return (
+    <div className="flex flex-col gap-4 p-16 max-w-2xl">
+      <span className="text-sm text-cobalt-300">
+        Cobalt is the name of the custom color palette this site uses; the muted-purple tones.
+        {'"Cobalt"'} might not be the best name for it, because Cobalt is blue, not purple, but I
+        wanted a metal-like name similar to {"Tailwind's"} Slate, Zinc, or Stone, and Cobalt sounds
+        cool. 
+      </span>
+      <span className="text-sm text-cobalt-300">
+        This page contains samples for this color palette.
+      </span>
+      <div className="flex flex-col gap-2 bg-white w-full p-8">
+        <ColorSample bgClassName="bg-cobalt-950" textClassName="text-cobalt-950" analogueBgClassName="bg-slate-950" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-900" textClassName="text-cobalt-900" analogueBgClassName="bg-slate-900" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-800" textClassName="text-cobalt-800" analogueBgClassName="bg-slate-800" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-700" textClassName="text-cobalt-700" analogueBgClassName="bg-slate-700" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-600" textClassName="text-cobalt-600" analogueBgClassName="bg-slate-600" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-500" textClassName="text-cobalt-500" analogueBgClassName="bg-slate-500" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-400" textClassName="text-cobalt-400" analogueBgClassName="bg-slate-400" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-300" textClassName="text-cobalt-300" analogueBgClassName="bg-slate-300" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-200" textClassName="text-cobalt-200" analogueBgClassName="bg-slate-200" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-100" textClassName="text-cobalt-100" analogueBgClassName="bg-slate-100" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-50" textClassName="text-cobalt-50" analogueBgClassName="bg-slate-50" analogueTextColor="text-black" />
+      </div>
+      <div className="flex flex-col gap-2 bg-black w-full p-8">
+        <ColorSample bgClassName="bg-cobalt-950" textClassName="text-cobalt-950" analogueBgClassName="bg-slate-950" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-900" textClassName="text-cobalt-900" analogueBgClassName="bg-slate-900" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-800" textClassName="text-cobalt-800" analogueBgClassName="bg-slate-800" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-700" textClassName="text-cobalt-700" analogueBgClassName="bg-slate-700" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-600" textClassName="text-cobalt-600" analogueBgClassName="bg-slate-600" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-500" textClassName="text-cobalt-500" analogueBgClassName="bg-slate-500" analogueTextColor="text-white" />
+        <ColorSample bgClassName="bg-cobalt-400" textClassName="text-cobalt-400" analogueBgClassName="bg-slate-400" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-300" textClassName="text-cobalt-300" analogueBgClassName="bg-slate-300" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-200" textClassName="text-cobalt-200" analogueBgClassName="bg-slate-200" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-100" textClassName="text-cobalt-100" analogueBgClassName="bg-slate-100" analogueTextColor="text-black" />
+        <ColorSample bgClassName="bg-cobalt-50" textClassName="text-cobalt-50" analogueBgClassName="bg-slate-50" analogueTextColor="text-black" />
+      </div>
+    </div>
+  )
+}

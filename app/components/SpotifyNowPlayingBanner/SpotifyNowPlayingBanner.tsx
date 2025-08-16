@@ -8,11 +8,11 @@ export const SpotifyNowPlayingBanner = async () => {
     return <Fragment />;
   }
   const response = await currentlyPlayingResponse.json();
-  let track = response.item.name;
+  let track = response?.item?.name;
   if (track.length > 20) {
     track = track.slice(0, 20) + "...";
   }
-  let artist = response.item.artists[0].name;
+  let artist = response?.item?.artists[0].name;
   if (artist.length > 20) {
     artist = artist.slice(0, 20) + "...";
   }

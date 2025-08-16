@@ -25,7 +25,7 @@ export function GradientSeparator({
       className={clsx({
         "h-full w-[1px]": vertical,
         "h-px w-full": horizontal,
-        "bg-slate-700": !isAnimated,
+        "bg-cobalt-600": !isAnimated,
         "animate-pastel-colors": isAnimated,
         "cursor-pointer": animated,
         "transition-all duration-300": animated,

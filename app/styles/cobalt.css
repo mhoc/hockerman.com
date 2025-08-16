@@ -1,0 +1,145 @@
+:root {
+  --color-cobalt-950: #08080D;
+  --color-cobalt-900: #181825;
+  --color-cobalt-800: #28283E;
+  --color-cobalt-700: #484870;
+  --color-cobalt-600: #5F5F95;
+  --color-cobalt-500: #8383AF;
+  --color-cobalt-400: #A8A8C7;
+  --color-cobalt-300: #C1C1D7;
+  --color-cobalt-200: #DADAE7;
+  --color-cobalt-100: #E7E7EF;
+  --color-cobalt-50: #F3F3F7;
+}
+
+.bg-cobalt-950 {
+  background-color: var(--color-cobalt-950);
+}
+
+.border-cobalt-950 {
+  border-color: var(--color-cobalt-950);
+}
+
+.text-cobalt-950 {
+  color: var(--color-cobalt-950);
+}
+
+.bg-cobalt-900 {
+  background-color: var(--color-cobalt-900);
+}
+
+.border-cobalt-900 {
+  border-color: var(--color-cobalt-900);
+}
+
+.text-cobalt-900 {
+  color: var(--color-cobalt-900);
+}
+
+.bg-cobalt-800 {
+  background-color: var(--color-cobalt-800);
+}
+
+.border-cobalt-800 {
+  border-color: var(--color-cobalt-800);
+}
+
+.text-cobalt-800 {
+  color: var(--color-cobalt-800);
+}
+
+.bg-cobalt-700 {
+  background-color: var(--color-cobalt-700);
+}
+
+.border-cobalt-700 {
+  border-color: var(--caolor-cobalt-700);
+}
+
+.text-cobalt-700 {
+  color: var(--color-cobalt-700);
+}
+
+.bg-cobalt-600 {
+  background-color: var(--color-cobalt-600);
+}
+
+.text-cobalt-600 {
+  color: var(--color-cobalt-600);
+}
+
+.border-cobalt-600 {
+  border-color: var(--color-cobalt-600);
+}
+
+.bg-cobalt-500 {
+  background-color: var(--color-cobalt-500);
+}
+
+.border-cobalt-500 {
+  border-color: var(--color-cobalt-500);
+}
+
+.text-cobalt-500 {
+  color: var(--color-cobalt-500);
+}
+
+.bg-cobalt-400 {
+  background-color: var(--color-cobalt-400);
+}
+
+.border-cobalt-400 {
+  border-color: var(--color-cobalt-400);
+}
+
+.text-cobalt-400 {
+  color: var(--color-cobalt-400);
+}
+
+.bg-cobalt-300 {
+  background-color: var(--color-cobalt-300);
+}
+
+.border-cobalt-300 {
+  border-color: var(--color-cobalt-300);
+}
+
+.text-cobalt-300 {
+  color: var(--color-cobalt-300);
+}
+
+.bg-cobalt-200 {
+  background-color: var(--color-cobalt-200);
+}
+
+.border-cobalt-200 {
+  border-color: var(--color-cobalt-200);
+}
+
+.text-cobalt-200 {
+  color: var(--color-cobalt-200);
+}
+
+.bg-cobalt-100 {
+  background-color: var(--color-cobalt-100);
+}
+
+.border-cobalt-100 {
+  border-color: var(--color-cobalt-100);
+}
+
+.text-cobalt-100 {
+  color: var(--color-cobalt-100);
+}
+
+.bg-cobalt-50 {
+  background-color: var(--color-cobalt-50);
+}
+
+.border-cobalt-50 {
+  border-color: var(--color-cobalt-50);
+}
+
+.text-cobalt-50 {
+  color: var(--color-cobalt-50);
+}

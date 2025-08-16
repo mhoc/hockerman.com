@@ -22,8 +22,8 @@ export function ATextConversationMessage({
   return (
     <div
       className={clsx("flex flex-col gap-2 max-w-[70%] rounded-xl px-3 py-2", {
-        "bg-[#181825] border-1 border-[#28283E] self-end": sender === "user",
-        "bg-gray-800 border-1 border-gray-700": sender === "ai",
+        "bg-cobalt-800 border-1 border-cobalt-600 self-end": sender === "user",
+        "bg-gray-900 border-1 border-gray-700": sender === "ai",
       })}
     >
       <Markdown
