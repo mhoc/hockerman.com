@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
 import { FaFile, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { SpotifyNowPlayingBanner } from "../SpotifyNowPlayingBanner";
-import { SidenavCategory } from './SidenavCategory';
-import { SidenavItem } from './SidenavItem';
+import { SidenavCategory } from "./SidenavCategory";
+import { SidenavItem } from "./SidenavItem";
 
 export function Sidenav() {
   return (

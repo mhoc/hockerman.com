@@ -31,7 +31,7 @@ export function ATextConversationMessage({
           p: ({ children }) => {
             return (
               <p
-                className={clsx("text-md font-serif wrap-normal", {
+                className={clsx("text-md font-serif wrap-anywhere overflow-x-scroll", {
                   "text-sky-100": sender === "user",
                   "text-slate-300": sender === "ai" && !showMeta,
                   "text-slate-400 italic": sender === "ai" && showMeta,
