@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={clsx(ibmPlexSans.variable, geistMono.variable, "antialiased")}>
+      <body className={clsx(ibmPlexSans.variable, geistMono.variable, "antialiased bg-cobalt-950")}>
         <Analytics />
         <main className="flex flex-row h-screen">
           <Sidenav />
