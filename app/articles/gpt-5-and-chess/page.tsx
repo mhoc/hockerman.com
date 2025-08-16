@@ -5,9 +5,9 @@ import { Ap } from "@/app/components/articles/Ap";
 import { ArticleLayout } from "@/app/components/articles/ArticleLayout";
 import { ATextConversation } from "@/app/components/articles/ATextConversation";
 import { ATextConversationMessage } from "@/app/components/articles/ATextConversationMessage";
+import { endingGameCot } from "./endingGameCot";
 import { move6cot } from "./move6cot";
 import { resistingSycophancyCot } from "./resistingSycophancyCot";
-import { endingGameCot } from "./endingGameCot";
 
 const toc = [
   { label: "Validating Baseline Competence", href: "#validating-baseline-competence" },
@@ -15,7 +15,7 @@ const toc = [
   { label: "Can GPT-5 Detect Illegal Moves?", href: "#can-gpt5-detect-illegal-moves" },
   { label: "Can GPT-5 Resist False Accusation?", href: "#can-gpt5-resist-false-accusation" },
   { label: "Ending the Game", href: "#ending-the-game" },
-  { label: "Conslusions", href: "#conclusions" },
+  { label: "Conclusions", href: "#conclusions" },
   { label: "Followups", href: "#followups" },
 ];
 
@@ -303,8 +303,8 @@ export default function GPT5AndChess() {
       <Ap>However, it can demonstrate a correct understanding of the rules of chess in simple, isolated contexts, and can demonstrate a superhuman ability to parse and reason about FEN strings.</Ap>
       <Ap>GPT-5 demonstrates some level of resistance to sycophancy when evidence is available proving the user incorrect.</Ap>
       <Ah1 id="followups">Followups</Ah1>
-      <Ap>How does GPT-5's performance in chess differ with changes to its initial prompting, including no initial prompting and diving straight into FEN strings?</Ap>
-      <Ap>Does GPT-5's reasonably positive understanding of the rules of Chess maintain coherency with more complicated board states?</Ap>
+      <Ap>How does {"GPT-5's"} performance in chess differ with changes to its initial prompting, including no initial prompting and diving straight into FEN strings?</Ap>
+      <Ap>Does {"GPT-5's"} reasonably positive understanding of the rules of Chess maintain coherency with more complicated board states?</Ap>
       <Ap>Would the construction of a harness around GPT-5 designed to identify illegal moves and probe the model to course-correct, potentially via tool calling, allow the model to play a full game of Chess?</Ap>
       <Ap>If so: Where then would its ELO sit?</Ap>
       <Ap>How do these results differ with other frontier LLMs such as Claude Opus 4.1 and Gemini 2.5 Pro?</Ap>

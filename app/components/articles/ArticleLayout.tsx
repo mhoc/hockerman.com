@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function ArticleLayout({
   children,
   date,
@@ -16,18 +18,18 @@ export function ArticleLayout({
         style={{ scrollbarColor: "black", scrollbarWidth: "thin" }}
       >
         <div className="flex flex-col flex-shrink-0">
-          <span className="text-xl text-slate-300 font-semibold font-serif">{title}</span>
+          <span className="text-2xl text-slate-300 font-semibold font-serif">{title}</span>
           <span className="text-md text-slate-500 font-serif">{date}</span>
         </div>
         <div className="flex flex-col gap-2 max-w-3xl">{children}</div>
       </div>
-      {/* <div className="flex flex-col grow gap-2 py-16">
+      <div className="hidden md:flex flex-col grow gap-2 pt-32 pb-16">
         {toc.map((tocItem) => (
-          <span className="text-sm text-slate-500 text-end" key={tocItem.href}>
+          <Link className="text-md text-slate-500 font-serif" key={tocItem.href} href={tocItem.href}>
             {tocItem.label}
-          </span>
+          </Link>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

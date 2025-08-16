@@ -25,6 +25,7 @@
 
 html {
   font-family: "Geist Mono";
+  scroll-behavior: smooth;
 }
 
 body {
