@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Sidenav } from "./components/navigation/Sidenav";
 import { GradientSeparator } from "./components/GradientSeparator";
@@ -22,6 +22,10 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: "Mike Hockerman",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#08080D", // cobalt-950
 };
 
 export default function RootLayout({
