@@ -21,7 +21,7 @@ export function ArticleLayout({
           <span className="text-2xl text-cobalt-300 font-semibold font-serif">{title}</span>
           <span className="text-md text-cobalt-500 font-serif">{date}</span>
         </div>
-        <div className="flex flex-col gap-2 max-w-3xl">{children}</div>
+        <div className="flex flex-col gap-2 max-w-2xl">{children}</div>
       </div>
       <div className="hidden md:flex flex-col grow gap-2 pt-32 pb-16">
         {toc.map((tocItem) => (

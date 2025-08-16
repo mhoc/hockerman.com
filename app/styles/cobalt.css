@@ -1,6 +1,6 @@
 :root {
   --color-cobalt-950: #08080D;
-  --color-cobalt-900: #181825;
+  --color-cobalt-900: #101019;
   --color-cobalt-800: #28283E;
   --color-cobalt-700: #484870;
   --color-cobalt-600: #5F5F95;
@@ -10,6 +10,10 @@
   --color-cobalt-200: #DADAE7;
   --color-cobalt-100: #E7E7EF;
   --color-cobalt-50: #F3F3F7;
+
+  --color-cobalt-accent-high: #FF7096;
+  --color-cobalt-accent-med: #EED495;
+  --color-cobalt-accent-low: #40DDCB;
 }
 
 .bg-cobalt-950 {
@@ -142,4 +146,28 @@
 
 .text-cobalt-50 {
   color: var(--color-cobalt-50);
+}
+
+.bg-cobalt-accent-high {
+  background-color: var(--color-cobalt-accent-high);
+}
+
+.text-cobalt-accent-high {
+  color: var(--color-cobalt-accent-high);
+}
+
+.bg-cobalt-accent-med {
+  background-color: var(--color-cobalt-accent-med);
+}
+
+.text-cobalt-accent-med {
+  color: var(--color-cobalt-accent-med);
+}
+
+.bg-cobalt-accent-low {
+  background-color: var(--color-cobalt-accent-low);
+}
+
+.text-cobalt-accent-low {
+  color: var(--color-cobalt-accent-low);
 }

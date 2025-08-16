@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export function Aa({
   children,
@@ -10,7 +10,7 @@ export function Aa({
   target?: string;
 }) {
   return (
-    <Link className="text-rose-300 underline decoration-dotted" href={href} target={target}>
+    <Link className="text-cobalt-accent-med underline decoration-dotted" href={href} target={target}>
       {children}
     </Link>
   );

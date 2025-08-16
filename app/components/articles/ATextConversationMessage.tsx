@@ -45,7 +45,7 @@ export function ATextConversationMessage({
       >
         {showMeta ? meta : Array.isArray(children) ? children.join(" ") : children}
       </Markdown>
-      {sender === "user" && <CircleUserRound className="self-end text-rose-300 w-4 h-4" />}
+      {sender === "user" && <CircleUserRound className="self-end text-cobalt-400 w-4 h-4" />}
       {sender === "ai" && (
         <div className="flex flex-row items-center gap-2">
           <Brain className="text-gray-400 w-4 h-4" />
