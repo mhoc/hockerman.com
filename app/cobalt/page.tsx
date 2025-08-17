@@ -2,8 +2,8 @@ import { ColorSample } from "./ColorSample";
 
 export default function Cobalt() {
   return (
-    <div className="flex flex-col w-full gap-8 p-16 h-full overflow-y-auto">
-      <div className="max-w-2xl">
+    <div className="w-full h-full p-16 overflow-y-auto">
+      <div className="flex flex-col gap-8 max-w-2xl">
         <span className="text-sm text-cobalt-300">
           Cobalt is the name of the custom color palette this site uses. Technically cobalt the metal 
           is more blue, not purple, but I wanted a metal-like name similar to {"Tailwind's"} Slate, 

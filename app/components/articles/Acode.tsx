@@ -2,7 +2,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { ASeparator } from "./ASeparator";
 
-export function Acode({ children, language }: { children: string; language?: string }) {
+export function Acode({ children, language }: { children: string | string[]; language?: string }) {
   return (
     <>
       <ASeparator />

@@ -106,7 +106,7 @@ export default function GPT5AndChess() {
       </ATextConversation>
       <Ap>
         {"Stockfish's"} fourth move added clarity to why it sacrificed the pawn in the third move; it baited their pawn
-        into being captured by our knight. Always trust Stockfish.
+        into being captured by our knight.
       </Ap>
       <Ap>
         {"GPT-5's"} fifth move constituted an illegal play. It correctly moved the G7 pawn to G6, but it additionally
