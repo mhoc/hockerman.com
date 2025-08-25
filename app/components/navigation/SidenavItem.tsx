@@ -11,8 +11,8 @@ export function SidenavItem({
 }) {
   return (
     <Link className="flex flex-row gap-2 items-center" href={href}>
-      <span className="text-sm text-cobalt-300">{label}</span>
-      {sublabel && <span className="text-xs text-cobalt-500">{sublabel}</span>}
+      <span className="text-sm text-cobalt-200">{label}</span>
+      {sublabel && <span className="text-xs text-cobalt-400">{sublabel}</span>}
     </Link>
   )
 }

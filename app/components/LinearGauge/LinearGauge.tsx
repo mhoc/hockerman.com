@@ -1,6 +1,6 @@
 export function LinearGauge({ value }: { value: number }) {
   return (
-    <span className="text-md text-emerald-600">
+    <span className="text-sm text-emerald-600">
       {Array.from({ length: 10 })
         .map((_, index) => {
           const threshold = index / 10;

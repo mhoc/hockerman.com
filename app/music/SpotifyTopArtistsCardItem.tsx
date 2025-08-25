@@ -18,17 +18,17 @@ export async function SpotifyTopArtistsCardItem({
   const durationInMinutes = duration / 60000;
   return (
     <tr className="h-8">
-      <td>
+      <td className="pr-2">
         <div className="flex flex-row items-center gap-2">
           {artist?.image_href && <img alt={artistName} className="w-5 h-5 rounded-full" src={artist?.image_href} />}
-          <span className="text-md text-gray-400">{artistName}</span>
+          <span className="text-sm text-cobalt-400">{artistName}</span>
         </div>
       </td>
-      <td>
+      <td className="pr-2">
         <LinearGauge value={duration / maxDuration} />
       </td>
       <td>
-        <span className="text-md text-gray-400">{durationInMinutes.toFixed(0)} min</span>
+        <span className="text-sm text-cobalt-400">{durationInMinutes.toFixed(0)} min</span>
       </td>
     </tr>
   );

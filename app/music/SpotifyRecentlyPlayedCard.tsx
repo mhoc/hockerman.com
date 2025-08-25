@@ -7,15 +7,15 @@ export async function SpotifyRecentlyPlayedCard() {
   const { items } = await Spotify.recentlyPlayed();
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-lg text-gray-100 font-semibold">Recently Played</span>
+      <span className="text-md text-cobalt-100 font-semibold">Recently Played</span>
       <div className="flex flex-row gap-8 flex-wrap">
         <div className="flex flex-col gap-1">
           {items.slice(0, 4).map((item: any) => (
             <div className="flex flex-row gap-2 items-center" key={`${item.track.id}-${item.played_at}`}>
               <IoTime className="text-emerald-400" />
               <div className="flex flex-col">
-                <span className="text-md text-gray-300 leading-none">{item.track.name}</span>
-                <span className="text-md text-gray-500 leading-none">{item.track.artists[0].name}</span>
+                <span className="text-sm text-cobalt-300 leading-none">{item.track.name}</span>
+                <span className="text-sm text-cobalt-500 leading-none">{item.track.artists[0].name}</span>
               </div>
             </div>
           ))}
@@ -25,8 +25,8 @@ export async function SpotifyRecentlyPlayedCard() {
             <div className="flex flex-row gap-2 items-center" key={`${item.track.id}-${item.played_at}`}>
               <IoTime className="text-emerald-400" />
               <div className="flex flex-col">
-                <span className="text-md text-gray-300 leading-none">{item.track.name}</span>
-                <span className="text-md text-gray-500 leading-none">{item.track.artists[0].name}</span>
+                <span className="text-sm text-cobalt-300 leading-none">{item.track.name}</span>
+                <span className="text-sm text-cobalt-500 leading-none">{item.track.artists[0].name}</span>
               </div>
             </div>
           ))}

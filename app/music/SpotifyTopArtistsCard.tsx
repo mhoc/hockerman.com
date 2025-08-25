@@ -9,8 +9,8 @@ export async function SpotifyTopArtistsCard({ title, twindow }: { title: string;
   const maxDuration = results[0].total_duration_ms as number;
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-lg text-gray-100 font-semibold">{title}</span>
-      <table className="min-w-xs max-w-xs">
+      <span className="text-md text-slate-100 font-semibold">{title}</span>
+      <table className="max-w-xs">
         <tbody>
           {results.map((result: any) => (
             <SpotifyTopArtistsCardItem

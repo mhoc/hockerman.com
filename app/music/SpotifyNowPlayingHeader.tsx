@@ -4,7 +4,7 @@ import { Spotify } from "../server/Spotify";
 export async function SpotifyNowPlayingHeader() {
   const currentlyPlayingResponse = await Spotify.currentlyPlaying();
   if (currentlyPlayingResponse.status === 204) {
-    return <span className="text-xl italic text-gray-200 mb-2">Nothing Playing...</span>;
+    return <span className="text-lg italic text-cobalt-200 mb-2">Nothing Playing...</span>;
   }
   const response = await currentlyPlayingResponse.json();
   const title = `${response?.item.name}`;
@@ -17,7 +17,7 @@ export async function SpotifyNowPlayingHeader() {
         <FaSpotify className="text-emerald-200" />
         {title}
       </a>
-      <span className="text-md text-gray-400 italic">
+      <span className="text-md text-cobalt-400">
         {artist} - {album}
       </span>
     </div>

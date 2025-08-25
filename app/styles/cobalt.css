@@ -1,15 +1,15 @@
 :root {
-  --color-cobalt-950: #08080D;
-  --color-cobalt-900: #101019;
-  --color-cobalt-800: #28283E;
-  --color-cobalt-700: #484870;
-  --color-cobalt-600: #5F5F95;
-  --color-cobalt-500: #8383AF;
-  --color-cobalt-400: #A8A8C7;
-  --color-cobalt-300: #C1C1D7;
-  --color-cobalt-200: #DADAE7;
-  --color-cobalt-100: #E7E7EF;
-  --color-cobalt-50: #F3F3F7;
+  --color-cobalt-950: oklch(0.1371 0.0112 284.82);
+  --color-cobalt-900: oklch(0.1776 0.0185 284.36);
+  --color-cobalt-800: oklch(0.2874 0.04 283.6);
+  --color-cobalt-700: oklch(0.4197 0.0661 283.18);
+  --color-cobalt-600: oklch(0.509 0.0849 282.96);
+  --color-cobalt-500: oklch(0.6265 0.0659 284.34);
+  --color-cobalt-400: oklch(0.7419 0.0444 285.27);
+  --color-cobalt-300: oklch(0.8178 0.0307 285.7);
+  --color-cobalt-200: oklch(0.8922 0.0177 286.04);
+  --color-cobalt-100: oklch(0.9303 0.0107 286.19);
+  --color-cobalt-50: oklch(0.9653 0.0053 286.3);
 
   --color-cobalt-accent-high: #FF7096;
   --color-cobalt-accent-med: #EED495;
@@ -57,7 +57,7 @@
 }
 
 .border-cobalt-700 {
-  border-color: var(--caolor-cobalt-700);
+  border-color: var(--color-cobalt-700);
 }
 
 .text-cobalt-700 {
