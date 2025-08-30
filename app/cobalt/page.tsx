@@ -1,4 +1,5 @@
 import { ColorSample } from "./ColorSample";
+import { GradientSample } from "./GradientSample";
 
 export default function Cobalt() {
   return (
@@ -144,6 +145,11 @@ export default function Cobalt() {
             analogueBgClassName="bg-slate-50"
             analogueTextColor="text-black"
           />
+        </div>
+        <div>
+          <GradientSample className="bg-slate-gradient-full" label="slate" />
+          <GradientSample className="bg-cobalt-gradient-full" label="cobalt" />
+          <GradientSample className="bg-stone-gradient-full" label="stone" />
         </div>
         <span className="text-sm text-cobalt-300">
           Cobalt has accent colors which are complementary to the muted purple of its base palette and can be used to call

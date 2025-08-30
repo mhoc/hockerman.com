@@ -171,3 +171,20 @@
 .text-cobalt-accent-low {
   color: var(--color-cobalt-accent-low);
 }
+
+.bg-cobalt-gradient-full {
+  background: linear-gradient(
+    90deg,
+    var(--color-cobalt-50) 0%,
+    var(--color-cobalt-100) 10%,
+    var(--color-cobalt-200) 20%,
+    var(--color-cobalt-300) 30%,
+    var(--color-cobalt-400) 40%,
+    var(--color-cobalt-500) 50%,
+    var(--color-cobalt-600) 60%,
+    var(--color-cobalt-700) 70%,
+    var(--color-cobalt-800) 80%,
+    var(--color-cobalt-900) 90%,
+    var(--color-cobalt-950) 100%
+  );
+}

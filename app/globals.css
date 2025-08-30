@@ -33,6 +33,15 @@
   }
 }
 
+@keyframes smooth-gradient-100 {
+  0% { 
+    background-position: 0% 0%;
+  }
+  100% { 
+    background-position: 0% 100%;
+  }
+}
+
 html {
   font-family: "Geist Mono";
   scroll-behavior: smooth;
@@ -65,7 +74,7 @@ body {
   background-size: 100% 300%;
 }
 
-.animate-cobalt-colors {
+.animate-cobalt-racer {
   animation: smooth-gradient-flow 12s linear infinite;
   background: linear-gradient(
     180deg,
@@ -76,4 +85,38 @@ body {
     var(--color-cobalt-900) 100%
   );
   background-size: 100% 300%;
+}
+
+.bg-slate-gradient-full {
+  background: linear-gradient(
+    90deg,
+    var(--color-slate-50) 0%,
+    var(--color-slate-100) 10%,
+    var(--color-slate-200) 20%,
+    var(--color-slate-300) 30%,
+    var(--color-slate-400) 40%,
+    var(--color-slate-500) 50%,
+    var(--color-slate-600) 60%,
+    var(--color-slate-700) 70%,
+    var(--color-slate-800) 80%,
+    var(--color-slate-900) 90%,
+    var(--color-slate-950) 100%
+  );
+}
+
+.bg-stone-gradient-full {
+  background: linear-gradient(
+    90deg,
+    var(--color-stone-50) 0%,
+    var(--color-stone-100) 10%,
+    var(--color-stone-200) 20%,
+    var(--color-stone-300) 30%,
+    var(--color-stone-400) 40%,
+    var(--color-stone-500) 50%,
+    var(--color-stone-600) 60%,
+    var(--color-stone-700) 70%,
+    var(--color-stone-800) 80%,
+    var(--color-stone-900) 90%,
+    var(--color-stone-950) 100%
+  );
 }

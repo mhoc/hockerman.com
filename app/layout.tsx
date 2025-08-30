@@ -38,12 +38,12 @@ export default function RootLayout({
     <html>
       <body className={clsx(ibmPlexSans.variable, geistMono.variable, "antialiased bg-cobalt-950")}>
         <Analytics />
-        <main className="flex flex-row h-screen">
+        <main className="flex flex-row min-h-screen">
           <Sidenav />
-          <div className="h-screen">
-            <GradientSeparator vertical animated />
+          <div className="min-h-screen">
+            <GradientSeparator />
           </div>
-          <div className="flex flex-col h-screen grow overflow-hidden bg-cobalt-900">
+          <div className="flex flex-col min-h-screen grow bg-cobalt-900">
             <Topnav />
             <div className="flex flex-col">
               {children}
