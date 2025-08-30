@@ -43,7 +43,7 @@ export default function RootLayout({
           <div className="h-screen">
             <GradientSeparator vertical animated />
           </div>
-          <div className="flex flex-col h-screen grow overflow-hidden">
+          <div className="flex flex-col h-screen grow overflow-hidden bg-cobalt-900">
             <Topnav />
             <div className="flex flex-col">
               {children}

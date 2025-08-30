@@ -12,12 +12,11 @@ export function GradientSeparator({
   vertical?: boolean;
   animated?: boolean;
 }) {
-  const [isAnimated, setIsAnimated] = useState(animated);
+  const gradientClassNames = ["animate-pastel-colors", "animate-cobalt-colors", "bg-cobalt-600"];
+  const [gradientClassNameIndex, setGradientClassNameIndex] = useState(0);
 
   const handleClick = () => {
-    if (animated) {
-      setIsAnimated(!isAnimated);
-    }
+    setGradientClassNameIndex((prevIndex) => (prevIndex + 1) % gradientClassNames.length);
   };
 
   return (
@@ -25,11 +24,9 @@ export function GradientSeparator({
       className={clsx({
         "h-full w-[1px]": vertical,
         "h-px w-full": horizontal,
-        "bg-cobalt-600": !isAnimated,
-        "animate-pastel-colors": isAnimated,
         "cursor-pointer": animated,
         "transition-all duration-300": animated,
-      })}
+      }, gradientClassNames[gradientClassNameIndex])}
       onClick={handleClick}
     />
   );

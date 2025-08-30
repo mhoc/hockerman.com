@@ -64,3 +64,16 @@ body {
   );
   background-size: 100% 300%;
 }
+
+.animate-cobalt-colors {
+  animation: smooth-gradient-flow 10s linear infinite;
+  background: linear-gradient(
+    180deg,
+    var(--color-cobalt-400) 0%,
+    var(--color-cobalt-500) 5%,
+    var(--color-cobalt-600) 10%,
+    var(--color-cobalt-700) 15%,
+    var(--color-cobalt-800) 100%
+  );
+  background-size: 100% 300%;
+}
