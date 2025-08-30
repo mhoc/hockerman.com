@@ -13,11 +13,7 @@ export function GradientSeparator({
   animated?: boolean;
 }) {
   const gradientClassNames = ["animate-pastel-colors", "animate-cobalt-colors"];
-  const initialGradientClassNameIndex = useMemo(
-    () => Math.floor(Math.random() * gradientClassNames.length),
-    [gradientClassNames.length],
-  );
-  const [gradientClassNameIndex, setGradientClassNameIndex] = useState(initialGradientClassNameIndex);
+  const [gradientClassNameIndex, setGradientClassNameIndex] = useState(0);
 
   const handleClick = () => {
     setGradientClassNameIndex((prevIndex) => (prevIndex + 1) % gradientClassNames.length);
