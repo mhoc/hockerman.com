@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { FaFile, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { SpotifyNowPlayingBanner } from "../SpotifyNowPlayingBanner";
-import { SidenavCategory } from "./SidenavCategory";
-import { SidenavItem } from "./SidenavItem";
+import { NavArticles } from "./NavArticles";
+import { NavProjects } from "./NavProjects";
+import { NavBio } from "./NavBio";
 
 export function Sidenav() {
   return (
@@ -13,40 +12,10 @@ export function Sidenav() {
           <span className="text-sm text-cobalt-500">mike@hockerman.com</span>
           <span className="text-sm text-cobalt-500 select-none">Indiana, USA</span>
         </div>
-        <div className="flex flex-col gap-2">
-          <Link
-            className="flex flex-row gap-2 items-center transition-colors"
-            href="/resume-v9-mike-hockerman.pdf"
-            target="_blank"
-          >
-            <FaFile className="text-cobalt-200" />
-            <span className="text-cobalt-200 text-sm">Resume</span>
-          </Link>
-          <Link
-            className="flex flex-row gap-2 items-center transition-colors"
-            href="https://github.com/mhoc"
-            target="_blank"
-          >
-            <FaGithub className="text-cobalt-200" />
-            <span className="text-cobalt-200 text-sm">/mhoc</span>
-          </Link>
-          <Link
-            className="flex flex-row gap-2 items-center transition-colors"
-            href="https://linkedin.com/in/mhoc"
-            target="_blank"
-          >
-            <FaLinkedin className="text-cobalt-200" />
-            <span className="text-cobalt-200 text-sm">/mhoc</span>
-          </Link>
-        </div>
+        <NavBio />
         <SpotifyNowPlayingBanner />
-        <SidenavCategory name="AI">
-          <SidenavItem href="/articles/gpt-5-and-chess" label="GPT-5 and Chess" sublabel="2025-08" />
-          <SidenavItem href="/articles/novel-two-sum-in-gpt5" label="Novel Two-Sum in GPT-5" sublabel="2025-08" />
-        </SidenavCategory>
-        <SidenavCategory name="Random">
-          <SidenavItem href="/cobalt" label="Cobalt" />
-        </SidenavCategory>
+        <NavArticles />
+        <NavProjects />
       </div>
     </div>
   );

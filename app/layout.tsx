@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Sidenav } from "./components/navigation/Sidenav";
 import { GradientSeparator } from "./components/GradientSeparator";
+import { Topnav } from "./components/navigation/Topnav";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -42,7 +43,12 @@ export default function RootLayout({
           <div className="h-screen">
             <GradientSeparator vertical animated />
           </div>
-          <div className="flex flex-col h-screen grow bg-cobalt-900 overflow-hidden">{children}</div>
+          <div className="flex flex-col h-screen grow overflow-hidden">
+            <Topnav />
+            <div className="flex flex-col">
+              {children}
+            </div>
+          </div>
         </main>
       </body>
     </html>
