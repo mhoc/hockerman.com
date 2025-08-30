@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export function GradientSeparator({
   horizontal,
@@ -12,8 +12,12 @@ export function GradientSeparator({
   vertical?: boolean;
   animated?: boolean;
 }) {
-  const gradientClassNames = ["animate-pastel-colors", "animate-cobalt-colors", "bg-cobalt-600"];
-  const [gradientClassNameIndex, setGradientClassNameIndex] = useState(0);
+  const gradientClassNames = ["animate-pastel-colors", "animate-cobalt-colors"];
+  const initialGradientClassNameIndex = useMemo(
+    () => Math.floor(Math.random() * gradientClassNames.length),
+    [gradientClassNames.length],
+  );
+  const [gradientClassNameIndex, setGradientClassNameIndex] = useState(initialGradientClassNameIndex);
 
   const handleClick = () => {
     setGradientClassNameIndex((prevIndex) => (prevIndex + 1) % gradientClassNames.length);
