@@ -16,16 +16,16 @@ export default function Home() {
     <StandardLayout>
       <div className="flex flex-row gap-4">
         <GradientDivider />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-0">
-            <div className="font-serif text-xl text-cobalt-200 leading-tight">Mike Hockerman</div>
-            <div className="font-serif text-lg text-cobalt-300 leading-tight">mike@hockerman.com</div>
-            <div className="font-serif text-lg text-cobalt-300 leading-tight">Indiana, USA</div>
+            <div className="font-serif text-xl text-rose-200 leading-tight">Mike Hockerman</div>
+            <div className="font-serif text-md text-cobalt-300 leading-tight">mike@hockerman.com</div>
+            <div className="font-serif text-md text-cobalt-300 leading-tight">Indiana, USA</div>
           </div>
           <NavSection>
-            <NavLink href="/resume-v9-mike-hockerman.pdf" Icon={FaFile} label="Resume" />
-            <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="Linkedin" />
-            <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="Github" />
+            <NavLink href="/resume-v9-mike-hockerman.pdf" Icon={FaFile} label="Resume" target="_blank" />
+            <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="Linkedin" target="_blank" />
+            <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="Github" target="_blank" />
           </NavSection>
           <NavSection title="AI">
             <NavLink href="/articles/gpt-5-and-chess" label="GPT-5 and Chess" sublabel="2025-08" />
