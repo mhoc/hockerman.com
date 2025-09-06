@@ -30,7 +30,7 @@ export function LoadingSkeleton({
       <AnimatePresence>
         {!present && (
           <motion.div
-            className={clsx("absolute inset-0 z-10 bg-cobalt-800 rounded flex flex-row items-center px-4", className)}
+            className={clsx("absolute inset-0 z-10 bg-cobalt-900 border-l-1 border-t-1 border-b-1 border-cobalt-700 rounded-tl-md rounded-bl-md flex flex-row items-center px-4", className)}
             initial={{
               opacity: 1,
               x: "0px",
@@ -38,7 +38,7 @@ export function LoadingSkeleton({
             exit={{
               opacity: 1,
               transition: {
-                duration: 0.75,
+                duration: 0.7,
               },
               x: "320px",
             }}
