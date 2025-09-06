@@ -25,8 +25,8 @@ export default function Home() {
           </div>
           <NavSection>
             <NavLink href="/resume-v9-mike-hockerman.pdf" Icon={FaFile} label="Resume" target="_blank" />
-            <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="Linkedin" target="_blank" />
-            <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="Github" target="_blank" />
+            <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="/mhoc" target="_blank" />
+            <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="/mhoc" target="_blank" />
           </NavSection>
           <SpotifyNowPlayingBanner />
           <NavSection title="AI">
