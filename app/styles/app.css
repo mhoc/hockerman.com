@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "./cobalt.css";
+@import "./fonts.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "EpundaSlab", serif;
+  --font-mono: "Inconsolata", monospace;
+}
+
+@keyframes smooth-gradient-flow {
+  0% { 
+    background-position: 0% 0%;
+  }
+  100% { 
+    background-position: 0% 200%;
+  }
+}
+
+.animate-pastel-colors {
+  animation: smooth-gradient-flow 15s linear infinite;
+  background: linear-gradient(
+    180deg,
+    #FF6B6B 0%,
+    #4ECDC4 14.28%,
+    #45B7D1 28.57%,
+    #96CEB4 42.86%,
+    #FFEAA7 57.14%,
+    #DDA0DD 71.43%,
+    #FF7675 85.71%,
+    #FF6B6B 100%,
+    #4ECDC4 114.28%,
+    #45B7D1 128.57%,
+    #96CEB4 142.86%,
+    #FFEAA7 157.14%,
+    #DDA0DD 171.43%,
+    #FF7675 185.71%,
+    #FF6B6B 200%
+  );
+  background-size: 100% 300%;
+}
+
+html, body {
+  background-color: var(--color-cobalt-900);
+}
