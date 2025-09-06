@@ -28,7 +28,10 @@ export const SpotifyNowPlayingBanner = () => {
   return (
     <LoadingSkeleton className="w-80 h-8" isLoading={isLoading} loadingBody={<FaSpotify className="text-cobalt-600" />}>
       <Link className="flex flex-row gap-2 items-center" to="/music">
-        <FaSpotify className="text-cobalt-200" />
+        <FaSpotify className={clsx({
+          "text-cobalt-200": itemPlaying,
+          "text-cobalt-500": !itemPlaying,
+         })} />
         {itemPlaying && (
           <div className="flex flex-col">
             <span className="font-serif text-cobalt-200 leading-none select-none">{track}</span>
@@ -36,7 +39,9 @@ export const SpotifyNowPlayingBanner = () => {
           </div>
         )}
         {!itemPlaying && (
-          <span className="font-serif text-cobalt-600 leading-none select-none">Nothing Playing</span>
+          <div className="flex flex-col h-8 justify-center">
+            <span className="font-serif text-cobalt-500 leading-none select-none">Nothing Playing</span>
+          </div>
         )}
       </Link>
     </LoadingSkeleton>
