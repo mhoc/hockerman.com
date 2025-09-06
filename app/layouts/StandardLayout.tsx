@@ -7,7 +7,7 @@ export function StandardLayout({ children }: { children: React.ReactNode }) {
   const renderHome = location.pathname !== "/";
 
   return (
-    <div className="container flex flex-col m-auto py-16">
+    <div className="container flex flex-col m-auto px-2 md:px-0 py-16">
       {renderHome && (
         <Link className="flex flex-row items-center gap-2 pb-8" to="/">
           <FaHouse className="text-cobalt-600" />
