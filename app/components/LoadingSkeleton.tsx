@@ -18,7 +18,7 @@ export function LoadingSkeleton({
   useEffect(() => {
     const timer = setTimeout(() => {
       setPresent(true);
-    }, 250);
+    }, 500);
     return () => clearTimeout(timer);
   }, [isLoading])
 
