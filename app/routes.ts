@@ -6,5 +6,6 @@ export default [
 
   ...prefix("/articles", [
     route("gpt-5-and-chess", "./routes/articles/gpt-5-and-chess/GPT5AndChess.tsx"),
+    route("novel-two-sum-with-gpt-5", "./routes/articles/novel-two-sum-with-gpt-5/NovelTwoSumWithGPT5.tsx"),
   ])
 ] satisfies RouteConfig;

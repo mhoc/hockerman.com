@@ -7,7 +7,7 @@ export function Acode({ children, language }: { children: string | string[]; lan
     <>
       <ASeparator />
       <SyntaxHighlighter
-        codeTagProps={{ style: { fontSize: "0.75rem" } }}
+        codeTagProps={{ style: { fontSize: "0.9rem" } }}
         customStyle={{ border: "1px solid #02223C", borderRadius: "4px", minHeight: "24px" }}
         language={language}
         style={nightOwl}

@@ -29,7 +29,7 @@ export default function Home() {
           </NavSection>
           <NavSection title="AI">
             <NavLink href="/articles/gpt-5-and-chess" label="GPT-5 and Chess" sublabel="2025-08" />
-            <NavLink href="/articles/novel-two-sum-in-gpt-5" label="Novel Two-Sum in GPT-5" sublabel="2025-08" />
+            <NavLink href="/articles/novel-two-sum-with-gpt-5" label="Novel Two-Sum in GPT-5" sublabel="2025-08" />
           </NavSection>
           <NavSection title="Projects">
             <NavLink href="/cobalt" label="Cobalt" />
