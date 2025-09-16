@@ -1,10 +1,10 @@
-import { FaGithub, FaFile, FaLinkedin } from "react-icons/fa6";
+import { FaFile, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { GradientDivider } from "~/components/GradientDivider";
 import { NavLink } from "~/components/NavLink";
-import { StandardLayout } from "~/layouts/StandardLayout";
-import type { Route } from "./+types/home";
 import { NavSection } from "~/components/NavSection";
 import { SpotifyNowPlayingBanner } from "~/components/SpotifyNowPlayingBanner";
+import { StandardLayout } from "~/layouts/StandardLayout";
+import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,6 +35,7 @@ export default function Home() {
           </NavSection>
           <NavSection title="Projects">
             <NavLink href="/cobalt" label="Cobalt" />
+            <NavLink href="https://grimgrimoire.com/" label="The Grim Grimoire" target="_blank" />
           </NavSection>
         </div>
       </div>
