@@ -91,7 +91,7 @@ export default function Resume() {
             company="Purdue University"
             href="https://purdue.edu/"
             titles={[
-              { title: "Computer Science", tenure: "2015" },
+              { title: "Computer Science", tenure: ["2011", "2015"] },
               { title: "Organizational Leadership & Supervision", tenure: "Minor" }
             ]}
           />
@@ -105,6 +105,15 @@ export default function Resume() {
             titles={[
               { title: "Curriculum Chair", tenure: ["2016", "2018"] },
               { title: "Member", tenure: ["2016", "2018"] }
+            ]}
+          />
+          <ResumeItem
+            accentColor="#CFB991"
+            company="Purdue ACM SIGAPP"
+            href="https://techpoint.org/"
+            titles={[
+              { title: "President", tenure: "2015" },
+              { title: "Member", tenure: ["2012", "2015"] },
             ]}
           />
           <ResumeItem
