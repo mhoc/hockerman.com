@@ -24,7 +24,7 @@ export default function Home() {
             <div className="font-serif text-md text-cobalt-300 leading-tight">Indiana, USA</div>
           </div>
           <NavSection>
-            <NavLink href="/resume-v9-mike-hockerman.pdf" Icon={FaFile} label="Resume" target="_blank" />
+            <NavLink href="/resume" Icon={FaFile} label="Resume" />
             <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="/mhoc" target="_blank" />
             <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="/mhoc" target="_blank" />
           </NavSection>

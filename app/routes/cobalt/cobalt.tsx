@@ -9,7 +9,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export default function Cobalt() {
   return (
     <StandardLayout>
       <div className="flex flex-col gap-8 max-w-2xl">

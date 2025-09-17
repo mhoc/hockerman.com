@@ -27,7 +27,7 @@ export const SpotifyNowPlayingBanner = () => {
   const itemPlaying = track && artist;
   return (
     <LoadingSkeleton className="w-80 h-8" isLoading={isLoading} loadingBody={<FaSpotify className="text-cobalt-600" />}>
-      <Link className="flex flex-row gap-2 items-center" to="/music">
+      <Link className="flex flex-row gap-2 items-center" to="/">
         <FaSpotify className={clsx({
           "text-cobalt-200": itemPlaying,
           "text-cobalt-500": !itemPlaying,
