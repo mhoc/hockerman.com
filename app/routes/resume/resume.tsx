@@ -25,7 +25,7 @@ export default function Resume() {
             company="Wren Software"
             description="My software consulting company focused on building high-efficiency web experiences for nonprofits based in the central Indiana area."
             href="https://wrensoftware.com"
-            titles={[ {title: "Founder", tenure: ["2025", "Current"] }]}
+            titles={[ {title: "Founder", tenure: ["2025", "Now"] }]}
           />
           <ResumeItem
             accentColor="#31BAAE"
@@ -33,7 +33,7 @@ export default function Resume() {
             description="I lead Trava's engineering team, where we iterate on high-impact products to help keep our customers' computer systems secure."
             href="https://travasecurity.com/"
             titles={[
-              { title: "Lead Software Engineer", tenure: ["2025", "Current"] },
+              { title: "Lead Software Engineer", tenure: ["2025", "Now"] },
               { title: "Senior Software Engineer", tenure: ["2023", "2025" ] },
             ]}
           />
@@ -42,7 +42,7 @@ export default function Resume() {
             company="Indy Hackers"
             description="A central Indiana non-profit focused on fostering our tech community."
             href="https://indyhackers.org"
-            titles={[{ title: "Board Member", tenure: ["2024", "Current"]}]}
+            titles={[{ title: "Board Member", tenure: ["2024", "Now"]}]}
           />
         </ResumeCategory>
 
@@ -93,6 +93,26 @@ export default function Resume() {
             titles={[
               { title: "Computer Science", tenure: "2015" },
               { title: "Organizational Leadership & Supervision", tenure: "Minor" }
+            ]}
+          />
+        </ResumeCategory>
+
+        <ResumeCategory title="Community">
+          <ResumeItem
+            accentColor="#4EB073"
+            company="TechPoint Tech Fellowship"
+            href="https://techpoint.org/"
+            titles={[
+              { title: "Curriculum Chair", tenure: ["2016", "2018"] },
+              { title: "Member", tenure: ["2016", "2018"] }
+            ]}
+          />
+          <ResumeItem
+            accentColor="#3EB4CA"
+            company="TechPoint Xtern"
+            href="https://techpoint.org/"
+            titles={[
+              { title: "Member", tenure: "2014" }
             ]}
           />
         </ResumeCategory>
