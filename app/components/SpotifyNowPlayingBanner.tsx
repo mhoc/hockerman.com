@@ -30,11 +30,11 @@ export const SpotifyNowPlayingBanner = () => {
       <div className="relative overflow-hidden rounded">
         {itemPlaying && (
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute inset-0 flex items-center gap-[2px] px-1">
-              {[...Array(20)].map((_, i) => (
+            <div className="absolute inset-0 flex items-center gap-px px-1">
+              {[...Array(40)].map((_, i) => (
                 <div
                   key={i}
-                  className="flex-1 bg-cobalt-700 rounded-[1px]"
+                  className="flex-1 bg-cobalt-700 rounded-full"
                   style={{
                     animation: `spectrograph 1.${2 + (i % 8)}s ease-in-out infinite`,
                     animationDelay: `${i * 0.05}s`,
