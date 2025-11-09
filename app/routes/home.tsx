@@ -2,7 +2,7 @@ import { FaFile, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { GradientDivider } from "~/components/GradientDivider";
 import { NavLink } from "~/components/NavLink";
 import { NavSection } from "~/components/NavSection";
-import { SpotifyNowPlayingBanner } from "~/components/SpotifyNowPlayingBanner";
+import { SpotifyBanner } from "~/components/SpotifyBanner";
 import { StandardLayout } from "~/layouts/StandardLayout";
 import type { Route } from "./+types/home";
 
@@ -28,7 +28,7 @@ export default function Home() {
             <NavLink href="https://linkedin.com/in/mhoc" Icon={FaLinkedin} label="/mhoc" target="_blank" />
             <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="/mhoc" target="_blank" />
           </NavSection>
-          <SpotifyNowPlayingBanner />
+          <SpotifyBanner />
           <NavSection title="AI">
             <NavLink href="/articles/gpt-5-and-chess" label="GPT-5 and Chess" sublabel="2025-08" />
             <NavLink href="/articles/novel-two-sum-with-gpt-5" label="Novel Two-Sum in GPT-5" sublabel="2025-08" />
