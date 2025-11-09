@@ -82,8 +82,8 @@ export const SpotifyBanner = () => {
                     key={i}
                     className="flex-1 bg-cobalt-700 rounded-full"
                     style={{
-                      animation: `spectrograph 1.${2 + (i % 8)}s ease-in-out infinite`,
-                      animationDelay: `${i * 0.05}s`,
+                      animation: `spectrograph 1.${2 + (i % 8)}s ease-in-out infinite, colorFade 0.8s ease-out forwards`,
+                      animationDelay: `${i * 0.045}s, ${i * 0.045}s`,
                       minHeight: "2px",
                     }}
                   />
@@ -92,7 +92,7 @@ export const SpotifyBanner = () => {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: "linear-gradient(to right, var(--color-cobalt-900) 0%, transparent 100%)",
+                  background: "linear-gradient(to right, var(--color-cobalt-900) 10%, transparent 100%)",
                 }}
               />
             </div>

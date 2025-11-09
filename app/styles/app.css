@@ -37,6 +37,24 @@
   }
 }
 
+@keyframes leadingEdge {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes colorFade {
+  0% {
+    background-color: var(--color-cobalt-50);
+  }
+  100% {
+    background-color: var(--color-cobalt-700);
+  }
+}
+
 .animate-pastel-colors {
   animation: smooth-gradient-flow 15s linear infinite;
   background: linear-gradient(
