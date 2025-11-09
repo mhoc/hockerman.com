@@ -17,6 +17,26 @@
   }
 }
 
+@keyframes shimmer {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 0.6;
+  }
+}
+
+@keyframes spectrograph {
+  0%, 100% {
+    height: 40%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
 .animate-pastel-colors {
   animation: smooth-gradient-flow 15s linear infinite;
   background: linear-gradient(
