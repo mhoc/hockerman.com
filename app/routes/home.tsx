@@ -7,9 +7,7 @@ import { StandardLayout } from "~/layouts/StandardLayout";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Mike Hockerman" },
-  ];
+  return [{ title: "Mike Hockerman" }];
 }
 
 export default function Home() {
@@ -29,10 +27,6 @@ export default function Home() {
             <NavLink href="https://github.com/mhoc" Icon={FaGithub} label="/mhoc" target="_blank" />
           </NavSection>
           <SpotifyBanner />
-          <NavSection title="AI">
-            <NavLink href="/articles/gpt-5-and-chess" label="GPT-5 and Chess" sublabel="2025-08" />
-            <NavLink href="/articles/novel-two-sum-with-gpt-5" label="Novel Two-Sum in GPT-5" sublabel="2025-08" />
-          </NavSection>
           <NavSection title="Projects">
             <NavLink href="/cobalt" label="Cobalt" />
             <NavLink href="https://grimgrimoire.com/" label="The Grim Grimoire" target="_blank" />
@@ -40,5 +34,5 @@ export default function Home() {
         </div>
       </div>
     </StandardLayout>
-  )
+  );
 }
